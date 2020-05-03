@@ -7,9 +7,7 @@
 
 - 对于Git安装需要注意以下一点
 
-  <img src="https://raw.githubusercontent.com/Rain-Su/images/master/%7BDE937FB8-79CB-496F-9495-564BF7AC5BA0%7D.png.jpg" style="zoom:80%;" />
-
-  
+  ![](https://github.com/CyS2020/Images/raw/master/%E5%AE%89%E8%A3%85Git%E9%80%89%E9%A1%B9.jpg)
 
 ### 3. Git的结构
 
@@ -17,19 +15,17 @@
 
   版本库存在一个**stage**（暂存区）
 
-  <img src="https://raw.githubusercontent.com/Rain-Su/images/master/3832193-596737e43fdd5df2.png" style="zoom: 67%;" />
+  <img src="https://github.com/CyS2020/Images/raw/master/Git%E7%BB%93%E6%9E%84.png" style="zoom:67%;" />
 
 ### 4. Git与GitHub的交互方式
 
 - 团队**内**协作
 
-  <img src="https://raw.githubusercontent.com/Rain-Su/images/master/%7BED68B3AC-32D3-41C1-91C7-1374856A8C3C%7D.png.jpg" style="zoom: 67%;" />
-
-  
+  <img src="https://github.com/CyS2020/Images/raw/master/Git%E5%9B%A2%E9%98%9F%E5%86%85%E5%8D%8F%E4%BD%9C.jpg" style="zoom: 80%;" />
 
 - **跨**团队协作
 
-<img src="https://raw.githubusercontent.com/Rain-Su/images/master/%E8%B7%A8%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C.jpg" style="zoom: 67%;" />
+  <img src="https://github.com/CyS2020/Images/raw/master/Git%E8%B7%A8%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C.jpg" style="zoom: 80%;" />
 
 ### 5. Git的命令操作
 
@@ -57,8 +53,8 @@
   git init                                     //初始化本地库
   git status                                   //工作区(红色)暂存区(绿色)
   git add [file name]                          //加入暂存区Git追踪文件
-  git add --update                             //所有删除，改变的文件加入暂存区
-  git add --all                                //所有新建的文件加入暂存区
+  git add --update                             //所有删除，删除文件加入暂存区
+  git add --all                                //所有新建，删除，修改文件加入暂存区
   git rm --cached [file name]                  //从暂存区删除该文件
   git commit [file name]                       //从暂存区提交到本地库
   git checkout -- [file name]                  //取消当前已经提交的内容
@@ -111,7 +107,7 @@
 
 - 协同开发，共同推进
 
-  ![](https://raw.githubusercontent.com/Rain-Su/images/master/%E5%A4%9A%E5%88%86%E6%94%AF%E5%8D%8F%E5%90%8C%E5%BC%80%E5%8F%91.jpg)
+  ![](https://github.com/CyS2020/Images/raw/master/Git%E5%A4%9A%E5%88%86%E6%94%AF%E5%8D%8F%E5%90%8C%E5%BC%80%E5%8F%91.jpg)
 
 - 分支操作
 
@@ -135,7 +131,7 @@
 - **版本管理就是一个链条，在这个链条的基础之上**
 - **创建分支就是创建新的指针，切换分支就是移动指针的指向的位置**
 
-<img src="https://raw.githubusercontent.com/Rain-Su/images/master/%7B3F78693E-B693-42E9-8BE1-D64122F7AE5E%7D.png.jpg" style="zoom: 67%;" />
+  <img src="https://github.com/CyS2020/Images/raw/master/Git%E5%88%86%E6%94%AF%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86.jpg" style="zoom:80%;" />
 
 ### 8. Git与GitHub交互命令操作
 
@@ -171,11 +167,9 @@
   git pull [https name] [branch name]        //pull = fetch + merge
   ```
 
-  
-
 - 邀请团队成员
 
-  <img src="https://raw.githubusercontent.com/Rain-Su/images/master/%7B2C208A9F-3B28-49AC-9E9A-F9CC2C8127C1%7D.png.jpg" style="zoom: 50%;" />
+  <img src="https://github.com/CyS2020/Images/raw/master/GitHub%E9%82%80%E8%AF%B7%E5%9B%A2%E9%98%9F%E6%88%90%E5%91%98.jpg" style="zoom:67%;" />
 
 - 解决冲突
 

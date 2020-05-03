@@ -34,7 +34,7 @@
 
 ​		-> 如果配置失败会出现: **java不是内部或外部命令，也不是可以运行的程序
 
-​							![测试失败示意图](https://raw.githubusercontent.com/Rain-Su/images/master/{1821C2E6-11A6-4DAA-8C25-4548B74AD1B7}.png.jpg)
+​			          ![](https://github.com/CyS2020/Images/raw/master/JDK%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%A4%B1%E8%B4%A5.jpg)
 
 ### 4. 安装激活 sublime text 3
 
@@ -74,7 +74,7 @@ DD9AF44B 99C49590 D2DBDEE1 75860FD2
 
 ​		-> 勾选必要选项
 
-​							![勾选如图选项](https://github.com/Rain-Su/images/raw/master/%7B8E496648-C95E-4DE1-91F3-DF9E7A5F47E1%7D.png.jpg)
+​							![](https://github.com/CyS2020/Images/raw/master/%E5%AE%89%E8%A3%85IDEA.jpg)
 
 ​		-> 在**Font**中设置字体 英文用：**JetBrains Mono**， 中文用：**SimHei**
 
@@ -82,7 +82,7 @@ DD9AF44B 99C49590 D2DBDEE1 75860FD2
 
 ​		-> 在**File Encodings** 设置编码格式**UTF-8**
 
-<img src="https://github.com/Rain-Su/images/raw/master/%7BBFE283F7-AC06-478A-801D-D3644CBE3D77%7D.png.jpg" alt="设置字体" style="zoom: 55%;" />
+​			               <img src="https://github.com/CyS2020/Images/raw/master/IDEA%E9%85%8D%E7%BD%AE%E7%BC%96%E7%A0%81.jpg" style="zoom: 50%;" />
 
 ​		-> 在**view**菜单栏下显示**ToolBar**
 
@@ -96,7 +96,7 @@ DD9AF44B 99C49590 D2DBDEE1 75860FD2
 
 ​		-> 创建项目的本地仓库(左侧列表显示红色)
 
-<img src="https://raw.githubusercontent.com/Rain-Su/images/master/1588470127(1).png" style="zoom:67%;" />
+![](https://github.com/CyS2020/Images/raw/master/IDEA%E5%BC%95%E5%85%A5%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6.png)
 
 ​		-> 配置忽略文件
 
