@@ -34,7 +34,7 @@
 
 ​		-> 如果配置失败会出现: **java不是内部或外部命令，也不是可以运行的程序
 
-​						![](https://github.com/CyS2020/Images/raw/master/JDK%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%A4%B1%E8%B4%A5.jpg)
+​						<img src="https://github.com/CyS2020/Images/raw/master/JDK%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%A4%B1%E8%B4%A5.jpg"  />
 
 ### 4. 安装激活 sublime text 3
 

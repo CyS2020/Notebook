@@ -208,6 +208,10 @@
   git push [ssh name] [branch]                //推送GitHub上
   ```
 
-
 ### 10. Git工作流介绍
+
+-   开发过程中的分支
+-   <img src="https://raw.githubusercontent.com/CyS2020/Images/master/Git工作流.png.jpg" style="zoom:50%;" />
+
+<img src="https://github.com/CyS2020/Images/raw/master/Git%E5%B7%A5%E4%BD%9C%E6%B5%81.png.jpg" style="zoom:50%;" />
 
