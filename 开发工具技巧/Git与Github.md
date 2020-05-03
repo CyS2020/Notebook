@@ -100,7 +100,7 @@
   ```
   git diff [file name] 		 		//工作区的文件与暂存区比较
   git diff [version hash] [file name] //工作区的文件与某版本比较
-git diff HEAD 				 		//比较工作区的所有文件
+  git diff HEAD 				 		//比较工作区的所有文件
   ```
   
 - 其他常用命令
