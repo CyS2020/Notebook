@@ -88,9 +88,9 @@ DD9AF44B 99C49590 D2DBDEE1 75860FD2
 
 ### 6. 配置Git与GitHub
 
-​		-> 在IDEA中配置Git安装路径
+​        -> 在IDEA中配置Git安装路径
 
-​		-> 登录GitHub账号
+​        -> 登录GitHub账号
 
 - 推送操作push
 
