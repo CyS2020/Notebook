@@ -54,7 +54,7 @@
 - 初始化/添加/提交/查看状态
 
   ```
-git init						//初始化本地库
+  git init						//初始化本地库
   git status						//工作区(红色)暂存区(绿色)
   git add [file name]				//加入暂存区Git追踪文件 
   git rm -cached [file name]		//从暂存区删除该文件
