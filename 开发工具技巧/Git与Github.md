@@ -129,9 +129,14 @@
 ### 7. Git的分支工作原理
 
 - **版本管理就是一个链条，在这个链条的基础之上**
+
 - **创建分支就是创建新的指针，切换分支就是移动指针的指向的位置**
 
   <img src="https://github.com/CyS2020/Images/raw/master/Git%E5%88%86%E6%94%AF%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86.jpg" style="zoom:80%;" />
+
+- **Git工作流一览**
+
+    <img src="https://github.com/CyS2020/Images/raw/master/Git%E5%B7%A5%E4%BD%9C%E6%B5%81.png.jpg" style="zoom:67%;" />
 
 ### 8. Git与GitHub交互命令操作
 
@@ -208,10 +213,4 @@
   git push [ssh name] [branch]                //推送GitHub上
   ```
 
-### 10. Git工作流介绍
-
--   开发过程中的分支
--   <img src="https://raw.githubusercontent.com/CyS2020/Images/master/Git工作流.png.jpg" style="zoom:50%;" />
-
-<img src="https://github.com/CyS2020/Images/raw/master/Git%E5%B7%A5%E4%BD%9C%E6%B5%81.png.jpg" style="zoom:50%;" />
 
