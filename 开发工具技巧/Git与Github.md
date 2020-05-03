@@ -145,6 +145,7 @@
 
   ```
   git remote -v								//查看现存的地址与别名
+  git remote rm [https name]					//删除地址别名
   git remote add [https name] [https address]	//给地址创建一个别名
   ```
 
