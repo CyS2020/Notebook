@@ -15,7 +15,7 @@
 
   版本库存在一个**stage**（暂存区）
 
-  <img src="https://github.com/CyS2020/Images/raw/master/Git%E7%BB%93%E6%9E%84.png" style="zoom:67%;" />
+  <img src="https://github.com/CyS2020/Images/raw/master/Git%E7%BB%93%E6%9E%84.png" style="zoom:30%;" />
 
 ### 4. Git与GitHub的交互方式
 
