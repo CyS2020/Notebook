@@ -39,14 +39,14 @@
   //仓库级别——仅在当前本地库范围内有效
   git config user.name [user name]
   git config user.email [user email]
-  cat .git/config						//保存在当前目录
+  cat .git/config                              //保存在当前目录
   ```
 
   ```
   //系统级别——登录当前操作系统的用户范围
   git config --global user.name [user name]
   git config --global user.email [user email]
-  cat ~/.gitconfig					//保存在用户根目录
+  cat ~/.gitconfig					         //保存在用户根目录
   ```
 
   **就近原则**：仓库级别优先于系统用户级别**推荐**使用系统级别，所有仓库都用一个就好了
@@ -54,12 +54,12 @@
 - 初始化/添加/提交/查看状态
 
   ```
-  git init                            //初始化本地库
-  git status                          //工作区(红色)暂存区(绿色)
-  git add [file name]                 //加入暂存区Git追踪文件 
-  git rm -cached [file name]          //从暂存区删除该文件
-  git commit [file name]              //从暂存区提交到本地库
-  git checkout -- [file name]         //取消当前已经提交的内容
+  git init                                     //初始化本地库
+  git status                                   //工作区(红色)暂存区(绿色)
+  git add [file name]                          //加入暂存区Git追踪文件 
+  git rm -cached [file name]                   //从暂存区删除该文件
+  git commit [file name]                       //从暂存区提交到本地库
+  git checkout -- [file name]                  //取消当前已经提交的内容
   git commit -m "commit message" [file name]
   ```
 - 版本前进后退
@@ -74,9 +74,9 @@
 
   ```
   //前进与后退
-  git reset --soft [version hash]		//仅在本地库移动HEAD指针
-  git reset --mixed [version hash]	//移动指针 + 重置暂存区
-  git reset --hard [version hash] 	//移动指针 + 重置暂存区 + 重置工作区
+  git reset --soft [version hash]              //仅在本地库移动HEAD指针
+  git reset --mixed [version hash]             //移动指针 + 重置暂存区
+  git reset --hard [version hash]              //移动指针 + 重置暂存区 + 重置工作区
   ```
 
 - 删除文件，前提该文件有被提交到本地库
@@ -95,14 +95,14 @@
 - 比较文件差异
 
   ```
-  git diff [file name]				//工作区的文件与暂存区比较
-  git diff [version hash] [file name]	//工作区的文件与某版本比较
-  git diff HEAD						//比较工作区的所有文件
+  git diff [file name]                         //工作区的文件与暂存区比较
+  git diff [version hash] [file name]          //工作区的文件与某版本比较
+  git diff HEAD                                //比较工作区的所有文件
   ```
 - 其他常用命令
 
   ```
-  git help [command]					//查看命令文档
+  git help [command]                           //查看命令文档
   ```
 
 ### 6. Git分支管理
@@ -114,10 +114,10 @@
 - 分支操作
 
   ```
-  git branch -v						//查看所有分支
-  git branch [branch name]			//创建一个分支
-  git checkout [branch name]			//切换分支
-  git merge [branch name]				//提前切换到master分支
+  git branch -v                             //查看所有分支
+  git branch [branch name]                  //创建一个分支
+  git checkout [branch name]                //切换分支
+  git merge [branch name]                   //提前切换到master分支
   ```
 
 - 分支冲突解决
@@ -142,21 +142,21 @@
 - 复制仓库的HTTPS地址，并在Git中创建仓库地址别名
 
   ```
-  git remote -v								//查看现存的地址与别名
-  git remote rm [https name]					//删除地址别名
-  git remote add [https name] [https address]	//给地址创建一个别名
+  git remote -v                               //查看现存的地址与别名
+  git remote rm [https name]                  //删除地址别名
+  git remote add [https name] [https address] //给地址创建一个别名
   ```
 
 - 推送操作
 
   ```
-  git push [https name] [branch name]			//推送本地库某分支推送到GitHub
+  git push [https name] [branch name]         //推送本地库某分支推送到GitHub
   ```
 
 - 克隆操作(首次)
 
   ```
-  git clone [https name]						//将GitHub库克隆到本地库
+  git clone [https name]                     //将GitHub库克隆到本地库
   ```
 
   命令效果：完整的代码下载到本地， 创建远程地址别名， 初始化本地库
@@ -164,9 +164,9 @@
 - 拉取操作
 
   ```
-  git fetch [https name] [branch name]		//将GitHub库下载到本地库
-  git merge [https name/branch name]			//合并, 注意参数形式"/"
-  git pull [https name] [branch name]			//pull = fetch + merge
+  git fetch [https name] [branch name]       //将GitHub库下载到本地库
+  git merge [https name/branch name]         //合并, 注意参数形式"/"
+  git pull [https name] [branch name]        //pull = fetch + merge
   ```
 
   
@@ -196,20 +196,20 @@
 - 配置SSH登录
 
   ```
-  cd ~										//进入用户根目录
-  rm -r .ssh/									//删除ssh目录
-  ssh-keygen -t rsa -C [github account]		//生成ssh目录 一直回车
-  cd .ssh/									//进入ssh目录
-  cat id_rsa.pub								//复制文件内容
-  //进入GitHub的Settings中的SSH and GPG keys	//粘贴内容到Key
+  cd ~                                        //进入用户根目录
+  rm -r .ssh/                                 //删除ssh目录
+  ssh-keygen -t rsa -C [github account]       //生成ssh目录 一直回车
+  cd .ssh/                                    //进入ssh目录
+  cat id_rsa.pub                              //复制文件内容
+  //进入GitHub的Settings中的SSH and GPG keys    //粘贴内容到Key
   ```
 
 - 使用SSH推送
 
   ```
   //回到工作区的目录
-  git remote add [ssh name] [ssh address]			//给地址创建别名
-  git push [ssh name] [branch]					//推送GitHub上
+  git remote add [ssh name] [ssh address]     //给地址创建别名
+  git push [ssh name] [branch]                //推送GitHub上
   ```
 
 
