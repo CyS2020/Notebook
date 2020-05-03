@@ -46,7 +46,7 @@
   //系统级别——登录当前操作系统的用户范围
   git config --global user.name [user name]
   git config --global user.email [user email]
-  cat ~/.gitconfig					         //保存在用户根目录
+  cat ~/.gitconfig                            //保存在用户根目录
   ```
 
   **就近原则**：仓库级别优先于系统用户级别**推荐**使用系统级别，所有仓库都用一个就好了
