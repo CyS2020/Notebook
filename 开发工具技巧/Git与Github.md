@@ -201,7 +201,7 @@
   ssh-keygen -t rsa -C [github account]       //生成ssh目录 一直回车
   cd .ssh/                                    //进入ssh目录
   cat id_rsa.pub                              //复制文件内容
-  进入GitHub的Settings中的SSH and GPG keys      //粘贴内容到Key
+  GitHub -> Settings -> SSH and GPG keys      //粘贴内容到Key
   ```
 
 - 使用SSH推送
