@@ -146,8 +146,8 @@ git diff HEAD 				 		//比较工作区的所有文件
 - 复制仓库的HTTPS地址，并在Git中创建仓库地址别名
 
   ```
-  git remove -v 								//查看现存的地址与别名
-  git remove add [https name] [https address] //给地址创建一个别名
+  git remote -v 								//查看现存的地址与别名
+  git remote add [https name] [https address] //给地址创建一个别名
   ```
 
 - 推送操作
@@ -201,7 +201,7 @@ git diff HEAD 				 		//比较工作区的所有文件
   ```
   cd ~											//进入用户根目录
   rm -r .ssh/ 									//删除ssh目录
-  ssh-keygen -t rsa -C [github account]			//生成ssh目录
+  ssh-keygen -t rsa -C [github account]			//生成ssh目录 一直回车
   cd .ssh/										//进入ssh目录
   cat id_rsa.pub									//复制文件内容
   //进入GitHub的Settings中的SSH and GPG keys		 //粘贴内容到Key
