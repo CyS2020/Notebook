@@ -54,19 +54,18 @@
 - 初始化/添加/提交/查看状态
 
   ```
-  git init						//初始化本地库
+git init						//初始化本地库
   git status						//工作区(红色)暂存区(绿色)
   git add [file name]				//加入暂存区Git追踪文件 
   git rm -cached [file name]		//从暂存区删除该文件
   git commit [file name]			//从暂存区提交到本地库
   git checkout -- [file name]		//取消当前已经提交的内容
   git commit -m "commit message" [file name]
-  ```
-
+```
 - 版本前进后退
 
   ```
-  查看提交日志
+  //查看提交日志
   git log
   git log --pretty = oneline
   git log --oneline
@@ -96,11 +95,10 @@
 - 比较文件差异
 
   ```
-  git diff [file name]				//工作区的文件与暂存区比较
+git diff [file name]				//工作区的文件与暂存区比较
   git diff [version hash] [file name]	//工作区的文件与某版本比较
   git diff HEAD						//比较工作区的所有文件
   ```
-  
 - 其他常用命令
 
   ```
