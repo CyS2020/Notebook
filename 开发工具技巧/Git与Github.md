@@ -95,7 +95,7 @@
 - 比较文件差异
 
   ```
-git diff [file name]				//工作区的文件与暂存区比较
+  git diff [file name]				//工作区的文件与暂存区比较
   git diff [version hash] [file name]	//工作区的文件与某版本比较
   git diff HEAD						//比较工作区的所有文件
   ```
@@ -130,7 +130,7 @@ git diff [file name]				//工作区的文件与暂存区比较
 
 ### 7. Git的分支工作原理
 
--  **版本管理就是一个链条，在这个链条的基础之上**
+- **版本管理就是一个链条，在这个链条的基础之上**
 - **创建分支就是创建新的指针，切换分支就是移动指针的指向的位置**
 
 <img src="https://raw.githubusercontent.com/Rain-Su/images/master/%7B3F78693E-B693-42E9-8BE1-D64122F7AE5E%7D.png.jpg" style="zoom: 67%;" />
