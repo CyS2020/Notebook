@@ -213,4 +213,13 @@
   git push [ssh name] [branch]                //推送GitHub上
   ```
 
+### 10. 常见问题
 
+-   Your branch and 'origin/master' have diverged
+
+    ```
+    git fetch origin
+    git reset --hard origin/master
+    ```
+
+    
