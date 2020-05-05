@@ -56,9 +56,9 @@
 
 ​		-> 输入用户名和密码
 
-​		-> ST1440870444@outlook.com
+​		-> 用户名： ST1440870444@outlook.com
 
-​		-> xxxxxxxxxxxxxx
+​		-> 密码：xxxxxxxxxxxxxx
 
 ### 7. 设置开机密码
 
