@@ -7,7 +7,7 @@
 
 - 对于Git安装需要注意以下一点
 
-  ![](https://github.com/CyS2020/Images/raw/master/%E5%AE%89%E8%A3%85Git%E9%80%89%E9%A1%B9.jpg)
+     ![](https://github.com/CyS2020/Images/raw/master/%E5%AE%89%E8%A3%85Git%E9%80%89%E9%A1%B9.jpg)
 
 ### 3. Git的结构
 
