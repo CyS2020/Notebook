@@ -34,7 +34,7 @@
 
 ​		-> 如果配置失败会出现: **java不是内部或外部命令，也不是可以运行的程序
 
-​						<img src="https://github.com/CyS2020/Images/raw/master/JDK%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%A4%B1%E8%B4%A5.jpg"  />
+​						![JDK配置环境变量失败](https://github.com/CyS2020/Notebook/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/JDK%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%A4%B1%E8%B4%A5.jpg)
 
 ### 4. 安装激活 sublime text 3
 
@@ -74,7 +74,7 @@ DD9AF44B 99C49590 D2DBDEE1 75860FD2
 
 ​		-> 勾选必要选项
 
-​                             ![](https://github.com/CyS2020/Images/raw/master/%E5%AE%89%E8%A3%85IDEA.jpg)
+​                             ![安装IDEA](https://github.com/CyS2020/Notebook/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%AE%89%E8%A3%85IDEA.jpg)
 
 ​		-> 在**view**菜单栏下显示**ToolBar**
 
@@ -84,4 +84,4 @@ DD9AF44B 99C49590 D2DBDEE1 75860FD2
 
 ​		-> 在**File Encodings** 设置编码格式**UTF-8**
 
-​								<img src="https://github.com/CyS2020/Images/raw/master/IDEA%E9%85%8D%E7%BD%AE%E7%BC%96%E7%A0%81.jpg" style="zoom: 50%;" />
+​								<img src="https://github.com/CyS2020/Notebook/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/IDEA%E9%85%8D%E7%BD%AE%E7%BC%96%E7%A0%81.jpg" alt="IDEA配置编码" style="zoom:60%;" />

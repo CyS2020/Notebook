@@ -7,7 +7,7 @@
 
 - 对于Git安装需要注意以下一点
 
-     ![](https://github.com/CyS2020/Images/raw/master/%E5%AE%89%E8%A3%85Git%E9%80%89%E9%A1%B9.jpg)
+     ![安装Git选项](https://github.com/CyS2020/Notebook/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E5%AE%89%E8%A3%85Git%E9%80%89%E9%A1%B9.jpg)
 
 ### 3. Git的结构
 
@@ -15,17 +15,17 @@
 
   版本库存在一个**stage**（暂存区）
 
-  <img src="https://github.com/CyS2020/Images/raw/master/Git%E7%BB%93%E6%9E%84.png" style="zoom:67%;" />
+  <img src="https://github.com/CyS2020/Notebook/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/Git%E7%BB%93%E6%9E%84.png" alt="Git结构" style="zoom: 67%;" />
 
 ### 4. Git与GitHub的交互方式
 
 - 团队**内**协作
 
-  <img src="https://github.com/CyS2020/Images/raw/master/Git%E5%9B%A2%E9%98%9F%E5%86%85%E5%8D%8F%E4%BD%9C.jpg" style="zoom: 80%;" />
+  <img src="https://github.com/CyS2020/Notebook/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/Git%E5%9B%A2%E9%98%9F%E5%86%85%E5%8D%8F%E4%BD%9C.jpg" alt="团队内协作" style="zoom: 80%;" />
 
 - **跨**团队协作
 
-  <img src="https://github.com/CyS2020/Images/raw/master/Git%E8%B7%A8%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C.jpg" style="zoom: 80%;" />
+  <img src="https://github.com/CyS2020/Notebook/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/Git%E8%B7%A8%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C.jpg" alt="跨团队协作" style="zoom:80%;" />
 
 ### 5. Git的命令操作
 
@@ -107,7 +107,7 @@
 
 - 协同开发，共同推进
 
-  ![](https://github.com/CyS2020/Images/raw/master/Git%E5%A4%9A%E5%88%86%E6%94%AF%E5%8D%8F%E5%90%8C%E5%BC%80%E5%8F%91.jpg)
+  ![Git多分支协同开发](https://github.com/CyS2020/Notebook/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/Git%E5%A4%9A%E5%88%86%E6%94%AF%E5%8D%8F%E5%90%8C%E5%BC%80%E5%8F%91.jpg)
 
 - 分支操作
 
@@ -132,11 +132,11 @@
 
 - **创建分支就是创建新的指针，切换分支就是移动指针的指向的位置**
 
-  <img src="https://github.com/CyS2020/Images/raw/master/Git%E5%88%86%E6%94%AF%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86.jpg" style="zoom:80%;" />
+  <img src="https://github.com/CyS2020/Notebook/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/Git%E5%88%86%E6%94%AF%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86.jpg" alt="Git分支工作原理" style="zoom:80%;" />
 
 - **Git工作流一览**
 
-    <img src="https://github.com/CyS2020/Images/raw/master/Git%E5%B7%A5%E4%BD%9C%E6%B5%81.png.jpg" style="zoom:67%;" />
+    <img src="https://github.com/CyS2020/Notebook/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/Git%E5%B7%A5%E4%BD%9C%E6%B5%81.jpg" alt="Git工作流" style="zoom:67%;" />
 
 ### 8. Git与GitHub交互命令操作
 
@@ -174,7 +174,7 @@
 
 - 邀请团队成员
 
-  <img src="https://github.com/CyS2020/Images/raw/master/GitHub%E9%82%80%E8%AF%B7%E5%9B%A2%E9%98%9F%E6%88%90%E5%91%98.jpg" style="zoom:67%;" />
+  <img src="https://github.com/CyS2020/Notebook/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/GitHub%E9%82%80%E8%AF%B7%E5%9B%A2%E9%98%9F%E6%88%90%E5%91%98.jpg" alt="GitHub邀请团队成员" style="zoom: 50%;" />
 
 - 解决冲突
 
