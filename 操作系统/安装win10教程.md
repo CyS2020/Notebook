@@ -58,7 +58,7 @@
 
 ​		-> ST1440870444@outlook.com
 
-​		-> zhuxiaoyu0511
+​		-> xxxxxxxxxxxxxx
 
 ### 7. 设置开机密码
 
