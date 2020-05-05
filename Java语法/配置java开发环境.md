@@ -92,7 +92,7 @@ DD9AF44B 99C49590 D2DBDEE1 75860FD2
 
 ​        -> 登录GitHub账号
 
-​		-> 安装ignore插件，如图操作
+​		-> 安装ignore插件，如图操作配置忽略文件
 
 ​						<img src="https://github.com/CyS2020/Images/raw/master/%E6%B7%BB%E5%8A%A0gitignore.jpg" style="zoom: 50%;" />
 
@@ -105,7 +105,8 @@ target/
 *.iml
 ```
 
--   引入版本控制
+### 7. 引入版本控制
+
 -   -> 创建项目的本地仓库(左侧列表显示红色)
 
 ![](https://github.com/CyS2020/Images/raw/master/IDEA%E5%BC%95%E5%85%A5%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6.png)
