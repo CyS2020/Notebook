@@ -28,7 +28,7 @@
 
 -   RARP：**逆地址解析协议**，从MAC地址定位IP地址的一种协议。有些设备没有任何输入接口或无法通过DHCP自动分配获取IP地址的情况，就可以使用RARP，先架设一台RARP的服务器，从而在这个服务器上注册设备的MAC地址及IP地址，然后插电启动设备时，进行请求响应操作如图。
 
-    ![RARP操作]()
+    ![RARP操作](https://github.com/CyS2020/Notebook/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/RARP%E6%93%8D%E4%BD%9C.jpg)
 
 ### 3. ICMP 互联网控制消息协议
 
