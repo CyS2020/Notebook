@@ -82,7 +82,7 @@
 
 -   DiffServ针对特定的网络进行较粗粒度的通信质量控制。例如，针对某个特定的供应商进行顾客排名，从而进行数据包的优先处理。进行DiffServ质量控制的网络叫做DiffServ域。在DiffServ域中的路由器会对所有进入该域IP包首部中的DSCP字段（区分服务）进行替换。对于期望被优先处理的包设置一个优先值。
 
-    ![DiffServ处理拥塞]()
+    ![DiffServ处理拥塞](https://github.com/CyS2020/Notebook/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/DiffServ%E5%A4%84%E7%90%86%E6%8B%A5%E5%A1%9E.jpg)
 
 ### 8. 显示拥塞通知
 
@@ -90,4 +90,4 @@
 
 -   ECN的机制就是在发送的IP包首部中记录路由器是否遇到拥塞，并在返回包的TCP首部中通知是否发生过拥塞。拥塞检查在网络层进行，而拥塞通知则在传输层进行，这两层的互相协助实现了拥塞通知的功能。
 
-    ![拥塞通知]()
+    ![拥塞通知](https://github.com/CyS2020/Notebook/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E6%8B%A5%E5%A1%9E%E9%80%9A%E7%9F%A5.jpg)
