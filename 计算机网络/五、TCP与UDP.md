@@ -127,7 +127,7 @@
 
 ### 7. UDP首部格式
 
-![UDP数据段格式]()
+![UDP数据段格式](https://github.com/CyS2020/Notebook/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/UDP%E6%95%B0%E6%8D%AE%E6%8A%A5%E6%A0%BC%E5%BC%8F.jpg)
 
 -   源端口号：字段长16位，表示发送端端口号，可选字段，有时不需要设置
 
@@ -137,13 +137,13 @@
 
 -   校验和：字段长16位，提供可靠的UDP首部和数据而设计，可选字段，如果传输有误则丢弃。32位源IP地址，32位目标IP地址，8位填充0，8位协议号，16位TCP包长度
 
-    ![UDP伪首部]()
+    ![UDP伪首部](https://github.com/CyS2020/Notebook/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/UDP%E4%BC%AA%E9%A6%96%E9%83%A8.jpg)
 
     
 
 ### 8. TCP首部格式
 
-![TCP数据段格式]()
+![TCP数据段格式](https://github.com/CyS2020/Notebook/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/TCP%E6%95%B0%E6%8D%AE%E6%AE%B5%E6%A0%BC%E5%BC%8F.jpg)
 
 -   源端口号：字段长16位，表示发送端端口号
 
@@ -159,7 +159,7 @@
 
 -   控制位：字段长8位，每一位从左至右分别为：CWR，ECE, URG, ACK, PSH, RST, SYN, FIN。
 
-    ![控制位]()
+    ![控制位](https://github.com/CyS2020/Notebook/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/%E6%8E%A7%E5%88%B6%E4%BD%8D.jpg)
 
     -   CWR：CWR标志与后面的ECE标识用于ECN字段。ECN设置为1时，通知对方已将拥塞窗口缩小
     -   ECE：表示ECN-Echo。置为1时通知对方这边有网络拥塞，从对方到接收有网络拥塞，数据包IP首部为1时将TCP首部ECE设为1
@@ -174,7 +174,7 @@
 
 -   校验和：字段长16位。TCP的校验和与UDP相似，TCP的校验和无法关闭，32位源IP地址，32位目标IP地址，8位填充0，8位8位协议号，16位TCP包长度
 
-    ![TCP伪首部]()
+    ![TCP伪首部](https://github.com/CyS2020/Notebook/raw/master/%E7%AC%94%E8%AE%B0%E5%9B%BE%E7%89%87/TCP%E4%BC%AA%E9%A6%96%E9%83%A8.jpg)
 
 -   紧急指针：字段长16位，只有在URG控制位为1时有效。该字段的数值表示报文中紧急数据的指针。该字段的数值表示本报文中紧急数据的指针。从数据部分的首位到紧急指针所指示的位置为止是紧急数据。一般在暂时中断通信，或中断通信的情况下使用。
 -   选项：提高TCP的传输性能，根据数据偏移（首部长度）进行控制，最大长度可根据TCP首部长度进行推算。TCP首部长度用4位表示，那么选项部分最长为：(2^4-1)*4-20=40字节。
