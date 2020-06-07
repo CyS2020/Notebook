@@ -86,6 +86,21 @@
     -   通过Arrays中的静态方法stream(  )获取数组流
     -   通过Stream中的静态方法of(  )
     -   创建无限流，迭代Stream.iterate(  )；生成Stream.generate(  )
+    
 -   中间操作
     -   筛选与切片：filter，limit，skip，distinct
+    
+    -   映射：Map  接收Lambda，将元素转换为其他形式或者提取信息，函数作为参数被应用到每个元素上
+    
+        ​           flatMap 接收一个函数作为参数，将流中的每个值都换成另一个流，然后把所有的流连接成一个流
+    
+    -   排序：sorted(  ) 自然排序--Comparable
+    
+        ​           sorted(Comparator com) 定制排序--Comparator
+    
 -   终止操作
+
+    -   查找与匹配：allMatch, anyMatch, noneMatch, findFirst, findAny, count, max, min
+    -   归约：reduce(T identity, BinaryOperator<T> accum) 将流中的元素反复结合起来，得到一个值
+    -   收集：collect  将流转换为其他形式，涉及Collectors类，groupBy, partitionBy, joining等方法
+
