@@ -72,6 +72,8 @@
 -   语法形式
     -   type[]：：new
 
+---
+
 ### Stream的API
 
 #### 1. 什么是Stream
@@ -103,4 +105,44 @@
     -   查找与匹配：allMatch, anyMatch, noneMatch, findFirst, findAny, count, max, min
     -   归约：reduce(T identity, BinaryOperator<T> accum) 将流中的元素反复结合起来，得到一个值
     -   收集：collect  将流转换为其他形式，涉及Collectors类，groupBy, partitionBy, joining等方法
+
+---
+
+### 并行流与串行流
+
+-   parallel(  ) 与 sequential(  ) 在并行流与顺序流之间进行切换
+-   底层是**fork - join** 实现，并行实现速度更快，cpu利用率更高
+
+---
+
+### Optional类
+
+-   Optional.of(  ) 创建一个Optional实例
+-   Optional.empty(  ) 创建一个空的Optional实例
+-   Optional.ofNullable(T  t)  若T不为空则创建Optional实例，否则创建空实例
+-   isPresent(  )  判断是否包含值
+-   orElse(T  t)  如果对象包含值，则返回该值，否则返回T
+-   orElseGet(Supplier  s)  如果对象包含值返回该值，否则返回s获取的值
+-   map(Function  f)  如果有值对其处理并返回处理后的Optional，否则返回Optional.empty(  )
+-   flatMap(Function mapper) 与map类似， 要求返回值必须是Optional 
+
+---
+
+### 接口中的默认方法与静态方法
+
+-   类优先原则，接口定义了一个默认方法，父类或者接口中又定义了一个同名方法
+-   接口冲突， 接口提供了一个默认方法，另一个接口也提供了具有相同名称和参数的方法（无论是否为默认），必须覆盖该方法来解决冲突
+-   接口中允许有静态方法
+
+---
+
+### 新日期与时间的API
+
+-   LocalDate：
+
+-   LocalTime：
+
+-   LocalDateTime：
+
+    
 
