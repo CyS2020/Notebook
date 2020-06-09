@@ -138,11 +138,37 @@
 
 ### 新日期与时间的API
 
+#### 1. 符合人习惯的时间
+
 -   LocalDate：
-
--   LocalTime：
-
+-   LocalTime：      now(  )，of(  )，getxxx(  )，plusxxx(  )，minusxxx(   )
 -   LocalDateTime：
 
-    
+#### 2. 符合机器习惯的时间
+
+-   instant：时间戳，从1970.1.1日00:00:00到某个时间的毫秒值
+
+#### 3. 时间间隔
+
+-   Duration：计算两个时间之间的间隔
+-   Period：计算两 个日期之间的间隔
+
+#### 4. 日期的操纵
+
+-   TemporalAdjuster：时间校正器
+-   TemporalAdjusters：通过静态方法提供了大量的常用TemporalAdjuster的实现
+-    DateTimeFormatter：格式化日期或时间
+
+#### 5. 时区的操作
+
+-   ZonedDate：
+-   ZonedTime：        支持多种时区格式
+-   ZonedDateTime：
+
+---
+
+### 重复注解与类型注解
+
+-   java8 允许重复注解
+-   将注解用到数据类型
 
