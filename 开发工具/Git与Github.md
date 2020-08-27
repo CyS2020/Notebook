@@ -57,7 +57,7 @@
   git add --all                                //所有新建，删除，修改文件加入暂存区
   git rm --cached [file name]                  //从暂存区删除该文件
   git commit [file name]                       //从暂存区提交到本地库
-  git checkout -- [file name]                  //取消当前已经提交的内容
+  git checkout -- [file name]                  //取消当前已经修改的内容
   git commit -m "commit message" [file name]
   ```
 - 版本前进后退
@@ -72,9 +72,9 @@
 
   ```
   //前进与后退
-  git reset --soft [version hash]              //仅在本地库移动HEAD指针
-  git reset --mixed [version hash]             //移动指针 + 重置暂存区
-  git reset --hard [version hash]              //移动指针 + 重置暂存区 + 重置工作区
+  git reset --soft [version hash]              //仅在本地库移动HEAD指针， 需要commit
+  git reset --mixed [version hash]             //移动指针 + 重置暂存区，需要add-commit
+  git reset --hard [version hash]              //移动指针 + 重置暂存区 + 重置工作区，重动源码
   ```
 
 - 删除文件，前提该文件有被提交到本地库
@@ -222,4 +222,23 @@
     git reset --hard origin/master
     ```
 
+-   文件进行commit修改
+    ```
+    git commit -- amend                   //进入vim进行编辑
+    键入a                                  //修改commit描述信息
+    按下ESC                                //结束内容编辑
+    shift + :                             //退出编辑模式
+    键入wq                                //退出vim环境
+    ```
+    
+-   代码提交到多个分支
+    ```
+    git branch -v                       //查看所有分支
+    git checkout [branch name]          //切换到某个待提交的分支
+    git cherry-pick [commit hashCode]   //将主分支的提交偷过来
+    git reset [commit hashCode]         //将代码设置为之前版本默认模式mixed
+    git add .                           //将添加，修改的内容增加到暂存区
+    git commit --amend                  //合并commit，修改提交描述
+    git push origin HEAD:master         //(默认仓库名origin)推送到远程
+    ```
     
