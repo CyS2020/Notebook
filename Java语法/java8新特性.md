@@ -192,3 +192,14 @@
 -   java8 允许重复注解
 -   将注解用到数据类型
 
+### map中新增操作
+-   getOrDefault   
+-   forEach
+-   putIfAbsent
+-   compute
+-   computeIfAbsent
+-   computeIfPresent
+-   merge
+-   remove(key,value)
+-   replace
+-   replaceAll
