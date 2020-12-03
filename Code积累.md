@@ -35,6 +35,7 @@
 - System.arraycopy()
 - xxx.clone()
 - Arrays.copyOf()
+- 以上均为浅拷贝
 
 #### forEach中的操作的外部变量必须是final的
 - forEach在此处使用的是lambda 表达式，可以简单的把lambda表达式理解为匿名内部类(lambda 表达式不仅仅是内部类这么简单)。而匿名内部类的变量必须用final修饰。
