@@ -1,4 +1,4 @@
-### Code归约
+### Code规约
 - 命名规范(包名.类名.函数名.变量名)、函数40行类400行、严格使用访问限制符(private、protected、public)、代码格式化类引入优化
 - 捕获异常需要打印描述信息还需要打印堆栈信息：logger.error(e.getMessage, e);
 - 数组操作善于使用流操作Integer[] integers = Arrays.stream(value.split("\\.")).map(Integer::parseInt).toArray(Integer[]::new)
