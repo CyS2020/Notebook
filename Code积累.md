@@ -39,6 +39,11 @@
 - LinkedList实现了Deque接口,里面有个descendingIterator逆向迭代器, 虽然不知道使用场景第一次见到就记录一下吧
 - LinkedList和ArrayList中有关Collection接入参, 用的最多的方法是c.contains()用于批量删除和c.toArray()用于批量添加
 
+#### HashMap源码
+- HashMap中tableSizeFor方法中的位运算来寻找大于该数的最小2的整次幂：1 -> 1; 2 -> 2; 3 -> 4; 5 -> 8; 11 -> 16; 33 -> 64等
+- HashMap中通过 (n - 1) & hash 来确定key在table数组中的位置(哈希槽)
+- HashMap中通过 (e.hash & oldCap) 来确定key在容器中扩张中的槽位是否变动，如果结果为0则无需变动，如果为1则：原位置 + oldCap
+
 #### Objects中常用的方法
 - Objects.equals()
 - Objects.requireNonNull()
