@@ -45,6 +45,18 @@
 - HashMap中tableSizeFor方法中的位运算来寻找大于该数的最小2的整次幂：1 -> 1; 2 -> 2; 3 -> 4; 5 -> 8; 11 -> 16; 33 -> 64等
 - HashMap中通过 (n - 1) & hash 来确定key在table数组中的位置(哈希槽)
 - HashMap中通过 (e.hash & oldCap) 来确定key在容器中扩张中的槽位是否变动，如果结果为0则无需变动，如果为1则：原位置 + oldCap
+- HashMap中resize()函数进行扩容操作，对于size < 6的红黑树进行untreeify操作，resize()只负责数组扩容和链化
+- HashMap中put操作时，如果槽位中的某个链表长度大于8, 则判断table容量大于等于64则进行树化，否则只进行扩容
+- HashMap中的扩容时机：1. size > threshold的时候 2. 槽位中的链表长度大于8而table容量小于64
+- HashMap中由于负载因子默认为0.75，用长度16的数组存12个元素，绰绰有余，而且随着size增大threshold也在增大，因此链表大小超过8的概率很低。
+
+#### TreeMap源码
+- TreeMap中使用红黑树数据结构，比较的时候优先使用传入的Comparator, 为null时传入Comparable
+- TreeMap中并没有使用hashCode和equals方法判断相等，而是使用Comparator或者Comparable所以插入TreeMap中的元素一定具有可比性
+
+#### LinkedHashMap源码
+- LinkedHashMap中的获取槽位与HashMap相同，先重新求的hash值 h = key.hashCode() ^ h >>> 16舍弃低位，减少哈希碰撞
+
 
 #### Objects中常用的方法
 - Objects.equals()
