@@ -11,8 +11,9 @@
 - 需要容器时, 只定义声明, 然后在一个函数中创建并填充, 然后将该容器返回给刚才的声明。例如：List<String> list = getList();
 - javaBean:1.所有属性为private; 2.提供默认的构造方法; 3.提供getter和setter; 4.实现serializable接口
 - 序列化一般都是深拷贝先去调用类的无参构造方法然后逐个地去调用set方法去填充实例的字段值所以无参构造方法是一定要显式地写在类里避免出现反序列化失败的情况
-- 类中成员变量再方法使用的时候，先进行局部变量赋值，然后对局部变量进行操作
-- 对于一些边界情况，使用if语句再复杂逻辑开始之前进行单独处理，避免所有情况全部进入复杂逻辑体
+- 类中成员变量再方法使用的时候, 先进行局部变量赋值, 然后对局部变量进行操作
+- 对于一些边界情况, 使用if语句再复杂逻辑开始之前进行单独处理, 避免所有情况全部进入复杂逻辑体
+- 在代码中可以多加非null判断：if((xxx = yyy.get()) != null)会增强代码的鲁棒性
 
 ### 重构代码
 - 使用IDEA查找get,set的调用地方, 然后一一修改, 并保证单元测试通过
@@ -44,21 +45,25 @@
 #### HashMap源码
 - HashMap中tableSizeFor方法中的位运算来寻找大于该数的最小2的整次幂：1 -> 1; 2 -> 2; 3 -> 4; 5 -> 8; 11 -> 16; 33 -> 64等
 - HashMap中通过 (n - 1) & hash 来确定key在table数组中的位置(哈希槽)
-- HashMap中通过 (e.hash & oldCap) 来确定key在容器中扩张中的槽位是否变动，如果结果为0则无需变动，如果为1则：原位置 + oldCap
-- HashMap中resize()函数进行扩容操作，对于size < 6的红黑树进行untreeify操作，resize()只负责数组扩容和链化
-- HashMap中put操作时，如果槽位中的某个链表长度大于8, 则判断table容量大于等于64则进行树化，否则只进行扩容
+- HashMap中通过 (e.hash & oldCap) 来确定key在容器中扩张中的槽位是否变动, 如果结果为0则无需变动, 如果为1则：原位置 + oldCap
+- HashMap中resize()函数进行扩容操作, 对于size < 6的红黑树进行untreeify操作, resize()只负责数组扩容和链化
+- HashMap中put操作时, 如果槽位中的某个链表长度大于8, 则判断table容量大于等于64则进行树化, 否则只进行扩容
 - HashMap中的扩容时机：1. size > threshold的时候 2. 槽位中的链表长度大于8而table容量小于64
-- HashMap中由于负载因子默认为0.75，用长度16的数组存12个元素，绰绰有余，而且随着size增大threshold也在增大，因此链表大小超过8的概率很低。
+- HashMap中由于负载因子默认为0.75, 用长度16的数组存12个元素, 绰绰有余, 而且随着size增大threshold也在增大, 因此链表大小超过8的概率很低。
 
 #### TreeMap源码
-- TreeMap中使用红黑树数据结构，比较的时候优先使用传入的Comparator, 为null时传入Comparable
-- TreeMap中并没有使用hashCode和equals方法判断相等，而是使用Comparator或者Comparable所以插入TreeMap中的元素一定具有可比性
-- TreeMap的哈希一致性应用，TreeMap<hash, list>中保存hash了列表，放入的元素放入第一个大于该元素hash值的第一个hash列表
-- 哈希一致性的容错性和扩展性：只对受影响的数据进行转移而不影响其它的数据；通过虚拟节点解决数据倾斜的问题
+- TreeMap中使用红黑树数据结构, 比较的时候优先使用传入的Comparator, 为null时传入Comparable
+- TreeMap中并没有使用hashCode和equals方法判断相等, 而是使用Comparator或者Comparable所以插入TreeMap中的元素一定具有可比性
+- TreeMap的哈希一致性应用, TreeMap<hash, list>中保存hash了列表, 放入的元素放入第一个大于该元素hash值的第一个hash列表
+- 哈希一致性的容错性和扩展性：只对受影响的数据进行转移而不影响其它的数据; 通过虚拟节点解决数据倾斜的问题
 
 #### LinkedHashMap源码
-- LinkedHashMap中的获取槽位与HashMap相同，先重新求的hash值 h = key.hashCode() ^ h >>> 16舍弃低位，减少哈希碰撞
-
+- LinkedHashMap中的获取槽位与HashMap相同, 先重新求的hash值 h = key.hashCode() ^ h >>> 16舍弃低位, 减少哈希碰撞
+- LinkedHashMap在put()中创建节点的时候newNode或者newTreeNode的时候通过即linkNodeLast()来插入队尾, 维护双向链表
+- LinkedHashMap中afterNodeAccess()在访问的时候调用即get()方法, 或者put()已经存在的key, 会将已经访问过的元素放到双向链表的队尾
+- LinkedHashMap中afterNodeRemoval()在移除节点的时候调用remove()方法, 在双向链表中移除该节点
+- LinkedHashMap中afterNodeInsertion()在插入的时候调用即put()时, 会通过条件判断删除某些节点(默认不会删除), 条件为true时删除首节点
+- 通过复写removeEldestEntry()实现自定义LRU的缓存策略, 最近最少使用; 限制容器长度实现最近(复写size() > limit), 通过afterNodeAccess()来实现最少使用
 
 #### Objects中常用的方法
 - Objects.equals()
