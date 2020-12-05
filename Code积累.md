@@ -60,6 +60,7 @@
 #### LinkedHashMap源码
 - LinkedHashMap中的获取槽位与HashMap相同, 先重新求的hash值 h = key.hashCode() ^ h >>> 16舍弃低位, 减少哈希碰撞
 - LinkedHashMap在put()中创建节点的时候newNode或者newTreeNode的时候通过即linkNodeLast()来插入队尾, 维护双向链表
+- LinkedHashMap中核心参数accessOrder：该字段用来控制是否需要将被访问的节点移动到双向链表的末尾。默认值为 false
 - LinkedHashMap中afterNodeAccess()在访问的时候调用即get()方法, 或者put()已经存在的key, 会将已经访问过的元素放到双向链表的队尾
 - LinkedHashMap中afterNodeRemoval()在移除节点的时候调用remove()方法, 在双向链表中移除该节点
 - LinkedHashMap中afterNodeInsertion()在插入的时候调用即put()时, 会通过条件判断删除某些节点(默认不会删除), 条件为true时删除首节点
