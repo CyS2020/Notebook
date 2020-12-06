@@ -5,7 +5,7 @@
 - 一般情况下从map中get某个值都需要进行判空处理, 或者使用getOrDefault()方法
 - Boolean值进行逻辑判断时候：Boolean.FALSE.equals(), 基本数据类型boolean前面使用！即可
 - 回调函数就是编写的时候不确定的函数行为, 作为参数在调用的时候显示传参, 调用行为执行相应的操作, 回调就是个高大上的词罢了
-- 代码中读取文件时候使用Class.getResourceAsStream()方法, 避免在IDEA中能找到路径而在maven打包后找不到文件路径
+- 代码中读取文件时候使用Class.getResourceAsStream(/../..)方法, 避免在IDEA中能找到路径而在maven打包后找不到文件路径
 - String属于不可变类型, 字符串连接的时候使用StringBuilder.append().append...append();
 - 某个类中, 需要其他组合类：声明时即创建(独立功能), 构造函数中赋值(必要信息), 方法中初始化(加工信息)
 - 需要容器时, 只定义声明, 然后在一个函数中创建并填充, 然后将该容器返回给刚才的声明。例如：List<String> list = getList();
