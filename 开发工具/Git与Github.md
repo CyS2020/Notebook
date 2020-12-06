@@ -74,7 +74,7 @@
   //前进与后退
   git reset --soft [version hash]              //仅在本地库移动HEAD指针， 需要commit
   git reset --mixed [version hash]             //移动指针 + 重置暂存区，需要add-commit
-  git reset --hard [version hash]              //移动指针 + 重置暂存区 + 重置工作区，重动源码
+  git reset --hard [version hash]              //移动指针 + 重置暂存区 + 重置工作区，抹去代码
   ```
 
 - 删除文件，前提该文件有被提交到本地库
