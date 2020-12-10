@@ -44,7 +44,7 @@
 - LinkedList中增删改查的逻辑都是由以下几个方法实现的：linkFirst、linkLast、unlinkFirst、unlinkLast、unlink、linkBefore;
 - LinkedList中toArray方法中用到Array.newInstance(a.getClass.getComponentType(), size)创建泛型数组, getComponentType返回数组中元素的Class对象
 - LinkedList实现了Deque接口,里面有个descendingIterator逆向迭代器, 虽然不知道使用场景第一次见到就记录一下吧
-- LinkedList和ArrayList中有关Collection接入参, 用的最多的方法是c.contains()用于批量删除和c.toArray()用于批量添加
+- LinkedList和ArrayList中有关Collection接口作为入参, 用的最多的方法是c.contains()用于批量删除和c.toArray()用于批量添加
 
 #### HashMap源码
 - HashMap中tableSizeFor方法中的位运算来寻找大于该数的最小2的整次幂：1 -> 1; 2 -> 2; 3 -> 4; 5 -> 8; 11 -> 16; 33 -> 64等
