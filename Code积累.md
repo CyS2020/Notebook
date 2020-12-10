@@ -23,7 +23,8 @@
 
 ### 莫名Bug
 - mvn中使用jacoco统计代码覆盖率产生合成属性, 所以在使用反射时会产生问题, 单元测试可能在IDEA里能通过, 在mvn test中就通不过
-- TreeSet和TreeMap是用Comparator和Comparable来去重且确定存放位置, 不能用一直变化的数据来比较大小比如到某个点最短距离会变化
+- TreeSet和TreeMap是用Comparator和Comparable来去重且确定存放位置, 因此能比较的属性一定具有唯一性和可比较性
+- 上述问题可以使用PriorityQueue来解决, PriorityQueue不会去重且只保证最值内部不排序, 需要手动进行操作boolean/continue来去重
 
 ### 刷题心得
 - 区间都是遵循左闭又开原则
@@ -68,6 +69,10 @@
 - LinkedHashMap中afterNodeRemoval()在移除节点的时候调用remove()方法, 在双向链表中移除该节点
 - LinkedHashMap中afterNodeInsertion()在插入的时候调用即put()时, 会通过条件判断删除某些节点(默认不会删除), 条件为true时删除首节点
 - 通过复写removeEldestEntry()实现自定义LRU的缓存策略, 最近最少使用; 限制容器长度实现最近(复写size() > limit), 通过afterNodeAccess()来实现最少使用
+
+#### PriorityQueue源码
+- 内部使用数组实现小根堆这种数据结构, 容器默认初始值为11, 元素个数大于64进行1.5倍扩容, 否则进行+2扩容
+- 执行offer()操作是添加到队尾, 然后上浮到合适的位置, poll()将最后一个元素放在队头, 然后下潜到合适的位置
 
 #### Objects中常用的方法
 - Objects.equals()
