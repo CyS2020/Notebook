@@ -28,6 +28,7 @@
 - mvn中使用jacoco统计代码覆盖率产生合成属性, 所以在使用反射时会产生问题, 单元测试可能在IDEA里能通过, 在mvn test中就通不过
 - TreeSet和TreeMap是用Comparator和Comparable来去重且确定存放位置, 因此能比较的属性一定具有唯一性和可比较性
 - 上述问题可以使用PriorityQueue来解决, PriorityQueue不会去重且只保证最值内部不排序, 需要手动进行操作boolean/continue来去重
+- 在debug过程中遇见一些莫名其妙的bug的时候记得删除target重新编译
 
 ### 刷题心得
 - 区间都是遵循左闭又开原则
