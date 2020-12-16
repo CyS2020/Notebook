@@ -5,7 +5,6 @@
 - 一般情况下从map中get某个值都需要进行判空处理, 或者使用getOrDefault()方法
 - Boolean值进行逻辑判断时候：Boolean.FALSE.equals(), 基本数据类型boolean前面使用！即可
 - 回调函数就是编写的时候不确定的函数行为, 作为参数在调用的时候显示传参, 调用行为执行相应的操作, 回调就是个高大上的词罢了
-- 代码中读取文件时候使用Class.getResourceAsStream(/../..)方法, 避免在IDEA中能找到路径而在maven打包后找不到文件路径
 - String属于不可变类型, 字符串连接的时候使用StringBuilder.append().append...append();
 - 某个类中, 需要其他组合类：声明时即创建(独立功能), 构造函数中赋值(必要信息), 方法中初始化(加工信息)
 - 需要容器时, 只定义声明, 然后在一个函数中创建并填充, 然后将该容器返回给刚才的声明。例如：List<String> list = getList();
@@ -25,13 +24,14 @@
 - 代码中不要出现硬编码, 改变硬编码的方式有两种如果是有分类的可以使用枚举类, 或者创建常量类存贮
 - 常量格式public static final 类型 大写_下划线; 枚举类存放的信息多一些
 - lambda + stream形式搭配时, 将forEach/map/filter复杂的化抽为函数, 业务复杂不建议使用这种搭配
-- 使用if/else if, 里面不要偷懒, 尽量不用else, else的行为太宽泛了, 同理少用!equals()这个方法
+- 使用if/else if, 里面不要偷懒, 尽量不用else, else的行为太宽泛了, 同理少用!equals()这个方法; 只对确定性的条件判断
 
 ### 莫名Bug
 - mvn中使用jacoco统计代码覆盖率产生合成属性, 所以在使用反射时会产生问题, 单元测试可能在IDEA里能通过, 在mvn test中就通不过
 - TreeSet和TreeMap是用Comparator和Comparable来去重且确定存放位置, 因此能比较的属性一定具有唯一性和可比较性
 - 上述问题可以使用PriorityQueue来解决, PriorityQueue不会去重且只保证最值内部不排序, 需要手动进行操作boolean/continue来去重
 - 在debug过程中遇见一些莫名其妙的bug的时候记得删除target重新编译
+- 代码中读取文件时候使用Class.getResourceAsStream(/../..)方法, 避免在IDEA中能找到路径而在maven打包后找不到文件路径
 
 ### 刷题心得
 - 区间都是遵循左闭又开原则
