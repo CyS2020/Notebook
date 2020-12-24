@@ -15,6 +15,7 @@
 - 在代码中可以多加非null判断：if((xxx = yyy.get()) != null)会增强代码的鲁棒性
 - 集合在初始化时机: 在声明的时候就初始化(很大程度避免空指针), 构造函数中构造一些创建类必要的属性, 不要做new集合这么无聊的事情
 - 熟练使用Stream流和collect()方法，常见的toList、toSet、toMap、groupingBy; 例: orderList.stream().collect(Collectors.groupingBy(Order::getOrderNo));
+- 数组转集合使用Stream.of().collect(xxx); 集合转数组xxx.toArray()
 
 ### 重构代码
 - 使用IDEA查找get,set的调用地方, 然后一一修改, 并保证单元测试通过
