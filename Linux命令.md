@@ -12,9 +12,3 @@
 - `cp file1 file2` 复制一个文件 
 - `chmod +x a.txt` 给所有用户给予a.txt文件可执行权限
 - `scp local_file remote_username@remote_ip:remote_folder` 从本地复制到远程
-
-#### 其他命令
-- `yum list` 列出所有可安裝的软件清单命令
-- `yum install <package_name>` 仅安装指定的软件命令
-- `yum update <package_name>`仅更新指定的软件命令
-- `yum remove <package_name>` 删除软件包命令
