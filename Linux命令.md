@@ -1,0 +1,14 @@
+### 文件和目录
+- `cd` 进入个人的主目录
+- `cd /home` 进入 '/ home' 目录; 
+- `cd ..` 返回上一级目录
+- `pwd` 显示工作路径
+- `ls` 查看目录中的文件
+- `ls -l` 显示文件和目录的详细资料 
+- `mkdir dir1` 创建一个叫做 'dir1' 的目录' 
+- `mkdir -p /tmp/dir1/dir2` 创建一个目录树 
+- `rm -rf dir1` 删除一个叫做 'dir1' 的目录并同时删除其内容 
+- `mv dir1 new_dir` 重命名/移动 一个目录到新目录里
+- `cp file1 file2` 复制一个文件 
+- `chmod +x a.txt` 给所有用户给予a.txt文件可执行权限
+- `scp local_file remote_username@remote_ip:remote_folder` 从本地复制到远程
