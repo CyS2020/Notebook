@@ -15,6 +15,8 @@
 
 #### 其他命令
 - `su root` 切换为root身份需要输入密码
+- ·`vim .bash_profile` 根目录下配置环境变量用cd直接进入根目录
+- `source .bash_profile` 使环境变量生效
 - `yum list` 列出所有可安裝的软件清单命令
 - `yum install <package_name>` 仅安装指定的软件命令
 - `yum update <package_name>`仅更新指定的软件命令
@@ -33,5 +35,3 @@
 - `systemctl restart *d.service` 重启服务
 - `systemctl reload *d.service` 重新加载服务配置文件
 - `systemctl status *d.service` 查询服务运行状态
-
-#### docker命令
