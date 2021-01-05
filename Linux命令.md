@@ -33,3 +33,5 @@
 - `systemctl restart *d.service` 重启服务
 - `systemctl reload *d.service` 重新加载服务配置文件
 - `systemctl status *d.service` 查询服务运行状态
+
+#### docker命令
