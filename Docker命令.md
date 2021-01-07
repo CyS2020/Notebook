@@ -7,13 +7,13 @@
 - 宿主机 -> docker -> 容器实例；win10 -> VMware -> centos7 -> docker -> centos7
 
 #### 常用命令
-- `docker version` `docker info` `docker --help` : 帮助命令
-<br/>
+- `docker version` `docker info` `docker --help` : 帮助命令<br/>
+
 - `docker images` : 列出本地主机上的镜像 -a:列出本地所有(含中间印象层) -q:只显示镜像id
 - `docker search` : 查找某个镜像 -f:列出收藏数不少于指定值的镜像
 - `docker pull` : 下载镜像
 - `docker rmi` : 删除镜像 -f:强制删除
-<br/>
+
 - `docker run [OPTIONS] IMAGE [COMMAND][ARG...]` : 运行容器 OPTIONS说明 -d:后台运行 -p端口映射 -it i交互t伪终端
 - `docker ps` : 列出当前所有正在运行的容器 -a:正在运行的和历史上运行过的
 - `exit` : 退出并关闭容器，在伪终端中执行 ctrl + p + q:退出不关闭容器
@@ -27,7 +27,7 @@
 - `docker inspect` : 查看容器内部细节
 - `docker exec -it` : 重新进入正在运行的容器并以命令行交互不加i就隔山打牛了 或docker attch
 - `docker cp 容器id 源路径 宿路径` : 容器内拷贝文件到主机上
-<br/>
+
 - `docker commit ` : 提交容器副本使之成为一个新的镜像
 
 #### 镜像原理
