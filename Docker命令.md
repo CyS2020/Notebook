@@ -9,7 +9,6 @@
 #### 常用命令
 - `docker version` `docker info` `docker --help` : 帮助命令
 <br/>
-
 - `docker images` : 列出本地主机上的镜像 -a:列出本地所有(含中间印象层) -q:只显示镜像id
 - `docker search` : 查找某个镜像 -f:列出收藏数不少于指定值的镜像
 - `docker pull` : 下载镜像
