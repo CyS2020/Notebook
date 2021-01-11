@@ -18,6 +18,7 @@
 - 数组转集合使用Stream.of().collect(xxx); 集合转数组xxx.toArray()
 
 ### 重构代码
+- Jdk或其他框架会提供很多工具类：ObjectUtils、BeanUtils、StringUtils、CollectionUtils
 - 使用IDEA查找get,set的调用地方, 然后一一修改, 并保证单元测试通过
 - 在修改逻辑的时候, 越往里挖需要改动的地方则越少, 所以尽量在深层次源头地方进行修改
 - 变量命名接口命名以I开头, 实现类以Impl结尾, 抽象类以Abstract开头, 枚举类以Enum结尾
