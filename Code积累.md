@@ -31,7 +31,11 @@
 - 数组操作善于使用流操作Integer[] integers = Arrays.stream(value.split("\\.")).map(Integer::parseInt).toArray(Integer[]::new)
 - 使用流的过程中不要在显示的在流的操作中写复杂的操作，超过两行提取成函数
 - 使用java8中Map的新增方法来优化代码：putIfAbsent、computeIfAbsent、getOrDefault、computeIfPresent方法
+
+### 思考
 - 传入的参数是函数式接口时，编写的只是功能，并不带有具体的变量，在调用apply等方法时才传入具体的变量：形参非变量，入参可不用
+- 同步与异步--消息通知的机制--自己等还是别人通知，阻塞与非阻塞--程序在等待调用结果（消息，返回值）时的状态--等待过程中，等待者的操作
+- 上述概念组合起来：同步阻塞、同步非阻塞、异步阻塞(一般没有这种情况，直接用同步阻塞就好了)、异步非阻塞
 
 ### 莫名Bug
 - mvn中使用jacoco统计代码覆盖率产生合成属性, 所以在使用反射时会产生问题, 单元测试可能在IDEA里能通过, 在mvn test中就通不过
