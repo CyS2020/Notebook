@@ -30,7 +30,7 @@
 - 将某个方法改造成比较器可以使用Comparator.comparing(xxx::xxx)方法
 - 数组操作善于使用流操作Integer[] integers = Arrays.stream(value.split("\\.")).map(Integer::parseInt).toArray(Integer[]::new)
 - 使用流的过程中不要在显示的在流的操作中写复杂的操作，超过两行提取成函数
-- 使用java8中Map的新增方法来优化代码：putIfAbsent、computeIfAbsent、getOrDefault、computeIfPresent方法
+- 使用java8中Map的新增方法来优化代码：putIfAbsent、computeIfAbsent(及时加载)、getOrDefault、computeIfPresent方法
 
 ### 思考
 - 传入的参数是函数式接口时，编写的只是功能，并不带有具体的变量，在调用apply等方法时才传入具体的变量：形参非变量，入参可不用
