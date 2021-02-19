@@ -80,7 +80,8 @@
 
 #### TreeMap源码
 - TreeMap中使用红黑树数据结构, 比较的时候优先使用传入的Comparator, 为null时传入Comparable
-- TreeMap中并没有使用hashCode和equals方法判断相等, 而是使用Comparator或者Comparable所以插入TreeMap中的元素一定具有可比性
+- TreeMap中并没有使用hashCode和equals方法判断相等, 而是使用Comparator或者Comparable返回值为0判断元素唯一性
+- 所以插入TreeMap中的元素一定具有可比性，要么传入的元素实现了Comparable接口，要么出入合适的比较器Comparator
 - TreeMap的哈希一致性应用, TreeMap<hash, list>中保存hash了列表, 放入的元素放入第一个大于该元素hash值的第一个hash列表
 - 哈希一致性的容错性和扩展性：只对受影响的数据进行转移而不影响其它的数据; 通过虚拟节点解决数据倾斜的问题
 
