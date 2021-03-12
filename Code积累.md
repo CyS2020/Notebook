@@ -47,6 +47,7 @@
     }
 ```
 ### 莫名Bug
+- 多线程调试时，Junit在主线程运行结束后即退出JVM，子线程无法继续执行，在main函数不会退出，同时main函数是非守护线程
 - mvn中使用jacoco统计代码覆盖率产生合成属性, 所以在使用反射时会产生问题, 单元测试可能在IDEA里能通过, 在mvn test中就通不过
 - TreeSet和TreeMap是用Comparator和Comparable来去重且确定存放位置, 因此能比较的属性一定具有唯一性和可比较性
 - 上述问题可以使用PriorityQueue来解决, PriorityQueue不会去重且只保证最值内部不排序, 需要手动进行操作boolean/continue来去重
