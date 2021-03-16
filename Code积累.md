@@ -17,6 +17,7 @@
 - 数组转集合使用Stream.of().collect(xxx); 集合转数组xxx.toArray()
 
 ### 重构代码
+- 三个潜在的取值及以上, 使用switch来控制代码执行流程, 变量-取值-行为-break
 - Jdk或其他框架会提供很多工具类：ObjectUtils、BeanUtils、StringUtils、CollectionUtils
 - 使用IDEA查找get,set的调用地方, 然后一一修改, 并保证单元测试通过
 - 在修改逻辑的时候, 越往里挖需要改动的地方则越少, 所以尽量在深层次源头地方进行修改
