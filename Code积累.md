@@ -59,14 +59,6 @@
 - 在debug过程中遇见一些莫名其妙的bug的时候记得删除target重新编译
 - 代码中读取文件时候使用Class.getResourceAsStream(/../..)方法, 避免在IDEA中能找到路径而在maven打包后找不到文件路径
 
-
-### 刷题心得
-- 区间长度与索引的相爱相杀±1
-- 双指针/区间端点：结束等号，继续不带
-- 二分分治：等号与边界同时取
-- 区间都是遵循左闭又开原则
-- 判断没有小数：expr % 1 == 0
-
 #### ArrayList源码
 - Object.clone()方法为浅拷贝
 - ArrayList中的modCount记录数组修改的次数, 用于并发修改检查(ConcurrentModificationException)
