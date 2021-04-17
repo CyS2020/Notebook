@@ -15,7 +15,7 @@
 - 集合在初始化时机: 在声明的时候就初始化(很大程度避免空指针), 构造函数中构造一些创建类必要的属性, 不要做new集合这么无聊的事情
 - 熟练使用Stream流和collect()方法，常见的toList、toSet、toMap、groupingBy; 例: orderList.stream().collect(Collectors.groupingBy(Order::getOrderNo));
 - 数组转集合使用Stream.of().collect(xxx); 集合转数组xxx.toArray()
-- 浮点数在比较的时候不能用>,<,>=,<=,==,!=,需要一个eps来处理精度问题
+- 浮点数在比较的时候不能用>,<,>=,<=,==,!=,需要一个eps来处理精度问题，等于与不等于特么的一定要用Math.abs()
 
 ### 重构代码
 - 三个潜在的取值及以上, 使用switch来控制代码执行流程, 变量-取值-行为-break
