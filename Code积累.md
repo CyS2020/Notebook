@@ -33,7 +33,7 @@
 - 数组操作善于使用流操作Integer[] integers = Arrays.stream(value.split("\\.")).map(Integer::parseInt).toArray(Integer[]::new)
 - 使用流的过程中不要在显示的在流的操作中写复杂的操作，超过两行提取成函数
 - 使用java8中Map的新增方法来优化代码：putIfAbsent、computeIfAbsent(及时加载)、getOrDefault、computeIfPresent方法
-
+- 使用java8中Map的方法：put()、putIfAbsent()--返回旧值、compute()、computeIfAbsent()--返回新值
 ### 思考
 - 按照流是否直接与特定的地方 (如磁盘、内存、设备等) 相连，分为节点流和处理流两类。节点流可以从或向一个特定的地方（节点）读写数据；
 处理流是对一个已存在的流的连接和封装，通过所封装的流的功能调用实现数据读写。处理流的构造方法总是以一个其他的流对象做参数。一个流对象经过其他流的多次包装，称为流的链接。
