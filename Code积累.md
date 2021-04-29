@@ -18,6 +18,7 @@
 - 浮点数在比较的时候不能用>,<,>=,<=,==,!=,需要一个eps来处理精度问题，等于与不等于特么的一定要用Math.abs()
 
 ### 重构代码
+- 枚举类中的valueOf()、name()、toString()常用方法与枚举类型的字符串有关，与括号内的属性无关，toString()可以被重写，同时记得区分枚举类的静态方法与实例方法
 - 三个潜在的取值及以上, 使用switch来控制代码执行流程, 变量-取值-行为-break
 - Jdk或其他框架会提供很多工具类：ObjectUtils、BeanUtils、StringUtils、CollectionUtils
 - 使用IDEA查找get,set的调用地方, 然后一一修改, 并保证单元测试通过
