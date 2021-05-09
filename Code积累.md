@@ -18,6 +18,7 @@
 - 浮点数在比较的时候不能用>,<,>=,<=,==,!=,需要一个eps来处理精度问题，等于与不等于特么的一定要用Math.abs()
 
 ### 重构代码
+- intValue()是Number类的方法， Number是一个抽象类。Java中所有的数值类都继承它。也就是说，不单是Integer有intValue方法，Double，Long等都有此方法。避免强转
 - 枚举类中的valueOf()、name()、toString()常用方法与枚举类型的字符串有关，与括号内的属性无关，toString()可以被重写，同时记得区分枚举类的静态方法与实例方法
 - 三个潜在的取值及以上, 使用switch来控制代码执行流程, 变量-取值-行为-break
 - Jdk或其他框架会提供很多工具类：ObjectUtils、BeanUtils、StringUtils、CollectionUtils
@@ -35,6 +36,7 @@
 - 使用流的过程中不要在显示的在流的操作中写复杂的操作，超过两行提取成函数
 - 使用java8中Map的新增方法来优化代码：putIfAbsent、computeIfAbsent(及时加载)、getOrDefault、computeIfPresent方法
 - 使用java8中Map的方法：put()、putIfAbsent()--返回旧值、compute()、computeIfAbsent()--返回新值
+
 ### 思考
 - 按照流是否直接与特定的地方 (如磁盘、内存、设备等) 相连，分为节点流和处理流两类。节点流可以从或向一个特定的地方（节点）读写数据；
 处理流是对一个已存在的流的连接和封装，通过所封装的流的功能调用实现数据读写。处理流的构造方法总是以一个其他的流对象做参数。一个流对象经过其他流的多次包装，称为流的链接。
