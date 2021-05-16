@@ -64,7 +64,8 @@
 - TreeSet和TreeMap是用Comparator和Comparable来去重且确定存放位置, 因此能比较的属性一定具有唯一性和可比较性
 - 上述问题可以使用PriorityQueue来解决, PriorityQueue不会去重且只保证最值内部不排序, 需要手动进行操作boolean/continue来去重
 - 在debug过程中遇见一些莫名其妙的bug的时候记得删除target重新编译
-- 代码中读取文件时候使用Class.getResourceAsStream(/../..)方法, 避免在IDEA中能找到路径而在maven打包后找不到文件路径
+- 代码中读取文件时候使用Class.getResourceAsStream(/../..)方法,直接获得流, 避免在IDEA中能找到路径而在maven打包后找不到文件路径
+- 或者使用Class.getResource(fileName).getPath()获取到文件的位置，然后使用FileInputStream手动转为流文件进行读取
 
 #### ArrayList源码
 - Object.clone()方法为浅拷贝
