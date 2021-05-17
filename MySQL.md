@@ -69,10 +69,12 @@
 |可重复读|避免|避免|避免|发生|
 |串行化|避免|避免|避免|避免|
 
-11. InnoDb可重复读隔离级别下如何避免幻读
+11. InnoDB RR隔离级别下如何避免幻读
 - 表象: REPEATABLE-READ下快照读(非阻塞读) --伪MVCC
 - 内在: SERIALIZABLE下next-key锁(行锁+gap锁)
-- RR下gap锁出现的场景: where全部命中不会用Gap锁，只会加记录锁
+- RR下gap锁出现的场景: 1)对主键索引或唯一索引会使用gap锁吗，where全部命中不会用Gap锁，只会加记录锁
+- gap锁会用在非唯一索引或者不走索引的当前读中，2)非唯一索引中左开右闭区间，3)不走索引时gap会被锁住，等于锁表
+- 疑问解答，事务隔离机制下RR是不避免幻读的(接口层)，但是InnoDB实现中RR是可以避免幻读的(实现层)
 
 12. 快照读(非阻塞读)和当前读(阻塞读)
 - 当前读: select...lock in share mode, select...for update
@@ -82,7 +84,10 @@
 
 13. RC、RR级别下如何实现非阻塞读
 - 数据行里的DB_TRX_ID(最后一次修改事务id)、DB_ROLL_PTR(回滚指针)、DB_ROW_ID(随新行递增的id)字段
-- undo日志: 存储老版数据，insert undo log, update undo log
+- undo日志: 存储老版数据，有insert undo log, update undo log，串行化的结果
 - read view: 可见性判断算法--查看undo log中某个版本，能看见DB_TRX_ID比自己小的那个版本
 - READ-COMMITTED: 可以读到别的事务新的数据，事务中每次调用快照读的时候都回创建一个新的快照，所以每次读取的都是最新的事务
 - REPEATABLE-READ: 不可以读到别的事务新的数据，事务在第一条快照读会创建一个快照read view，记录当前系统其它活跃事务，此后再读还是同一个read view
+
+14. 语法部分
+ 
