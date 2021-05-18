@@ -89,5 +89,6 @@
 - READ-COMMITTED: 可以读到别的事务新的数据，事务中每次调用快照读的时候都回创建一个新的快照，所以每次读取的都是最新的事务
 - REPEATABLE-READ: 不可以读到别的事务新的数据，事务在第一条快照读会创建一个快照read view，记录当前系统其它活跃事务，此后再读还是同一个read view
 
-14. 语法部分
- 
+14. 语法部分 
+ - GROUP BY: SELECT子句中的列名必须为分组列或列函数(只适用于同一张表); 列函数对于group by子句定义的每个组各返回一个结果
+ - HAVING: 通常与GROUP BY子句一起使用; WHERE过滤行HAVING过滤组; 同一SQL顺序: WHERE > GROUP BY > HAVING
