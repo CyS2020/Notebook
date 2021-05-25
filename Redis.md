@@ -39,3 +39,28 @@ struct sdshdr{
 ```
 6. 底层数据结构基础
 - 简单动态字符串；链表；字典；跳跃表；整数集合；压缩表；对象
+
+7. 从海量Key里查询某一固定前缀的key
+- 摸清数据规模，即问清楚边界
+- KEYS pattern: 查找符合给定模式pattern的key
+- SCAN cursor [MATCH pattern] [COUNT count]
+    基于游标的迭代器，需要基于上一次的游标延续之前的迭代过程
+    以0作为游标开始一次新的迭代，直到命令返回游标0完成一次遍历
+    不保证每次执行都返回某个给定数量的元素，支持模糊查询
+    一次返回的数量不可控，只能是大概率符合count参数
+ 
+8. 如何通过Redis实现分布式锁
+- 互斥性，安全性，死锁，容错
+- SETNX key value: 如果key不存在，则创建并赋值，返回值：设置成功则为1，设置失败返回0
+- EXPIRE key seconds: 设置key的生存时间，当key过期时(生存时间为0)，会被自动删除
+- SET key value [EX second] [{X milliseconds] [NX|XX]
+    EX second: 设置键的过期时间为second秒
+    PX millisecond: 设置键的过期时间millisecond毫秒
+    NX: 只有键不存在时，才对键进行设置
+    XX: 只有键已经存在时，才对键进行设置
+    SET操作成功完成时，才返回OK，否则返回nil
+
+9. 大量的key同时过期的注意事项
+- 集中过期，由于清除大量的key很耗时，会出现短暂的卡顿现象
+- 解决方案：在设置key的过期时间的时候，给每个key加上随机值
+
