@@ -65,8 +65,12 @@
 - TreeSet和TreeMap是用Comparator和Comparable来去重且确定存放位置, 因此能比较的属性一定具有唯一性和可比较性
 - 上述问题可以使用PriorityQueue来解决, PriorityQueue不会去重且只保证最值内部不排序, 需要手动进行操作boolean/continue来去重
 - 在debug过程中遇见一些莫名其妙的bug的时候记得删除target重新编译
-- 代码中读取文件时候使用Class.getResourceAsStream(/../..)方法,直接获得流, 避免在IDEA中能找到路径而在maven打包后找不到文件路径，是编译后target文件路径
-- 或者使用Class.getResource(fileName).getPath()获取到文件的位置，然后使用FileInputStream手动转为流文件进行读取，还可以搭配输出流使用进行文件写入
+- Class.getResource(String path)与CClass.getClassLoader.getResourceAsStream(String path) 
+    path不以'/'开头时，默认是从此类所在的包下取资源；
+    path以'/'开头时，则是从项目的ClassPath根下获取资源。在这里'/'表示ClassPath的根目录
+- Class.getClassLoader().getResource(String path)与Class.getClassLoader().getResourceAsStream(String path)
+    默认则是从ClassPath根下获取，path不能以’/'开头，最终是由ClassLoader获取资源。
+    实际上 class.getResource("/") == class.getClassLoader().getResource("")
 - IDEA在调试过程中可以使用第一个和第二个拷贝路径，写文件时如果没有改文件则会创建文件，上述两种情况则不会会自己创建文件，必须编译完成之后在target下才行
 
 #### ArrayList源码
