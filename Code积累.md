@@ -18,6 +18,7 @@
 - 浮点数在比较的时候不能用>,<,>=,<=,==,!=,需要一个eps来处理精度问题，等于与不等于特么的一定要用Math.abs()
 
 ### 重构代码
+- Collection接口toArray默认返回的是Object类型的数组，toArray(T[] a)该接口返回的是指定类型的数组，例如传入new String[0]入参返回String数组;
 - intValue()是Number类的方法， Number是一个抽象类。Java中所有的数值类都继承它。也就是说，不单是Integer有intValue方法，Double，Long等都有此方法。避免强转
 - 枚举类中的valueOf()、name()、toString()常用方法与枚举类型的字符串有关，与括号内的属性无关，toString()可以被重写，同时记得区分枚举类的静态方法与实例方法
 - 三个潜在的取值及以上, 使用switch来控制代码执行流程, 变量-取值-行为-break
