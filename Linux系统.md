@@ -18,3 +18,13 @@
 - 右边命令必须能够接收标准输入流，否则传递过程中数据会被抛弃
 - 常用来作为接收数据管道的命令有sed, awk, grep, cut, head, top, less, more, wc, join, sort, split等
 - grep '匹配内容'; grep -o '正则'; grep -v '排除' 
+
+4. 对文件内容做统计
+- awk [options] 'cmd' file
+- 一次读取一行文本，按输入分隔符进行切片，切成多个组成部分
+- 将切片直接保存在内建的变量中，$1，$2...($0表示行的全部)
+- 支持对单个切片的判断，支持循环判断，支持默认分隔符为空格
+
+5. 批量替换掉文档里的内容
+- sed [options] 'sed command' filename
+- 全名stream editor，流编辑器，适合用于对文本行内容进行处理
