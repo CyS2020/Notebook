@@ -34,12 +34,13 @@
 - lambda + stream形式搭配时, 将forEach/map/filter复杂的化抽为函数, 业务复杂不建议使用这种搭配
 - 使用if/else if, 里面不要偷懒, 尽量不用else, else的行为太宽泛了, 同理少用!equals()这个方法; 只对确定性的条件判断
 - 将某个方法改造成比较器可以使用Comparator.comparing(xxx::xxx)方法
-- 数组操作善于使用流操作Integer[] integers = Arrays.stream(value.split("\\.")).map(Integer::parseInt).toArray(Integer[]::new)
+- 数组操作善于使用流操作int[] arr = Arrays.stream(line.split(" ")).mapToInt(Integer::parseInt).toArray();
 - 使用流的过程中不要在显示的在流的操作中写复杂的操作，超过两行提取成函数
 - 使用java8中Map的新增方法来优化代码：putIfAbsent、computeIfAbsent(及时加载)、getOrDefault、computeIfPresent方法
 - 使用java8中Map的方法：put()、putIfAbsent()--返回旧值、compute()、computeIfAbsent()--返回新值
 
 ### 思考
+- Arrays.sort()无法自定义比较基本数据类型，只能使用默认的升序，可以说是非常垃圾了，对象的话可以传入比较器
 - Java与其他语言编写的程序进行tcp/ip socket通讯时，通讯内容一般都转换成byte数组型，new String(byte[] bytes) <---> getBytes()
 - 按照流是否直接与特定的地方 (如磁盘、内存、设备等) 相连，分为节点流和处理流两类。节点流可以从或向一个特定的地方（节点）读写数据；
 处理流是对一个已存在的流的连接和封装，通过所封装的流的功能调用实现数据读写。处理流的构造方法总是以一个其他的流对象做参数。一个流对象经过其他流的多次包装，称为流的链接。
