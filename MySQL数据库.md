@@ -23,7 +23,7 @@
 - 修改sql或者尽量让sql走索引 
 
 5. 联合索引的最左前缀匹配原则
-- mysql会一直向右匹配知道遇到范围查询(>、<、between、like)就停止匹配
+- mysql会一直向右匹配直到遇到范围查询(>、<、between、like)就停止匹配
 - =和in可以乱序，mysql查询优化器会帮你优化成可以识别的形式
 
 6. 索引不是越多越好
@@ -92,3 +92,8 @@
 14. 语法部分 
  - GROUP BY: SELECT子句中的列名必须为分组列或列函数(只适用于同一张表); 列函数对于group by子句定义的每个组各返回一个结果
  - HAVING: 通常与GROUP BY子句一起使用; WHERE过滤行HAVING过滤组; 同一SQL顺序: WHERE > GROUP BY > HAVING
+ 
+ 15. MySQL分页查询
+ - limit(每页显示的条数)两个参数去分页查询数据库表中的数据，那我们知道MySql数据库提供了分页的函数limit m,n
+ - 客户端通过传递pageNo(页码)，pageSize(每页显示的条数)两个参数去分页查询数据库表中的数据;
+ - 对应的MySQL命令如：select * from 表 limit (pageNo-1) * pageSize, pageSize; 
