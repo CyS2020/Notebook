@@ -97,3 +97,11 @@
  - limit(每页显示的条数)两个参数去分页查询数据库表中的数据，那我们知道MySql数据库提供了分页的函数limit m,n
  - 客户端通过传递pageNo(页码)，pageSize(每页显示的条数)两个参数去分页查询数据库表中的数据;
  - 对应的MySQL命令如：select * from 表 limit (pageNo-1) * pageSize, pageSize; 
+ 
+16. 回表查询
+- 通过普通索引定位到主键值，在通过聚集索引定位到行记录，这就是所谓的回表查询
+- explain的输出结果Extra字段为Using index时，能够触发索引覆盖。
+- 索引覆盖：只需要在一棵索引树上就能获取SQL所需的所有列数据，无需回表，速度更快。
+- 如何实现索引覆盖：常见的方法是：将被查询的字段，建立到联合索引里去。
+- extra为null或者using index condition就是二级索引回表
+- 这篇文章讲的很清楚 https://my.oschina.net/u/4312790/blog/4122058
