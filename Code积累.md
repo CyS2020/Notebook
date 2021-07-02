@@ -169,5 +169,10 @@
 - 标记-整理算法
 - 分代收集算法：Eden + from + to + old
 
+#### jdk, jre, jvm
+- JDK：Java Development Kit  Java开发工具包
+- JRE：Java runtime environment  Java运行环境
+- JVM：Java Virtual Machine  Java虚拟机
+
 #### 类加载机制
 
