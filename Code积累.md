@@ -170,9 +170,24 @@
 - 分代收集算法：Eden + from + to + old
 
 #### jdk, jre, jvm
-- JDK：Java Development Kit  Java开发工具包
-- JRE：Java runtime environment  Java运行环境
+- JDK：Java Development Kit  Java开发工具包，核心类库
+- JRE：Java runtime environment  Java运行环境，运行类库
 - JVM：Java Virtual Machine  Java虚拟机
 
 #### 类加载机制
+1. 加载
+2. 链接
+  - 验证：确保加载的类信息符合JVM规范，没有安全方面的问题
+  - 准备：为static变量分配内存，设置默认初始值
+  - 解析：虚拟机常量池内的符号引用替换为直接应用
+3. 初始化
 
+- ClassLoader
+1. BootStrapClassLoader: c++编写，加载核心类库java.*
+2. ExtClassLoader: Java编写，加载扩展库javax.*
+3. AppClassLoader: Java编写，加载程序所在目录
+4. 自定义ClassLoader: Java编写，定制化加载，findClass, defineClass
+
+- 双亲委派机制
+1. 自底向上检查类是否已经加载过，自顶向下尝试加载类
+2. 避免多份同样字节码的加载
