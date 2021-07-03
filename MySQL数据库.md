@@ -113,3 +113,6 @@
 - 如何实现索引覆盖：常见的方法是：将被查询的字段，建立到联合索引里去。
 - extra为null或者using index condition就是二级索引回表
 - 这篇文章讲的很清楚 https://my.oschina.net/u/4312790/blog/4122058
+
+15. 分库分表
+参考这篇文章：https://www.zhihu.com/question/448775613
