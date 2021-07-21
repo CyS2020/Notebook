@@ -101,10 +101,10 @@
  - GROUP BY: SELECT子句中的列名必须为分组列或列函数(只适用于同一张表); 列函数对于group by子句定义的每个组各返回一个结果
  - HAVING: 通常与GROUP BY子句一起使用; WHERE过滤行HAVING过滤组; 同一SQL顺序: WHERE > GROUP BY > HAVING
  
- 15. MySQL分页查询
- - limit(每页显示的条数)两个参数去分页查询数据库表中的数据，那我们知道MySql数据库提供了分页的函数limit m,n
- - 客户端通过传递pageNo(页码)，pageSize(每页显示的条数)两个参数去分页查询数据库表中的数据;
- - 对应的MySQL命令如：select * from 表 limit (pageNo-1) * pageSize, pageSize; 
+15. MySQL分页查询
+- limit(每页显示的条数)两个参数去分页查询数据库表中的数据，那我们知道MySql数据库提供了分页的函数limit m,n
+- 客户端通过传递pageNo(页码)，pageSize(每页显示的条数)两个参数去分页查询数据库表中的数据;
+- 对应的MySQL命令如：select * from 表 limit (pageNo-1) * pageSize, pageSize; 
  
 16. 回表查询
 - 通过普通索引定位到主键值，在通过聚集索引定位到行记录，这就是所谓的回表查询
