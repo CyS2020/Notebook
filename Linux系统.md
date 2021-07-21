@@ -30,4 +30,4 @@
 - 全名stream editor，流编辑器，适合用于对文本行内容进行处理
 
 6. 查看日志常用命令 
-tail -f log 实时查看日志，可以搭配 grep 使用
+- tail -f log 实时查看日志，可以搭配 grep 使用
