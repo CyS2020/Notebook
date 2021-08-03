@@ -1,7 +1,7 @@
 ### Code规约
 - 命名规范(包名.类名.函数名.变量名)、函数40行类400行、严格使用访问限制符(private、protected、public)、代码格式化类引入优化
 - 捕获异常需要打印描述信息还需要打印堆栈信息：logger.error(e.getMessage, e);
-- 一般情况下从map中get某个值都需要进行判空处理, 或者使用getOrDefault()方法
+- 一般情况下从map中get某个值都需要进行判空处理, 或者使用getOrDefault()方法; map并行流不要是用keySet得到value是需要get操作，使用entrySet().parallelStream().forEach()
 - Boolean值进行逻辑判断时候：Boolean.FALSE.equals(), 基本数据类型boolean前面使用！即可
 - 回调函数就是编写的时候不确定的函数行为, 作为参数在调用的时候显示传参, 调用行为执行相应的操作, 回调就是个高大上的词罢了
 - String属于不可变类型, 字符串连接的时候使用StringBuilder.append().append...append();
