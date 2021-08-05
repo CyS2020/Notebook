@@ -11,7 +11,8 @@
 - 序列化一般都是深拷贝先去调用类的无参构造方法然后逐个地去调用set方法去填充实例的字段值所以无参构造方法是一定要显式地写在类里避免出现反序列化失败的情况
 - 类中成员变量再方法使用的时候, 先进行局部变量赋值, 然后对局部变量进行操作
 - 对于一些边界情况, 使用if语句再复杂逻辑开始之前进行单独处理, 避免所有情况全部进入复杂逻辑体
-- 在代码中可以多加非null判断：if((xxx = yyy.get()) != null)会增强代码的鲁棒性
+- 在代码中可以多加非null判断：if((xxx = yyy.get()) != null)会增强代码的鲁棒性；
+- 在if语句中只对确定性的条件进行判断哪怕代码比较长，否则将来扩展会出问题；同样else后尽量加上if条件判断多一重保障
 - 集合在初始化时机: 在声明的时候就初始化(很大程度避免空指针), 构造函数中构造一些创建类必要的属性, 不要做new集合这么无聊的事情
 - 熟练使用Stream流和collect()方法，常见的toList、toSet、toMap、groupingBy; 例: orderList.stream().collect(Collectors.groupingBy(Order::getOrderNo));
 - 数组转集合使用Stream.of().collect(xxx); 集合转数组xxx.toArray()
