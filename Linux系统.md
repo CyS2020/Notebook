@@ -34,3 +34,13 @@
 
 7. 系统监控命令
 - top -p xxx 查看某个进程cpu
+
+8. 安装程序
+- 1. 使用 wget 命令下载安装包
+- 2. 使用 unzip 或 tar -xvf 命令解压软件
+- 3. 使用 ./configure --prefix= 配置安装路径
+- 4. 使用 make 命令编译程序
+- 5. 使用 make install 命令安装程序
+- 6. 使用 make clean 命令删除安装时产生的临时文件。
+- 7. 使用 vim ~/.bash_profile 添加环境变量
+参考教程：https://www.cnblogs.com/hanzhi/articles/10046003.html
