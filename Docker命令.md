@@ -7,6 +7,8 @@
 - 宿主机 -> docker -> 容器实例；win10 -> VMware -> centos7 -> docker -> centos7
 
 #### 常用命令
+- `systemctl start docker` : 启动docker服务
+- `systemclt stop docker` : 关闭docker服务
 - `docker version` `docker info` `docker --help` : 帮助命令
 <br/>
 
