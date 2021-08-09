@@ -9,6 +9,8 @@
 #### 常用命令
 - `systemctl start docker` : 启动docker服务
 - `systemclt stop docker` : 关闭docker服务
+- `systemctl enable docker` : 设置开机自启动
+- `systemctl status docker` : 查看docker运行状态
 - `docker version` `docker info` `docker --help` : 帮助命令
 <br/>
 
