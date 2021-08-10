@@ -5,6 +5,7 @@
 - 类比Java可以理解为镜像就是类，容器就是实例化的对象，一个镜像可以生成多个容器实例
 - docker run 操作先本机寻找镜像文件找不到则去阿里云pull一个镜像，然后以该镜像为模板生产容器实例运行
 - 宿主机 -> docker -> 容器实例；win10 -> VMware -> centos7 -> docker -> centos7
+- 虚拟机安装完docker之后记得开启阿里云镜像加速
 
 #### 常用命令
 - `systemctl start docker` : 启动docker服务
