@@ -66,3 +66,75 @@
 
 - `docker run -it -v 宿主机绝对路径 : 容器内目录 镜像名` 实现容器和宿主机之间的数据共享
 - `docker build -f 文件路径` : 根据编写的dockerFile文件生成镜像
+
+#### 常见问题
+- docker 内部命令行模式只有 #, 
+```
+cp /etc/skel/.bash* /root/
+su
+```
+- docker 内部没有安装vim
+```
+apt-get update
+apt-get install vim
+```
+- vim 无法使用右击粘贴功能
+```
+vim /usr/share/vim/vim81/defaults.vim
+修改如下内容
+if has(‘mouse’)
+set mouse-=a
+endif
+
+注：vim81有可能是vim80之类的
+```
+
+### 常用环境配置命令
+- 安装docker: 
+```
+yum install docker
+```
+- 配置镜像加速
+```
+sudo mkdir -p /etc/docker
+sudo tee /etc/docker/daemon.json <<-'EOF'
+{
+  "registry-mirrors": ["https://x4x5z98e.mirror.aliyuncs.com"]
+}
+EOF
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+```
+- 安装mysql命令
+```
+docker pull mysql:5.7
+```
+- 启动mysql命令
+
+```
+docker run -p 3306:3306 --name mysql_scy -e MYSQL_ROOT_PASSWORD=SUchunyang -d mysql:5.7
+```
+- mysql基本配置
+```
+vim /etc/mysql/my.cnf
+增加如下内容
+[client]
+default-character-set=utf8
+[mysql]
+default-character-set=utf8
+[mysqld]
+init_connect='SET collation_connection = utf8_unicode_ci'
+init_connect='SET NAMES utf8'
+character-set-server=utf8
+collation-server=utf8_unicode_ci
+skip-character-set-client-handshake
+skip-name-resolve
+```
+- 安装redis命令
+```
+docker pull redis
+```
+- 启动redis命令
+```
+docker run -p 6379:6379 --name redis_cys -d redis redis-server --appendonly yes
+```
