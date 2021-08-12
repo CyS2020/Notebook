@@ -32,7 +32,7 @@
 - `docker logs` :  查看容器日志，-t:是加入的时间戳 -f:跟随最新的日志打印 --tail后面显示多少条
 - `docker top` : 查看容器内的进程
 - `docker inspect` : 查看容器内部细节
-- `docker exec -it` : 重新进入正在运行的容器并以命令行交互不加i就隔山打牛了 或docker attch
+- `docker exec -it` : 重新进入正在运行的容器并以命令行交互不加i就隔山打牛了 或docker attch 加sh进入
 - `docker cp 容器id 源路径 宿路径` : 容器内拷贝文件到主机上
 - `docker update mysql --restart=always` : 随docker启动而运行
 <br/>
