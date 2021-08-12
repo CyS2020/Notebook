@@ -34,6 +34,7 @@
 - `docker inspect` : 查看容器内部细节
 - `docker exec -it` : 重新进入正在运行的容器并以命令行交互不加i就隔山打牛了 或docker attch
 - `docker cp 容器id 源路径 宿路径` : 容器内拷贝文件到主机上
+- `docker update mysql --restart=always` : 随docker启动而运行
 <br/>
 
 - `docker commit ` : 提交容器副本使之成为一个新的镜像
