@@ -91,6 +91,7 @@ endif
 ```
 
 ### 常用环境配置命令
+#### Docker
 - 安装docker: 
 ```
 yum install docker
@@ -106,6 +107,7 @@ EOF
 sudo systemctl daemon-reload
 sudo systemctl restart docker
 ```
+#### MySQL
 - 安装mysql命令
 ```
 docker pull mysql:5.7
@@ -131,6 +133,7 @@ collation-server=utf8_unicode_ci
 skip-character-set-client-handshake
 skip-name-resolve
 ```
+#### Redis
 - 安装redis命令
 ```
 docker pull redis
