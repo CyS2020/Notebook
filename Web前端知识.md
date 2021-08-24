@@ -1,4 +1,4 @@
-### Web前端知识
+### ECMAScript 6
 
 #### 前后端对比
 |语言|框架|工具|项目构建|依赖管理|运行环境|
@@ -7,8 +7,8 @@
 |java jdk8,9,10|spring, springMVC|idea|maven|maven|nodejs|
 
 #### Vs code插件安装
-- Auto Close Tag; Auto Rename Tag; Chinese (Simplified); ESLint; HTML CSS Support; 
-- HTML Snippets; JavaScript (ES6) code snippets; Live Server; open in browser; Vetur;
+- Auto Close Tag; Auto Rename Tag; Chinese (Simplified); ESLint; HTML CSS Support;  Vetur; 
+- HTML Snippets; JavaScript (ES6) code snippets; Vue 2 Snippets; Live Server; open in browser;
 
 ### ECMAScript 6.0
 #### 变量声明
@@ -67,3 +67,56 @@ let age = {age : 18};
 let person = {...name, ...age}
 ```
 - 数组的map与reduce操作, 类似于java中stream的操作
+
+#### 前端的异步操作
+- 使用resolve方法将成功的结果传递下去, reject传递失败的结果
+- .then() .catch() 和 .finally() 三个方法, 这三个方法的参数都是一个函数
+```
+let p = new Promise((resolve, reject) => {
+    resolve(data);
+    reject(err);
+});
+```
+
+#### 模块化--导包
+- 使用import导入其他模块功能
+- 使用export规定模块对外接口
+
+### Vue
+#### MVVM思想
+- M: 即model, 模型, 包括数据和一些基本操作
+- V: 即view, 视图, 页面渲染结果
+- VM: 即View-Model, 模型与视图间的双向操作(无需开发人员干涉)
+- View === DOM Listeners ===> Model
+- Model === Directives ===> View
+
+#### Vue使用
+- 创建一个Vue实例, 关联页面的模板, 将自己的数据渲染到关联的模板上
+- 使用指令来简化对dom(Document Object Model)的操作. 例如: v-model; v-on;
+- 声明方法来做更复杂的操作
+- el绑定元素; data封装数据; methods封装方法
+```
+<body>
+    <div id="app">
+        <input type="text" v-model="num">
+        <button v-on:click = "num++">点赞</button>
+        <button v-on:click = "cancel">取消</button>
+        <h1> {{name}} , 非常帅 {{num}} 人为他点赞</h1>
+    </div>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                name: "张三",
+                num:1
+            },
+            methods:{
+                cancel(){
+                    this.num--;
+                }
+            }
+        });
+    </script>
+</body>
+```
