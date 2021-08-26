@@ -95,6 +95,7 @@ let p = new Promise((resolve, reject) => {
 - 使用指令来简化对dom(Document Object Model)的操作. 例如: v-model; v-on;
 - 声明方法来做更复杂的操作
 - el绑定元素; data封装数据; methods封装方法
+- {{表达式}} 该形式为插值表达式的写法,表达式必须有返回结果, 可以直接使用Vue的数据和函数
 ```
 <body>
     <div id="app">
@@ -119,4 +120,46 @@ let p = new Promise((resolve, reject) => {
         });
     </script>
 </body>
+```
+
+#### Vue指令
+- v-on : 主要用来监听dom事件，以便执行一些代码块; 还有事件修饰符及案件修饰符
+- v-model : 这个指令用于在表单上创建双向数据绑定
+- v-html : 双大括号的方式会将数据解释为纯文本
+- v-text : 主要用来更新textContent
+- v-bind : v-bind用来动态的绑定一个或者多个特性. 常用于动态绑定class和style以及href等
+- v-for : 据遍历数组来进行渲染, <ul><li>遍历操作</li></ul>写入可以构成一个无序列表
+- v-if : 可以实现条件渲染，Vue会根据表达式的值的真假条件来渲染元素; 配合v-else, v-else-if
+- v-show : 根据条件展示元素. 和v-if不同的是, 如果v-if的值是false, 则这个元素被销毁不在dom中.
+但是v-show的元素会始终被渲染并保存在dom中,它只是简单的切换css的display属性
+
+#### 侦听器与过滤器
+- 使用Vue对象里面的watch功能, 某个属性值发生变化后实时监控并给出响应的函数处理
+- 使用Vue对象里面的filters功能, 使用插值表达式的时候结合 | 管道操作符来处理数据
+
+#### 组件化
+- 全局组件, 局部组件; 全局声明直接使用, 局部需要在Vue的components里面声明下
+- Vue可以自定义组件, 复用代码; 组件其实也是一个Vue, data必须是一个函数不再是一个对象
+
+#### 生命周期钩子函数
+- beforeCreate, create, beforeMount, mounted, beforeUpdate, updated, beforeDestroy
+
+#### Vue脚手架模块开发
+- 全局安装两个依赖, 然后初始化vue项目; vue脚手架使用webpack初始化一个应用项目
+```
+npm install webpack -g
+npm install -g @vue/cli-init
+vue init webpack 应用名
+
+```
+
+### 拦路虎
+#### 前端项目npm失败
+- 缺少某种驱动或者根据提示百度下需要安装啥更新啥，一般都能解决
+
+#### vue不是内部命令
+- 安装Node.js 并使用node -v查看
+- 安装全局vue-cli 并使用 vue -V查看(V大写的哦)
+```
+npm install -g vue-cli
 ```
