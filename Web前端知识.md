@@ -128,7 +128,7 @@ let p = new Promise((resolve, reject) => {
 - v-html : 双大括号的方式会将数据解释为纯文本
 - v-text : 主要用来更新textContent
 - v-bind : v-bind用来动态的绑定一个或者多个特性. 常用于动态绑定class和style以及href等
-- v-for : 据遍历数组来进行渲染, <ul><li>遍历操作</li></ul>写入可以构成一个无序列表
+- v-for : 据遍历数组来进行渲染, `<ul><li>`遍历操作`</li></ul>`写入可以构成一个无序列表
 - v-if : 可以实现条件渲染，Vue会根据表达式的值的真假条件来渲染元素; 配合v-else, v-else-if
 - v-show : 根据条件展示元素. 和v-if不同的是, 如果v-if的值是false, 则这个元素被销毁不在dom中.
 但是v-show的元素会始终被渲染并保存在dom中,它只是简单的切换css的display属性
@@ -146,11 +146,41 @@ let p = new Promise((resolve, reject) => {
 
 #### Vue脚手架模块开发
 - 全局安装两个依赖, 然后初始化vue项目; vue脚手架使用webpack初始化一个应用项目
+- 如果一直是 downloading template 状态, 则说明需要科学上网了
+- 生成的目录结构
+    - build : 和webpack有关的打包项目的代码在这里
+    - config : 配置信息. 端口等
+    - node_modules : 当前项目的依赖
+    - src : 我们编写代码的文件夹, main.js为主程序
+    - static : 静态资源文件. 图片, 字体等
+    - 一堆配置文件, index.html为主入口页面
 ```
 npm install webpack -g
 npm install -g @vue/cli-init
 vue init webpack 应用名
+```
 
+#### 单文件组件
+- 三要素: template, script, style
+- 编写代码时候的 xxx.js 路由地址与xxx.vue文件的对应
+```
+<template>
+  <div>This will be pre-compiled</div>
+</template>
+<script src="./my-component.js"></script>
+<style src="./my-component.css"></style>
+```
+
+### Element UI
+#### Vue整合Element
+- 安装, 导入与使用
+```
+npm i element-ui
+// main.js引入element
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+// main.js使用element
+Vue.use(ElementUI);
 ```
 
 ### 拦路虎
