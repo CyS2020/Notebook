@@ -142,7 +142,7 @@ let p = new Promise((resolve, reject) => {
 - Vue可以自定义组件, 复用代码; 组件其实也是一个Vue, data必须是一个函数不再是一个对象
 
 #### 生命周期钩子函数
-- beforeCreate, create, beforeMount, mounted, beforeUpdate, updated, beforeDestroy
+- beforeCreate, create, beforeMount, mounted, beforeUpdate, updated, beforeDestroy, destroyed, activated 
 
 #### Vue脚手架模块开发
 - 全局安装两个依赖, 然后初始化vue项目; vue脚手架使用webpack初始化一个应用项目
