@@ -123,11 +123,11 @@ let p = new Promise((resolve, reject) => {
 ```
 
 #### Vue指令
-- v-on : 主要用来监听dom事件，以便执行一些代码块; 还有事件修饰符及案件修饰符
+- v-on : 主要用来监听dom事件，以便执行一些代码块; 还有事件修饰符及案件修饰符, 简写 `@`
 - v-model : 这个指令用于在表单上创建双向数据绑定
 - v-html : 双大括号的方式会将数据解释为纯文本
 - v-text : 主要用来更新textContent
-- v-bind : v-bind用来动态的绑定一个或者多个特性. 常用于动态绑定class和style以及href等
+- v-bind : v-bind用来动态的绑定一个或者多个特性. 常用于动态绑定class和style以及href等, 简写 `:`
 - v-for : 据遍历数组来进行渲染, `<ul><li>`遍历操作`</li></ul>`写入可以构成一个无序列表
 - v-if : 可以实现条件渲染，Vue会根据表达式的值的真假条件来渲染元素; 配合v-else, v-else-if
 - v-show : 根据条件展示元素. 和v-if不同的是, 如果v-if的值是false, 则这个元素被销毁不在dom中.
