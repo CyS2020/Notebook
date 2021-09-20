@@ -5,7 +5,7 @@
 - java8中的流操作reduce, 第一个参数为上次调用返回的值, 第二个参数为当前遍历到的值, 即a, b两个参数一个为旧值一个为新值
 - Boolean值进行逻辑判断时候：Boolean.FALSE.equals(), 基本数据类型boolean前面使用！即可
 - 回调函数就是编写的时候不确定的函数行为, 作为参数在调用的时候显示传参, 调用行为执行相应的操作, 回调就是个高大上的词罢了
-- String属于不可变类型, 字符串连接的时候使用StringBuilder.append().append...append();
+- String属于不可变类型, 字符串连接的时候使用StringBuilder.append().append...append(); String还有join方法内部就是使用的StringBuilder
 - 某个类中, 需要其他组合类：声明时即创建(独立功能), 构造函数中赋值(必要信息), 方法中初始化(加工信息)
 - 需要容器时, 只定义声明, 然后在一个函数中创建并填充, 然后将该容器返回给刚才的声明。例如：List<String> list = getList();
 - javaBean:1.所有属性为private; 2.提供默认的构造方法; 3.提供getter和setter; 4.实现serializable接口
