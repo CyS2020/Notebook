@@ -2,7 +2,7 @@
 - 容器之间软件隔离，共用硬件；docker为环境管理引擎，容器看做简易版的Linux环境
 - 容器的应用进程直接运行于宿主机的内核，容器内没有自己的内核，也没有进行硬件虚拟
 - docker三大特征：镜像、容器、仓库；仓库速度慢，配置阿里云镜像
-- 类比Java可以理解为镜像就是类，容器就是实例化的对象，一个镜像可以生成多个容器实例
+- 类比Java可以理解为镜像就是类，容器就是实例化的对象，一个镜像可以生成多个容器实例(run命令)
 - docker run 操作先本机寻找镜像文件找不到则去阿里云pull一个镜像，然后以该镜像为模板生产容器实例运行
 - 宿主机 -> docker -> 容器实例；win10 -> VMware -> centos7 -> docker -> centos7
 - 虚拟机安装完docker之后记得开启阿里云镜像加速
@@ -24,17 +24,19 @@
 - `docker run [OPTIONS] IMAGE [COMMAND][ARG...]` : 运行容器 OPTIONS说明 -d:后台运行 -p端口映射 -it i交互t伪终端
 - `docker ps` : 列出当前所有正在运行的容器 -a:正在运行的和历史上运行过的
 - `exit` : 退出并关闭容器，在伪终端中执行 ctrl + p + q:退出不关闭容器
-- `docker start ` : 启动所关闭的容器
+- `docker start ` : 启动所关闭的容器 注释: 容器关闭后用这个重新运行, 而不是docker run命令
 - `docker restart` : 重启正在运行的容器
 - `docker stop` : 温柔的停止，慢慢的停止
 - `docker kill` :  强制停止，立即停止
 - `docker rm` : 删除已停止的容器
 - `docker logs` :  查看容器日志，-t:是加入的时间戳 -f:跟随最新的日志打印 --tail后面显示多少条
 - `docker top` : 查看容器内的进程
+- `docker status` : 查看容器的cpu及内存占用
 - `docker inspect` : 查看容器内部细节
 - `docker exec -it` : 重新进入正在运行的容器并以命令行交互不加i就隔山打牛了 或docker attch 加sh进入
 - `docker cp 容器id 源路径 宿路径` : 容器内拷贝文件到主机上
 - `docker update mysql --restart=always` : 随docker启动而运行
+- `chmod -R 777 /xxx` : 所有用户都有可读可写可执行的改文件的权限
 <br/>
 
 - `docker commit ` : 提交容器副本使之成为一个新的镜像
@@ -141,4 +143,40 @@ docker pull redis
 - 启动redis命令
 ```
 docker run -p 6379:6379 --name redis_cys -d redis redis-server --appendonly yes
+```
+#### ElasticSearch
+- 安装elasticsearch
+```
+docker pull elasticsearch:7.4.2
+```
+- 创建实例前的准备
+```
+// 创建外部挂载文件夹
+mkdir -p /mydata/elasticsearch/config
+mkdir -p /mydata/elasticsearch/data
+mkdir -p /mydata/elasticsearch/plugins
+echo "http.host: 0.0.0.0" >> /mydata/elasticsearch/config/elasticsearch.yml
+// 保证权限
+chmod -R 777 /mydata/elasticsearch/ 
+```
+- 启动elasticsearch命令
+```
+docker run --name elasticsearch --privileged=true \
+-p 9200:9200 -p 9300:9300 \
+-e "discovery.type=single-node" \
+-e ES_JAVA_OPTS="-Xms64m -Xmx128m" \
+-v /mydata/elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml \
+-v /mydata/elasticsearch/data:/usr/share/elasticsearch/data \
+-v /mydata/elasticsearch/plugins:/usr/share/elasticsearch/plugins \
+-d elasticsearch:7.4.2
+```
+#### Kibana
+- 安装kibana
+```
+docker pull kibana:7.4.2
+```
+- 启动
+```
+// 注意HOSTS设置虚拟机的ip地址
+docker run --name kibana -e ELASTICSEARCH_HOSTS=http://192.168.0.102:9200 -p 5601:5601 -d kibana:7.4.2
 ```
