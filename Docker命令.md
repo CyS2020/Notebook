@@ -90,6 +90,14 @@ set mouse-=a
 endif
 注：vim81有可能是vim80之类的
 ```
+- docker无法做文件挂载
+```
+docker run xxx --privileged=true
+```
+- docker启动或重启容器时端口映射报错
+```
+systemctl restart docker
+```
 
 ### 常用环境配置命令
 #### Docker
