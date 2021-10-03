@@ -88,7 +88,6 @@ vim /usr/share/vim/vim81/defaults.vim
 if has(‘mouse’)
 set mouse-=a
 endif
-
 注：vim81有可能是vim80之类的
 ```
 
