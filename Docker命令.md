@@ -70,6 +70,26 @@
 - `docker run -it -v 宿主机绝对路径 : 容器内目录 镜像名` 实现容器和宿主机之间的数据共享
 - `docker build -f 文件路径` : 根据编写的dockerFile文件生成镜像
 
+#### 部署虚拟机centos7环境
+- VMware - 编辑 -虚拟网络编辑 -选择桥接模式 -桥接至主机网络适配器上
+- dhclient命令生成ip，然后修改vim /etc/sysconfig/network-scripts/ifcfg-ens33
+- ps -ef | grep dhclient 查看进程 然后 kill -9 进程id 关闭该进程
+- 配置静态ip地址，注意的是先查看主机ip地址信息然后配置ip，子网掩码，网关，dns; 虚拟机网络适配器选桥接模式(不勾选复制...)
+- 配置静态ip后, 虚拟机linux执行systemctl restart network.service就可以连接外网
+- 虚拟机上网，主机与虚拟机互相ping，才算成功；一般情况下主机都能ping通虚拟机，只是虚拟机有时候ping不通主机
+- 控制面板\网络和 Internet\网络和共享中心\高级共享设置--启用文件和打印机共享，虚拟机即可ping通主机
+- 如果还出现ping不通的情况检查下面的参数肯定写错了，检查不出来就删了从写
+- 发现数据库还是连接不上, 或者其他服务redis等通过 telnet ip port 来测试端口访问, 访问失败则关闭防火墙
+- 防火墙状态变化可能会引起docker自定义链有问题, 最好重启下docker
+```
+BOOTPROTO=static
+ONBOOT=yes
+IPADDR=192.168.0.109
+NETMASK=255.255.255.0
+GATEWAY=192.168.0.1
+DNS1=8.8.8.8
+```
+
 #### 常见问题
 - docker 内部命令行模式只有 #, 
 ```
