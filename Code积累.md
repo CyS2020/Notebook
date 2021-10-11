@@ -18,7 +18,8 @@
 - 熟练使用Stream流和collect()方法，常见的toList、toSet、toMap、groupingBy; 例: orderList.stream().collect(Collectors.groupingBy(Order::getOrderNo)); list与map互相转换
 - 数组转集合使用Stream.of().collect(xxx); 集合转数组xxx.toArray()
 - 浮点数在比较的时候不能用`>=,<=,==,!=` 需要一个eps来处理精度问题，等于与不等于特么的一定要用Math.abs(), `>, <`可以直接比较的(16位精度内)
-
+- split(" ")在分割的时候如果边界处能匹配上则如果是前边界会有一个null, 结果数组中的第一个元素为null, 后边界没有这个问题
+                                                                                          
 ### 重构代码
 - Collection接口toArray()默认返回的是Object类型的数组，且无法强转，toArray(T[] a)该接口返回的是指定类型的数组，例如传入new String[0]入参返回String数组;
 - 被强制类型转换的实例需要是强制类型转换类型的类或者其子类。String是Object的子类，但是String[]并不是Object[]的子类，所以会强转失败
