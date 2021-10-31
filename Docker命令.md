@@ -81,7 +81,7 @@
 - 如果还出现ping不通的情况检查下面的参数肯定写错了，检查不出来就删了从写
 - 发现数据库还是连接不上, 或者其他服务redis等通过 telnet ip port 来测试端口访问, 访问失败则关闭防火墙
 - 防火墙状态变化可能会引起docker自定义链有问题, 最好重启下docker
-- 如果发现ip地址互相可以ping通, 但是端口不通就重启linux系统
+- 如果发现ip地址互相可以ping通, 但是端口不通先试试getenforce与setenforce 0命令, 还不行就重启linux系统
 ```
 BOOTPROTO=static
 ONBOOT=yes
