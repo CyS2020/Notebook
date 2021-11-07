@@ -78,9 +78,9 @@
 - 配置静态ip后, 虚拟机linux执行systemctl restart network.service就可以连接外网
 - 虚拟机上网，主机与虚拟机互相ping，才算成功；一般情况下主机都能ping通虚拟机，只是虚拟机有时候ping不通主机
 - 控制面板\网络和 Internet\网络和共享中心\高级共享设置--启用文件和打印机共享，虚拟机即可ping通主机
-- 如果还出现ping不通的情况检查下面的参数肯定写错了，检查不出来就删了从写
+- 如果还出现ping不通的情况检查下面的参数肯定写错了，检查不出来就删了重写
 - 发现数据库还是连接不上, 或者其他服务redis等通过 telnet ip port 来测试端口访问, 访问失败则关闭防火墙
-- 防火墙状态变化可能会引起docker自定义链有问题, 最好重启下docker
+- 防火墙状态变化可能会引起docker自定义链有问题, 最好重启下docker(docker启动image错误)
 - 如果发现ip地址互相可以ping通, 但是端口不通先试试getenforce与setenforce 0命令, 还不行就重启linux系统
 ```
 BOOTPROTO=static
