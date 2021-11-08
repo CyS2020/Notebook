@@ -9,7 +9,7 @@
 
 #### 常用命令
 - `systemctl start docker` : 启动docker服务
-- `systemclt stop docker` : 关闭docker服务
+- `systemctl stop docker` : 关闭docker服务
 - `systemctl enable docker` : 设置开机自启动
 - `systemctl status docker` : 查看docker运行状态
 - `docker version` `docker info` `docker --help` : 帮助命令
@@ -210,6 +210,10 @@ docker run --name kibana -e ELASTICSEARCH_HOSTS=http://192.168.0.102:9200 -p 560
 ```
 
 #### nginx
+- 安装nginx
+```
+docker pull nginx:1.10
+```
 - 启动nginx
 ```
 docker run -p 80:80 --name nginx -d nginx:1.10
@@ -226,3 +230,17 @@ docker run -p 80:80 --name nginx --privileged=true \
 -v /mydata/nginx/conf:/etc/nginx \
 -d nginx:1.10
 ```
+
+#### rabbitmq
+- 安装rabbitmq
+```
+docker pull rabbitmq:management
+```
+- 启动rabbitmq
+```
+docker run --name rabbitmq -p 5671:5671 -p 5672:5672 -p 4369:4369 -p 25672:25672 -p 15671:15671 -p 15672:15672 -d rabbitmq:management
+```
+- 端口的含义
+    - 4369、25672: Erlang发现&集群端口
+    - 5672、5671: AMQP端口
+    - 15672: web管理后台端口
