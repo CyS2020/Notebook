@@ -29,3 +29,10 @@
 - direct: 单播模式, 消息中的路由键(routing key)如果和Binding中的binding key一致, 交换器就将消息发到对应的队列中, 路由键与队列名完全匹配
 - fanout: 广播模式, fanout交换器不处理路由键, 只是简单的将队列绑定到交换器上, 每个发送到交换器的消息都会被转发到与该交换器绑定的所有队列上
 - topic: 自定义模式, topic交换器通过模式匹配分配消息的路由键属性, 将路由键和某个模式进行匹配, 此时队列需要绑定到一个模式上. 单词之间用点隔开, 它同样也会识别两个通配符: # *
+
+#### 5. 消息确认
+- 可靠抵达-ConfirmCallback
+    - 消息只要被broker接收到就会执行confirmCallback, 如果是cluster模式, 需要所有broker接收到才会调用confirmCallback
+    - 被broker接收到只能表示message已经到达服务器, 并不能保证消息一定会被投递到目标queue里, 所以需要用到接下来的returnCallback
+- 可靠抵达-ReturnCallback
+    - 如果未能投递到目标queue里将调用returnCallback, 可以记录下详细到投递数据, 定期的巡检或者自动纠错都需要这些数据
