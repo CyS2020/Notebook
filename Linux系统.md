@@ -12,7 +12,7 @@
 - 常用options: -name; -iname
 
 #### 3. 检索文件内容
-- grep [options] pattern file
+- grep [options] pattern file (-A后 -B前 -C前后)
 - 管道操作符"|":可以将指令连接起来，前一个指令的输出作为后一个指令的输入
 - 只处理前一个命令正确输出，不处理错误输出
 - 右边命令必须能够接收标准输入流，否则传递过程中数据会被抛弃
@@ -33,6 +33,7 @@
 - tail -f log 实时查看日志，可以搭配 grep 使用
 
 #### 7. 系统监控命令
+- ps -ef | grep xxx 查看进程
 - top -p xxx 查看某个进程cpu
 
 #### 8. 安装程序
