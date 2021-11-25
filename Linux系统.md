@@ -45,3 +45,6 @@
 - 6. 使用 make clean 命令删除安装时产生的临时文件。
 - 7. 使用 vim ~/.bash_profile 添加环境变量
 参考教程：https://www.cnblogs.com/hanzhi/articles/10046003.html
+
+#### 9. 控制台输出到文件
+- 使用 `> filename` 将输出到控制台的内容输出到指定文件
