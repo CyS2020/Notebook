@@ -45,7 +45,12 @@
 - 使用java8中Map的新增方法来优化代码：putIfAbsent、computeIfAbsent(及时加载)、getOrDefault、computeIfPresent方法
 - 使用java8中Map的方法：put()、putIfAbsent()--返回旧值、compute()、computeIfAbsent()--返回新值
 - jacoco在覆盖率红色表示未覆盖，黄色表示部分覆盖(if不知一个判断), 绿色表示全部覆盖; 异常, if, switch算分支; 不要使用@Data注解它会将每个属性都写入equals()与hashCode()产生大量分支而拉低覆盖率
-
+- 先赋值, 再判空, 再使用; 再kw检查中有时候会考虑多线程的情况, 即使你只是串行执行的场景
+  ```
+  if(obj.getField() != null){           f = obj.getField()
+    f = obj.getField();          =>     if(f != null){
+  }                                     }  
+  ```
 ### 思考
 - Arrays.sort()无法自定义比较基本数据类型，只能使用默认的升序，可以说是非常垃圾了，对象的话可以传入比较器
 - Java与其他语言编写的程序进行tcp/ip socket通讯时，通讯内容一般都转换成byte数组型，new String(byte[] bytes) <---> getBytes()
