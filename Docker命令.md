@@ -244,3 +244,11 @@ docker run --name rabbitmq -p 5671:5671 -p 5672:5672 -p 4369:4369 -p 25672:25672
     - 4369、25672: Erlang发现&集群端口
     - 5672、5671: AMQP端口
     - 15672: web管理后台端口
+    
+#### zipkin
+- 安装zipkin
+```
+docker run -d -p 9411:9411 openzipkin/zipkin
+// 持久化启动方式
+docker run --env STORAGE_TYPE=elasticsearch --env ES_HOSTS=192.168.0.102:9200 openzipkin/zipkin-dependencies
+```
