@@ -81,7 +81,12 @@ kubeadm init --apiserver-advertise-address=192.168.0.107 --image-repository regi
 kubeadm join 192.168.0.107:6443 --token v5bld3.xx70vflfpr1nzxd6 --discovery-token-ca-cert-hash sha256:647541701bbbe6d7d50e3ed3634db3da0c834d
 ```
 
+#### 常用命令
+- `kubectl get`: 可以获取nodes; pods; services; deployments; 等信息
+- `kubectl apply`: 以文件或标准输入为准应用或更新资源, 配置pods; services; deployments;等信息
 
+#### KubeSphere
+- 默认的dashboard没啥用, 我们用kubesphere可以打通全部的devops链路。
 
 
 
