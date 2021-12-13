@@ -63,20 +63,21 @@ sysctl --system
 - kubectl: 命令行工具管理Kubernetes集群, 部署好了用该命令进行交互
 - kubelet:一个在集群中每个节点上运行的代理, 它保证容器都运行在Pod中; 负责维护容器的生命周期, 同时也负责Volume(CSI)和网络(CNI)的管理;
 
-#### 所有节点安装Docker, kubeadm, kubelet, kubectl
+#### 所有节点安装docker, kubeadm, kubelet, kubectl
 - 文档中配置docker命令修改; docker镜像加速用自己的
 ```
 # docker配置镜像源
 sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+# 安装k8s组件
+yum install -y kubelet-1.17.3 kubeadm-1.17.3 kubectl-1.17.3
 ```
 
 #### 根据文档部署K8S集群
-#### 初始化主节点命令
+- 初始化主节点命令
 ```
 kubeadm init --apiserver-advertise-address=192.168.0.107 --image-repository registry.cn-hangzhou.aliyuncs.com/google_containers --kubernetes-version v1.17.3 --service-cidr=10.96.0.0/16 --pod-network-cidr=10.244.0.0/16
 ```
-
-#### 从节点加入主节点命令
+- 从节点加入主节点命令
 ```
 kubeadm join 192.168.0.107:6443 --token v5bld3.xx70vflfpr1nzxd6 --discovery-token-ca-cert-hash sha256:647541701bbbe6d7d50e3ed3634db3da0c834d
 ```
@@ -85,9 +86,7 @@ kubeadm join 192.168.0.107:6443 --token v5bld3.xx70vflfpr1nzxd6 --discovery-toke
 - `kubectl get`: 可以获取nodes; pods; services; deployments; 等信息
 - `kubectl apply`: 以文件或标准输入为准应用或更新资源, 配置pods; services; deployments;等信息
 
-#### KubeSphere
-- 默认的dashboard没啥用, 我们用kubesphere可以打通全部的devops链路。
-
-
-
-
+#### KubeSphere可视化
+- 默认的dashboard没啥用, 我们用kubesphere可以打通全部的devops链路
+- 安装参考文档两篇: 在Kubernetes上最小化安装KubeSphere; 启用可插拔组件;
+- 主要功能: 建立多租户系统; 创建DevOps工程; 创建并部署WordPress;(快速入门文档)
