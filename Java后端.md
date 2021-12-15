@@ -35,3 +35,12 @@
 ### 11. 虚拟化/容器化
 
 -   Docker，k8s
+
+### 12. 搭建开发环境
+- jdk安装; 配置
+- git安装; 配置
+- maven安装; 配置
+- IDEA安装; 配置: 字体, 风格, 插件(One Dark Theme, SonarLint), Git, maven, 编码utf-8, java8设置, 代码提交前格式化, 引入合并, 作者日期
+- 文本编辑器: Notepad++(Json Viewer); VS Code;
+- 数据库连接: Navicat; DBeaver;
+- 远程连接: MobaXterm
