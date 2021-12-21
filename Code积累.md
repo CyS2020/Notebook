@@ -84,10 +84,12 @@
 - 在debug过程中遇见一些莫名其妙的bug的时候记得删除target重新编译
 
 ### 关于文件路径
-- Class.getResource(String path)与Class.getClassLoader.getResourceAsStream(String path) 
+- Class.getResource(String path)与 <br/>
+  Class.getResourceAsStream(String path) 
     path不以'/'开头时，默认是从此类所在的包下取资源；
     path以'/'开头时，则是从项目的ClassPath根下获取资源。在这里'/'表示ClassPath的根目录
-- Class.getClassLoader().getResource(String path)与Class.getClassLoader().getResourceAsStream(String path)
+- Class.getClassLoader().getResource(String path)与 <br/>
+  Class.getClassLoader().getResourceAsStream(String path)
     默认则是从ClassPath根下获取，path不能以'/'开头，最终是由ClassLoader获取资源。
     实际上 class.getResource("/") == class.getClassLoader().getResource("")
 - IDEA在调试过程中可以使用第一个和第二个拷贝路径，写文件时如果没有该文件则会创建文件
