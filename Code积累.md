@@ -82,6 +82,7 @@
 - TreeSet和TreeMap是用Comparator和Comparable来去重且确定存放位置, 因此能比较的属性一定具有唯一性和可比较性
 - 上述问题可以使用PriorityQueue来解决, PriorityQueue不会去重且只保证最值内部不排序, 需要手动进行操作boolean/continue来去重
 - 在debug过程中遇见一些莫名其妙的bug的时候记得删除target重新编译
+- java在获取文件路径时URI不能识别`@`, `空格`, `中文`等特殊字符会被转义
 
 ### 关于文件路径
 - Class.getResource(String path)与 <br/>
