@@ -49,9 +49,12 @@
 #### 9. 控制台输出到文件
 - 使用 `> filename` 将输出到控制台的内容输出到指定文件
 
-#### 10. 文件传输命令
+#### 10. 文件传输命令(注意文件权限)
 - `ssh ubuntu@192.168.0.100`: 远程连接到服务器上
 - `scp xxxfile ubuntu@192.168.0.100:/home/ubuntu/`: 本地传输到远程服务器
 - `scp ubuntu@192.168.0.100:/home/ubuntu/xxxfile /`: 远程服务器传输到本地
 - `docker cp /home/ubuntu/xxxfile 容器id:/`: 宿主机传输到容器内
 - `docker cp 容器id:/xxxfile /home/ubuntu/`: 容器内传输到宿主机
+
+#### 11. 显示系统环境变量
+- env 快速查看当前微服务部署的版本
