@@ -90,3 +90,7 @@ kubeadm join 192.168.0.107:6443 --token v5bld3.xx70vflfpr1nzxd6 --discovery-toke
 - 默认的dashboard没啥用, 我们用kubesphere可以打通全部的devops链路
 - 安装参考文档两篇: 在Kubernetes上最小化安装KubeSphere; 启用可插拔组件;
 - 主要功能: 建立多租户系统; 创建DevOps工程; 创建并部署WordPress;(快速入门文档)
+
+#### K8S与Zookeeper
+- k8s只是将应用部署很多份, 这些应用之间是并没有领导者与跟随者, 相对独立未能形成集群
+- Zookeeper是进行分布式协调的工具, 将多份应用管理成为一个集群, 以集群方式对外提供服务
