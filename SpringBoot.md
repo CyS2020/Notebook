@@ -22,7 +22,7 @@
 #### 容器功能
 - @Configuration
   - 配置类里面使用 @Bean 标注在方法上给容器注册组件，默认是单例
-  - 配置类本身也是组件
+  - 配置类本身也是组件，这种 @Configuration + @Bean 方式多用于注入第三方类、不是组件的类
   - proxyBeanMethods 参数设置代理 bean 的方法
     - Full(proxyBeanMethods = true)；保证每个 @Bean 方法被调用多少次返回的组件都是单实例的
     - Lite(proxyBeanMethods = false)：每个 @Bean 方法被调用多少次返回的组件都是新创建的是多实例的
@@ -33,3 +33,14 @@
   - @Import 给容器中自动创建出这两个类型的组件、默认组件的名字就是全类名
 - @Conditional
   - 满足Conditional指定的条件，则进行组件注入
+- @ImportResource
+  - 原生配置文件引入, 即老项目的beans.xml文件
+
+#### 配置绑定
+- @ConfigurationProperties(prefix = "")
+  - 指定prefix将类字段与配置文件中的前缀的字段一一绑定
+- @EnableConfigurationProperties + @ConfigurationProperties
+  - 在配置类中开启属性配置功能参数是 xxx.class, 并把 xxx.class 实例注入容器
+  - @EnableConfigurationProperties 注解的作用是让使用 @ConfigurationProperties 注解的类生效
+- @Component + @ConfigurationProperties
+  - 只有容器中的组件，才拥有springboot提供的强大功能，因此需要添加@Component

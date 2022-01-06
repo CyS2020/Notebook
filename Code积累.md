@@ -54,6 +54,7 @@
   }                                     }  
   ```
 ### 思考
+- java中有四个生成随机数的类: Random、ThreadLocalRandom、SecureRandom、Math.random()
 - Arrays.sort()无法自定义比较基本数据类型，只能使用默认的升序，可以说是非常垃圾了，对象的话可以传入比较器
 - Java与其他语言编写的程序进行tcp/ip socket通讯时，通讯内容一般都转换成byte数组型，new String(byte[] bytes) <---> getBytes()
 - 按照流是否直接与特定的地方 (如磁盘、内存、设备等) 相连，分为节点流和处理流两类。节点流可以从或向一个特定的地方（节点）读写数据；
@@ -100,6 +101,11 @@
 - Linux、Windows中无法直接访问未经解压的文件，所以就会找不到文件，jar包本质上就是一个压缩包
 - 读取jar里面的文件，我们只能用流去读取，也就是getResourceAsStream(String path)方法读取
 - 关于配置文件的读取，需要挂在jar包外面，jar包内只能读不能写，所以滚去用Spring框架吧，少造轮子了关键你也造不出来
+- ClassPath的根目录就是存放classes的那个文件夹的路径, resources目录下文件就在classes目录下, resources下的文件就从"/"开始写相对路径
+  - IDEA中class.getResource("/"): /D:/Project/SpringBoot-Demo/target/classes/
+  - IDEA中class.getResource(""): /D:/Project/SpringBoot-Demo/target/classes/com/example/demo/
+  - jar包中class.getResource("/"): file:/D:/Project/SpringBoot-Demo/target/demo-0.0.1-SNAPSHOT.jar!/BOOT-INF/classes!/
+  - jar包中class.getResource(""): file:/D:/Project/SpringBoot-Demo/target/demo-0.0.1-SNAPSHOT.jar!/BOOT-INF/classes!/com/example/demo/
 
 #### ArrayList源码
 - Object.clone()方法为浅拷贝
