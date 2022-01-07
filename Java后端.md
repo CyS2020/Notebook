@@ -43,3 +43,4 @@
 - Spring Initializr: 创建Spring项目
 - Services面板: 启动服务等
 - application.properties: 配置提示
+- SSH Session: 远程连接工具
