@@ -44,3 +44,5 @@
   - @EnableConfigurationProperties 注解的作用是让使用 @ConfigurationProperties 注解的类生效
 - @Component + @ConfigurationProperties
   - 只有容器中的组件，才拥有springboot提供的强大功能，因此需要添加@Component
+
+#### 自动配置原理
