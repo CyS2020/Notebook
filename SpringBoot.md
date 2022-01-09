@@ -1,5 +1,8 @@
 ### SpringBoot简介
 
+#### 文档网址
+- `https://www.yuque.com/atguigu/springboot/qb7hy2`
+
 #### 所处时代背景
 - 微服务
 - 分布式
@@ -39,10 +42,31 @@
 #### 配置绑定
 - @ConfigurationProperties(prefix = "")
   - 指定prefix将类字段与配置文件中的前缀的字段一一绑定
-- @EnableConfigurationProperties + @ConfigurationProperties
-  - 在配置类中开启属性配置功能参数是 xxx.class, 并把 xxx.class 实例注入容器
-  - @EnableConfigurationProperties 注解的作用是让使用 @ConfigurationProperties 注解的类生效
+- @EnableConfigurationProperties(xxx.class) + @ConfigurationProperties
+  - 在配置类中开启某属性配置功能参数是 xxx.class, 并把 xxx.class 实例注入容器
+  - @EnableConfigurationProperties 注解的作用是让使用 @ConfigurationProperties 注解的类生效: 开启某个属性的配置绑定功能并注册到容器
 - @Component + @ConfigurationProperties
-  - 只有容器中的组件，才拥有springboot提供的强大功能，因此需要添加@Component
+  - 只有容器中的组件，才拥有 springboot 提供的强大功能，因此需要添加 @Component
 
 #### 自动配置原理
+- @SpringBootApplication
+  - @SpringBootConfiguration
+    - 内部是 @Configuration 代表当前是一个配置类，类 Application 也是 SpringBoot 的一个配置类
+  - @EnableAutoConfiguration
+    - @AutoConfigurationPackage -> @Import(AutoConfigurationPackages.Registrar.class)
+      - 利用 Registrar 给容器中导入一系列组件，将指定的一个包下(Application)的所有组件导入
+      - 就是将我们编写的那些配置类进行导入，即那些使用了@Configuration注解的类，注册到容器
+    - @Import(AutoConfigurationImportSelector.class)
+      - 利用 getAutoConfigurationEntry(annotationMetadata) 给容器中批量导入一些组件
+      - 调用 List<String> configurations = getCandidateConfigurations(annotationMetadata, attributes) 获取到所有需要导入到容器中的配置类
+      - 利用工厂加载 Map<String, List<String>> loadSpringFactories(@Nullable ClassLoader classLoader) 得到所有的组件
+      - 从 META-INF/spring.factories 位置来加载一个文件。默认扫描我们当前系统里面所有(依赖) META-INF/spring.factories 位置的文件
+      - spring-boot-autoconfigure-2.6.2.jar 包里面也有 META-INF/spring.factories
+  - @ComponentScan
+    - 指定扫描的包，扫描路径，默认值扫描Application的同级和下级路径，scan可以添加上级路径
+
+#### 按需开启自动配置项
+- 虽然我们134个场景的所有自动配置启动的时候默认全部加载。xxxAutoConfiguration
+- 按照条件装配规则 (@Conditional)，最终会按需配置。加载是要的，实例化并注入到容器则按需处理
+- SpringBoot 默认会在底层配置好所有的组件，但是如果用户配置了就以用户的配置优先(@ConditionalOnMissingBean)
+- 最佳实战: 用户自己配置的话就在配置类里面使用 @Bean 自己创建该类并设置参数然后注册到容器
