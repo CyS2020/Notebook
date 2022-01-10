@@ -68,5 +68,25 @@
 #### 按需开启自动配置项
 - 虽然我们134个场景的所有自动配置启动的时候默认全部加载。xxxAutoConfiguration
 - 按照条件装配规则 (@Conditional)，最终会按需配置。加载是要的，实例化并注入到容器则按需处理
-- SpringBoot 默认会在底层配置好所有的组件，但是如果用户配置了就以用户的配置优先(@ConditionalOnMissingBean)
-- 最佳实战: 用户自己配置的话就在配置类里面使用 @Bean 自己创建该类并设置参数然后注册到容器
+- SpringBoot 默认会在底层配置好所有的组件(@ConditionalOnMissingBean)，默认都会绑定配置文件指定的值，但是如果用户配置了就以用户的配置优先
+- xxxAutoConfiguration里面的值都会从 xxxProperties.class 类中取，xxxProperties.class 又和配置文件进行了绑定
+- xxxAutoConfiguration ---> 组件  ---> xxxProperties.class里面拿值  ----> application.properties
+- 定制化配置最佳实战:
+  - 用户自己配置的话就在配置类里面使用 @Bean 自己创建该类并设置参数然后注册到容器
+  - 用户去看这个组件是获取的配置文件什么值就去配置文件中(application.properties)修改
+
+#### 最佳实践
+- 引入场景依赖
+- 查看自动配置了那些(选做)
+  - 自己分析，引入场景对应的自动配置一般都生效了
+  - 配置文件中debug=true开启自动配置报告。Negative(不生效)/Positive(生效)
+- 是否需要修改
+  - 参照文档修改配置项
+  - 自己分析，xxxProperties.class 绑定了配置文件的哪些前缀
+  - 自定义加入或者替换组件，@Bean, @Component...
+  - 自定义器 xxxCustomizer
+
+#### 开发工具
+- lombok
+- devtools
+- Spring Initializr
