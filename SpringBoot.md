@@ -89,4 +89,32 @@
 #### 开发工具
 - lombok
 - devtools
+- processor
 - Spring Initializr
+
+#### 配置提示
+```
+# 开发使用
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-configuration-processor</artifactId>
+    <optional>true</optional>
+</dependency>
+
+# 打包忽略
+<configuration>
+    <excludes>
+        <exclude>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+        </exclude>
+    </excludes>
+</configuration>
+```
+
+#### 
+- 只要静态资源放在类路径下：`/static` or `/public` or `/resources` or `/META-INF/resources`
+- 访问方式：当前项目根路径 `/ + 静态资源名`
+- 静态映射原理：请求进来，先去找 Controller 看能不能处理。不能处理的所有请求又都交给静态资源处理器。静态资源也找不到则响应 404 页面
+- 配置访问前缀 `/res/**`: `spring.mvc.static-path-pattern=/res/**`
+- 配置资源文件 `/res/**`: `spring.web.resources.static-locations=[classpath:/res]`
