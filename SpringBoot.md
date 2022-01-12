@@ -112,9 +112,26 @@
 </configuration>
 ```
 
-#### 
+#### SpringMVC静态资源(了解)
 - 只要静态资源放在类路径下：`/static` or `/public` or `/resources` or `/META-INF/resources`
 - 访问方式：当前项目根路径 `/ + 静态资源名`
 - 静态映射原理：请求进来，先去找 Controller 看能不能处理。不能处理的所有请求又都交给静态资源处理器。静态资源也找不到则响应 404 页面
 - 配置访问前缀 `/res/**`: `spring.mvc.static-path-pattern=/res/**`
 - 配置资源文件 `/res/**`: `spring.web.resources.static-locations=[classpath:/res]`
+- 欢迎页 `index.html` 和 浏览器显示图标 `favicon.ico` 放到静态文件夹 `/static` 下就可以了
+
+#### SpringMVC配置原理(了解)
+- SpringMVC功能的自动配置类 WebMvcAutoConfiguration，自动生效
+- 配置类只有一个有参构造器，有参构造器所有参数的值都会从容器中确定
+
+#### REST风格
+- @xxxMapping
+- Rest风格支持（使用HTTP请求方式动词来表示对资源的操作）
+  - 以前：`/getUser` 获取用户；`/deleteUser` 删除用户；`/editUser` 修改用户；`/saveUser` 保存用户
+  - 现在： `/user` GET-获取用户；DELETE-删除用户；PUT-修改用户；POST-保存用户
+```
+  @RequestMapping(value = "/user", method = RequestMethod.GET) = @GetMapping("/user")
+  @RequestMapping(value = "/user", method = RequestMethod.POST) = @PostMapping("/user")
+  @RequestMapping(value = "/user", method = RequestMethod.PUT) = @PutMapping("/user")
+  @RequestMapping(value = "/user", method = RequestMethod.DELETE) = @DeleteMapping("/user")
+```
