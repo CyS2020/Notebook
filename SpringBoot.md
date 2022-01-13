@@ -135,3 +135,21 @@
   @RequestMapping(value = "/user", method = RequestMethod.PUT) = @PutMapping("/user")
   @RequestMapping(value = "/user", method = RequestMethod.DELETE) = @DeleteMapping("/user")
 ```
+
+#### 请求映射原理
+- SpringMVC功能分析都从 org.springframework.web.servlet.DispatcherServlet.doDispatch() 方法开始
+- RequestMappingHandlerMapping：保存了所有 @RequestMapping 和 HandlerMethod(Controller) 的映射规则
+- 所有的请求映射都在HandlerMapping中。我们需要一些自定义的映射处理，我们也可以自己给容器中放入自定义HandlerMapping
+
+#### 请求
+- 注解方式
+  - @PathVariable（路径变量）、@RequestHeader（获取请求头）、@RequestParam（获取请求参数）、@CookieValue（获取cookie值）、
+  - @RequestBody（获取请求体【POST】）、@RequestAttribute（获取request域属性）、@MatrixVariable（矩阵变量）、@ModelAttribute
+  - URL中使用`{}`占位符使用@PathVariable；`?, &`组成的K-V使用@RequestParam；`;`后组成的K-V使用@MatrixVariable
+- Servlet API
+  - WebRequest、ServletRequest、MultipartRequest、 HttpSession、javax.servlet.http.PushBuilder、Principal
+  - InputStream、Reader、HttpMethod、Locale、TimeZone、ZoneId
+- 复杂参数
+  - Map、Model（map、model里面的数据会被放在request的请求域  request.setAttribute）
+  - Errors/BindingResult、RedirectAttributes（ 重定向携带数据）
+  - ServletResponse（response）、SessionStatus、UriComponentsBuilder、ServletUriComponentsBuilder
