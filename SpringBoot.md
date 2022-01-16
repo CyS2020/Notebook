@@ -140,11 +140,23 @@
 - SpringMVC功能分析都从 org.springframework.web.servlet.DispatcherServlet.doDispatch() 方法开始
 - RequestMappingHandlerMapping：保存了所有 @RequestMapping 和 HandlerMethod(Controller) 的映射规则
 - 所有的请求映射都在HandlerMapping中。我们需要一些自定义的映射处理，我们也可以自己给容器中放入自定义HandlerMapping
+- HandlerMapping中找到能处理请求的Handler(Controller.method())为当前Handler 找一个适配器 HandlerAdapter
+- RequestMappingHandlerAdapter：支持方法上标注@RequestMapping的Handler，我们也可以自己给容器中放入自定义HandlerAdapter
+- 执行Handler方法前需要确定将要执行的目标方法的每一个参数的值是什么，参数解析器-HandlerMethodArgumentResolver
+- SpringMVC目标方法能写多少种参数类型。取决于参数解析器。默认有26个（不同版本略有区别）
+- Handler方法的返回值能多少种类型取决于，返回值处理器-HandlerMethodReturnValueHandler。默认15个
+- Handler方法参数也可以传入Servlet API来作为参数，HttpServletRequest参数使用了ServletRequestMethodArgumentResolver来解析
 
 #### 请求
 - 注解方式
-  - @PathVariable（路径变量）、@RequestHeader（获取请求头）、@RequestParam（获取请求参数）、@CookieValue（获取cookie值）、
-  - @RequestBody（获取请求体【POST】）、@RequestAttribute（获取request域属性）、@MatrixVariable（矩阵变量）、@ModelAttribute
+  - @RequestParam（获取请求参数）
+  - @PathVariable（路径变量）
+  - @RequestBody（获取请求体【POST】）
+  - @RequestHeader（获取请求头）
+  - @CookieValue（获取cookie值）
+  - @MatrixVariable（矩阵变量）
+  - @RequestAttribute（获取request域属性）
+  - @ModelAttribute（获取Model中的属性）
   - URL中使用`{}`占位符使用@PathVariable；`?, &`组成的K-V使用@RequestParam；`;`后组成的K-V使用@MatrixVariable
 - Servlet API
   - WebRequest、ServletRequest、MultipartRequest、 HttpSession、javax.servlet.http.PushBuilder、Principal
