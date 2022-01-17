@@ -147,7 +147,7 @@
 - Handler方法的返回值能多少种类型取决于，返回值处理器-HandlerMethodReturnValueHandler。默认15个
 - Handler方法参数也可以传入Servlet API来作为参数，HttpServletRequest参数使用了ServletRequestMethodArgumentResolver来解析
 
-#### 请求
+#### Controller接收请求
 - 注解方式
   - @RequestParam（获取请求参数）
   - @PathVariable（路径变量）
@@ -162,6 +162,13 @@
   - WebRequest、ServletRequest、MultipartRequest、 HttpSession、javax.servlet.http.PushBuilder、Principal
   - InputStream、Reader、HttpMethod、Locale、TimeZone、ZoneId
 - 复杂参数
-  - Map、Model（map、model里面的数据会被放在request的请求域  request.setAttribute）
+  - Map、Model（map、model里面的数据会被放在request的请求域  request.setAttribute() ）
+  - 目标方法执行完成将所有的数据都放在 ModelAndViewContainer；包含要去的页面地址View。还包含Model数据。
   - Errors/BindingResult、RedirectAttributes（ 重定向携带数据）
   - ServletResponse（response）、SessionStatus、UriComponentsBuilder、ServletUriComponentsBuilder
+- 自定义对象参数
+  - 可以自动类型转换与格式化，可以级联封装。
+  - WebDataBinder 利用它里面的 Converters 将请求数据转成指定的数据类型。再次封装到JavaBean中
+- 原生请求
+  - HttpServletRequest
+  - HttpServletResponse
