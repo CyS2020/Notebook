@@ -146,6 +146,10 @@
 - SpringMVC目标方法能写多少种参数类型。取决于参数解析器。默认有26个（不同版本略有区别）
 - Handler方法的返回值能多少种类型取决于，返回值处理器-HandlerMethodReturnValueHandler。默认15个
 - Handler方法参数也可以传入Servlet API来作为参数，HttpServletRequest参数使用了ServletRequestMethodArgumentResolver来解析
+- 调用Handler(Controller.method()) 方法进行业务处理
+- 判断返回值处理器是否支持这种类型返回值 supportsReturnType；返回值处理器调用 handleReturnValue 进行处理
+- RequestResponseBodyMethodProcessor 可以处理返回值标了 @ResponseBody 注解的
+- 
 
 #### Controller接收请求
 - 注解方式
@@ -172,3 +176,20 @@
 - 原生请求
   - HttpServletRequest
   - HttpServletResponse
+
+#### Controller返回结果
+- ModelAndView
+- Model
+- View
+- ResponseEntity
+- ResponseBodyEmitter
+- StreamingResponseBody
+- HttpEntity
+- HttpHeaders
+- Callable
+- DeferredResult
+- ListenableFuture
+- CompletionStage
+- WebAsyncTask
+- 有 @ModelAttribute 且为对象类型的
+- @ResponseBody 注解 --返回值处理器器--> RequestResponseBodyMethodProcessor；
