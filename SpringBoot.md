@@ -57,11 +57,11 @@
       - 利用 Registrar 给容器中导入一系列组件，将指定的一个包下(Application)的所有组件导入
       - 就是将我们编写的那些配置类进行导入，即那些使用了@Configuration注解的类，注册到容器
     - @Import(AutoConfigurationImportSelector.class)
-      - 利用 getAutoConfigurationEntry(annotationMetadata) 给容器中批量导入一些组件
-      - 调用 List<String> configurations = getCandidateConfigurations(annotationMetadata, attributes) 获取到所有需要导入到容器中的配置类
-      - 利用工厂加载 Map<String, List<String>> loadSpringFactories(@Nullable ClassLoader classLoader) 得到所有的组件
+      - 利用 getAutoConfigurationEntry(annotationMetadata) 给容器中批量导入一些组件；默认134个组件
+      - 内部进入利用工厂加载 Map<String, List<String>> loadSpringFactories(@Nullable ClassLoader classLoader) 得到所有的组件
       - 从 META-INF/spring.factories 位置来加载一个文件。默认扫描我们当前系统里面所有(依赖) META-INF/spring.factories 位置的文件
-      - spring-boot-autoconfigure-2.6.2.jar 包里面也有 META-INF/spring.factories
+      - 文件里面写死了spring-boot一启动就要给容器中加载的所有配置类；将这些文件中所声明的配置类全部加载到容器中(只加载未实例化)
+      - 例如spring-boot-autoconfigure-2.6.2.jar 包里面就有 META-INF/spring.factories
   - @ComponentScan
     - 指定扫描的包，扫描路径，默认值扫描Application的同级和下级路径，scan可以添加上级路径
 
@@ -70,7 +70,7 @@
 - 按照条件装配规则 (@Conditional)，最终会按需配置。加载是要的，实例化并注入到容器则按需处理
 - SpringBoot 默认会在底层配置好所有的组件(@ConditionalOnMissingBean)，默认都会绑定配置文件指定的值，但是如果用户配置了就以用户的配置优先
 - xxxAutoConfiguration里面的值都会从 xxxProperties.class 类中取，xxxProperties.class 又和配置文件进行了绑定
-- xxxAutoConfiguration ---> 组件  ---> xxxProperties.class里面拿值  ----> application.properties
+- xxxAutoConfiguration ---> 导入组件 ---> xxxProperties.class里面拿值 ----> application.properties配置值
 - 定制化配置最佳实战:
   - 用户自己配置的话就在配置类里面使用 @Bean 自己创建该类并设置参数然后注册到容器
   - 用户去看这个组件是获取的配置文件什么值就去配置文件中(application.properties)修改
@@ -126,7 +126,7 @@
 
 #### REST风格
 - @xxxMapping
-- Rest风格支持（使用HTTP请求方式动词来表示对资源的操作）
+- Rest风格支持(使用HTTP请求方式动词来表示对资源的操作)
   - 以前：`/getUser` 获取用户；`/deleteUser` 删除用户；`/editUser` 修改用户；`/saveUser` 保存用户
   - 现在： `/user` GET-获取用户；DELETE-删除用户；PUT-修改用户；POST-保存用户
 ```
@@ -143,33 +143,34 @@
 - HandlerMapping中找到能处理请求的Handler(Controller.method())为当前Handler 找一个适配器 HandlerAdapter
 - RequestMappingHandlerAdapter：支持方法上标注@RequestMapping的Handler，我们也可以自己给容器中放入自定义HandlerAdapter
 - 执行Handler方法前需要确定将要执行的目标方法的每一个参数的值是什么，参数解析器-HandlerMethodArgumentResolver
-- SpringMVC目标方法能写多少种参数类型。取决于参数解析器。默认有26个（不同版本略有区别）
+- SpringMVC目标方法能写多少种参数类型。取决于参数解析器。默认有26个(不同版本略有区别)
 - Handler方法的返回值能多少种类型取决于，返回值处理器-HandlerMethodReturnValueHandler。默认15个
 - Handler方法参数也可以传入Servlet API来作为参数，HttpServletRequest参数使用了ServletRequestMethodArgumentResolver来解析
+- 参数解析器内部利用 MessageConverters(MappingJackson2HttpMessageConverter) 将json数据转为接收确定的参数类型
 - 调用Handler(Controller.method()) 方法进行业务处理
-- 判断返回值处理器是否支持这种类型返回值 supportsReturnType；返回值处理器调用 handleReturnValue 进行处理
+- 判断返回值处理器是否支持这种类型返回值 supportsReturnType()；返回值处理器调用 handleReturnValue() 进行处理
 - RequestResponseBodyMethodProcessor 可以处理返回值标了 @ResponseBody 注解的
-- 
+- 返回值处理器内部利用 MessageConverters(MappingJackson2HttpMessageConverter) 进行处理将数据写为json
 
 #### Controller接收请求
 - 注解方式
-  - @RequestParam（获取请求参数）
-  - @PathVariable（路径变量）
-  - @RequestBody（获取请求体【POST】）
-  - @RequestHeader（获取请求头）
-  - @CookieValue（获取cookie值）
-  - @MatrixVariable（矩阵变量）
-  - @RequestAttribute（获取request域属性）
-  - @ModelAttribute（获取Model中的属性）
+  - @RequestParam(获取请求参数)
+  - @PathVariable(路径变量)
+  - @RequestBody(获取请求体【POST】)
+  - @RequestHeader(获取请求头)
+  - @CookieValue(获取cookie值)
+  - @MatrixVariable(矩阵变量)
+  - @RequestAttribute(获取request域属性)
+  - @ModelAttribute(获取Model中的属性)
   - URL中使用`{}`占位符使用@PathVariable；`?, &`组成的K-V使用@RequestParam；`;`后组成的K-V使用@MatrixVariable
 - Servlet API
   - WebRequest、ServletRequest、MultipartRequest、 HttpSession、javax.servlet.http.PushBuilder、Principal
   - InputStream、Reader、HttpMethod、Locale、TimeZone、ZoneId
 - 复杂参数
-  - Map、Model（map、model里面的数据会被放在request的请求域  request.setAttribute() ）
+  - Map、Model(map、model里面的数据会被放在request的请求域  request.setAttribute())
   - 目标方法执行完成将所有的数据都放在 ModelAndViewContainer；包含要去的页面地址View。还包含Model数据。
-  - Errors/BindingResult、RedirectAttributes（ 重定向携带数据）
-  - ServletResponse（response）、SessionStatus、UriComponentsBuilder、ServletUriComponentsBuilder
+  - Errors/BindingResult、RedirectAttributes(重定向携带数据)
+  - ServletResponse(response)、SessionStatus、UriComponentsBuilder、ServletUriComponentsBuilder
 - 自定义对象参数
   - 可以自动类型转换与格式化，可以级联封装。
   - WebDataBinder 利用它里面的 Converters 将请求数据转成指定的数据类型。再次封装到JavaBean中
@@ -192,4 +193,21 @@
 - CompletionStage
 - WebAsyncTask
 - 有 @ModelAttribute 且为对象类型的
-- @ResponseBody 注解 --返回值处理器器--> RequestResponseBodyMethodProcessor；
+- @ResponseBody 注解 --返回值处理器器--> RequestResponseBodyMethodProcessor
+
+#### 内容协商
+- 判断当前响应头中是否已经有确定的媒体类型。MediaType；没有前置拦截过程就为null
+- 获取客户端(PostMan、浏览器)支持接收的内容类型。(获取客户端Accept请求头字段)
+- 遍历循环所有当前系统的 MessageConverter，看谁支持操作这个对象(Person)
+- 找到支持操作返回值类型(Person)的converter，把converter支持的媒体类型统计出来
+- 客户端需要【application/xml】。服务端能力【10种、json、xml】
+- 进行内容协商的最佳匹配媒体类型，并调用对应的converter进行转化
+- 可以再代码中自定义内容协商策略，通过给容器中注册一个WebMvcConfigurer类，并复写对应的方法
+```
+# 开启浏览器参数方式内容协商功能
+spring:
+  contentnegotiation:
+    favor-parameter: true  
+```
+
+#### 定制化MVC功能--WebMvcConfigurer
