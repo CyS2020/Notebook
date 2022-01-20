@@ -210,4 +210,7 @@ spring:
     favor-parameter: true  
 ```
 
+#### springMVC相关知识(了解)
+- 登录成功后重定向到主页，重定向可以防止表单重复提交
+
 #### 定制化MVC功能--WebMvcConfigurer
