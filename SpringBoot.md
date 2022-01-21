@@ -140,7 +140,7 @@
 - SpringMVC功能分析都从 org.springframework.web.servlet.DispatcherServlet.doDispatch() 方法开始
 - RequestMappingHandlerMapping：保存了所有 @RequestMapping 和 HandlerMethod(Controller) 的映射规则
 - 所有的请求映射都在HandlerMapping中。我们需要一些自定义的映射处理，我们也可以自己给容器中放入自定义HandlerMapping
-- HandlerMapping中找到能处理请求的Handler(Controller.method())为当前Handler 找一个适配器 HandlerAdapter
+- HandlerMapping中找到能处理请求的Handler(Controller.method())为当前Handler找一个适配器HandlerAdapter
 - RequestMappingHandlerAdapter：支持方法上标注@RequestMapping的Handler，我们也可以自己给容器中放入自定义HandlerAdapter
 - 执行Handler方法前需要确定将要执行的目标方法的每一个参数的值是什么，参数解析器-HandlerMethodArgumentResolver
 - SpringMVC目标方法能写多少种参数类型。取决于参数解析器。默认有26个(不同版本略有区别)
@@ -162,6 +162,7 @@
   - @MatrixVariable(矩阵变量)
   - @RequestAttribute(获取request域属性)
   - @ModelAttribute(获取Model中的属性)
+  - @RequestPart(获取请求文件，封装为MultipartFile)
   - URL中使用`{}`占位符使用@PathVariable；`?, &`组成的K-V使用@RequestParam；`;`后组成的K-V使用@MatrixVariable
 - Servlet API
   - WebRequest、ServletRequest、MultipartRequest、 HttpSession、javax.servlet.http.PushBuilder、Principal
@@ -210,7 +211,31 @@ spring:
     favor-parameter: true  
 ```
 
+#### 拦截器使用
+- HandlerInterceptor接口
+  - preHandle: 目标方法执行之前，拦截放行规则，返回boolean值
+  - postHandle: 目标方法执行之后，还未到达页面之前
+  - afterCompletion: 页面渲染完之后，即整个请求处理完成后
+- 编写一个拦截器配置类实现HandlerInterceptor接口，实现拦截放行规则
+- 定制化MVC功能，复写addInterceptors()方法
+- 将编写好的拦截器配置类添加到该方法的入参中，即registry--拦截器注册中心
+- 配置拦截器规则，拦截哪些请求(addPathPatterns)，放行那些请求(excludePathPatterns)
+
+#### 拦截器原理
+- 根据当前请求，找到HandlerExecutionChain【可以处理请求的handler以及handler的所有拦截器】
+- 先来顺序执行所有拦截器的preHandle方法
+  - 如果当前拦截器preHandler返回为true。则执行下一个拦截器的preHandle
+  - 如果当前拦截器返回为false。直接倒序执行所有已经执行了的拦截器的afterCompletion
+- 如果任何一个拦截器返回false。直接跳出不执行目标方法
+- 所有拦截器都返回True。执行目标方法
+- 倒序执行所有拦截器的postHandle方法
+- 前面的步骤有任何异常都会直接倒序触发afterCompletion
+- 页面成功渲染完成以后，也会倒序触发afterCompletion
+
+#### 文件上传
+
 #### springMVC相关知识(了解)
 - 登录成功后重定向到主页，重定向可以防止表单重复提交
 
 #### 定制化MVC功能--WebMvcConfigurer
+- 编写配置类实现WebMvcConfigurer接口
