@@ -231,8 +231,11 @@ spring:
 - 倒序执行所有拦截器的postHandle方法
 - 前面的步骤有任何异常都会直接倒序触发afterCompletion
 - 页面成功渲染完成以后，也会倒序触发afterCompletion
+![拦截器原理](https://github.com/CyS2020/Notebook/blob/master/images/%E6%8B%A6%E6%88%AA%E5%99%A8%E5%8E%9F%E7%90%86.png?raw=true)
 
 #### 文件上传
+- 文件上传自动配置类 - MultipartAutoConfiguration - MultipartProperties
+- 自动配置好了 StandardServletMultipartResolver【文件上传解析器】
 
 #### springMVC相关知识(了解)
 - 登录成功后重定向到主页，重定向可以防止表单重复提交
