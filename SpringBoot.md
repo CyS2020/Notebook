@@ -237,6 +237,22 @@ spring:
 - 文件上传自动配置类 - MultipartAutoConfiguration - MultipartProperties
 - 自动配置好了 StandardServletMultipartResolver【文件上传解析器】
 
+#### 异常处理
+- 默认情况下，SpringBoot提供 `/error` 处理所有错误的映射
+- 对于机器客户端，它将生成JSON响应，其中包含错误，HTTP状态和异常消息的详细信息
+- 对于浏览器客户端，响应一个 "whitelabel" 错误视图，以HTML格式呈现相同的数据
+- ErrorMvcAutoConfiguration自动配置异常处理规则
+
+#### 定制错误处理逻辑
+- DefaultErrorAttributes先来处理异常。把异常信息保存到request域，并且返回null
+- /error请求。会被底层的BasicErrorController处理，遍历到默认的DefaultErrorViewResolver，作用是把响应状态码作为错误页的地址，例如error/500.html
+- error/404.html error/5xx.html；有精确的错误状态码页面就匹配精确，没有就找4xx.html；如果都没有就触发白页
+- @ControllerAdvice + @ExceptionHandler处理全局异常；底层是ExceptionHandlerExceptionResolver支持的 -- (推荐)
+- @ResponseStatus + 自定义异常；使用时controller抛出该自定义异常；底层是ResponseStatusExceptionResolver，把@ResponseStatus注解的信息底层调用response.sendError(statusCode, resolvedReason)；tomcat发送的/error
+- Spring底层的异常，如参数类型转换异常；DefaultHandlerExceptionResolver处理框架底层的异常，调用response.sendError(HttpServletResponse.SC_BAD_REQUEST, ex.getMessage());
+- 自定义实现HandlerExceptionResolver处理异常；可以作为的全局异常处理规则
+![系统默认异常解析器](https://github.com/CyS2020/Notebook/blob/master/images/%E7%B3%BB%E7%BB%9F%E9%BB%98%E8%AE%A4%E5%BC%82%E5%B8%B8%E8%A7%A3%E6%9E%90%E5%99%A8.png?raw=true)
+
 #### springMVC相关知识(了解)
 - 登录成功后重定向到主页，重定向可以防止表单重复提交
 
