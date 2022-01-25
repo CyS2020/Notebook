@@ -203,7 +203,7 @@
 - 找到支持操作返回值类型(Person)的converter，把converter支持的媒体类型统计出来
 - 客户端需要【application/xml】。服务端能力【10种、json、xml】
 - 进行内容协商的最佳匹配媒体类型，并调用对应的converter进行转化
-- 可以再代码中自定义内容协商策略，通过给容器中注册一个WebMvcConfigurer类，并复写对应的方法
+- 可以在代码中自定义内容协商策略，通过给容器中注册一个WebMvcConfigurer类，并复写对应的方法
 ```
 # 开启浏览器参数方式内容协商功能
 spring:
@@ -253,8 +253,27 @@ spring:
 - 自定义实现HandlerExceptionResolver处理异常；可以作为的全局异常处理规则
 ![系统默认异常解析器](https://github.com/CyS2020/Notebook/blob/master/images/%E7%B3%BB%E7%BB%9F%E9%BB%98%E8%AE%A4%E5%BC%82%E5%B8%B8%E8%A7%A3%E6%9E%90%E5%99%A8.png?raw=true)
 
+#### Web原生组件注入（Servlet、Filter、Listener）
+- 使用Servlet API
+  - @ServletComponentScan(basePackages = "xxx"): 指定原生Servlet组件都放在那里
+  - @WebServlet(urlPatterns = "/my"): tomcat直接响应，遵循url精确匹配原则
+  - @WebFilter(urlPatterns={"/css/*","/images/*"}): 拦截修改请求/响应
+  - @WebListener: 监听某种事件，通过回调函数，反馈给程序去做一些响应的处理
+- 使用RegistrationBean
+  - ServletRegistrationBean
+  - FilterRegistrationBean
+  - ServletListenerRegistrationBean
+
+#### 嵌入式Servlet容器
+- 默认支持的webServer, Tomcat, Jetty, Undertow
+- ServletWebServerApplicationContext容器启动寻找ServletWebServerFactory并引导创建服务器
+- 内嵌服务器，就是手动调用启动服务器的代码（前提是tomcat核心jar包已经依赖）
+- 定制Servlet容器
+  - 修改配置文件对应的属性ServerProperties.class
+  - 直接自定义 ConfigurableServletWebServerFactory
+  - WebServerFactoryCustomizer程序化定制
+
 #### springMVC相关知识(了解)
 - 登录成功后重定向到主页，重定向可以防止表单重复提交
-
-#### 定制化MVC功能--WebMvcConfigurer
-- 编写配置类实现WebMvcConfigurer接口
+- 定制化MVC功能--WebMvcConfigurer
+  - 编写配置类实现WebMvcConfigurer接口
