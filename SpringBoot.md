@@ -275,5 +275,22 @@ spring:
 
 #### springMVC相关知识(了解)
 - 登录成功后重定向到主页，重定向可以防止表单重复提交
-- 定制化MVC功能--WebMvcConfigurer
-  - 编写配置类实现WebMvcConfigurer接口
+
+#### 定制化原理
+- 修改配置文件
+- 使用xxxCustomizer定制
+- 编写自定义的配置类 xxxConfiguration + @Bean 替换、增加容器中默认组件
+- 定制化Web功能：编写配置类实现WebMvcConfigurer接口即可定制web功能 + @Bean扩展组件 --（推荐）
+- @EnableWebMvc + WebMvcConfigurer + @Bean 可以全面接管SpringMVC，所有规则全部自己配置，实现定制和扩展功能
+- 原理分析套路：**场景starter** -> xxxAutoConfiguration -> @Bean导入xxx组件 -> **绑定xxxProperties**
+
+#### 数据访问
+- 数据源自动配置HikariDataSource
+- 官方不导入驱动因为官方不知道我们接下要操作什么数据库
+```
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-jdbc</artifactId>
+</dependency>
+```
+![数据源配置](https://github.com/CyS2020/Notebook/blob/master/images/%E6%95%B0%E6%8D%AE%E6%BA%90%E9%85%8D%E7%BD%AE.png?raw=true)

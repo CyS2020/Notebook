@@ -57,4 +57,4 @@
 - `docker cp 容器id:/xxxfile /home/ubuntu/`: 容器内传输到宿主机
 
 #### 11. 显示系统环境变量
-- env 快速查看当前微服务部署的版本
+- env | grep VER 快速查看当前微服务部署的版本
