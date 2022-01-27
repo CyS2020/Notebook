@@ -10,7 +10,7 @@
 ### 4. 设计模式
 
 ### 5. Java 开发框架
--   Spring Boot / Spring + SpringMvc + MyBatis
+-   Spring Boot / Spring + SpringMVC + MyBatis
 
 ### 6. 数据库技术
 -   MySQL，Redis/mongodb

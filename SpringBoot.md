@@ -294,3 +294,26 @@ spring:
 </dependency>
 ```
 ![数据源配置](https://github.com/CyS2020/Notebook/blob/master/images/%E6%95%B0%E6%8D%AE%E6%BA%90%E9%85%8D%E7%BD%AE.png?raw=true)
+- 使用Druid数据源DruidDataSource
+- DruidDataSourceAutoConfigure自动配置类；配置项：spring.datasource
+  - DruidSpringAopConfiguration: 监控SpringBean的；配置项：spring.datasource.druid.aop-patterns
+  - DruidStatViewServletConfiguration: 监控页的配置：spring.datasource.druid.stat-view-servlet；默认开启
+  - DruidWebStatFilterConfiguration: web监控配置；spring.datasource.druid.web-stat-filter；默认开启
+  - DruidFilterConfiguration: 所有Druid自己filter的配置
+```
+<dependency>
+    <groupId>com.alibaba</groupId>
+    <artifactId>druid-spring-boot-starter</artifactId>
+</dependency>
+```
+
+#### 整合MyBatis操作
+- 数据源和ORM功能不同，数据源提供访问数据库，监控SQL等功能
+- MybatisAutoConfiguration自动配置类；配置项：mybatis
+```
+<dependency>
+    <groupId>org.mybatis.spring.boot</groupId>
+    <artifactId>mybatis-spring-boot-starter</artifactId>
+</dependency>
+```
+![mybatis包依赖](https://github.com/CyS2020/Notebook/blob/master/images/mybatis%E5%8C%85%E4%BE%9D%E8%B5%96.png?raw=true)
