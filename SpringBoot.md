@@ -284,7 +284,7 @@ spring:
 - @EnableWebMvc + WebMvcConfigurer + @Bean 可以全面接管SpringMVC，所有规则全部自己配置，实现定制和扩展功能
 - 原理分析套路：**场景starter** -> xxxAutoConfiguration -> @Bean导入xxx组件 -> **绑定xxxProperties**
 
-#### 数据访问
+#### 数据源
 - 数据源自动配置HikariDataSource
 - 官方不导入驱动因为官方不知道我们接下要操作什么数据库
 ```
@@ -309,7 +309,11 @@ spring:
 
 #### 整合MyBatis操作
 - 数据源和ORM功能不同，数据源提供访问数据库，监控SQL等功能
-- MybatisAutoConfiguration自动配置类；配置项：mybatis
+- MybatisAutoConfiguration自动配置类；配置项绑定类：MybatisProperties；配置项：mybatis
+- 导入mybatis官方starter，在application.yml配置mysql相关配置信息
+- 配置@MapperScan扫描的包路径(项目启动类)
+- 配置classpath扫描的xml文件路径(配置文件)
+- 编写接口并添加@Mapper(若配置了@MapperScan可省略)注解，编写sql映射文件并绑定到mapper接口
 ```
 <dependency>
     <groupId>org.mybatis.spring.boot</groupId>
@@ -317,3 +321,13 @@ spring:
 </dependency>
 ```
 ![mybatis包依赖](https://github.com/CyS2020/Notebook/blob/master/images/mybatis%E5%8C%85%E4%BE%9D%E8%B5%96.png?raw=true)
+
+#### 整合Mybatis-Plus
+- MybatisPlusAutoConfiguration自动配置类；配置项绑定类：MybatisPlusProperties；配置项：mybatis-plus
+- 只需要我们的Mapper接口(Dao层接口)继承`BaseMapper接口`就可以拥有crud能力
+```
+<dependency>
+    <groupId>com.baomidou</groupId>
+    <artifactId>mybatis-plus-boot-starter</artifactId> 
+</dependency>
+```
