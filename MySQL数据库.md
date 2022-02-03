@@ -105,7 +105,7 @@
 - limit(每页显示的条数)两个参数去分页查询数据库表中的数据，那我们知道MySql数据库提供了分页的函数limit m,n
 - 客户端通过传递pageNo(页码)，pageSize(每页显示的条数)两个参数去分页查询数据库表中的数据;
 - 对应的MySQL命令如：select * from 表 limit (pageNo-1) * pageSize, pageSize; 
-(pageNo-1) * pageSize表示数据库查询的起始位置，pageSize从数据库某个位置往后查询的区间长度；该区间可能没有符合条件的值
+(pageNo-1) * pageSize表示数据库查询的起始位置，pageSize从数据库某个位置往后查询的区间长度；
 - sql语句先执行select查询, 再执行where过滤, 再进行limit分页
  
 #### 16. 回表查询
