@@ -332,3 +332,12 @@ spring:
     <artifactId>mybatis-plus-boot-starter</artifactId> 
 </dependency>
 ```
+
+#### 整合redis
+- RedisAutoConfiguration自动配置类；配置项绑定类：
+```
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-redis</artifactId>
+</dependency>
+```
