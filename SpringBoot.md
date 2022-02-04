@@ -337,7 +337,6 @@ spring:
 - RedisAutoConfiguration自动配置类；配置项绑定类：RedisProperties.class；配置项：spring.redis
 - redis连接工厂：LettuceConnectionConfiguration、JedisConnectionConfiguration 使用jedis客户端
 - RedisTemplate，StringRedisTemplate连接redis，JdbcTemplate连接mysql；整合第三方连接工具xxxTemplate
-- 
 ```
 <dependency>
     <groupId>org.springframework.boot</groupId>
