@@ -374,3 +374,9 @@ spring:
   - jar包当前目录
   - jar包当前目录的config目录
   - /config子目录的直接子目录
+- 配置文件加载顺序
+  - 当前jar包内部的application.properties和application.yml
+  - 当前jar包内部的application-{profile}.properties 和 application-{profile}.yml
+  - 引用的外部jar包的application.properties和application.yml
+  - 引用的外部jar包的application-{profile}.properties 和 application-{profile}.yml
+- 指定环境优先，外部优先，后面的可以覆盖前面的同名配置项
