@@ -348,3 +348,14 @@ spring:
 - SpringBoot 2.4 以上版本移除了默认对 Vintage 的依赖。如果需要兼容junit4需要自行引入
 - 了解常用注解：`https://junit.org/junit5/docs/current/user-guide/#writing-tests-annotations`
 ![Junit5框架](https://github.com/CyS2020/Notebook/blob/master/images/JUnit5%E6%A1%86%E6%9E%B6.png?raw=true)
+  
+#### 指标监控SpringBoot Actuator
+- Actuator场景，使得我们每个微服务快速引用即可获得生产级别的应用监控、审计等功能；参与线上管理的功能
+- EndPoint监控端点：默认以JMX方式暴露，需要配置以Web方式暴露所有端点
+- 最常用的EndPoint：Health(监控状况)，Metrics(运行时指标)，Loggers(日志记录)
+```
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-actuator</artifactId>
+</dependency>
+```
