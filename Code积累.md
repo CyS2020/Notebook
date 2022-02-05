@@ -102,7 +102,7 @@
 - Linux、Windows中无法直接访问未经解压的文件，所以就会找不到文件，jar包本质上就是一个压缩包
 - 读取jar里面的文件，我们只能用流去读取，也就是getResourceAsStream(String path)方法读取
 - 关于配置文件的读取，需要挂在jar包外面，jar包内只能读不能写，所以滚去用Spring框架吧，少造轮子了
-- ClassPath的根目录就是存放classes的那个文件夹的路径, resources目录下文件就在classes目录下, resources下的文件就从"/"开始写相对路径
+- ClassPath的根目录就是存放classes的那个文件夹的路径, java和resources里的内容就在根目录下, resources下的文件就从"/"开始写相对路径
   - IDEA中class.getResource("/"): /D:/Project/SpringBoot-Demo/target/classes/
   - IDEA中class.getResource(""): /D:/Project/SpringBoot-Demo/target/classes/com/example/demo/
   - jar包中class.getResource("/"): file:/D:/Project/SpringBoot-Demo/target/demo-0.0.1-SNAPSHOT.jar!/BOOT-INF/classes!/
