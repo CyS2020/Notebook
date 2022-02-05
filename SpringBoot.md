@@ -359,3 +359,18 @@ spring:
     <artifactId>spring-boot-starter-actuator</artifactId>
 </dependency>
 ```
+
+#### Profile功能
+- 默认配置文件`application.yaml`；任何时候都会加载
+- 指定环境配置文件`application-{env}.yaml`
+- 激活指定环境：配置文件激活、命令行激活
+- 其他重要功能：@Profile条件装配功能、profile分组功能
+  
+#### 外部配置
+- 外部配置源：Java属性文件、YAML文件、环境变量、命令行参数
+- 配置文件查找位置
+  - classpath 根路径
+  - classpath 根路径下config目录
+  - jar包当前目录
+  - jar包当前目录的config目录
+  - /config子目录的直接子目录
