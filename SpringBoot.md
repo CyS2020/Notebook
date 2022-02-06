@@ -59,9 +59,9 @@
     - @Import(AutoConfigurationImportSelector.class)
       - 利用 getAutoConfigurationEntry(annotationMetadata) 给容器中批量导入一些组件；默认134个组件
       - 内部进入利用工厂加载 Map<String, List<String>> loadSpringFactories(@Nullable ClassLoader classLoader) 得到所有的组件
-      - 从 META-INF/spring.factories 位置来加载一个文件。默认扫描我们当前系统里面所有(依赖) META-INF/spring.factories 位置的文件
+      - 从`META-INF/spring.factories`位置来加载一个文件。默认扫描我们当前系统里面所有(依赖)`META-INF/spring.factories`位置的文件
       - 文件里面写死了spring-boot一启动就要给容器中加载的所有配置类；将这些文件中所声明的配置类全部加载到容器中(只加载未实例化)
-      - 例如spring-boot-autoconfigure-2.6.2.jar 包里面就有 META-INF/spring.factories
+      - 例如spring-boot-autoconfigure-2.6.2.jar 包里面就有`META-INF/spring.factories`
   - @ComponentScan
     - 指定扫描的包，扫描路径，默认值扫描Application的同级和下级路径，scan可以添加上级路径
 
@@ -282,7 +282,7 @@ spring:
 - 编写自定义的配置类 xxxConfiguration + @Bean 替换、增加容器中默认组件
 - 定制化Web功能：编写配置类实现WebMvcConfigurer接口即可定制web功能 + @Bean扩展组件 --（推荐）
 - @EnableWebMvc + WebMvcConfigurer + @Bean 可以全面接管SpringMVC，所有规则全部自己配置，实现定制和扩展功能
-- 原理分析套路：**场景starter** -> xxxAutoConfiguration -> @Bean导入xxx组件 -> **绑定xxxProperties**
+- 原理分析套路：**场景starter** -> xxxAutoConfiguration -> @Bean导入xxx组件 -> **绑定xxxProperties.class**
 
 #### 数据源
 - 数据源自动配置HikariDataSource
@@ -382,4 +382,22 @@ spring:
 - 指定环境优先，外部优先，后面的可以覆盖前面的同名配置项
 
 #### 自定义starter
-- 
+- 一个场景启动器默认只声明当前场景的依赖，没有任何代码；引入当前场景的自动配置包
+- starter-pom引入`autoconfigure`包，场景的代码写在该包内
+![starter原理](https://github.com/CyS2020/Notebook/blob/master/images/starter%E5%8E%9F%E7%90%86.PNG?raw=true)
+- autoconfigure包中配置使用`META-INF/spring.factories`中`EnableAutoConfiguration`的值，使得项目启动加载指定的自动配置类
+- 编写自动配置类 xxxAutoConfiguration -> xxxProperties.class
+  - @Configuration
+  - @Conditional
+  - @EnableConfigurationProperties
+  - @Bean
+  - ......
+- 引入starter -> xxxAutoConfiguration -> 容器中放入组件 -> 绑定xxxProperties.class -> 配置项
+
+#### 启动关键组件
+- ApplicationContextInitializer
+- ApplicationListener
+- SpringApplicationRunListener
+- ApplicationRunner
+- CommandLineRunner
+- 前三个去`spring.factories`里面找；后两个容器中找
