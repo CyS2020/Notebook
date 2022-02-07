@@ -42,7 +42,7 @@
 #### 配置绑定
 - @ConfigurationProperties(prefix = "")
   - 指定prefix将类字段与配置文件中的前缀的字段一一绑定
-- @EnableConfigurationProperties(xxx.class) + @ConfigurationProperties
+- @EnableConfigurationProperties(xxx.class) + @ConfigurationProperties(prefix = "")
   - 在配置类中开启某属性配置功能参数是 xxx.class, 并把 xxx.class 实例注入容器
   - @EnableConfigurationProperties 注解的作用是让使用 @ConfigurationProperties 注解的类生效: 开启某个属性的配置绑定功能并注册到容器
 - @Component + @ConfigurationProperties
@@ -217,8 +217,8 @@ spring:
   - postHandle: 目标方法执行之后，还未到达页面之前
   - afterCompletion: 页面渲染完之后，即整个请求处理完成后
 - 编写一个拦截器配置类实现HandlerInterceptor接口，实现拦截放行规则
-- 定制化MVC功能，复写addInterceptors()方法
-- 将编写好的拦截器配置类添加到该方法的入参中，即registry--拦截器注册中心
+- 定制化MVC功能，实现接口WebMvcConfigurer并复写addInterceptors(InterceptorRegistry registry)方法
+- 将编写好的拦截器配置类添加到该方法的入参中，即registry.addInterceptor()--拦截器注册中心
 - 配置拦截器规则，拦截哪些请求(addPathPatterns)，放行那些请求(excludePathPatterns)
 
 #### 拦截器原理
@@ -247,9 +247,9 @@ spring:
 - DefaultErrorAttributes先来处理异常。把异常信息保存到request域，并且返回null
 - /error请求。会被底层的BasicErrorController处理，遍历到默认的DefaultErrorViewResolver，作用是把响应状态码作为错误页的地址，例如error/500.html
 - error/404.html error/5xx.html；有精确的错误状态码页面就匹配精确，没有就找4xx.html；如果都没有就触发白页
-- @ControllerAdvice + @ExceptionHandler处理全局异常；底层是ExceptionHandlerExceptionResolver支持的 -- (推荐)
-- @ResponseStatus + 自定义异常；使用时controller抛出该自定义异常；底层是ResponseStatusExceptionResolver，把@ResponseStatus注解的信息底层调用response.sendError(statusCode, resolvedReason)；tomcat发送的/error
-- Spring底层的异常，如参数类型转换异常；DefaultHandlerExceptionResolver处理框架底层的异常，调用response.sendError(HttpServletResponse.SC_BAD_REQUEST, ex.getMessage());
+  - @ControllerAdvice(类) + @ExceptionHandler(方法) 处理全局异常；底层是ExceptionHandlerExceptionResolver支持的 -- (推荐)
+  - @ResponseStatus标注在自定义异常上；使用时controller抛出该自定义异常；底层是ResponseStatusExceptionResolver，利用@ResponseStatus注解的信息底层调用response.sendError(statusCode, resolvedReason)；tomcat发送的/error
+  -  Spring底层的异常，如参数类型转换异常；DefaultHandlerExceptionResolver处理框架底层的异常，调用response.sendError(HttpServletResponse.SC_BAD_REQUEST, ex.getMessage());
 - 自定义实现HandlerExceptionResolver处理异常；可以作为的全局异常处理规则
 ![系统默认异常解析器](https://github.com/CyS2020/Notebook/blob/master/images/%E7%B3%BB%E7%BB%9F%E9%BB%98%E8%AE%A4%E5%BC%82%E5%B8%B8%E8%A7%A3%E6%9E%90%E5%99%A8.png?raw=true)
 
@@ -345,7 +345,7 @@ spring:
 ```
   
 #### 整合JUnit5
-- SpringBoot 2.4 以上版本移除了默认对 Vintage 的依赖。如果需要兼容junit4需要自行引入
+- SpringBoot 2.4 以上版本移除了默认对 Vintage 的依赖。如果需要兼容Junit4需要自行引入
 - 了解常用注解：`https://junit.org/junit5/docs/current/user-guide/#writing-tests-annotations`
 ![Junit5框架](https://github.com/CyS2020/Notebook/blob/master/images/JUnit5%E6%A1%86%E6%9E%B6.png?raw=true)
   
@@ -367,7 +367,7 @@ spring:
 - 其他重要功能：@Profile条件装配功能、profile分组功能
   
 #### 外部配置
-- 外部配置源：Java属性文件、YAML文件、环境变量、命令行参数
+- 外部配置源：properties文件、yaml文件、环境变量、命令行参数
 - 配置文件查找位置
   - classpath 根路径
   - classpath 根路径下config目录
@@ -382,7 +382,7 @@ spring:
 - 指定环境优先，外部优先，后面的可以覆盖前面的同名配置项
 
 #### 自定义starter
-- 一个场景启动器默认只声明当前场景的依赖，没有任何代码；引入当前场景的自动配置包
+- 一个场景启动器默认只声明当前场景的依赖，没有任何代码；然后引入当前场景的自动配置包
 - starter-pom引入`autoconfigure`包，场景的代码写在该包内
 ![starter原理](https://github.com/CyS2020/Notebook/blob/master/images/starter%E5%8E%9F%E7%90%86.PNG?raw=true)
 - autoconfigure包中配置使用`META-INF/spring.factories`中`EnableAutoConfiguration`的值，使得项目启动加载指定的自动配置类
