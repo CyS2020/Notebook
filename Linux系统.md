@@ -34,8 +34,10 @@
 - cat 查看日志全部内容，搭配grep使用，压缩文件使用zcat
 
 #### 7. 系统监控命令
-- ps -ef | grep xxx 查看进程
+- ps -ef | grep xxx 查看进程详细信息
+- ps -e | grep xxx 查看进程
 - top -p xxx 查看某个进程cpu
+- kill -9 xxx 杀死某个进程
 
 #### 8. 安装程序
 - 1. 使用 wget 命令下载安装包
