@@ -46,7 +46,7 @@
 - 使用流的过程中不要在显示的在流的操作中写复杂的操作，超过两行提取成函数
 - 使用java8中Map的新增方法来优化代码：putIfAbsent、computeIfAbsent(及时加载)、getOrDefault、computeIfPresent方法
 - 使用java8中Map的方法：put()、putIfAbsent()--返回旧值、compute()、computeIfAbsent()--返回新值
-- jacoco在覆盖率红色表示未覆盖，黄色表示部分覆盖(if不知一个判断), 绿色表示全部覆盖; 异常, if, switch算分支; 不要使用@Data注解它会将每个属性都写入equals()与hashCode()产生大量分支而拉低覆盖率; 如果没有复写hashCode与equals则用的是内存地址进行哈希和判断相等
+- jacoco在覆盖率红色表示未覆盖，黄色表示部分覆盖(if不止一个判断), 绿色表示全部覆盖; 异常, if, switch算分支; 不要使用@Data注解它会将每个属性都写入equals()与hashCode()产生大量分支而拉低覆盖率; 如果没有复写hashCode与equals则用的是内存地址进行哈希和判断相等
 - 先赋值, 再判空, 再使用; kw检查中有时候会考虑多线程的情况, 即使你只是串行执行的场景
   ```
   if(obj.getField() != null){           f = obj.getField()
