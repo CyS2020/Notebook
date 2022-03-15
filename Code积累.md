@@ -17,7 +17,7 @@
 - 集合在初始化时机: 在声明的时候就初始化(**避免空指针**), 构造函数中构造一些创建类必要的属性, 不要做new集合这么无聊的事情
 - 熟练使用Stream流和collect()方法，常见的toList、toSet、toMap、groupingBy; 例: orderList.stream().collect(Collectors.groupingBy(Order::getOrderNo)); list与map互相转换
 - 数组转集合使用Stream.of().collect(xxx); 集合转数组xxx.toArray(); Arrays.asList()与List.subList()返回的List均为李鬼而非李逵
-- 常见集合(List, Set, Map)比较相等时, 比较的是集合内的元素, 若元素相等则集合相等; HashSet在添加重复元素的时候并不会更新, 而HashMap在添加重复key的时候会更新value的值
+- 常见集合(List, Set, Map)比较相等时, 比较的是集合内的元素, 若元素相等则集合相等; Set在添加重复元素的时候并不会更新, 而Map在添加重复key的时候会更新value的值
 - 浮点数在比较的时候不能用`>=,<=,==,!=` 需要一个eps来处理精度问题，等于与不等于特么的一定要用Math.abs(), `>, <`可以直接比较的(16位精度内)
 - 浮点数使用Double.compareTo()与BigDecimal.compareTo()进行比较
 - split(" ")在分割的时候如果边界处能匹配上, 如果是前边界会有一个null, 结果数组中的第一个元素为null, 后边界没有这个问题
