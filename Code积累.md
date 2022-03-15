@@ -40,8 +40,9 @@
 - lambda + stream形式搭配时, 将forEach/map/filter复杂的化抽为函数, 业务复杂不建议使用这种搭配
 - 使用if/else if, 里面不要偷懒, 尽量不用else, else的行为太宽泛了, 同理少用!equals()这个方法; 只对确定性的条件判断
 - 根据类中某个属性进行比较, 可快速生成比较器, 使用Comparator.comparing(xxx::getXxx)方法
-- 数组操作善于使用流操作int[] arr = Arrays.stream(line.split(" ")).mapToInt(Integer::parseInt).toArray();
-                        String[] strs = Arrays.stream(arr).mapToObj(String::valueOf).toArray(String[]::new);
+- 数组操作善于使用流操作
+  int[] arr = Arrays.stream(line.split(" ")).mapToInt(Integer::parseInt).toArray();
+  String[] strs = Arrays.stream(arr).mapToObj(String::valueOf).toArray(String[]::new);
 - 使用流的过程中不要在显示的在流的操作中写复杂的操作，超过两行提取成函数
 - 使用java8中Map的新增方法来优化代码：putIfAbsent、computeIfAbsent(及时加载)、getOrDefault、computeIfPresent方法
 - 使用java8中Map的方法：put()、putIfAbsent()--返回旧值、compute()、computeIfAbsent()--返回新值
