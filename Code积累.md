@@ -65,13 +65,12 @@
 - ksp算法：最短路径列表中的边需要排除掉，计算新的路径
 - java只有值传递, 没有引用传递, 即使是对象的传递也只是复制一份引用的地址, 传入函数中, 函数中对引用指向修改, 调用方感知不到
 - 单例特征：两静态一私有, 静态变量+静态获取单例方法+私有构造函数
-- 重写比较器：< -1为升序, < +1为降序; 使用比较器：默认比较为升序, 判优遵循比较器, 默认比较与自定义比较方向一致 <0 更优, 方向相反 >0 更优
+- 重写比较器：满足条件返回-1排在前面，满足条件返回+1排在后面; o1 < o2 ? -1 : 1 等价于 o1 > o2 ? 1 : -1; 即小的排在前面和大的排在后面
 - 传入的参数是函数式接口时，编写的只是功能，并不带有具体的变量，在调用apply等方法时才传入具体的变量：形参非变量，入参可不用
   入参与返回值的类型均是根据上下文环境确定的, 直接编写方法体内的逻辑就好了, 就是简化了函数的定义
 - 同步与异步--消息通知的机制--自己等还是别人通知，阻塞与非阻塞--程序在等待调用结果（消息，返回值）时的状态--等待过程中，等待者的操作
 - 上述概念组合起来：同步阻塞、同步非阻塞、异步阻塞(一般没有这种情况，直接用同步阻塞就好了)、异步非阻塞
 - 初始化：从父到子，从静态变量，静态代码块，变量，代码块，构造函数；变量的特殊情况Set set = new TreeSet<>(comparator)，此时comparator可以为空，在调用comparator之前赋值就可以, 但是不要这么写
-- double类型的比较，如果是大小比较则用“>”和“<”, 相等比较千万!!!别用==, 如果是相等则用Math.abs() < 1e-5, 另外比较器中返回int值-1、0、1
 - 静态方法不能访问类中定义的泛型，如果静态方法中数据类型不确定，可以在方法上定义泛型。即下例中<T>就是声名一个泛型T，之后两个T是在使用泛型T。
 ```
     public static <T> ResponseBean<T> error(String msg,  T data) {
@@ -104,7 +103,7 @@
 - Linux、Windows中无法直接访问未经解压的文件，所以就会找不到文件，jar包本质上就是一个压缩包
 - 读取jar里面的文件，我们只能用流去读取，也就是getResourceAsStream(String path)方法读取
 - 关于配置文件的读取，需要挂在jar包外面，jar包内只能读不能写，所以滚去用Spring框架吧，少造轮子了
-- ClassPath的根目录就是存放classes的那个文件夹的路径, java和resources里的内容就在根目录下, resources下的文件就从"/"开始写相对路径
+- ClassPath的根目录就是存放classes的那个文件夹的路径, 工程中java和resources文件的内容就在该根目录下, resources下的文件就从"/"开始写相对路径
   - IDEA中class.getResource("/"): /D:/Project/SpringBoot-Demo/target/classes/
   - IDEA中class.getResource(""): /D:/Project/SpringBoot-Demo/target/classes/com/example/demo/
   - jar包中class.getResource("/"): file:/D:/Project/SpringBoot-Demo/target/demo-0.0.1-SNAPSHOT.jar!/BOOT-INF/classes!/
