@@ -144,7 +144,7 @@
 - TreeMap中使用红黑树数据结构, 比较的时候优先使用传入的Comparator, 为null时传入Comparable
 - TreeMap中并没有使用hashCode和equals方法判断相等, 而是使用Comparator或者Comparable返回值为0判断元素唯一性
 - 所以插入TreeMap中的元素一定具有可比性，要么传入的元素实现了Comparable接口，要么出入合适的比较器Comparator
-- TreeMap的哈希一致性应用, TreeMap<hash, list>中保存hash了列表, 元素放入第一个大于该元素hash值的list列表
+- TreeMap的哈希一致性应用, TreeMap<hash, list>中保存hash了列表, 元素放入第一个大于该元素hash值的list列表, 使用tailMap()方法
 - 哈希一致性的容错性和扩展性：只对受影响的数据进行转移而不影响其它的数据; 通过虚拟节点解决数据倾斜的问题
 - 哈希一致性：在使用一致哈希算法后，哈希表槽位数（大小）的改变平均只需要对 K/n 个关键字重新映射，其中K是关键字的数量， 
 n是槽位数量。然而在传统的哈希表中，添加或删除一个槽位的几乎需要对所有关键字进行重新映射。一致性体现在，当服务器数量变化时，
