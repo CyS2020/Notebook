@@ -158,7 +158,7 @@ n是槽位数量。然而在传统的哈希表中，添加或删除一个槽位�
 - LinkedHashMap中afterNodeAccess()在访问的时候调用即get()方法, 或者put()已经存在的key, 会将已经访问过的元素放到双向链表的队尾
 - LinkedHashMap中afterNodeRemoval()在移除节点的时候调用remove()方法, 在双向链表中移除该节点
 - LinkedHashMap中afterNodeInsertion()在插入的时候调用即put()时, 会通过条件判断删除某些节点(默认不会删除), 条件为true时删除首节点
-- 通过复写removeEldestEntry()实现自定义LRU的缓存策略, 最近最少使用; 限制容器长度实现最近(复写size() > limit), 通过afterNodeAccess()来实现最少使用
+- 通过复写removeEldestEntry()实现自定义LRU的缓存策略, 最近最少使用; 限制容器长度实现最近(复写size() > limit), 通过afterNodeAccess()来触发
 
 #### PriorityQueue源码
 - 内部使用数组实现小根堆这种数据结构, 容器默认初始值为11, 元素个数大于64进行1.5倍扩容, 否则进行2倍+2扩容
