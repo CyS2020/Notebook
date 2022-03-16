@@ -39,7 +39,7 @@
 - 常量格式public static final 类型 大写_下划线; 枚举类存放的信息多一些
 - lambda + stream形式搭配时, 将forEach/map/filter复杂的化抽为函数, 业务复杂不建议使用这种搭配
 - 使用if/else if, 里面不要偷懒, 尽量不用else, else的行为太宽泛了, 同理少用!equals()这个方法; 只对确定性的条件判断
-- 根据类中某个属性进行比较, 可快速生成比较器, 使用Comparator.comparing(xxx::getXxx)方法
+- 根据类中某个属性进行比较, 可快速生成比较器, 使用Comparator.comparing(xxx::getXxx)方法, 提供Comparator.reverseOrder()反向排序
 - 数组操作善于使用流操作, 使用IntFunction函数式接口来创建数组
   ```
   int[] arr = Arrays.stream(line.split(" ")).mapToInt(Integer::parseInt).toArray();
