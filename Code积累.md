@@ -29,7 +29,7 @@
 ![基本数据类型转换](https://github.com/CyS2020/Notebook/blob/master/images/%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2.png?raw=true)
 - 枚举类中的valueOf()、name()、toString()常用方法与枚举类型的字符串有关，与括号内的属性无关，toString()可以被重写，同时记得区分枚举类的静态方法与实例方法
 - 三个潜在的取值及以上, 使用switch来控制代码执行流程, 变量-取值-行为-break
-- Jdk或其他框架会提供很多工具类：ObjectUtils、BeanUtils、StringUtils、CollectionUtils
+- Jdk或其他框架会提供很多工具类：String、Collectors、Collections/ObjectUtils、BeanUtils、StringUtils、CollectionUtils
 - 使用IDEA查找get,set的调用地方, 然后一一修改, 并保证单元测试通过
 - 在修改逻辑的时候, 越往里挖需要改动的地方则越少, 所以尽量在深层次源头地方进行修改
 - 变量命名接口命名以I开头, 实现类以Impl结尾, 抽象类以Abstract开头, 枚举类以Enum结尾
