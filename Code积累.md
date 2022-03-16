@@ -68,7 +68,7 @@
 - 重写比较器：返回 `-1(<0)` 则参数1排在前面，返回 `1(>0)` 则参数1排在后面; 以下升序排列与降序排列
   ```
   升序                                 降序
-  return o1 < o2 ? -1 : 1; (推荐写法) return o1 < o2 ? 1 : -1;
+  return o1 < o2 ? -1 : 1; (推荐写法)  return o1 < o2 ? 1 : -1;
   return o1 > o2 ? 1 : -1;            return o1 > o2 ? -1 : 1;
   return o2 > o1 ? -1 : 1;            return o2 > o1 ? 1 : -1;
   return o2 < o1 ? 1 : -1;            return o2 < o1 ? -1 : 1;
