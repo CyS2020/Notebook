@@ -238,6 +238,7 @@ JVM使用-XX:PermSize设置非堆内存初始值，默认是物理内存的1/64�
 - 如果没有配置新生代最大堆内存, 按照默认比例进行划分; jmap中的OldSize为老年代初始堆内存, Old Generation为老年代最大堆内存
 - Old Generation为老年代最大堆内存利用率达到100%的时候, 堆内存溢出; 通常这时候新生代的内存还有空间
 - Major GC和Full GC的区别是什么？触发条件呢`https://www.zhihu.com/question/41922036`
+![JVM内存占用](https://github.com/CyS2020/Notebook/blob/master/images/JVM%E5%86%85%E5%AD%98%E5%8D%A0%E7%94%A8.png)
 ### PPT大师
 1. 多花点时间寻找合适的模板，无需花里胡哨，简约大方即可
 2. 多搞点图片，示意图，流程图，效果图，表格等，字不如表，表不如图
