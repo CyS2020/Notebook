@@ -32,7 +32,6 @@
 - 使用IDEA查找get,set的调用地方, 然后一一修改, 并保证单元测试通过
 - 在修改逻辑的时候, 越往里挖需要改动的地方则越少, 所以尽量在深层次源头地方进行修改
 - 变量命名接口命名以I开头, 实现类以Impl结尾, 抽象类以Abstract开头, 枚举类以Enum结尾
-- 类中属性为容器的时候直接new然后设置为final即可, 如果属性只声明每次用都重新new消耗内存
 - 代码中根据枚举值返回枚举类型可以通过设置Map返回, 也可以使用for循环来返回(推荐使用)
 - 代码中不要出现硬编码, 改变硬编码的方式有两种如果是有分类的可以使用枚举类, 或者创建常量类存贮
 - 常量格式public static final 类型 大写_下划线; 枚举类存放的信息多一些
@@ -44,7 +43,6 @@
   int[] arr = Arrays.stream(line.split(" ")).mapToInt(Integer::parseInt).toArray();
   String[] strs = Arrays.stream(arr).mapToObj(String::valueOf).toArray(String[]::new);
   ```
-- 使用流的过程中不要在显示的在流的操作中写复杂的操作，超过两行提取成函数
 - 使用java8中Map的新增方法来优化代码：putIfAbsent、computeIfAbsent(及时加载)、getOrDefault、computeIfPresent方法
 - 使用java8中Map的方法：put()、putIfAbsent()--返回旧值、compute()、computeIfAbsent()--返回新值
 - jacoco在覆盖率红色表示未覆盖，黄色表示部分覆盖(if不止一个判断), 绿色表示全部覆盖; 异常, if, switch算分支; 不要使用@Data注解它会将每个属性都写入equals()与hashCode()产生大量分支而拉低覆盖率; 如果没有复写hashCode与equals则用的是内存地址进行哈希和判断相等
