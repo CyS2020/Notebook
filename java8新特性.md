@@ -200,6 +200,5 @@
 -   computeIfAbsent
 -   computeIfPresent
 -   merge
--   remove(key,value)
 -   replace
 -   replaceAll
