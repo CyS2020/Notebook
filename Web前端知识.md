@@ -43,7 +43,7 @@ const {name:abc, age, language} = person;
 - 使用return进行值的返回, 也不需要写返回值得类型
 - 不定参数列表 ...args, lambda表达式等都支持
 
-####对象属性
+#### 对象属性
 - 可以说 JavaScript对象是变量的容器; 但是, 我们通常认为 JavaScript对象是键值对的容器
 - 键值对通常写法为 name : value; 键值对在 JavaScript 对象通常称为对象属性
 - 既然是键值对那么有Object.keys(), Object.values(), Object.entries()这几个方法就不奇怪了
