@@ -21,7 +21,7 @@
 - Connection: 网络连接, 比如一个TCP连接
 - Channel: 信道, 多路复用连接中的一条独立的双向数据流通道. 信道是建立在真实的TCP连接内的虚拟连接, AMQP命令都是通过信道发出去的, 不管是发布消息、订阅队列还是接收消息, 这些动作都是通过信道完成. 因为对于操作系统来说建立和销毁TCP都是非常昂贵的开销所以引入了信道的概念以复用一条TCP连接
 - Consumer: 消息的消费者, 表示一个从消息队列中取得消息的客户端应用程序
-- Virtual Host: 虚拟主机,表示一批交换器、消息队列和相关对象. 虚拟主机是共享相同的身份认证和加密环境的独立服务器域. 每个vhost本质上就是一个mini版的RabbitMQ服务器, 拥有自己的队列、交换器、绑定和权限机制. vhost是AMQP概念的基础, 必须在连接时指定, RabbitMQ 默认的vhost是/
+- Virtual Host: 虚拟主机,表示一批交换器、消息队列和相关对象. 虚拟主机是共享相同的身份认证和加密环境的独立服务器域. 每个vhost本质上就是一个mini版的RabbitMQ服务器, 拥有自己的队列、交换器、绑定和权限机制. vhost是AMQP概念的基础, 必须在连接时指定, RabbitMQ 默认的vhost是`/`
 - Broker: 表示消息队列服务器实体
 ![概念原理](https://github.com/CyS2020/SpringCloud-Mall/blob/main/resources/RabbitMQ%E5%8E%9F%E7%90%86.PNG?raw=true)
 
