@@ -94,7 +94,7 @@
 - 数据行里的DB_TRX_ID(最后一次修改事务id)、DB_ROLL_PTR(回滚指针)、DB_ROW_ID(随新行递增的id)字段
 - undo日志: 存储老版数据，有insert undo log, update undo log，串行化的结果
 - read view: 可见性判断算法--查看undo log中某个版本，能看见DB_TRX_ID比自己小的那个版本
-- READ-COMMITTED: 可以读到别的事务新的数据，事务中每次调用快照读的时候都回创建一个新的快照，所以每次读取的都是最新的事务
+- READ-COMMITTED: 可以读到别的事务新的数据，事务中每次调用快照读的时候都会创建一个新的快照，所以每次读取的都是最新的事务
 - REPEATABLE-READ: 不可以读到别的事务新的数据，事务在第一条快照读会创建一个快照read view，记录当前系统其它活跃事务，此后再读还是同一个read view
 
 #### 14. 语法部分 
