@@ -217,9 +217,9 @@ spring:
   - postHandle: 目标方法执行之后，还未到达页面之前
   - afterCompletion: 页面渲染完之后，即整个请求处理完成后
 - 编写一个拦截器配置类实现HandlerInterceptor接口，实现拦截放行规则
-- 配置拦截器规则，拦截哪些请求(addPathPatterns)，放行那些请求(excludePathPatterns)
 - 定制化MVC功能，实现接口WebMvcConfigurer并复写addInterceptors(InterceptorRegistry registry)方法
 - 将编写好的拦截器配置类添加到该方法的入参中，即registry.addInterceptor()--拦截器注册中心
+- 配置拦截器规则，拦截哪些请求(addPathPatterns)，放行那些请求(excludePathPatterns)
 
 #### 拦截器原理
 - 根据当前请求，找到HandlerExecutionChain【可以处理请求的handler以及handler的所有拦截器】
