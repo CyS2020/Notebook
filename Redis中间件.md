@@ -97,7 +97,7 @@ struct sdshdr{
 - save 300 10 :该配置300秒内有10条写入就进行备份，多种配置规则平衡性能与数据安全
 - stop-writes-on-bgsave-error yes :该配置备份进程出错时，主进程停止写入，保护持久化数据一致性
 - rdbcompression no : RDB文件无需压缩直接保存，CPU比较珍贵
-- SAVE :该命令阻塞Redis的服务器进程，知道RDB文件被创建完成为止
+- SAVE :该命令阻塞Redis的服务器进程，直到RDB文件被创建完成为止
 - BGSAVE : Fork出一个子进程来创建RDB文件，不阻塞服务器进程
 - RDB持久化缺点：内存数据的全量同步，数据量大会由于I/O而严重影响性能
 - 可能会因为Redis挂掉而丢失当前至最近一次快照的期间的数据
