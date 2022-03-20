@@ -85,6 +85,7 @@ kubeadm join 192.168.0.107:6443 --token v5bld3.xx70vflfpr1nzxd6 --discovery-toke
 #### 常用命令
 - `kubectl get`: 可以获取nodes; pods; services; deployments; 等信息
   - `kubectl get pod -o wide -n 命名空间 | grep 微服务`：查看集群环境下微服务所在的节点
+  - `pdm-cli node list`：查看集环境节点列表
 - `kubectl apply`: 以文件或标准输入为准应用或更新资源, 配置pods; services; deployments;等信息
 
 #### KubeSphere可视化
