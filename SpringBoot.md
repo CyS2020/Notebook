@@ -385,7 +385,7 @@ spring:
 - 一个场景启动器默认只声明当前场景的依赖，没有任何代码；然后引入当前场景的自动配置包
 - starter-pom引入`autoconfigure`包，场景的代码写在该包内
 ![starter原理](https://github.com/CyS2020/Notebook/blob/master/images/starter%E5%8E%9F%E7%90%86.PNG?raw=true)
-- autoconfigure包中配置使用`META-INF/spring.factories`中`EnableAutoConfiguration`的值，使得项目启动加载指定的自动配置类
+- autoconfigure包中配置使用`META-INF/spring.factories`中`EnableAutoConfiguration=`的值，使得项目启动加载指定的自动配置类
 - 编写自动配置类 xxxAutoConfiguration -> xxxProperties.class
   - @Configuration
   - @Conditional
@@ -393,6 +393,7 @@ spring:
   - @Bean
   - ......
 - 引入starter -> xxxAutoConfiguration -> 容器中放入组件 -> 绑定xxxProperties.class -> 配置项
+- 可以参考理解：`spring-cloud-starter-openfeign` 组件
 
 #### 启动关键组件
 - ApplicationContextInitializer
