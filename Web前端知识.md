@@ -1,10 +1,10 @@
 ### ECMAScript 6
 
 #### 前后端对比
-|语言|框架|工具|项目构建|依赖管理|运行环境|
-|:---:|:---:|:---:|:---:|:---:|:---:|
-|javaScript es6,7,8|jquery, vue, react|vscode|webpack|npm|jre|
-|java jdk8,9,10|spring, springMVC|idea|maven|maven|nodejs|
+|语言|框架|工具|项目构建|依赖管理|  运行环境  |
+|:---:|:---:|:---:|:---:|:---:|:------:|
+|javaScript es6,7,8|jquery, vue, react|vscode|webpack|npm| nodejs |
+|java jdk8,9,10|spring, springMVC|idea|maven|maven|  jre   |
 
 #### Vs code插件安装
 - Auto Close Tag; Auto Rename Tag; Chinese (Simplified); ESLint; HTML CSS Support;  Vetur; 
