@@ -59,7 +59,7 @@
   }                                     }  
   ```
 ### 技术思考
-- java中默认线程池中的线程在空闲的时候的状态为WAITING状态, 主要取决于线程池中的workQueue实现方式, java中一般为阻塞队列对应WAITING状态
+- java中默认线程池中的线程在空闲的时候的状态为WAITING状态, 主要是取决于线程池中的workQueue实现方式
 - java中有四个生成随机数的类: Random、ThreadLocalRandom、SecureRandom、Math.random()
 - Arrays.sort()无法自定义比较基本数据类型，只能使用默认的升序，可以说是非常垃圾了，对象的话可以传入比较器
 - Java与其他语言编写的程序进行tcp/ip socket通讯时，通讯内容一般都转换成byte数组型，new String(byte[] bytes) <---> getBytes()
