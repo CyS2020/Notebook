@@ -26,6 +26,7 @@
 ### 重构代码
 - 需要对当前接口添加新功能, 在接口中添加默认方法(default), 或者定义上层接口由该接口继承
 - 对A、B接口进行统一添加一组新功能, 将新功能放在接口C中, 并由A、B接口继承, 新功能只对C接口进行操作即可
+- 抽象类、接口中可以没有抽象方法, 编译没问题应该是业务抽象的不够好, 即使没有抽象方法也不能直接实例化
 - 继承时尽量不去复写父类已经存在的方法, 继承是为了复用父类的方法, 复写父类的方法不符合里氏替换原则
 - Collection接口toArray()默认返回的是Object类型的数组，且无法强转，toArray(T[] a)该接口返回的是指定类型的数组，例如传入new String[0]入参返回String数组;
 - 被强制类型转换的实例需要是强制类型转换类型的类或者其子类。String是Object的子类，但是String[]并不是Object[]的子类，所以会强转失败
@@ -57,7 +58,8 @@
       f = obj.getField();        =>     if(f != null){
   }                                     }  
   ```
-### 思考
+### 技术思考
+- java中默认线程池中的线程在空闲的时候的状态为WAITING状态, 主要取决于线程池中的workQueue实现方式, java中一般为阻塞队列对应WAITING状态
 - java中有四个生成随机数的类: Random、ThreadLocalRandom、SecureRandom、Math.random()
 - Arrays.sort()无法自定义比较基本数据类型，只能使用默认的升序，可以说是非常垃圾了，对象的话可以传入比较器
 - Java与其他语言编写的程序进行tcp/ip socket通讯时，通讯内容一般都转换成byte数组型，new String(byte[] bytes) <---> getBytes()
