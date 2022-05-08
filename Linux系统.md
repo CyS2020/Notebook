@@ -16,7 +16,7 @@
 - 管道操作符"|":可以将指令连接起来，前一个指令的输出作为后一个指令的输入
 - 只处理前一个命令正确输出，不处理错误输出
 - 右边命令必须能够接收标准输入流，否则传递过程中数据会被抛弃
-- 常用来作为接收数据管道的命令有sed, awk, grep, cut, head, top, less, more, wc, join, sort, split等
+- 常用来作为接收数据管道的命令有sed, awk, grep, cut, head, top, less, more, wc(统计), join, sort, split等
 - grep '匹配内容'; grep -o '正则'; grep -v '排除' 
 
 #### 4. 对文件内容做统计
@@ -58,6 +58,8 @@
 - `scp ubuntu@192.168.0.100:/home/ubuntu/xxxfile /`: 远程服务器传输到本地
 - `docker cp /home/ubuntu/xxxfile 容器id:/`: 宿主机传输到容器内
 - `docker cp 容器id:/xxxfile /home/ubuntu/`: 容器内传输到宿主机
+- `~` : 当前用户目录
+- `/` : 系统根目录
 
 #### 11. 显示系统环境变量
 - env | grep VER 快速查看当前微服务部署的版本
