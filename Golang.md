@@ -46,7 +46,14 @@
   - 可以使用for range只遍历key、value，或者都遍历
   - 使用delete()来删除键值对；map[key]++零值自增且put
   - slice与map的cap影响扩容，提前预估优化性能
-- `channel`:
+- `channel`: 通过通信共享内存，而不是通过共享内存而通信；make函数初始化
+  - 有缓冲去通道：类似于ArrayBlockingQueue，缓冲区空、满会阻塞 
+  - 无缓冲区通道：类似于JUC中的synchronousQueue，通道不存数据直接传递；又称同步通道
+  - 发送与接收使用 `<-` 符号，类似于阻塞队列的take与put操作；关闭通道后取值则返回零值
+  - 使用close函数关闭通道，虽然不是必须关闭的有垃圾回收，但推荐手动关闭
+  - 通道取值方式：1) 无线循环，!ok => break；2）for range循环
+  - 函数传参的时候限定单向通道：`chan<-` 往通道发数据；`<-chan` 从通道取数据
+  - select多路复用：可以处理多个channel发送/接收，若多个case满足条件随机执行
 - `interface`:
   - 是一种类型，一种抽象的数据类型；是一种鸭子类型的接口
   - 在使用上不需要显示使用关键字，只需要显示实现接口中的全部方法即可
@@ -84,6 +91,7 @@
 - `fori、continue、break`: 只有for循环没有while循环
 - `for range`: 遍历数组、切片、字符串、map以及通道(channel)
 - `switch、case、default`: 支持增强switch块(~~break~~)，case可处理表达式
+- `select、case、default`: 多路复用处理channel，没有case分支会一直阻塞
 
 #### 反射
 - reflect.TypeOf(): 函数可以获得任意值的类型对象(reflect.Type)，主要有Type和Kind
@@ -97,6 +105,32 @@
 - java的Thread是由OS scheduler调度到CPU core上执行，java Thread与OS thread是一一对应的关系(线程模型)
 - Java的用户态线程与内核态是一一对应的关系，java线程就是操作系统的线程，这么多线程由CPU core执行，就会产生上下文切换
 
+#### 反射
+- reflect.TypeOf(): 函数可以获得任意值的类型对象(reflect.Type)，主要有Type和Kind
+- reflect.ValueOf(): 返回的是reflect.Value类型，其中包含了原始值的值信息。专有的Elem()方法来获取指针对应的值。
+- 结构体的反射：反射字段，反射方法，基本原理和java的区别不大
+
+#### 并发编程
+- goroutine线程类似于java中的Thread，`go func()` 启动并执行函数 = start()+ run()
+- goroutine是协程不归操作系统管，goroutine和OS线程是m:n的关系，将m个goroutine分到n个OS thread执行
+- goroutine是由go scheduler调度到OS thread上执行，再由OS scheduler调度到CPU core上执行
+- java的Thread是由OS scheduler调度到CPU core上执行，java Thread与OS thread是一一对应的关系(线程模型)
+- JVM的用户态线程与内核态是一一对应的关系，java线程就是操作系统的线程，这么多线程由CPU core执行，就会产生上下文切换
+
+#### 同步与锁
+- `sync.Metux`: 互斥锁 = ReentrantLock
+- `sync.RWMetux`: 读写锁 = ReentrantReadWriteLock
+- `sync.Map`: 线程安全map = ConcurrentHashMap
+- `sync.Once`: 资源初始化 = 双重检查 + volatile
+- `sync.WaitGroup`: 线程协同 = CountDownLatch
+- `atmoic`: 针对基本类型的原子操作
+
+#### 网络编程
+- net包实现tcp、udp的socket的连接与通信
+- tcp粘包Nagle算法造成的发送端的粘包，凑一堆一起发送；接收端接收不及时造成的接收端粘包，tcp缓冲区中存放了几段数据
+- 出现"粘包"的关键在于接收方不确定将要传输的数据包的大小，因此我们可以对数据包进行封包和拆包的操作
+
 #### 疑问
 - 为什么可以 []byte(xxx)、string()、int() 这种构造方式；
 - 答：`type(a)` 为基本数据类型强制类型转换方式，指针转换需要unsafe.Pointer()方法
+- go = java + mvn + junit
