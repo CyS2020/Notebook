@@ -83,7 +83,7 @@
 #### 流程控制
 - `fori、continue、break`: 只有for循环没有while循环
 - `for range`: 遍历数组、切片、字符串、map以及通道(channel)
-- `switch、default`: 支持增强switch块(~~break~~)，case可处理表达式
+- `switch、case、default`: 支持增强switch块(~~break~~)，case可处理表达式
 
 #### 疑问
 - 为什么可以 []byte(xxx)、string()、int() 这种构造方式
