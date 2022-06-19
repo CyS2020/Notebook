@@ -85,5 +85,18 @@
 - `for range`: 遍历数组、切片、字符串、map以及通道(channel)
 - `switch、case、default`: 支持增强switch块(~~break~~)，case可处理表达式
 
+#### 反射
+- reflect.TypeOf(): 函数可以获得任意值的类型对象(reflect.Type)，主要有Type和Kind
+- reflect.ValueOf(): 返回的是reflect.Value类型，其中包含了原始值的值信息。专有的Elem()方法来获取指针对应的值。
+- 结构体的反射：反射字段，反射方法，基本原理和java的区别不大
+
+#### 并发编程
+- goroutine线程类似于java中的Thread，`go func()` 启动并执行函数 = start()+ run()
+- goroutine是协程不归操作系统管，goroutine和OS线程是m:n的关系，将m个goroutine分到n个OS thread执行
+- goroutine是由go scheduler调度到OS thread上执行，再由OS scheduler调度到CPU core上执行
+- java的Thread是由OS scheduler调度到CPU core上执行，java Thread与OS thread是一一对应的关系(线程模型)
+- Java的用户态线程与内核态是一一对应的关系，java线程就是操作系统的线程，这么多线程由CPU core执行，就会产生上下文切换
+
 #### 疑问
-- 为什么可以 []byte(xxx)、string()、int() 这种构造方式
+- 为什么可以 []byte(xxx)、string()、int() 这种构造方式；
+- 答：`type(a)` 为基本数据类型强制类型转换方式，指针转换需要unsafe.Pointer()方法
