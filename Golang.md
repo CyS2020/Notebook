@@ -1,4 +1,6 @@
 ### go语言特性
+- go = java + mvn + junit
+
 #### go命令
 - `go run`: 编译并运行源码文件，由于包含编译步骤
 - `go build`: 编译指定的源码文件或代码包及依赖包
@@ -6,6 +8,7 @@
 - `go fmt`: 用于检查并格式化成go语言的规范格式
 - `go mod`: 项目初始化与模块管理，类似于mvn工具 
 - `go get`: 获取任意指定的URL的包
+- `go test`: 运行单元测试，常用参数 -cover
 
 #### 包(package)
 - 同一个文件夹下的代码使用同一个包名(文件夹名)，同一个包的文件不能放在多个文件夹下
@@ -130,7 +133,11 @@
 - tcp粘包Nagle算法造成的发送端的粘包，凑一堆一起发送；接收端接收不及时造成的接收端粘包，tcp缓冲区中存放了几段数据
 - 出现"粘包"的关键在于接收方不确定将要传输的数据包的大小，因此我们可以对数据包进行封包和拆包的操作
 
+#### 单元测试
+- `func TestName(t *testing.T)`: 逻辑测试
+- `func BenchmarkName(b *testing.B)`: 基准测试
+- `func TestMain(m *testing.M)`: 设置before、after
+
 #### 疑问
 - 为什么可以 []byte(xxx)、string()、int() 这种构造方式；
 - 答：`type(a)` 为基本数据类型强制类型转换方式，指针转换需要unsafe.Pointer()方法
-- go = java + mvn + junit
