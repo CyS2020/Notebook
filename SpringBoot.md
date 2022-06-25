@@ -408,3 +408,7 @@ spring:
 - 一级缓存：singletonObjects，存放完全实例化属性赋值完成的Bean，直接可以使用
 - 二级缓存：earlySingletonObjects，存放早期Bean的引用，尚未属性装配的Bean
 - 三级缓存：singletonFactories，三级缓存，存放实例化完成的Bean工厂
+
+#### 各种服务器之间关系
+![容器区别](https://github.com/CyS2020/Notebook/blob/master/images/%E5%AE%B9%E5%99%A8%E5%8C%BA%E5%88%AB.png)
+![服务器区别](https://github.com/CyS2020/Notebook/blob/master/images/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8C%BA%E5%88%AB.png)
