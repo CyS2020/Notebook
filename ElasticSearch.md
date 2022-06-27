@@ -1,4 +1,5 @@
 ### ElasticSearch全文索引
+- `https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html`
 
 #### 基本概念
 - 万物皆索引
@@ -19,15 +20,17 @@
 
 #### 条件查询
 - `GET shopping/_search?q=key:value`: 使用url参数查询
-  - `http://192.168.0.102:9200/shopping/_search?q=category:小米`
-- 使用body查询
-- ```
-GET shopping/_search            GET shopping/_search
-{                               {
-    "query": {                      "query":{
-        "match": {                      "match"{
-            "key": "value"                  "category":"小米"
-        }                               }
-    }                               }
-}                               }
+  - eg: `http://192.168.0.102:9200/shopping/_search?q=category:小米`
+- 使用body查询, 具体规则查阅文档
+```
+GET shopping/_search
+{
+    "query": {
+        "match": {
+            "key": "value"
+        }
+    },
+    "from": pageNo,
+    "size": pageSize
+}
 ```
