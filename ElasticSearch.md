@@ -24,7 +24,7 @@
   - match: 基本数据类型是精确匹配, 字符串类型是全文检索
   - match_phrase: 短语当成整个单词(不分词)进行检索
   - multi_match: 多个字段进行全文检索, 不管哪个字段包含了都算匹配上
-  - term: 全文检索字段用match, 其他非text字段匹配用term
+  - term: 全文检索字段用match, 其他非text字段匹配用term, 完全匹配
   - bool: 用来做复合查询; 搭配: must, should, must_not, filter(后两个不贡献相关性得分)
 - 执行聚合--分析功能
   - 聚合提供了从数据中分组和提取数据的能力. 最简单的聚合方法大致等于SQL GROUP BY和SQL聚合函数
@@ -133,5 +133,15 @@ GET shopping/_search
   - fetchSource
 
 #### 集群系统架构
+- 副本数据不能原始数据分配在同一节点
+- 存储数据进行路由计算: hash(id) % 主分片数
+- 读取请求记性分片控制: 随机轮询读取数据 
 ![集群系统架构](https://github.com/CyS2020/SpringCloud-Mall/blob/main/resources/ES%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1.PNG?raw=true)
+
+#### 分词器
+- 字段属性是keyword则不进行分词, text则进行分词
+- 词条: 缩影中最小存储和查询单元
+- 词典: 词条的集合, B+, HashMap
+- 倒排表: 词条为key, 文档id列表为value
+- 查询顺序: 先词典, 无则返回; 通过倒排表获取文档id列表, 然后根据id查数据
 
