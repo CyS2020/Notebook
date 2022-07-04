@@ -6,7 +6,11 @@
   - Index索引: 万物皆索引, 类似于mysql中的Database
   - Type类型: 类似于mysql中的Table, 高版本已删除Type, 默认`_doc`
   - Document文档: 类似于mysql中的一条记录, json格式
-  - 属性与属性值: 就是列名与列值
+  - Field字段: 类似于mysql中的列, 是数据项的字段
+  - Mapping映射: 类似于mysql中表结构, 字段类型、默认值、分析器、是否被索引等字段的结构信息
+  - Shards分片: 类似于mysql中水平分表, 一个索引的数据划分为多个片, 合在一起就是该索引全部数据
+  - Replicas副本: 提供高可用, 提高吞吐量
+  - Allocation分配: 分片分配给节点. 分配主分片或副本、副本还有复制数据任务
   - 倒排索引: 记录每个词条出现在哪些文档中, 检索时计算相关性得分
 - 增删改查--存储功能
   - put请求/ip:port/索引/类型/id; post请求可以不带id自动生成
@@ -55,6 +59,9 @@
 #### 基本操作
 - put, delete, head, get -- 幂等; post -- 非幂等
 - `GET _cat/indices?v`: 查看所有索引信息
+- `GET _cat/nodes`: 查询节点
+- `GET _cat/health`: 查询健康状况
+- `GET _cat/master`: 查询主节点
 - `PUT index`: 添加索引
 - `GET index/_search`: 查询索引所有数据项
 - `GET index/_doc/itemId`: 查询索引数据项
@@ -124,3 +131,7 @@ GET shopping/_search
     - terms
     - subAggregation
   - fetchSource
+
+#### 集群系统架构
+![集群系统架构](https://github.com/CyS2020/SpringCloud-Mall/blob/main/resources/ES%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1.PNG?raw=true)
+
