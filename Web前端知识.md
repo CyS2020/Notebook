@@ -1,5 +1,56 @@
 ### ECMAScript 6
 
+#### css选择器
+- 选择器
+  - 类型选择器: 针对特定的标签, 通过标签声明 `h1{}`
+  - 类选择器: 通过class指定, 通过点声明 `.style{}`
+  - id选择器: 通过id指定, 通过#号声明 `#style{}`
+  - 属性选择器: 通过属性名与值指定, 通过[]声明 `style[attr="value"]`
+  - 通用选择器: 使用所有元素, 通过*指定 `*{}`
+- 选择器组合
+  - 通过`.`、` `、`,`组合
+- 选择器优先级
+  - 相同规则按照加载顺序, 后面优先级更高
+  - 继承下来的样式永远低于直接指定的样式
+  - 内联样式优先级最高, !important是个意外
+  - 类型选择器 < 类选择器 < id选择器
+- 静: css; 动: jquery
+
+#### css盒子模型
+- 外边距-margin: margin
+- 边框-border: border
+- 内边距-padding: padding
+- 内容-content: width + height
+- 块级盒子: <div/>, <p/>, <h1/>
+- 行内盒子: <span/>, <a/>
+
+#### JQuery语法
+- `$(selector).action()`: 定义符(选择器).操作()
+- jQuery函数入口, DOM结构加载完毕
+```jquery
+$(document).ready(function(){
+    // TODO
+});
+//或者
+$(function(){
+    // TODO
+});
+```
+- javaScript函数入口, 网页全部加载完毕
+```javascript
+window.onload = function () {
+    // TODO
+}
+```
+- 常用选择器: 类型选择器, 类选择器, id选择器, 属性选择器
+- JQuery事件、动画、DOM操作、回调函数
+- DOM操作
+  - text()
+  - html()
+  - val()
+  - attr()
+
+
 #### 前后端对比
 |语言|框架|工具|项目构建|依赖管理|  运行环境  |
 |:---:|:---:|:---:|:---:|:---:|:------:|
