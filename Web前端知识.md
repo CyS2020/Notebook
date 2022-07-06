@@ -21,8 +21,8 @@
 - 边框-border: border
 - 内边距-padding: padding
 - 内容-content: width + height
-- 块级盒子: <div/>, <p/>, <h1/>
-- 行内盒子: <span/>, <a/>
+- 块级盒子: `<div/>, <p/>, <h1/>`
+- 行内盒子: `<span/>, <a/>, <input>`
 
 #### JQuery语法
 - `$(selector).action()`: 定义符(选择器).操作()
