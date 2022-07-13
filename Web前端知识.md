@@ -15,6 +15,7 @@
   - 内联样式优先级最高, !important是个意外
   - 类型选择器 < 类选择器 < id选择器
 - 静: css; 动: jquery
+- 选择器可以搭配event事件的
 
 #### css盒子模型
 - 外边距-margin: margin
