@@ -51,6 +51,12 @@ window.onload = function () {
   - val()
   - attr()
 
+#### javaScript
+- this 关键字绑定
+  - 默认绑定: 不使用call, apply, new时, 默认绑定到全局
+  - 隐式绑定: 考虑是否有上下文对象, 如果有则指向该对象; 
+  - 显示绑定: 通过call, apply, bind 进行显示绑定
+  - new绑定: 优先级最高, 绑定到创建的对象上
 
 #### 前后端对比
 |语言|框架|工具|项目构建|依赖管理|  运行环境  |
