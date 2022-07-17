@@ -33,8 +33,8 @@
   - 注释: 在7.0及以后得版本不支持type了数据直接保存在索引下边
 - 分词器
   - 一个 tokenizer(分词器)接收一个字符流, 将之分割为独立的tokens(词元, 通常是独立的单词), 然后输出tokens流
-  - 使用中文分词器: 安装插件elasticsearch-analysis-ik, 下载解压到elasticsearch/plugins/ik文件夹下
-  - 自定义词库: 使用nginx服务器来存储自定义的字典, 然后修改/usr/share/elasticsearch/plugins/ik/config/中的 IKAnalyzer.cfg.xml中配置远程扩展字典地址
+  - 使用中文分词器: 安装IK插件, 下载elasticsearch-analysis-ik.zip, 下载解压到elasticsearch/plugins/文件夹
+  - 自定义词库(特定名词): 使用nginx服务器来存储自定义的字典, 然后修改/usr/share/elasticsearch/plugins/ik/config/中的 IKAnalyzer.cfg.xml中配置远程扩展字典地址
       ```
       <properties>
           <!--用户可以在这里配置远程扩展字典 -->
@@ -172,3 +172,13 @@ GET shopping/_search
   - 简单分析器
   - 空格分析器
   - 语言分析器
+  - IK分词器: 中文分词器
+
+#### 文档冲突
+- 全量更新的时候会覆盖之前的数据, 一般没有问题
+- 在进行局部更新的时候需要进行加锁处理; 悲观锁, 乐观锁
+  - _version
+  - _seq_no
+  - _primary_term
+
+#### Spring Data
