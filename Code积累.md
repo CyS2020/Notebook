@@ -260,4 +260,4 @@ JVM使用-XX:PermSize设置非堆内存初始值，默认是物理内存的1/64�
 4. JVM看看能不能进行调优，这部分可能受益不大
 
 #### 实战总结
-- mysql不区分大小写, 主键id也不区分大小写, 会插入失败; elasticSearch查询也不区分大小写, 文档`_id`还是区分的; aws athena也不区分大小写
+- mysql不区分大小写, 主键id也不区分大小写; elasticSearch查询也不区分大小写, 文档`_id`还是区分的; aws athena也不区分大小写
