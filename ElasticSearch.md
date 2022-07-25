@@ -109,10 +109,10 @@ GET shopping/_search
 - SearchSourceBuilder: 构造搜索条件
   - query
     - boolQuery
-      - must
-      - mustNot
-      - filter
-      - should
+      - must : AND
+      - mustNot : NOT
+      - filter: AND
+      - should : OR
     - matchQuery
     - termQuery
     - matchPhraseQuery
