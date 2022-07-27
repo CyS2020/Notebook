@@ -63,6 +63,7 @@
 - `GET _cat/health`: 查询健康状况
 - `GET _cat/master`: 查询主节点
 - `PUT .index.`: 添加索引
+- `PUT _template/.index.`: 添加索引模板
 - `GET .index./_search`: 查询索引所有数据项
 - `GET .index./_doc/itemId`: 查询索引数据项
 - `DELETE .index./_doc/itemId`: 删除索引数据项
