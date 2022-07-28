@@ -139,7 +139,10 @@
 - `func TestMain(m *testing.M)`: 设置before、after
 
 #### 疑问
-- 为什么可以 []byte(xxx)、string()、int() 这种构造方式；
-- 答：`type(a)` 为数据类型强制类型转换方式，指针还可以使用unsafe.Pointer()方法
-- 结构体中的 omitempty 字段作用
-- 答：序列化时字段若空默认赋为零值，使用该字段则为null，若嵌套类需要使用指针类型
+- 1. 为什么可以 []byte(xxx)、string()、int() 这种构造方式；
+答：`type(a)` 为数据类型强制类型转换方式，指针还可以使用unsafe.Pointer()方法
+- 2. 结构体中的 omitempty 字段作用
+答：序列化时字段若空默认赋为零值，使用该字段则为null，若嵌套类需要使用指针类型
+- 3. 序列化时需要string vs []byte
+答：通过string([]byte) vs []byte(string) 相互转换
+
