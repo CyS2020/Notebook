@@ -142,14 +142,14 @@
 
 #### 疑问
 - 1. 为什么可以 []byte(xxx)、string()、int() 这种构造方式；
- - 答：`type(a)` 为数据类型强制类型转换方式，指针还可以使用unsafe.Pointer()方法
+    - 答：`type(a)` 为数据类型强制类型转换方式，指针还可以使用unsafe.Pointer()方法
 - 2. 结构体中的 omitempty 字段作用
-答：序列化时字段若空默认赋为零值，使用该字段则为null，若嵌套类需要使用指针类型
+  - 答：序列化时字段若空默认赋为零值，使用该字段则为null，若嵌套类需要使用指针类型
 - 3. 序列化时需要string vs []byte
-答：通过string([]byte) vs []byte(string) 相互转换
+  - 答：通过string([]byte) vs []byte(string) 相互转换
 - 4. strconv.Itoa() vs string()
-答：strconv.Itoa()将数字转为字符例如 97 => "97", string()将数字转为ASCII码值 97 => "a"
+  - 答：strconv.Itoa()将数字转为字符例如 97 => "97", string()将数字转为ASCII码值 97 => "a"
 - 5. 如何初始化一个go项目并下载一些依赖
-答: 1)go mod init [module_name]; 2)go get "github.com/" 3)code自动提示并引用
+  - 答: 1)go mod init [module_name]; 2)go get "github.com/" 3)code自动提示并引用
 - 6. 老项目有很多包找不到
-答: 直接运行go mod tidy即可
+  - 答: 直接运行go mod tidy即可
