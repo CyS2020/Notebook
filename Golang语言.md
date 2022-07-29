@@ -149,3 +149,7 @@
 答：通过string([]byte) vs []byte(string) 相互转换
 - 4. strconv.Itoa() vs string()
 答：strconv.Itoa()将数字转为字符例如 97 => "97", string()将数字转为ASCII码值 97 => "a"
+- 5. 如何初始化一个go项目并下载一些依赖
+答: 1)go mod init [module_name]; 2)go get "github.com/" 3)编写代码时就可以自动提示且引用了
+- 6. 老项目有很多包找不到
+答: 直接运行go mod tidy即可
