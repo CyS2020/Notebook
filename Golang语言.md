@@ -153,3 +153,6 @@
   - 答: 1)go mod init [module_name]; 2)go get "github.com/" 3)code自动提示并引用
 - 6. 老项目有很多包找不到
   - 答: 直接运行go mod tidy即可
+
+#### go code
+- `...` 符号解压缩切片，则可以将切片直接传递给可变参数函数。在这种情况下，不会创建新的切片
