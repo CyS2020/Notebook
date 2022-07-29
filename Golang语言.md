@@ -145,4 +145,5 @@
 答：序列化时字段若空默认赋为零值，使用该字段则为null，若嵌套类需要使用指针类型
 - 3. 序列化时需要string vs []byte
 答：通过string([]byte) vs []byte(string) 相互转换
-
+- 4. strconv.Itoa() vs string()
+答：strconv.Itoa()将数字转为字符例如 97 => "97", string()将数字转为ASCII码值 97 => "a"
