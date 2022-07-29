@@ -6,7 +6,9 @@
 - `go build`: 编译指定的源码文件或代码包及依赖包
 - `go install`: 将可执行文件自动安装到bin目录下
 - `go fmt`: 用于检查并格式化成go语言的规范格式
-- `go mod`: 项目初始化与模块管理，类似于mvn工具 
+- `go mod`: 项目初始化与模块管理，类似于mvn工具
+  - `go mod init`: 初始化项目
+  - `go mod tidy`: 管理模块下载与删除
 - `go get`: 获取任意指定的URL的包
 - `go test`: 运行单元测试，常用参数 -cover
 
