@@ -29,7 +29,7 @@
 
 #### 参数传递
 - go语言和java一样只有值传递, 值类型 复制 value 并赋值给新的 identifier
-- 引用类型 复制 address 并复制给新的 identifier
+- 引用类型 复制 address 并复制给新的 identifier; slice 传递 24字节的数据
 
 #### 值类型 -- 2层 identifier -> value
 - `int、uint`: 根据操作系统来区分是32位还是64位
