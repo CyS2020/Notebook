@@ -27,6 +27,10 @@
 - `const 常量名 = 初始值`: 常量定义的时候必须赋值；特殊关键字`iota`
 - 注释：函数外的每个语句必须以关键字开始(var, const, func等)
 
+#### 参数传递
+- go语言和java一样只有值传递, 值类型 复制 value 并赋值给新的 identifier
+- 引用类型 复制 address 并复制给新的 identifier
+
 #### 值类型 -- 2层 identifier -> value
 - `int、uint`: 根据操作系统来区分是32位还是64位
 - `float32、float64`: 类似java中的float与double
