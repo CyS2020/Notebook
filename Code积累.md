@@ -30,7 +30,7 @@
 - 抽象类、接口中可以没有抽象方法, 编译没问题应该是业务抽象的不够好, 即使没有抽象方法也不能直接实例化
 - 继承时尽量不去复写父类已经存在的方法, 继承是为了复用父类的方法, 复写父类的方法不符合里氏替换原则
 - Collection接口toArray()默认返回的是Object类型的数组，且无法强转，toArray(T[] a)该接口返回的是指定类型的数组，例如传入new String[0]入参返回String数组;
-- 被强制类型转换的实例需要是强制类型转换类型的类或者其子类。String是Object的子类，String[]是Object[]的子类(协变), List\<String\>不是List<Object>的子类(可变), 所以会强转失败; Class.cast(obj)方法用于强转
+- 被强制类型转换的实例需要是强制类型转换类型的类或者其子类。String是Object的子类，String[]是Object[]的子类(协变), List\<String\>不是List\<Object\>的子类(可变), 所以会强转失败; Class.cast(obj)方法用于强转
 - intValue()是Number类的方法， Number是一个抽象类。Java中所有的数值类都继承它。也就是说，不单是Integer有intValue方法，Double，Long等都有此方法。Number对于6种数值类型的都有对应的抽象方法；在强转过程中浮点数转整型会有精度丢失, 表示范围大的数值转范围小的类型高位丢失, 数值类型往下强转(long -> int)会丢失高位数据
 ![基本数据类型转换](https://github.com/CyS2020/Notebook/blob/master/images/%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2.png?raw=true)
 - 枚举类中的valueOf()、name()、toString()常用方法与枚举类型的字符串有关，与括号内的属性无关，toString()可以被重写，同时记得区分枚举类的静态方法与实例方法
