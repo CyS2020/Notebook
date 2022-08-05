@@ -65,3 +65,12 @@
 - export 设置环境变量
 - echo 查看环境变量
 - env | grep VER 快速查看当前微服务部署的版本
+
+#### 12. git配置
+- ssh -vT  git@adc.github.microsoft.com : 检验ssh配置
+- nslookup adc.github.microsoft.com 192.168.204.2 : 检测dns域名解析
+- vim /etc/resolv.conf : 虚拟机配置dns解析
+```
+nameserver 8.8.8.8
+nameserver 192.168.204.2
+```
