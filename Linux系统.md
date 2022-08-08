@@ -79,3 +79,10 @@ nameserver 192.168.204.2
 ```
 nmcli networking on
 ```
+
+#### 14. alias简化命令
+```
+alias ck8s='kubectl -n cys' : 设置别名
+alias : 查看别名
+unalias ck8s : 删除别名
+```
