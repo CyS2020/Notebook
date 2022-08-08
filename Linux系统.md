@@ -74,3 +74,8 @@
 nameserver 8.8.8.8
 nameserver 192.168.204.2
 ```
+
+#### 13. 恢复ens33接口
+```
+nmcli networking on
+```
