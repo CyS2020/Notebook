@@ -87,3 +87,8 @@ alias ck8s='kubectl -n cys' : 设置别名
 alias : 查看别名
 unalias ck8s : 删除别名
 ```
+
+#### 15. git命令
+- `git clean -f` : 清除未跟踪的文件
+- `git clean -fd` : 清除未跟踪的文件夹
+- `git checkout -- .` : 清除已修改未提交的文件
