@@ -59,16 +59,19 @@
 #### 基本操作
 - put, delete, head, get -- 幂等; post -- 非幂等
 - `GET _cat/indices?v`: 查看所有索引信息
+- `GET _cat/templates`: 查看所有模板信息
 - `GET _cat/nodes`: 查询节点
 - `GET _cat/health`: 查询健康状况
 - `GET _cat/master`: 查询主节点
-- `PUT .index.`: 添加索引
-- `PUT _template/.index.`: 添加索引模板
-- `GET .index./_search`: 查询索引所有数据项
-- `GET .index./_doc/itemId`: 查询索引数据项
-- `DELETE .index./_doc/itemId`: 删除索引数据项
-- `POST .index./_doc/itemId{...}`: 添加索引数据项
-- `POST .index./_update/itemId{"doc":...}`: 更新索引数据项
+- `PUT _template/[template]`: 添加模板
+- `GET _template/[template]`: 查看模板
+- `PUT [index]`: 添加索引
+- `GET [index]/_mapping`: 查询
+- `GET [index]/_search`: 查询索引所有数据项
+- `GET [index]/_doc/itemId`: 查询索引数据项
+- `DELETE [index]/_doc/itemId`: 删除索引数据项
+- `POST [index]/_doc/itemId{...}`: 添加索引数据项
+- `POST [index]/_update/itemId{"doc":...}`: 更新索引数据项
 
 #### 条件查询
 - `GET shopping/_search?q=key:value`: 使用url参数查询
