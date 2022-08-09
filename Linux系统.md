@@ -71,6 +71,7 @@
 - nslookup adc.github.microsoft.com 192.168.204.2 : 检测dns域名解析
 - vim /etc/resolv.conf : 虚拟机配置dns解析
 ```
+(有时候配置一个可能会更好)
 nameserver 8.8.8.8
 nameserver 192.168.204.2
 ```
