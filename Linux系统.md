@@ -92,3 +92,4 @@ unalias ck8s : 删除别名
 - `git clean -f` : 清除未跟踪的文件
 - `git clean -fd` : 清除未跟踪的文件夹
 - `git checkout -- .` : 清除已修改未提交的文件
+- `git switch task/DDEC-5288_multiple_domains_search` : 切换到远程有本地没有的分支
