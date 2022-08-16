@@ -140,7 +140,7 @@ GET shopping/_search
 #### 集群系统架构
 - 副本数据不能原始数据分配在同一节点
 - 存储数据进行路由计算: hash(id) % 主分片数
-- 读取请求记性分片控制: 随机轮询读取数据 
+- 读取请求进行分片控制: 随机轮询读取数据 
 ![集群系统架构](https://github.com/CyS2020/SpringCloud-Mall/blob/main/resources/ES%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1.PNG?raw=true)
 
 #### 分词器
