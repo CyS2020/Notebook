@@ -217,6 +217,7 @@ GET shopping/_search
 #### 实战总结
 - 索引模板可以在索引创建或者插入文档数据的时候自动匹配, es内置了一些模版; (mappings, settings, aliases)
 - keyword fields are often used in sorting, aggregations, and term-level queries, such as term.
+  - the settings from the create index request take precedence over settings specified in the index template and its component templates.
 - doc_value: 
   - Should the field be stored on disk a column-oriented fashion, so that it can later be used for sorting, aggregations, or scripting
   - Doc values are supported on almost all field types, with the notable exception of text and annotated_text fields.
