@@ -26,6 +26,7 @@
   - multi_match: 多个字段进行全文检索, 不管哪个字段包含了都算匹配上
   - term: 全文检索字段用match, 其他非text字段匹配用term, 完全匹配
   - bool: 用来做复合查询; 搭配: must, should, must_not, filter(后两个不贡献相关性得分)
+  - Avoid using keyword fields for full-text search. Use the text field type instead
 - 执行聚合--分析功能
   - 聚合提供了从数据中分组和提取数据的能力. 最简单的聚合方法大致等于SQL GROUP BY和SQL聚合函数
 - 映射
@@ -215,5 +216,5 @@ GET shopping/_search
 
 #### 实战总结
 - 索引模板可以在索引创建或者插入文档数据的时候自动匹配, es内置了一些模版; (mappings, settings, aliases)
-
-- 
+- keyword fields are often used in sorting, aggregations, and term-level queries, such as term.
+- doc_value: Should the field be stored on disk a column-oriented fashion, so that it can later be used for sorting, aggregations, or scripting
