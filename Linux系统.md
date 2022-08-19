@@ -95,3 +95,4 @@ unalias ck8s : 删除别名
 - `git switch task/DDEC-5288_multiple_domains_search` : 切换到远程有本地没有的分支
 - `git branch -d` : 删除分支
 - `git branch -m` : 分支重命名
+- `git fetch --all --prune` : 以删除过时的跟踪分支。
