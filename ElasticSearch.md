@@ -125,8 +125,8 @@ GET shopping/_search
     - rangeQuery
     - fuzzyQuery
     - wildcardQuery
-  - from
-  - size
+  - from: 用于分页
+  - size: 用于分页
   - sort
   - highlighter
   - aggregation
