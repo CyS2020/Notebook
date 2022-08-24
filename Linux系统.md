@@ -78,7 +78,16 @@ nameserver 192.168.204.2
 
 #### 13. 恢复ens33接口
 ```
+# 先试试
 nmcli networking on
+```
+```
+# 查看所有网卡信息 发现ens33没有静态IP信息
+ifconfig -a 
+chkconfig network off      
+chkconfig network on  
+service NetworkManager stop
+service NetworkManager start
 ```
 
 #### 14. alias简化命令
