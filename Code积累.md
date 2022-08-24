@@ -268,3 +268,11 @@ JVM使用-XX:PermSize设置非堆内存初始值，默认是物理内存的1/64�
 - 在编码过程中，不推荐直接修改原有方法满足现在的功能，而是应该复制该方法然后稍加修改并在调用的位置使用新方法
 - 一般的web请求(Url + Payload)返回值主要为HttpStatus + Response, 若返回204(No Content)则Response为空
 - 返回的Response值在RestTemplate存在Body字段(序列化字符串), 在前端为data(js对象)
+- sql中insert通常只能插入一行，而insert select组合可以插入多行
+```
+# 给读权限的角色也添加写权限
+insert into role_permissions
+select role_id, (select id from permissions tp where tp.minor_part = 'write') as permission_id
+from role_permissions
+where permission_id in (select id from permissions where minor_part = 'read');
+```
