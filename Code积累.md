@@ -276,3 +276,4 @@ select role_id, (select id from permissions tp where tp.minor_part = 'write') as
 from role_permissions
 where permission_id in (select id from permissions where minor_part = 'read');
 ```
+- 如何学习新技术：配置部署 => 关键参数 => 交互API => 使用场景 => 核心原理
