@@ -223,4 +223,4 @@ GET shopping/_search
     - Should the field be stored on disk a column-oriented fashion, so that it can later be used for sorting, aggregations, or scripting
     - Doc values are supported on almost all field types, with the notable exception of text and annotated_text fields.
   - dynamic
-    - The dynamic parameter controls whether new fields are added dynamically, and accepts the following parameters: true、runtime、false、strict
+    - The dynamic parameter controls whether new fields are added dynamically, and accepts the following parameters: <br/>true、runtime、false、strict
