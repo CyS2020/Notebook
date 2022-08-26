@@ -6,6 +6,7 @@
 - ![Dom对象](https://github.com/CyS2020/Notebook/blob/master/images/dom%E5%AF%B9%E8%B1%A1.png?raw=true)
 - DOM对象、jquery对象、js对象
   - DOM对象是用javaScript语法创建的也看做是js对象
+  - jquery表示的对象是js的数组,这个数组对象包含125个方法和4个属性
 - 各种选择器均可以搭配event事件
 
 #### css选择器
