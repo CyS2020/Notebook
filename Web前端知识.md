@@ -49,7 +49,7 @@ window.onload = function () {
     // TODO
 }
 ```
-- 常用选择器: 类型选择器, 类选择器, id选择器, 属性选择器
+- 常用选择器: 类型选择器(`p`), 类选择器(`.class`), id选择器(`#id`), 属性选择器(`[href]`)
 - JQuery事件、动画、DOM操作、回调函数
 - DOM操作
   - text()
