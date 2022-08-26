@@ -5,6 +5,8 @@
 - DOM: Document Object Model; 文本对象模型
 - ![Dom对象](https://github.com/CyS2020/Notebook/blob/master/images/dom%E5%AF%B9%E8%B1%A1.png?raw=true)
 - dom对象、jquery对象、js对象
+- 静态展示: css; 动态交互: jquery
+- 选择器可以搭配event事件的
 
 #### css选择器
 - 选择器
@@ -20,8 +22,6 @@
   - 继承下来的样式永远低于直接指定的样式
   - 内联样式优先级最高, !important是个意外
   - 类型选择器 < 类选择器 < id选择器
-- 静: css; 动: jquery
-- 选择器可以搭配event事件的
 
 #### css盒子模型
 - 外边距-margin: margin
