@@ -7,6 +7,11 @@
 - DOM对象、jquery对象、js对象
   - DOM对象是用javaScript语法创建的也看做是js对象
   - jquery表示的对象是js的数组,这个数组对象包含125个方法和4个属性
+  - jquery变量习惯用$开头, 国际惯例
+```
+dom转jquery: $(Dom对象)
+jquery转dom: $(Dom对象)[0]、$(Dom对象).get(0)
+```
 - 各种选择器均可以搭配event事件
 
 #### css选择器
