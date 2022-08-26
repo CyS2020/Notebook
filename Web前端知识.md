@@ -2,6 +2,9 @@
 
 #### Web 前端
 - html是名词, css是形容词/副词, js是动词
+- DOM: Document Object Model; 文本对象模型
+- ![Dom对象](https://github.com/CyS2020/Notebook/blob/master/images/dom%E5%AF%B9%E8%B1%A1.png?raw=true)
+
 
 #### css选择器
 - 选择器
