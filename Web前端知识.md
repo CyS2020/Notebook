@@ -4,7 +4,8 @@
 - html是名词, css是形容词/副词, js是动词
 - DOM: Document Object Model; 文本对象模型
 - ![Dom对象](https://github.com/CyS2020/Notebook/blob/master/images/dom%E5%AF%B9%E8%B1%A1.png?raw=true)
-- dom对象、jquery对象、js对象
+- DOM对象、jquery对象、js对象
+  - DOM对象是用javaScript语法创建的也看做是js对象
 - 静态展示: css; 动态交互: jquery
 - 选择器可以搭配event事件的
 
