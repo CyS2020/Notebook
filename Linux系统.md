@@ -105,3 +105,6 @@ unalias ck8s : 删除别名
 - `git branch -d` : 删除分支
 - `git branch -m` : 分支重命名
 - `git fetch --all --prune` : 以删除过时的跟踪分支。
+
+#### 16. 其他命令
+- `cat etc/hosts`: 查看域名
