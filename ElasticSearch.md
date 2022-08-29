@@ -118,25 +118,30 @@ GET shopping/_search
       - mustNot : NOT
       - filter: AND
       - should : OR
-    - matchQuery
-    - termQuery
-    - matchPhraseQuery
-    - multiMatchQuery
-    - rangeQuery
-    - fuzzyQuery
-    - wildcardQuery
-  - from: 用于分页
-  - size: 用于分页
+    - term-level
+      - termQuery
+      - fuzzyQuery
+      - wildcardQuery
+      - rangeQuery
+    - full-text
+      - matchQuery
+      - matchPhraseQuery
+      - multiMatchQuery
+  - from 
+  - size
   - sort
   - highlighter
   - aggregation
-    - max
-    - min
-    - sum
-    - avg
-    - terms
-    - subAggregation
-  - fetchSource
+    - Bucket
+      - terms
+    - Metrics
+      - max
+      - min
+      - sum
+      - avg
+    - Pipeline
+  - fields option
+    - fetchSource
 
 #### 集群系统架构
 - 副本数据不能原始数据分配在同一节点
