@@ -164,4 +164,4 @@
 - 引用类型传递不会拷贝对象，值传递会拷贝对象；引用类型传递与`&`取指针传递一致
 - map数据结构在同一台机器上，每次运行的元素顺序都是不一样的，因此在写测试的时候不要依赖顺序
 - 对传入的map可以进行put操作，而slice不能进行append，源slice无法感知；如果使用则需返回append后的引用
-- defer、panic、recover: https://go.dev/blog/defer-panic-and-recover
+- defer、panic、recover : https://go.dev/blog/defer-panic-and-recover
