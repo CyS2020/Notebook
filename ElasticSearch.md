@@ -127,6 +127,8 @@ GET shopping/_search
       - matchQuery
       - matchPhraseQuery
       - multiMatchQuery
+    - joiningQueries
+      - nestedQuery
   - from 
   - size
   - sort
