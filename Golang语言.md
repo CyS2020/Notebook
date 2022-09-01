@@ -151,7 +151,7 @@
   - 推荐使用 `s, ok := x.(T)`
 - 2. 结构体中的 omitempty 字段作用
   - 答：序列化时字段若赋为零值，则不进行序列化；反序列化时未出现的值默认赋零值
-  - `json:"-"` 可以直接不被JSON序列化,如果想被序列化 key-，可以设置tag为 `json:"-,"` 加个逗号
+  - `json:"-"` 可以直接不被JSON序列化，如果想被序列化 key-，可以设置tag为 `json:"-,"` 加个逗号
 - 3. 序列化时需要string vs []byte
   - 答：通过string([]byte) vs []byte(string) 相互转换
 - 4. strconv.Itoa() vs string()
