@@ -232,5 +232,5 @@ GET shopping/_search
   - dynamic
     - The dynamic parameter controls whether new fields are added dynamically, and accepts the following parameters: <br/>true、runtime、false、strict
 - Field data types
-  - object and nested field can used by Nested Query
+  - JSON documents are hierarchical in nature, Similar to common types of queries, eg. used `manager.name.first` as key to query
   - The nested type is a specialised version of the object data type that allows arrays of objects to be indexed in a way that they can be queried independently of each other.
