@@ -169,3 +169,4 @@
 - map数据结构在同一台机器上，每次迭代的元素顺序都是不一样的，这种设计是有意为之
 - 对传入的map可以进行put操作，而slice不能进行append，源slice无法感知；如果使用则需返回append后的引用
 - defer、panic、recover : https://go.dev/blog/defer-panic-and-recover
+- 元组赋值，允许同时更新多个变量值，很有趣的特性: 交换两个值 - `a[i], a[j] = a[j], a[i]`
