@@ -170,3 +170,4 @@
 - 对传入的map可以进行put操作，而slice不能进行append，源slice无法感知；如果使用则需返回append后的引用
 - defer、panic、recover : https://go.dev/blog/defer-panic-and-recover
 - 元组赋值，允许同时更新多个变量值，很有趣的特性: 交换两个值 - `a[i], a[j] = a[j], a[i]`
+- 每个文件都可以包含多个init初始化函数，在程序开始执行时按照它们声明的顺序被自动调用
