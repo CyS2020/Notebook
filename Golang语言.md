@@ -51,6 +51,7 @@
   - 使用copy()函数进行切片拷贝，并不共享底层数组
   - append(s[:index], s[index+1]...) 实现切片删除功能
   - slice的len参数会进行零值初始化，map只有cap无len参数
+  - slice之间不能比较，因此我们不能使用==操作符来判断两个slice是否含有全部相等元素
 - `map`: 声明map[key]value{}初始化；make函数初始化；
   - 使用返回值的val, ok来接收查询返回值；获取不到val为零值，ok为false
   - 可以使用for range只遍历key、value，或者都遍历
