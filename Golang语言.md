@@ -59,6 +59,7 @@
   - 使用delete()来删除键值对；map[key]++零值自增且put
   - slice与map的cap影响扩容，提前预估优化性能
   - K对应的key必须是支持 `==` 比较运算符的数据类型
+  - slice一样，map之间也不能进行相等比较；唯一的例外是和nil进行比较
 - `channel`: 通过通信共享内存，而不是通过共享内存而通信；make函数初始化
   - 有缓冲去通道：类似于ArrayBlockingQueue，缓冲区空、满会阻塞 
   - 无缓冲区通道：类似于JUC中的synchronousQueue，通道不存数据直接传递；又称同步通道
