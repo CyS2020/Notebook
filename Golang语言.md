@@ -106,6 +106,11 @@
 - 闭包 = 函数 + 外层变量的应用
 - 内置函数：close、len、new(值类型)、make(引用类型)、append、panic+recover
 
+#### 异常处理
+- 检查某个子函数是否失败后，我们通常将处理失败的逻辑代码放在处理成功的代码之前
+- 如果某个错误会导致函数返回，那么成功时的逻辑代码不应放在else语句块中，而应直接放在函数体中
+- 文件结尾错误（EOF）：`errors.New("EOF")`
+
 #### 流程控制
 - `fori、continue、break`: 只有for循环没有while循环
 - `for range`: 遍历数组、切片、字符串、map以及通道(channel)
