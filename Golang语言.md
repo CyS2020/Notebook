@@ -99,6 +99,15 @@ for _, dir := range tempDirs() {
     // ...
 }
 ```
+  - deferred函数中调用recover，并且定义该defer语句的函数发生了panic异常,则函数不会继续运行，但能正常返回
+  - recover会使程序从panic中恢复，并返回panic value 在未发生panic时返回nil
+```
+defer func() {
+    if p := recover(); p != nil {
+        err = fmt.Errorf("internal error: %v", p)
+    }
+}()
+```
 
 #### 类型使用
 - array, slice, map的访问与赋值均使用[]来进行
