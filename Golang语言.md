@@ -102,23 +102,23 @@
   - 如果两个函数的形参列表和返回值列表中的变量一一对应，那么两个函数别认为有相同的类型和标识符
   - 函数类型的零值是nil。调用值为nil的函数值会引起panic错误；函数值可以与nil比较，函数值之间不可比较
   - 函数值中记录的是循环变量的内存地址，而不是循环变量某一时刻的值
-```
-为了解决这个问题，我们会引入一个与循环变量同名的局部变量，作为循环变量的副本
-for _, dir := range tempDirs() {
-    dir := dir // declares inner dir, initialized to outer dir
-    // ...
-}
-```
+  ```
+  为了解决这个问题，我们会引入一个与循环变量同名的局部变量，作为循环变量的副本
+  for _, dir := range tempDirs() {
+      dir := dir // declares inner dir, initialized to outer dir
+      // ...
+  }
+  ```
   - deferred函数中调用recover，并且定义该defer语句的函数发生了panic异常,则函数不会继续运行，但能正常返回
   - recover会使程序从panic中恢复，并返回panic value 在未发生panic时返回nil
-```
-最佳实践
-defer func() {
-    if p := recover(); p != nil {
-        err = fmt.Errorf("internal error: %v", p)
-    }
-}()
-```
+  ```
+  最佳实践
+  defer func() {
+      if p := recover(); p != nil {
+          err = fmt.Errorf("internal error: %v", p)
+      }
+  }()
+  ```
 
 #### 类型使用
 - array, slice, map的访问与赋值均使用[]来进行
