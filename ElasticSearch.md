@@ -127,6 +127,8 @@ GET shopping/_search
       - matchQuery
       - matchPhraseQuery
       - multiMatchQuery
+    - joiningQueries
+      - nestedQuery
   - from 
   - size
   - sort
@@ -229,3 +231,6 @@ GET shopping/_search
     - Doc values are supported on almost all field types, with the notable exception of text and annotated_text fields.
   - dynamic
     - The dynamic parameter controls whether new fields are added dynamically, and accepts the following parameters: <br/>true、runtime、false、strict
+- Field data types
+  - JSON documents are hierarchical in nature, Similar to common types of queries, e.g. used `manager.name.first` as key to query
+  - The nested type is a specialised version of the object data type that allows arrays of objects to be indexed in a way that they can be queried independently of each other.
