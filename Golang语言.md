@@ -92,8 +92,7 @@
   - 使用匿名接口组合完成类似接口继承的行为，这种方式本称为接口内嵌
   - 两个接口值相等仅当它们都是nil值或者它们的动态类型相同并且动态值也根据这个动态类型的＝＝操作相等
   - **一个不包含任何值的nil接口值和一个刚好包含nil指针的接口值是不同的**
-  - ![空接口](https://github.com/CyS2020/Notebook/blob/master/images/nil%E6%8E%A5%E5%8F%A3.png?raw=true)
-  - ![非空接口](https://github.com/CyS2020/Notebook/blob/master/images/not-nil%E6%8E%A5%E5%8F%A3.png?raw=true)
+  - ![空接口](https://github.com/CyS2020/Notebook/blob/master/images/nil%E6%8E%A5%E5%8F%A3.png?raw=true) ![非空接口](https://github.com/CyS2020/Notebook/blob/master/images/not-nil%E6%8E%A5%E5%8F%A3.png?raw=true)
   - 接口类型sort.Interface来指定通用的排序算法和可能被排序到的序列类型之间的约定
   - 实践建议
     - 接口只有当有两个或两个以上的具体类型必须以相同的方式进行处理时才使用接口  ask only for what you need
