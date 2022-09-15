@@ -70,7 +70,7 @@
   - 无缓冲区通道：类似于JUC中的synchronousQueue，通道不存数据直接传递；又称同步通道
   - 发送与接收使用 `<-` 符号，类似于阻塞队列的take与put操作；关闭通道后取值则返回零值
   - 使用close函数关闭通道，虽然不是必须关闭的有垃圾回收，但推荐手动关闭
-  - 通道取值方式：1) 无线循环，!ok => break；2）for range循环
+  - 通道取值方式：1) 无限循环，!ok => break；2）for range循环
   - 函数传参的时候限定单向通道：`chan<-` 往通道发数据；`<-chan` 从通道取数据
   - select多路复用：可以处理多个channel发送/接收，若多个case满足条件随机执行
 - `interface`:
@@ -169,7 +169,7 @@
 - 结构体的反射：反射字段，反射方法，基本原理和java的区别不大
 
 #### 并发编程
-- goroutine线程类似于java中的Thread，`go func()` 启动并执行函数 = start()+ run()
+- goroutine线程类似于java中的Thread，`go func()` 启动并执行函数 = start() + run()
 - goroutine是协程不归操作系统管，goroutine和OS线程是m:n的关系，将m个goroutine分到n个OS thread执行
 - goroutine是由go scheduler调度到OS thread上执行，再由OS scheduler调度到CPU core上执行
 - java的Thread是由OS scheduler调度到CPU core上执行，java Thread与OS thread是一一对应的关系(线程模型)
