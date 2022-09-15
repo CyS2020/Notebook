@@ -75,6 +75,7 @@
     - 所有的数据已经全部发送时由发送方关闭channel
   - 通道取值方式：1) 无限循环，!ok => break；2）for range循环 -- 推荐
   - 函数传参的时候限定单向通道：`chan<-` 往通道发数据；`<-chan` 从通道取数据
+    - 任何双向channel向单向channel变量的赋值操作都将导致该隐式转换
   - select多路复用：可以处理多个channel发送/接收，若多个case满足条件随机执行
   - 两个相同类型的channel可以使用==运算符比较。如果两个channel引用的是相同的对象
 - `interface`:
