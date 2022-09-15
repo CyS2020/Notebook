@@ -68,6 +68,8 @@
 - `channel`: 通过通信共享内存，而不是通过共享内存而通信；make函数初始化
   - 有缓冲去通道：类似于ArrayBlockingQueue，缓冲区空、满会阻塞 
   - 无缓冲区通道：类似于JUC中的synchronousQueue，通道不存数据直接传递；又称同步通道
+    - 消息事件并不携带额外的信息，它仅仅是用作两个goroutine之间的同步
+    - `done := make(chan struct{}) done <- struct{}{}` (done <- 1 语句更短)
   - 发送与接收使用 `<-` 符号，类似于阻塞队列的take与put操作；关闭通道后取值则返回零值
   - 使用close函数关闭通道，虽然不是必须关闭的有垃圾回收，但推荐手动关闭
   - 通道取值方式：1) 无限循环，!ok => break；2）for range循环
