@@ -66,10 +66,13 @@
   - slice一样，map之间也不能进行相等比较；唯一的例外是和nil进行比较
   - 使用map来实现set结构，存在value置为true: `map[string]bool`
 - `channel`: 通过通信共享内存，而不是通过共享内存而通信；make函数初始化
-  - 有缓冲去通道：类似于ArrayBlockingQueue，缓冲区空、满会阻塞 
+  - 有缓冲去通道：类似于ArrayBlockingQueue，缓冲区空、满会阻塞
+    - 对于带缓存channel，发送操作与接收操作是解耦的
+    - 关于无缓存或带缓存channels之间的选择，或者是带缓存channels的容量大小的选择，都可能影响程序的正确性
   - 无缓冲区通道：类似于JUC中的synchronousQueue，通道不存数据直接传递；又称同步通道
     - 消息事件并不携带额外的信息，它仅仅是用作两个goroutine之间的同步
     - `done := make(chan struct{}) done <- struct{}{}` (done <- 1 语句更短)
+    - 无缓存channel更强地保证了每个发送操作与相应的同步接收操作
   - 发送与接收使用 `<-` 符号，类似于阻塞队列的take与put操作；关闭通道后取值则返回零值
   - 使用close函数关闭通道，虽然不是必须关闭的有垃圾回收，但推荐手动关闭
     - 所有的数据已经全部发送时由发送方关闭channel
