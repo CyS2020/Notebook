@@ -81,6 +81,8 @@
   - 函数传参的时候限定单向通道：`chan<-` 往通道发数据；`<-chan` 从通道取数据
     - 任何双向channel向单向channel变量的赋值操作都将导致该隐式转换
   - select多路复用：可以处理多个channel发送/接收，若多个case满足条件随机执行
+    - select会等待case中有能够执行的case时去执行。一个没有任何case的select语句写作select{}，会永远地等待下去
+    - channel的零值是nil。对一个nil的 channel发送和接收操作会永远阻塞，在select语句中操作nil的channel永远都不会被select到
   - 两个相同类型的channel可以使用==运算符比较。如果两个channel引用的是相同的对象
 - `interface`:
   - 是一种类型，一种抽象的数据类型；是一种鸭子类型的接口
