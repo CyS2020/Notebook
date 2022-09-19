@@ -181,6 +181,7 @@
 - 数据竞争会在两个以上的goroutine并发访问相同的变量且至少其中一个为写操作时发生，三种方式可以避免数据竞争
   - 第一种方法是不要去写变量，只读变量
   - 第二种避免数据竞争的方法是，使用goroutine + channel -- 串行绑定
+  - 第三种称为“互斥”
 - goroutine线程类似于java中的Thread，`go func()` 启动并执行函数 = start() + run()
 - goroutine是协程不归操作系统管，goroutine和OS线程是m:n的关系，将m个goroutine分到n个OS thread执行
 - goroutine是由go scheduler调度到OS thread上执行，再由OS scheduler调度到CPU core上执行
