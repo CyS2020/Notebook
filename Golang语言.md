@@ -197,7 +197,7 @@
         mu.Lock()
         defer mu.Unlock()
         balance = balance + amount
-   }
+    }
     ```
   - go里没有重入锁，对比java语言
 - `sync.RWMetux`: 读写锁 = ReentrantReadWriteLock
