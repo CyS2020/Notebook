@@ -191,6 +191,7 @@
 #### 同步与锁
 - `sync.Metux`: 互斥锁 = ReentrantLock
   - sync.Metux所保护的变量是在mutex变量声明之后立刻声明的
+  - go里没有重入锁，对比java语言
     ```
     最佳实践
     func Deposit(amount int) {
@@ -199,7 +200,6 @@
         balance = balance + amount
     }
     ```
-  - go里没有重入锁，对比java语言
 - `sync.RWMetux`: 读写锁 = ReentrantReadWriteLock
 - `sync.Map`: 线程安全map = ConcurrentHashMap
 - `sync.Once`: 资源初始化 = 双重检查 + volatile
