@@ -199,6 +199,7 @@
         balance = balance + amount
    }
     ```
+  - go里没有重入锁，对比java语言
 - `sync.RWMetux`: 读写锁 = ReentrantReadWriteLock
 - `sync.Map`: 线程安全map = ConcurrentHashMap
 - `sync.Once`: 资源初始化 = 双重检查 + volatile
