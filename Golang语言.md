@@ -191,7 +191,7 @@
 #### 同步与锁
 - `sync.Metux`: 互斥锁 = ReentrantLock
   - sync.Metux所保护的变量是在mutex变量声明之后立刻声明的
-  - go里没有重入锁，对比java语言
+  - go里没有重入锁，一个通用的解决方案是将一个函数分离为多个函数
     ```
     最佳实践
     func Deposit(amount int) {
