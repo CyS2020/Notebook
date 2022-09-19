@@ -175,29 +175,14 @@
 - `switch、case、default`: 支持增强switch块(~~break~~)，case可处理表达式
 - `select、case、default`: 多路复用处理channel，没有case分支会一直阻塞
 
-#### 反射
-- reflect.TypeOf(): 函数可以获得任意值的类型对象(reflect.Type)，主要有Type和Kind
-- reflect.ValueOf(): 返回的是reflect.Value类型，其中包含了原始值的值信息。专有的Elem()方法来获取指针对应的值。
-- 结构体的反射：反射字段，反射方法，基本原理和java的区别不大
-
 #### 并发编程
+- 位于两个goroutine的事件x和y的执行顺序，x是在y之前还是之后还是同时发生是没法判断的。就说明x和y这两个事件是并发的。
+- 一个函数在线性程序中可以正确地工作。并发的情况下，这个函数依然可以正确地工作，那么我们就说这个函数是并发安全的
 - goroutine线程类似于java中的Thread，`go func()` 启动并执行函数 = start() + run()
 - goroutine是协程不归操作系统管，goroutine和OS线程是m:n的关系，将m个goroutine分到n个OS thread执行
 - goroutine是由go scheduler调度到OS thread上执行，再由OS scheduler调度到CPU core上执行
 - java的Thread是由OS scheduler调度到CPU core上执行，java Thread与OS thread是一一对应的关系(线程模型)
 - Java的用户态线程与内核态是一一对应的关系，java线程就是操作系统的线程，这么多线程由CPU core执行，就会产生上下文切换
-
-#### 反射
-- reflect.TypeOf(): 函数可以获得任意值的类型对象(reflect.Type)，主要有Type和Kind
-- reflect.ValueOf(): 返回的是reflect.Value类型，其中包含了原始值的值信息。专有的Elem()方法来获取指针对应的值。
-- 结构体的反射：反射字段，反射方法，基本原理和java的区别不大
-
-#### 并发编程
-- goroutine线程类似于java中的Thread，`go func()` 启动并执行函数 = start()+ run()
-- goroutine是协程不归操作系统管，goroutine和OS线程是m:n的关系，将m个goroutine分到n个OS thread执行
-- goroutine是由go scheduler调度到OS thread上执行，再由OS scheduler调度到CPU core上执行
-- java的Thread是由OS scheduler调度到CPU core上执行，java Thread与OS thread是一一对应的关系(线程模型)
-- JVM的用户态线程与内核态是一一对应的关系，java线程就是操作系统的线程，这么多线程由CPU core执行，就会产生上下文切换
 
 #### 同步与锁
 - `sync.Metux`: 互斥锁 = ReentrantLock
@@ -206,6 +191,11 @@
 - `sync.Once`: 资源初始化 = 双重检查 + volatile
 - `sync.WaitGroup`: 线程协同 = CountDownLatch
 - `atmoic`: 针对基本类型的原子操作
+
+#### 反射
+- reflect.TypeOf(): 函数可以获得任意值的类型对象(reflect.Type)，主要有Type和Kind
+- reflect.ValueOf(): 返回的是reflect.Value类型，其中包含了原始值的值信息。专有的Elem()方法来获取指针对应的值。
+- 结构体的反射：反射字段，反射方法，基本原理和java的区别不大
 
 #### 网络编程
 - net包实现tcp、udp的socket的连接与通信
