@@ -194,6 +194,7 @@
 - `sync.Map`: 线程安全map = ConcurrentHashMap
 - `sync.Once`: 资源初始化 = 双重检查 + volatile
 - `sync.WaitGroup`: 线程协同 = CountDownLatch
+  - Add(1)、Done() -- 相当于Add(-1)、Wait()
 - `atmoic`: 针对基本类型的原子操作
 
 #### 反射
