@@ -178,6 +178,9 @@
 #### 并发编程
 - 位于两个goroutine的事件x和y的执行顺序，x是在y之前还是之后还是同时发生是没法判断的。就说明x和y这两个事件是并发的。
 - 一个函数在线性程序中可以正确地工作。并发的情况下，这个函数依然可以正确地工作，那么我们就说这个函数是并发安全的
+- 数据竞争会在两个以上的goroutine并发访问相同的变量且至少其中一个为写操作时发生，三种方式可以避免数据竞争
+  - 第一种方法是不要去写变量，只读变量
+  - 第二种避免数据竞争的方法是，使用channel -- 不要使用共享数据来通信；使用通信来共享数据
 - goroutine线程类似于java中的Thread，`go func()` 启动并执行函数 = start() + run()
 - goroutine是协程不归操作系统管，goroutine和OS线程是m:n的关系，将m个goroutine分到n个OS thread执行
 - goroutine是由go scheduler调度到OS thread上执行，再由OS scheduler调度到CPU core上执行
