@@ -187,6 +187,7 @@
 - goroutine是由go scheduler调度到OS thread上执行，再由OS scheduler调度到CPU core上执行
 - java的Thread是由OS scheduler调度到CPU core上执行，java Thread与OS thread是一一对应的关系(线程模型)
 - Java的用户态线程与内核态是一一对应的关系，java线程就是操作系统的线程，这么多线程由CPU core执行，就会产生上下文切换
+- 为了效率，对内存的写入一般会在每一个处理器中缓冲，并在必要时一起flush到主存，类似java
 
 #### 同步与锁
 - `sync.Metux`: 互斥锁 = ReentrantLock
