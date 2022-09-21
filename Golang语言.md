@@ -183,11 +183,16 @@
   - 第二种避免数据竞争的方法是，使用goroutine + channel -- 串行绑定
   - 第三种称为“互斥”
 - goroutine线程类似于java中的Thread，`go func()` 启动并执行函数 = start() + run()
-- goroutine是协程不归操作系统管，goroutine和OS线程是m:n的关系，将m个goroutine分到n个OS thread执行
-- goroutine是由go scheduler调度到OS thread上执行，再由OS scheduler调度到CPU core上执行
-- java的Thread是由OS scheduler调度到CPU core上执行，java Thread与OS thread是一一对应的关系(线程模型)
-- Java的用户态线程与内核态是一一对应的关系，java线程就是操作系统的线程，这么多线程由CPU core执行，就会产生上下文切换
 - 为了效率，对内存的写入一般会在每一个处理器中缓冲，并在必要时一起flush到主存，类似java
+- Go routines和OS线程
+  - OS线程都有一个固定大小的内存块(一般会是2MB)来做栈，个goroutine会以2KB的栈开始其生命周期，最大伸缩到1G
+  - goroutine是协程不归操作系统管，goroutine和OS线程是m:n的关系，将m个goroutine分到n个OS thread执行
+  - goroutine是由go scheduler调度到OS thread上执行，再由OS scheduler调度到CPU core上执行
+  - GOMAXPROCS的变量来决定会有多少个操作系统的线程同时执行Go的代码(即m:n中的n)，默认的值是CPU的核心数
+  - goroutine没有可以被程序员获取到的身份(id)的概念，由于thread-local storage总是会被滥用
+- Java Thread和OS线程
+  - java的Thread是由OS scheduler调度到CPU core上执行，java Thread与OS thread是一一对应的关系(线程模型)
+  - Java的用户态线程与内核态是一一对应的关系，java线程就是操作系统的线程，这么多线程由CPU core执行，就会产生上下文切换
 
 #### 同步与锁
 - `sync.Metux`: 互斥锁 = ReentrantLock
