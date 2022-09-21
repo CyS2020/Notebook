@@ -204,6 +204,7 @@
 - `sync.RWMetux`: 读写锁 = ReentrantReadWriteLock
 - `sync.Map`: 线程安全map = ConcurrentHashMap
 - `sync.Once`: 资源初始化 = 双重检查 + volatile
+  - Do这个唯一的方法需要接收初始化函数作为其参数
 - `sync.WaitGroup`: 线程协同 = CountDownLatch
   - Add(1)、Done() -- 相当于Add(-1)、Wait()
 - `atmoic`: 针对基本类型的原子操作
