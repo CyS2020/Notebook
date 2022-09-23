@@ -226,6 +226,8 @@ GET shopping/_search
 - keyword fields are often used in sorting, aggregations, and term-level queries, such as term.
   - the settings from the create index request take precedence over settings specified in the index template and its component templates.
 - Mapping parameters
+  - index
+    - The index option controls whether field values are indexed. It accepts true or false and defaults to true. Fields that are not indexed are typically not queryable.
   - doc_value
     - Should the field be stored on disk a column-oriented fashion, so that it can later be used for sorting, aggregations, or scripting
     - Doc values are supported on almost all field types, with the notable exception of text and annotated_text fields.
