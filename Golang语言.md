@@ -23,10 +23,10 @@
 - 一般情況下main函数会定义在项目的根目录下，和go.mod文件在一起
 - 多个模块协同开发，并且有依赖关系
   ```
-  `go mod edit -replace example.com/greetings=../greetings`
-  `go mod tidy`
-   replace example.com/greetings => ../greetings
-   require example.com/greetings v0.0.0-00010101000000-000000000000
+  go mod edit -replace example.com/greetings=../greetings
+  go mod tidy
+  replace example.com/greetings => ../greetings
+  require example.com/greetings v0.0.0-00010101000000-000000000000
   ```
 
 #### 变量与常量
