@@ -24,7 +24,7 @@
   - match: 基本数据类型是精确匹配, 字符串类型是全文检索
   - match_phrase: 短语当成整个单词(不分词)进行检索
   - multi_match: 多个字段进行全文检索, 不管哪个字段包含了都算匹配上
-  - term: 全文检索字段用match, 其他非text字段匹配用term, 完全匹配
+  - term: 完全匹配常用于keyword类型, 全文检索字段用match, 其他非text字段匹配用term, 
   - bool: 用来做复合查询; 搭配: must, should, must_not, filter(后两个不贡献相关性得分)
   - Avoid using keyword fields for full-text search. Use the text field type instead
 - 执行聚合--分析功能
