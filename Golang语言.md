@@ -19,8 +19,15 @@
 - 如果遇见同名的包，就对包起别名进行区分，`_` 字符作为包名进行匿名导入，只运行init()方法
 - 同一个包之间的访问不需要额外引入操作；文件夹名即包名而文件名确没什么鸟用
 - 模块名 -> 执行文件(xxx.exe)；包名 -> 提供导入(fmt)；函数名 -> 提供调用(Println)
-- `module github.com/olivere/elastic/v7` 引入elastic是 import 模块名/包名
+- `module github.com/olivere/elastic/v7` 引入elastic是 import 模块名/包名 (v7版本省略)
 - 一般情況下main函数会定义在项目的根目录下，和go.mod文件在一起
+- 多个模块协同开发，并且有依赖关系
+  ```
+  `go mod edit -replace example.com/greetings=../greetings`
+  `go mod tidy`
+   replace example.com/greetings => ../greetings
+   require example.com/greetings v0.0.0-00010101000000-000000000000
+  ```
 
 #### 变量与常量
 - `var 变量名 变量类型`: 声明变量并且默认初始化，使用对应类型的零值初始化；引用类型初始化为nil
