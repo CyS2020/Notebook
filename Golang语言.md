@@ -10,7 +10,8 @@
   - `go mod init`: 初始化项目
   - `go mod tidy`: 管理模块下载与删除
 - `go get`: 获取任意指定的URL的包
-- `go test -v`: 运行单元测试(-cover统计覆盖率)
+- `go test -v`: 运行单元测试
+  - `go test -cover`: 统计代码覆盖率
   - `go test -bench=.`: 基准测试
   ```
   # 代码覆盖详情
