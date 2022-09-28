@@ -263,3 +263,7 @@ Vue.use(ElementUI);
 ```
 npm install -g vue-cli
 ```
+
+### javaScript code
+- `==`: 非严格进行比较，会进行类型转换。例如：`1 == "1"` = true
+- `===`: 严格进行比较，不会进行类型转换。例如：`1 == "1"` = false
