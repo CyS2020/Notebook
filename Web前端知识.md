@@ -267,3 +267,12 @@ npm install -g vue-cli
 ### javaScript code
 - `==`: 非严格进行比较，会进行类型转换。例如：`1 == "1"` = true
 - `===`: 严格进行比较，不会进行类型转换。例如：`1 == "1"` = false
+- js进行反序列化的时候，只有int类型比较特殊，其他的类型均为string类型
+  ```
+  type ScanTime struct {
+	  Time1 int    `json:"time1"`
+	  Time2 string `json:"time2"`
+  }
+  # 序列化之后的结果，js里面time1就是number类型
+  {"time1":12345,"time2":"67890"}
+  ```
