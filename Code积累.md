@@ -270,7 +270,6 @@ JVM使用-XX:PermSize设置非堆内存初始值，默认是物理内存的1/64�
   - 一般的web请求(Url + Payload)返回值主要为HttpStatus + Response, 若返回204(No Content)则Response为空
   - 返回的Response值在RestTemplate存在Body字段(序列化字符串), 在前端为data(js对象)
   - 前端Request Headers: `Accept: application/json, text/javascript, */*; q=0.01` 通知后端我接收的数据格式
-  - 前端Request Headers: `Content-Type: text/plain; charset=UTF-8` 
   - 前端Response Headers: `Content-Type: text/html; charset=utf-8` 后端返回的数据格式
   - 后端使用`@RequestMapping(consumes = "application/json", produces = "application/json")`进行内容协商
 - sql中insert通常只能插入一行，而insert select组合可以插入多行
