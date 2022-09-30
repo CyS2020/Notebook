@@ -238,6 +238,7 @@
   操作数的动态类型这里是int和它的动态的值这里是3
   t := reflect.TypeOf(3)
   ```
+- reflect.Value 和 interface{} 都能保存任意的值. 所不同的是, 一个空的接口隐藏了值对应的表示方式和所有的公开的方法
 - reflect.TypeOf(): 函数可以获得任意值的类型对象(reflect.Type)，主要有Type和Kind
 - reflect.ValueOf(): 返回的是reflect.Value类型，其中包含了原始值的值信息。专有的Elem()方法来获取指针对应的值。
 - 结构体的反射：反射字段，反射方法，基本原理和java的区别不大
