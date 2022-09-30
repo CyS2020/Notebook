@@ -239,8 +239,13 @@
   t := reflect.TypeOf(3)
   ```
 - reflect.Value 和 interface{} 都能保存任意的值. 所不同的是, 一个空的接口隐藏了值对应的表示方式和所有的公开的方法
-- reflect.TypeOf(): 函数可以获得任意值的类型对象(reflect.Type)，主要有Type和Kind
-- reflect.ValueOf(): 返回的是reflect.Value类型，其中包含了原始值的值信息。专有的Elem()方法来获取指针对应的值。
+- reflect.TypeOf(): 函数可以获得任意值的类型对象(reflect.Type)
+- reflect.ValueOf(): 返回的是reflect.Value类型，其中包含了原始值的值信息。
+  - v.Kind()返回类型枚举值，v.Type()将返回具体类型所对应的reflect.Type
+  - slice和数组：v.Len()、v.Index()
+  - 结构体：v.NumField()、v.Field() `v.Type().Field(i).Name`
+  - Maps: v.MapKeys()、v.MapIndex(key)
+  - 指针和接口：v.Elem()、v.IsNil()
 - 结构体的反射：反射字段，反射方法，基本原理和java的区别不大
 
 #### 网络编程
