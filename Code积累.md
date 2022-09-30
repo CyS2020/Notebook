@@ -269,7 +269,10 @@ JVM使用-XX:PermSize设置非堆内存初始值，默认是物理内存的1/64�
 - web与servlet
   - 一般的web请求(Url + Payload)返回值主要为HttpStatus + Response, 若返回204(No Content)则Response为空
   - 返回的Response值在RestTemplate存在Body字段(序列化字符串), 在前端为data(js对象)
-  - jquery使用accepts指定能接收的一组数据格式，dataType指定服务器返回数据类格式，contextType发送请求的请求体的数据格式
+  - jquery使用accepts指定能接收的一组数据格式，dataType指定服务器返回数据类格式，contextType指定发送请求的请求体的数据格式
+  - context-Type:
+    - Request Headers -- 实体头部用于指示资源的MIME类型media type
+    - Response Headers -- 告诉客户端服务端实际返回的内容的内容类型
   - 后端使用`@RequestMapping(consumes = "application/json", produces = "application/json")`进行内容协商
 - sql中insert通常只能插入一行，而insert select组合可以插入多行
 ```
