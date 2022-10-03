@@ -246,6 +246,17 @@
   - 结构体：v.NumField()、v.Field()
   - Maps: v.MapKeys()、v.MapIndex(key)
   - 指针和接口：v.Elem()、v.IsNil()
+- 每当我们通过指针间接地获取的reflect.Value都是可取地址的，即使开始的是一个不可取地址的Value
+  - first: 调用Addr()方法，它返回一个Value，里面保存了指向变量的指针
+  - second: 在Value上调用Interface()方法，也就是返回一个interface{}，里面通用包含指向变量的指针
+  - third: 知道变量的类型后使用类型的断言机制将得到的interface{}类型的接口强制环为普通的类型指针
+    ```
+    x := 2
+    d := reflect.ValueOf(&x).Elem()   // d refers to the variable x
+    px := d.Addr().Interface().(*int) // px := &x
+    *px = 3                           // x = 3
+    fmt.Println(x)                    // "3"
+    ```
 - 结构体的反射：反射字段，反射方法，基本原理和java的区别不大
 
 #### 网络编程
