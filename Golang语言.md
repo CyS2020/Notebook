@@ -257,6 +257,12 @@
     *px = 3                           // x = 3
     fmt.Println(x)                    // "3"
     ```
+  - 或者通过调用可取地址的reflect.Value的reflect.Value.Set方法来更新对于的值
+    ```
+    d.Set(reflect.ValueOf(4))
+    fmt.Println(x)                    // "4"
+    ```
+ 
 - 结构体的反射：反射字段，反射方法，基本原理和java的区别不大
 
 #### 网络编程
