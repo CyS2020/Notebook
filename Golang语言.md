@@ -243,7 +243,7 @@
 - reflect.ValueOf(): 返回的是reflect.Value类型，其中包含了原始值的值信息。
   - v.Kind()返回类型枚举值reflect.Kind，v.Type()将返回具体类型所对应的reflect.Type
   - slice和数组：v.Len()、v.Index()
-  - 结构体：v.NumField()、v.Field() `v.Type().Field(i).Name`
+  - 结构体：v.NumField()、v.Field()
   - Maps: v.MapKeys()、v.MapIndex(key)
   - 指针和接口：v.Elem()、v.IsNil()
 - 结构体的反射：反射字段，反射方法，基本原理和java的区别不大
