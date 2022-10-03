@@ -259,10 +259,10 @@
     ```
   - 或者通过调用可取地址的reflect.Value的reflect.Value.Set方法来更新对于的值
     ```
+    # 多用于基本数据类型的Set方法：SetInt、SetUint、SetString和SetFloat等
     d.Set(reflect.ValueOf(4))
     fmt.Println(x)                    // "4"
     ```
- 
 - 结构体的反射：反射字段，反射方法，基本原理和java的区别不大
 
 #### 网络编程
