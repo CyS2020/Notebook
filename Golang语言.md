@@ -246,6 +246,7 @@
   - 结构体：v.NumField()、v.Field()
   - Maps: v.MapKeys()、v.MapIndex(key)
   - 指针和接口：v.Elem()、v.IsNil()
+- reflect.Value的CanAddr方法来判断其是否可以被取地址，CanSet是用于检查对应的reflect.Value是否是可取地址并可被修改
 - 每当我们通过指针间接地获取的reflect.Value都是可取地址的，即使开始的是一个不可取地址的Value
   - first: 调用Addr()方法，它返回一个Value，里面保存了指向变量的指针
   - second: 在Value上调用Interface()方法，也就是返回一个interface{}，里面通用包含指向变量的指针
