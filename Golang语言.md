@@ -267,6 +267,9 @@
     fmt.Println(x)                    // "3"
     ```
 - 创建反射对象reflect.New(), reflect.Append(), reflect.MakeMap()
+- reflect.Type和reflect.Value都提供了一个Method方法
+  - t.Method(i)调用将一个reflect.Method的实例对应一个用于描述一个方法的名称和类型的结构体
+  - v.Method(i)方法调用都返回一个reflect.Value以表示对应的值。使用reflect.Value.Call方法，可以调用一个Func类型的Value
 - 结构体的反射：反射字段，反射方法，基本原理和java的区别不大
 
 #### 网络编程
