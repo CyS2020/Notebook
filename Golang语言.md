@@ -266,6 +266,7 @@
     d.SetInt(3)
     fmt.Println(x)                    // "3"
     ```
+- 创建反射对象reflect.New(), reflect.MakeMap()
 - 结构体的反射：反射字段，反射方法，基本原理和java的区别不大
 
 #### 网络编程
