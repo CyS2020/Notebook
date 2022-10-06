@@ -281,6 +281,8 @@
   - `uintptr`: 用于指针运算，GC 不把 uintptr 当指针，uintptr 无法持有对象。uintptr 类型的目标会被回收
     - 只要将 Pointer 类型转换成 uintptr 类型，做完加减法后，转换成 Pointer，通过*操作，取值，修改值，随意
     - unsafe.Pointer 可以让你的变量在不同的普通指针类型转来转去，也就是表示为任意可寻址的指针类型。而 uintptr 常用于与 unsafe.Pointer 打配合，用于做指针运算
+- 来自reflect包的DeepEqual函数可以对两个值进行深度相等判断，可以支持任意的数据类型，但是它也有不足之处
+  - 它将一个nil值的map和非nil值但是空的map视作不相等，同样nil值的slice 和非nil但是空的slice也视作不相等
 
 #### 网络编程
 - net包实现tcp、udp的socket的连接与通信
