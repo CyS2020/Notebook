@@ -272,6 +272,16 @@
   - v.Method(i)方法调用都返回一个reflect.Value以表示对应的值。使用reflect.Value.Call方法，可以调用一个Func类型的Value
 - 结构体的反射：反射字段，反射方法，基本原理和java的区别不大
 
+#### 底层编程
+- Go 中普通指针类型、unsafe.Pointer、uintptr
+  - `*类型`: 普通指针类型，用于传递对象地址，不能进行指针运算
+  - `unsafe.Pointer`: 通用指针类型，用于转换不同类型的指针，不能进行指针运算，不能读取内存存储的值(必须转换到某一类型的普通指针)
+    - unsafe.Pointer 是桥梁，可以让任意类型的指针实现相互转换，也可以将任意类型的指针转换为 uintptr 进行指针运算
+    - unsafe.Pointer 不能参与指针运算，比如你要在某个指针地址上加上一个偏移量，Pointer 是不能做这个运算的
+  - `uintptr`: 用于指针运算，GC 不把 uintptr 当指针，uintptr 无法持有对象。uintptr 类型的目标会被回收
+    - 只要将 Pointer 类型转换成 uintptr 类型，做完加减法后，转换成 Pointer，通过*操作，取值，修改值，随意
+    - unsafe.Pointer 可以让你的变量在不同的普通指针类型转来转去，也就是表示为任意可寻址的指针类型。而 uintptr 常用于与 unsafe.Pointer 打配合，用于做指针运算
+
 #### 网络编程
 - net包实现tcp、udp的socket的连接与通信
 - tcp粘包Nagle算法造成的发送端的粘包，凑一堆一起发送；接收端接收不及时造成的接收端粘包，tcp缓冲区中存放了几段数据
