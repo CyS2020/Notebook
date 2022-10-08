@@ -125,6 +125,9 @@ unalias ck8s : 删除别名
 - `echo`: 会在参数之间默认添加上空格，`echo *` 类似于 ls 命令
 - `cat /tmp/myfile | grep "mystring"` = `grep "mystring" /tmp/myfile`
 
+#### 2. 变量
+- 变量声明不能有空格。`VAR=value` 声明有效; `VAR = value` 声明无效
+
 ### 疑问
 #### 1. $()、${} 、$(())
 - `$()`: 命令替换 `$(date + '%Y-%m-%d-%H-%M-%S')`
