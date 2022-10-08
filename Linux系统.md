@@ -120,7 +120,15 @@ unalias ck8s : 删除别名
 |-|rwx|r-x|r-x|
 
 ### Shell Script
+#### 1. First Script
+- `#!/bin/sh`: 执行的此脚本使用/bin/sh来解释执行
+- `echo`: 会在参数之间默认添加上空格，`echo *` 类似于 ls 命令
+- `cat /tmp/myfile | grep "mystring"` = `grep "mystring" /tmp/myfile`
+
+### 疑问
 #### 1. $()、${} 、$(())
 - `$()`: 命令替换 `$(date + '%Y-%m-%d-%H-%M-%S')`
 - `${}`: 变量替换 `echo ${file#*/}`
 - `$(())`: 整数操作 `echo $((${a} + ${b} * $c))`
+
+
