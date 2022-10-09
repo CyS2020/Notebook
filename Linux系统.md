@@ -49,8 +49,10 @@
 - 7. 使用 vim ~/.bash_profile 添加环境变量
 参考教程：https://www.cnblogs.com/hanzhi/articles/10046003.html
 
-#### 9. 控制台输出到文件
-- 使用 `> filename` 将输出到控制台的内容输出到指定文件
+#### 9. 新建文件
+- `> filename`：将输出到控制台的内容输出到指定文件
+- `touch`：创建空文件
+- `vim xxx`：创建并编辑文件
 
 #### 10. 文件传输命令(注意文件权限)
 - `ssh ubuntu@192.168.0.100`: 远程连接到服务器上
