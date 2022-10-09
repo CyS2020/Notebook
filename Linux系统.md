@@ -123,6 +123,7 @@ unalias ck8s : 删除别名
 #### 1. First Script
 - `#!/bin/sh`: 执行的此脚本使用/bin/sh来解释执行
 - `echo`: 会在参数之间默认添加上空格，`echo *` 类似于 ls 命令
+- `read VAR`: 将输入读入某个变量VAR中
 - `cat /tmp/myfile | grep "mystring"` = `grep "mystring" /tmp/myfile`
 
 #### 2. 变量
