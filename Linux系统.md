@@ -138,14 +138,16 @@ unalias ck8s : 删除别名
 
 #### 流程控制
 - 循环控制语句使用for与while
+- `${arr[@]}`、`${!arr[@]}`用于array, map遍历，`@`和`*`作用一致
   ```
-  for i in {}
+  for i in {0..9}
   do
     ...
   done
   ```
+- `while :` 永远为true，ctrl + c 退出循环
+- `while read input_text`: 用于读取文件 `done < file.txt`
   ```
-  # 冒号(:) 总是true, ctrl + C 退出
   while []
   do
     ...
