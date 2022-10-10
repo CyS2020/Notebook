@@ -145,10 +145,22 @@ unalias ck8s : 删除别名
   done
   ```
   ```
+  # 冒号(:) 总是true, ctrl + C 退出
   while []
   do
     ...
   done
+  ```
+- 流程控制语句使用case
+  ```
+  case $input_text in
+        hello)          echo English    ;;
+        howdy)          echo American   ;;
+        gday)           echo Australian ;;
+        bonjour)        echo French     ;;
+        "guten tag")    echo German     ;;
+        *)              echo Unknown Language: $input_text ;;
+   esac
   ```
 
 ### 疑问
