@@ -139,7 +139,7 @@ unalias ck8s : 删除别名
 #### 流程控制
 - 循环控制语句使用for与while
   ```
-  for i in ...
+  for i in {}
   do
     ...
   done
