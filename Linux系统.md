@@ -164,6 +164,19 @@ unalias ck8s : 删除别名
         *)              echo Unknown Language: $input_text ;;
    esac
   ```
+- test语句`[]`, 前后被空格包围，test通常被if或while间接invoke
+- `-lt <`, `-gt >`, `-le <=`, `-ge >=`, `=`, `!=`, `-n`, `-f`, `-nt`, `-x`
+- `;` 代表一行结束，`\` 代表一行未结束
+- 居然还支持三元运算，例如 `[ $X -ne 0 ] && echo "X isn't zero" || echo "X is zero"`
+  ```
+  if  [ something ]; then
+    # do something
+  elif [ something_else ]; then
+    # do something
+  else
+    # do something
+  fi
+  ```
 
 ### 疑问
 #### 1. $()、${} 、$(())
