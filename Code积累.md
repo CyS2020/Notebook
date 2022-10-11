@@ -284,3 +284,4 @@ where permission_id in (select id from permissions where minor_part = 'read');
 ```
 - 如何学习新技术：配置部署 => 关键参数 => 交互API => 使用场景 => 核心原理
 - `=: 变量名`的方式，在具体调用的时候传入参数，是防止sql注入的写法，也能提高性能
+- coding过程中需要知道逻辑边界在哪，例如 最大值，最小值，零值，null，异常 等情况需要考虑清楚
