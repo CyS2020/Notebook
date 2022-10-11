@@ -9,7 +9,7 @@
 
 #### 2. 如何查找特定的文件
 - find path [options] params
-- 常用options: -name; -iname
+- 常用options: -name; -iname 例如`find /home -name "*.sh"`
 
 #### 3. 检索文件内容
 - grep [options] [pattern] [file] (-A后 -B前 -C前后)；file为`*`代表当前文件夹下所有文件
