@@ -103,9 +103,10 @@ unalias ck8s : 删除别名
 ```
 
 #### 15. git命令
-- `git clean -f` : 清除未跟踪的文件
-- `git clean -fd` : 清除未跟踪的文件夹
-- `git checkout -- .` : 清除已修改未提交的文件
+- `git clean -f` : 清除未跟踪的文件，没有add的文件
+- `git clean -fd` : 清除未跟踪的文件夹，没有add的文件夹
+- `git checkout .` : 清除所有已修改未提交的文件
+- `git checkout [filename]`: 清除某个已修改未提交的文件
 - `git switch task/DDEC-5288_multiple_domains_search` : 切换到远程有本地没有的分支
 - `git branch -d` : 删除分支
 - `git branch -m` : 分支重命名
