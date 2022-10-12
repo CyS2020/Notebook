@@ -112,6 +112,7 @@ unalias ck8s : 删除别名
 - `git branch -m` : 分支重命名
 - `git fetch --all --prune` : 以删除过时的跟踪分支。
 - `git stash -p` : 隐藏部分内容，根据y,n来进行筛选
+- `git diff [filename]`: 查看文件修改内容
 
 #### 16. 其他命令
 - `cat etc/hosts`: 查看域名
