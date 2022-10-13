@@ -87,22 +87,21 @@ kubeadm join 192.168.0.107:6443 --token v5bld3.xx70vflfpr1nzxd6 --discovery-toke
   - `kubectl get pod -o wide -n 命名空间 | grep 微服务`：查看集群环境下微服务所在的节点
   - `pdm-cli node list`：查看集环境节点列表
 - `kubectl apply`: 以文件或标准输入为准应用或更新资源, 配置pods; services; deployments;等信息
-- kubectl get pods -n cys
-- kubectl logs -f podId -n cys
-- kubectl get svc -n cys
-- kubectl get deployment -n cys
-- kubectl get cm cmId -n cys -o json 
-- kubectl get sa saId -n cys -o json 
-- kubectl edit configmap cmId -n cys
-- kubectl delete pod podId -n cys
-- kubectl describe pod podId -n cys
-- kubectl -n cys get events
-- kubectl -n cys get deployment deploymentId -o yaml	
-- kubectl -n cys edit deployment deploymentId -o yaml	
-- kubectl -n cys edit ingress ingressId
-- kubectl -n cys get ingress ingressId -o yaml
-- kubectl -n cys scale deploy deploymentId --repliacs=0
-- kubectl -n cys describe pod  podId
+- `kubectl -n cys get pods`
+- `kubectl -n cys get svc`
+- `kubectl -n cys get deployment`
+- `kubectl -n cys  get cm cmId -o json`
+- `kubectl -n cys get sa saId -o json`
+- `kubectl -n cys edit configmap cmId`
+- `kubectl -n cys delete pod podId`
+- `kubectl -n cys logs -f podId`：查看部署服务本身服务的日志
+- `kubectl -n cys describe pod podId`: 查看部署服务过程的日志
+- `kubectl -n cys get events`
+- `kubectl -n cys get deployment deploymentId -o json`
+- `kubectl -n cys edit deployment deploymentId -o json`	
+- `kubectl -n cys edit ingress ingressId`
+- `kubectl -n cys get ingress ingressId -o json`
+- `kubectl -n cys scale deploy deploymentId --repliacs=0`
 
 #### KubeSphere可视化
 - 默认的dashboard没啥用, 我们用kubesphere可以打通全部的devops链路
