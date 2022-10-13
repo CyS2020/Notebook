@@ -1,5 +1,8 @@
 ### ECMAScript 6
 
+#### 前端实战
+- 使用 data attributes: 允许我们在标准的语义HTML元素上存储额外的信息，Jquery读取使用 $(this).data("xxx")
+
 #### Web 前端
 - html是名词, css是形容词/副词, js是动词; css与js都是用来处理html的
 - DOM: Document Object Model; 文本对象模型
