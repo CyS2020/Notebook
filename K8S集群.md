@@ -94,7 +94,7 @@ kubeadm join 192.168.0.107:6443 --token v5bld3.xx70vflfpr1nzxd6 --discovery-toke
 - `kubectl -n cys get sa saId -o json`
 - `kubectl -n cys edit configmap cmId`
 - `kubectl -n cys delete pod podId`
-- `kubectl -n cys logs -f podId`：查看部署服务本身服务的日志
+- `kubectl -n cys logs -f podId`：查看部署的服务的日志
 - `kubectl -n cys describe pod podId`: 查看部署服务过程的日志
 - `kubectl -n cys get events`
 - `kubectl -n cys get deployment deploymentId -o json`
