@@ -141,7 +141,7 @@ unalias ck8s : 删除别名
 - 变量声明不能有空格。`VAR=value` 声明有效; `VAR = value` 声明无效
 - 使用 `export` 导出为全局变量，shell关闭后变量消失
 - 使用 `.` 在交互式的shell中运行脚本而不是使用一个新的shell。例如 `. ./myvar2.sh`
-- 使用反引号在脚本中会启用 sub shell 运行程序(外部程序)，例如 echo -en "What is your name [ \`whoami\` ]"
+- 使用反引号在脚本中会启用 sub shell 运行程序(外部程序)，例如 echo -en "What is your name [ \` whoami \` ]"
 - 通过`$`使用变量，例如`$MyVar`，使用`${}`替换变量，例如`${MyVar}_file`
 - 变量被双引号包裹表示保留换行符，变量显示多行，否则变量结果为又长又大的一行文本
 - 为您设计好的一组变量，大多数不能被赋值
