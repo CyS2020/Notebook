@@ -155,7 +155,7 @@ unalias ck8s : 删除别名
   - `shift`: 它在执行后将命令行参数移动到左边的一个位置。等于 `shift 1`
   - `:-`、`:=`: 用来设置默认值，例如`${myname:-`whoami`}`，飘号启用sub shell 运行 External Programs
 
-#### 流程控制
+#### 3. 流程控制
 - 循环控制语句使用for与while
 - `${arr[@]}`、`${!arr[@]}`用于array, map遍历，`@`和`*`作用一致
   ```
@@ -196,6 +196,13 @@ unalias ck8s : 删除别名
     # do something
   fi
   ```
+  
+#### 4. 流程控制
+- 函数返回返回值的方式
+  - 改变一个或一些变量的状态
+  - 使用 exit 命令退出shell脚本
+  - 使用 return 命令退出函数，并返回值给调用者
+  - echo output 到 stout，它将被调用者捕获，就像`c= ' expr $a + $b '`被捕获一样
 
 ### 疑问
 #### 1. $()、${} 、$(())
