@@ -211,7 +211,11 @@ unalias ck8s : 删除别名
     ...
   }
   ```
-- `. ./common.lib` 引用其他库在代码开头加入运行命令
+- `. ./common.lib` 引用其他库在代码开头加入运行命令，或者使用 `source` 命令
+
+#### 5. 常用命令
+- `set [+-abCdefhHklmnpPtuvx]`: 能设置所使用shell的执行方式，可依照不同的需求来做设置。
+- `source FILENAME [arguments]`: Source是一个shell内置命令，用于读取和执行文件的内容(通常是一组命令)
 
 ### 疑问
 #### 1. $()、${} 、$(())
