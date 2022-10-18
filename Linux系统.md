@@ -155,10 +155,17 @@ unalias ck8s : 删除别名
   - `shift`: 它在执行后将命令行参数移动到左边的一个位置。等于 `shift 1`
   - `:-`、`:=`: 用来设置默认值，例如`${myname:-`whoami`}`，飘号启用sub shell 运行 External Programs
 - 习惯于其他语言的程序员可能会对shell函数的作用域规则感到惊讶。基本上除了参数($1、$2、$@等)之外，没有作用域
+- 数组语法格式：`array_name=(value1 value2 ... valuen)`
+- map语法格式: 需要使用关键字 declare 声明
+  ```
+  declare -A myMap=(["my01"]="01" ["my02"]="02")
+  myMap["my03"]="03"
+  myMap["my04"]="04"
+  ```
 
 #### 3. 流程控制
 - 循环控制语句使用for与while
-- `${arr[@]}`、`${!arr[@]}`用于array, map遍历，`@`和`*`作用一致
+- `${arr[@]}`用于array，`${!arr[@]}`map遍历key，`${arr[@]}`map遍历value，`@`和`*`作用一致
   ```
   for i in {0..9}
   do
