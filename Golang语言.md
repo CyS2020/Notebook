@@ -70,7 +70,7 @@
  - `iota`: go语言中使用该关键字来实现枚举类型
 
 #### 引用类型 -- 3层 identifier -> address -> value
-- `slice`: 声明初始化；基于数组切片；make函数初始化；
+- `slice`: 声明初始化[]type{}；基于数组切片；make函数初始化；
   - len() <= cap()，超过cap需要append()扩容，扩容后为新数组
   - 使用copy()函数进行切片拷贝，并不共享底层数组
   - append(s[:index], s[index+1]...) 实现切片删除功能
