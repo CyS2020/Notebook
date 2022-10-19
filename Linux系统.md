@@ -130,6 +130,10 @@ unalias ck8s : 删除别名
 |:---:|:---:|:---:|:---:|
 |-|rwx|r-x|r-x|
 
+#### 18. yum 安装软件
+- 首先添加 Source 到 yum repo `curl -sL https://rpm.nodesource.com/setup_16.x | sudo bash -`
+- 然后执行 `yum install nodejs`, 安装软件
+
 ### Shell Script
 #### 1. First Script
 - `#!/bin/sh`: 执行的此脚本使用/bin/sh来解释执行
