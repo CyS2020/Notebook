@@ -1,7 +1,7 @@
 
 ### Node.js
 #### 安装软件
-- 首先添加 Source 到 yum repo `curl -sL https://rpm.nodesource.com/setup_16.x | sudo bash -`
+- 首先添加 Source 到 yum repo 里面 `curl -sL https://rpm.nodesource.com/setup_16.x | sudo bash -`
 - 然后执行 `yum install nodejs`, 安装node、npm，然后执行 `npm install --global yarn`，安装yarn
 
 #### 介绍
