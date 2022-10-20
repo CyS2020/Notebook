@@ -1,5 +1,9 @@
 ### Linux操作系统
 
+#### window + wsl2 = linux
+- https://learn.microsoft.com/en-us/windows/wsl/install-manual
+- https://www.how2shout.com/how-to/install-centos-on-windows-10-subsystem-for-linux.html
+
 #### 1. Linux体系结构
 - 体系结构分为用户态(用户上层活动)和内核态
 - 内核：本质上是一段管理计算机硬件设备的程序
