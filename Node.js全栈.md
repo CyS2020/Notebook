@@ -1,6 +1,10 @@
 
 ### Node.js
-#### 1. 介绍
+#### 安装软件
+- 首先添加 Source 到 yum repo `curl -sL https://rpm.nodesource.com/setup_16.x | sudo bash -`
+- 然后执行 `yum install nodejs`, 安装node、npm，然后执行 `npm install --global yarn`，安装yarn
+
+#### 介绍
 - Node.js应用程序运行在单个进程中，不需要为每个请求创建一个新线程
   - Node.js中的库是使用非阻塞范式编写的，这使得阻塞行为成为例外而不是常态。
   - 当Node.js执行I/O操作时，比如从网络读取、访问数据库或文件系统，Node.js将在响应返回时恢复操作，而不是阻塞线程和浪费CPU周期等待。
