@@ -71,6 +71,10 @@
 - env | grep VER 快速查看当前微服务部署的版本
 
 #### 12. git配置
+- `git config --global user.name chunyang`
+- `git config --global user.email chunyang@trendmicro.com`
+- `ssh-keygen -t ed25519 -C "chunyang@trendmicro.com"`
+- `cat ~/.ssh/id_ed25519.pub`
 - ssh -vT  git@adc.github.microsoft.com : 检验ssh配置
 - nslookup adc.github.microsoft.com 192.168.204.2 : 检测dns域名解析
 - 192.168.204.2 在网络的属性里面 -- Ipv4 DNS服务器
