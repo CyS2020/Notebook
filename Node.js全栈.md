@@ -8,5 +8,5 @@
 
 #### node.js code
 - 关于文件换行符，window系统与linux系统不一致时，项目提示报错
-  - 先运行命令 `git config --global core.autocrlf false`
-  - 项目根目录添加文件 `.gitattributes` 内容为 `*.js text eol=lf`
+  - 运行命令 `git config --global core.autocrlf true`
+  - 或者添加 `.gitattributes` 内容为 `*.js text eol=lf`
