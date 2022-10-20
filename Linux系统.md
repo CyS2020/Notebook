@@ -3,6 +3,7 @@
 #### window + wsl2 = linux
 - https://learn.microsoft.com/en-us/windows/wsl/install-manual
 - https://www.how2shout.com/how-to/install-centos-on-windows-10-subsystem-for-linux.html
+- https://github.com/gitextensions/gitextensions/issues/9954
 
 #### 1. Linux体系结构
 - 体系结构分为用户态(用户上层活动)和内核态
