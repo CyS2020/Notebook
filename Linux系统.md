@@ -132,7 +132,7 @@ unalias ck8s : 删除别名
 
 #### 18. yum 安装软件
 - 首先添加 Source 到 yum repo `curl -sL https://rpm.nodesource.com/setup_16.x | sudo bash -`
-- 然后执行 `yum install nodejs`, 安装软件; ubuntu下使用的是 `apt-get` 命令
+- 然后执行 `yum install nodejs`, 安装node、npm，然后执行 `npm install yarn`，安装yarn
 
 ### Shell Script
 #### 1. First Script
