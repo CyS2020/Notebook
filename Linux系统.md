@@ -76,10 +76,11 @@
 - `ssh-keygen -t ed25519 -C "chunyang@trendmicro.com"`
 - `cat ~/.ssh/id_ed25519.pub`
 - github: `SSH and GPG keys` -> `New SSH key`
-- ssh -vT  git@adc.github.microsoft.com : 检验ssh配置
-- nslookup adc.github.microsoft.com 192.168.204.2 : 检测dns域名解析
+- `ssh -T git@github.com` 检验ssh配置
+- `ssh -vT  git@adc.github.microsoft.com` : 检验ssh配置
+- `nslookup adc.github.microsoft.com 192.168.204.2` : 检测dns域名解析
 - 192.168.204.2 在网络的属性里面 -- Ipv4 DNS服务器
-- vim /etc/resolv.conf : 虚拟机配置dns解析
+- `vim /etc/resolv.conf`: 虚拟机配置dns解析
 ```
 (有时候配置一个可能会更好)
 nameserver 8.8.8.8
