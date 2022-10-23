@@ -4,6 +4,10 @@
 - 首先添加 Source 到 yum repo 里面 `curl -sL https://rpm.nodesource.com/setup_16.x | sudo bash -`
 - 然后执行 `yum install nodejs`, 安装node、npm，然后执行 `npm install --global yarn`，安装yarn
 - 使用 node xxx.js 运行程序
+- package.json --> npm项目
+- .eslintrc.json --> ESLint检查
+- yarn.lock --> yarn项目
+- tsconfig.json --> TScirpt项目
 
 #### 介绍
 - Node.js应用程序运行在单个进程中，不需要为每个请求创建一个新线程
