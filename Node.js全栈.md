@@ -10,6 +10,7 @@
 - tsconfig.json --> typeScirpt项目
 
 #### javaScript
+- 对象字面量的赋值；
 - 异步机制 https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Asynchronous
   - EventHandler: 时间监听机制，while(true) 循环
   - Callback：函数式编程，java，go等均支持回调函数
