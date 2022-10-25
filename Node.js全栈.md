@@ -3,7 +3,7 @@
 #### 安装软件
 - 首先添加 Source 到 yum repo 里面 `curl -sL https://rpm.nodesource.com/setup_16.x | sudo bash -`
 - 然后执行 `yum install nodejs`, 安装node、npm，然后执行 `npm install --global yarn`，安装yarn
-- 使用 `yarn build` 编译程序使用 `node xxx.js` 运行程序
+- 使用 `yarn build` 编译程序使用 `node xxx.js` 运行程序 `tsc xxx.ts` 编译ts文件
 - package.json --> npm项目
 - .eslintrc.json --> ESLint检查
 - yarn.lock --> yarn项目
