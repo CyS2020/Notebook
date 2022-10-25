@@ -9,6 +9,16 @@
 - yarn.lock --> yarn项目
 - tsconfig.json --> typeScirpt项目
 
+#### javaScript
+- 异步机制 https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Asynchronous
+  - EventHandler: 时间监听机制，while(true) 循环
+  - Callback：函数式编程，java，go等均支持回调函数
+  - Promise：类似于java的CompleteFuture异步编排
+    - pending:  初始状态，既没有被兑现，也没有被拒绝，此时请求还在进行中。
+    - fulfilled(resolve): 意味着操作成功完成。当 Promise 完成时，它的 then() 处理函数被调用。
+    - rejected(reject): 意味着操作失败。当一个 Promise 失败时，它的 catch() 处理函数被调用。
+  - async/await：直接在定义处进行声明，所以调用该函数的地方均异步执行，使用await阻塞。
+
 #### 介绍
 - Chrome = V8 + 内置API(DOM...); V8负责解析执行js代码，内置 api 由运行环境提供的特殊接口
 - Node.js 是一个基于 Chrome V8 引擎的 javaScript 运行环境 = V8 + 内置API(http...)
