@@ -10,7 +10,11 @@
 - tsconfig.json --> typeScirpt项目
 
 #### javaScript
-- 对象字面量的赋值；类表达式与类声明；函数声明会提升；
+- 对象字面量的赋值；函数声明会提升；
+- 类表达式与类声明
+  - 只能有唯一的构造函数，静态变量不能由实例访问
+  - 当调用静态或原型方法时没有指定 this 的值，那么方法内的 this 值将被置为 undefined
+
 - 异步机制 https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Asynchronous
   - EventHandler: 时间监听机制，while(true) 循环
   - Callback：函数式编程，java，go等均支持回调函数
