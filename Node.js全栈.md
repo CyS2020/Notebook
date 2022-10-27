@@ -10,6 +10,7 @@
 - tsconfig.json --> typeScirpt项目
 
 #### javaScript
+- 基本数据类型：Null，Undefined，Boolean，Number，BigInt，String，Symbol
 - 对象字面量的赋值；函数声明会提升；
 - 类表达式与类声明
   - 只能有唯一的构造函数，静态变量不能由实例访问
