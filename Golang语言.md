@@ -37,6 +37,16 @@
   replace example.com/greetings => ../greetings
   require example.com/greetings v0.0.0-00010101000000-000000000000
   ```
+  
+#### 基本数据类型
+- bool
+- string
+- int  int8  int16  int32  int64
+- uint uint8 uint16 uint32 uint64 uintptr
+- byte // alias for uint8
+- rune // alias for int32; represents a Unicode code point
+- float32 float64
+- complex64 complex128
 
 #### 变量与常量
 - `var 变量名 变量类型`: 声明变量并且默认初始化，使用对应类型的零值初始化；引用类型初始化为nil
