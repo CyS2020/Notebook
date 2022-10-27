@@ -10,8 +10,7 @@
 - tsconfig.json --> typeScirpt项目
 
 #### javaScript
-- 基本数据类型：Null，Undefined，Boolean，Number，BigInt，String，Symbol
-- 对象字面量的赋值；函数声明会提升；特殊变量 any
+- 对象字面量的赋值；函数声明会提升；
 - 类表达式与类声明
   - 只能有唯一的构造函数，静态变量不能由实例访问
   - 当调用静态或原型方法时没有指定 this 的值，那么方法内的 this 值将被置为 undefined
@@ -26,6 +25,12 @@
   - async/await：直接在定义处进行声明，所以调用该函数的地方均异步执行，使用await阻塞。
     - https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/async_function
     - 函数直接返回不等待回调函数的结果的运行方式叫同步执行，函数等待回调函数的运行方式叫异步执行
+
+#### typeScript
+- 变量参数声明居然使用 `:` 冒号，而且还是写在标识符后面
+- 可以省略的参数需要使用 `?` 问号跟在标志符后面
+- 可以使用 `|` 来限定多个类型或多个取值，可以用来实现枚举类型
+- 使用 `export{}` 控制当前文件内变量的作用于
 
 #### 介绍
 - Chrome = V8 + 内置API(DOM...); V8负责解析执行js代码，内置 api 由运行环境提供的特殊接口
