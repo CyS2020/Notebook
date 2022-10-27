@@ -12,7 +12,8 @@
 #### javaScript
 - 基本数据类型：Null，Undefined，Boolean，Number，BigInt，String，Symbol
 - arguments 与 剩余参数
-- 对象字面量的赋值；函数声明会提升；特殊变量 any
+- 在模板字符串中嵌入变量的时候，需要将变量名写在${}中。
+- 对象字面量的赋值；函数声明会提升；特殊变量any
 - 类表达式与类声明
   - 只能有唯一的构造函数，静态变量不能由实例访问
   - 当调用静态或原型方法时没有指定 this 的值，那么方法内的 this 值将被置为 undefined
