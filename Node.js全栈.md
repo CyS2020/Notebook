@@ -49,7 +49,7 @@
 
 ### React快速入门
 #### 开始项目
-- npx create-react-app demo
+- `npx create-react-app demo`: 初始化项目
 - 文件名可以是 jsx 或者 js，不影响文件中的代码
 - 组件名必须大写
 - JS中出现 `()` 括号代表其中想要写 html
