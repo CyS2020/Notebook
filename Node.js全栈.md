@@ -28,7 +28,7 @@
   - async/await：直接在定义处进行声明，所以调用该函数的地方均异步执行，使用await阻塞。
     - https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/async_function
     - 函数直接返回不等待回调函数的结果的运行方式叫同步执行，函数等待回调函数的运行方式叫异步执行
-  - 所有 I/O 操作均是异步操作，所有使用async标注的方法也是异步操作
+  - 所有 I/O 操作均是异步的，所有使用async标注的方法是异步的, 所有返回Promise方法是异步的
 
 #### typeScript
 - 特殊变量any, unknown, never, void
