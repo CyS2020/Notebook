@@ -47,6 +47,9 @@
   - 当 Node.js 执行 I/O 操作时，比如从网络读取、访问数据库或文件系统，Node.js 将在响应返回时恢复操作，而不是阻塞线程和浪费 CPU 周期等待。
   - 这允许 Node.js 处理单个服务器上的数千个并发连接，而不引入管理线程并发性的负担，这可能是一个重要的 bug 来源。
 
+#### node code
+- req.params 指url中占位符，req.query 指url中`?`的键值对参数
+
 ### React快速入门
 #### 开始项目
 - `npx create-react-app demo`: 初始化项目
