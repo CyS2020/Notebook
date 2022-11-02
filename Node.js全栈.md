@@ -50,6 +50,7 @@
 #### node code
 - req.params 指url中占位符，req.query 指url中`?`的键值对参数
 - array.map(() => ({a: f1, b: f2})); 取出对象的部分字段组成数组
+- typescript是强类型的语言了，只有 any 类型才能通过 Dot Notation 添加属性, 使用`{}`创建的对象使用 Bracket Notation
 
 ### React快速入门
 #### 开始项目
