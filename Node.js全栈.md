@@ -55,6 +55,7 @@
 - restify 框架的 next() 并不会出栈，需要在后面添加 return; 才行，或者直接 return next(); 确保触发回调后执行停止
   - https://stackoverflow.com/questions/16810449/when-to-use-next-and-return-next-in-node-js
 - 数组元素解构赋值的时候需要注意一下bug: `const { appName } = arr[0].appName`; 这样是不行的额
+- Spread syntax (...) 展开语法可以用于数组，也可以用于对象的
 
 ### React快速入门
 #### 开始项目
