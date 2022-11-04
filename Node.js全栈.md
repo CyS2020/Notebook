@@ -53,6 +53,7 @@
 - typescript是强类型的语言了，只有 any 类型才能通过 Dot Notation 添加属性, 明确类型使用 Bracket Notation 添加属性
 - `const people: myInterface = {name: "lihua", age: 18};` 接口初始化的时候一定要一对一对的赋值，不能省略 name, age
 - restify 框架的 next() 并不会出栈，需要在后面添加 return; 才行，或者直接 return next();
+  - https://stackoverflow.com/questions/16810449/when-to-use-next-and-return-next-in-node-js
 - 数组元素解构赋值的时候需要注意一下bug: `const { appName } = arr[0].appName`; 这样是不行的额
 
 ### React快速入门
