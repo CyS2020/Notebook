@@ -89,3 +89,10 @@
 - React 中的列表循环有且只有map可以使用，map才有返回值，forEach没有
 - 设置变量使用 setState 方法, 绑定事件时 () => {} 胖箭头这种写法没有this绑定问题
   - 或者函数在外面显示定义，绑定事件时使用 this.funcName.bind(this, parm1, parm2, ...) 即可
+- 函数时组件名也要大写
+  ```
+  function App(){
+    return <h2>Hello World</h2>
+  }
+  export default App
+  ```
