@@ -65,3 +65,4 @@
 - JS中出现 `()` 括号代表其中想要写 html
 - HTML中出现 `{}` 花括号代表其中相要写 js
 - export default 可以写在 class 前面
+- React 中的列表循环有且只有map可以使用，map才有返回值，forEach没有
