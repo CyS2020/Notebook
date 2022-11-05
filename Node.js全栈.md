@@ -61,7 +61,28 @@
 #### 开始项目
 - `npx create-react-app demo`: 初始化项目，src文件下的文件可以全部删除
 - 文件名可以是 jsx 或者 js，不影响文件中的代码
-- 组件名必须大写
+  ```
+  import ReactDOM from 'react-dom'
+  import App from "./App";
+  ReactDOM.render(
+      <App/>,
+      document.getElementById('root')
+  )
+  ```
+- 类组件名必须大写
+  ```
+  import React from 'react'
+  // 类组件
+  class App extends React.Component {
+      render() {
+         return (
+              <div>
+                  <h2>Hello World</h2>
+              </div>)
+      }
+  }
+  export default App
+  ```
 - JS中出现 `()` 括号代表其中想要写 html
 - HTML中出现 `{}` 花括号代表其中相要写 js
 - export default 可以写在 class 前面
