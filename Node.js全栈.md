@@ -103,6 +103,6 @@
  - Hooks 是 React 官方提供的 hook, 开发人员自定义的 hook
   - Hook 只能用在组件函数的最顶层
   - 使用 useState 钩子函数来触发视图更新的东西
-    ```const [var, setVar] = useState(v1)```
+    - ```const [var, setVar] = useState(v1)```
   - 使用 useEffect 钩子函数模拟生命周期
-    ```useEffect(callBack, [var1, var2, ...])```
+    - ```useEffect(callBack, [var1, var2, ...])```
