@@ -108,4 +108,4 @@
     - ```useEffect(callBack, [var1, var2, ...])```
 - 父函数组件传给子函数组件使用 props 函数接收参数
 - 子传父其实实际上并没有子传父，只是父把回调函数传给了子，由子组件给回调函数传入参数
-- 多级父子组件使用 context 来传参：Context.Consumer, Context,Provider
+- 多级父子组件使用 context 来传参：Context.Consumer(userContext), Context,Provider
