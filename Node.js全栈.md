@@ -118,4 +118,5 @@
 - 定义路由实现子页面跳转 router
   - useLocation 钩子函数获取当前页面的路径
   - useNavigate 钩子函数实现事件页面跳转
-  - userParams 钩子函数实现页面跳转时的参数传递
+  - useParams 钩子函数实现页面跳转时的路径占位符的参数传递
+  - useSearchParams 钩子函数实现路径  ? 后面的参数传递
