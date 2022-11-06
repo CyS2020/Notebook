@@ -109,3 +109,6 @@
 - 父函数组件传给子函数组件使用 props 函数接收参数
 - 子传父其实实际上并没有子传父，只是父把回调函数传给了子，由子组件给回调函数传入参数
 - 多级父子组件使用 context 来传参：Context.Consumer(userContext), Context,Provider
+- 受控组件与不受控组件
+  - 受控组件和不受控组件只存在于表单元素
+  - 所谓受控组件就是表单元素的 value 需要通过 state(或useState) 来定义
