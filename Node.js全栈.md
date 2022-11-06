@@ -29,6 +29,7 @@
     - https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/async_function
     - 函数直接返回不等待回调函数的结果的运行方式叫同步执行，函数等待回调函数的运行方式叫异步执行
   - 所有 I/O 操作均是异步的，所有使用async标注的方法是异步的, 所有返回Promise方法是异步的
+  - 函数可以作为另外一个函数的参数或者返回值使用，这样的做法叫高阶函数
 
 #### typeScript
 - 特殊变量any, unknown, never, void
