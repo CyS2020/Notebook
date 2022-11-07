@@ -61,7 +61,7 @@
 ### React快速入门
 #### 开始项目
 - `npx create-react-app demo`: 初始化项目，src文件下的文件可以全部删除
-- 文件名可以是 jsx 或者 js，不影响文件中的代码
+- 文件名可以是 jsx 或者 js，不影响文件中的代码；ReactDOM.render(VDOM, 容器)
   ```
   import ReactDOM from 'react-dom'
   import App from "./App";
@@ -126,3 +126,10 @@
 - React 用于构建用户界面的 javaScript 库
 - React 是一个将数据渲染为 HTML 视图的开源 JavaScript 库
 - React 使用虚拟 DOM + 优秀的 Diff 算法，尽量减少与真实DOM的交互
+
+#### 虚拟DOM (Document Object Model)
+- 本质是 Object 类型对象，即一般对象
+- 虚拟 DOM 比较轻，真实 DOM 比较重，因为虚拟 DOM 是 React 内部在用无需这么多属性
+- 虚拟 DOM 最终会被 React 转化为 真实 DOM，呈现在页面上
+
+#### JSX (JavaScript XML)
