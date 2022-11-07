@@ -57,7 +57,7 @@
   - https://stackoverflow.com/questions/16810449/when-to-use-next-and-return-next-in-node-js
 - 数组元素解构赋值的时候需要注意一下bug: `const { appName } = arr[0].appName`; 这样是不行的额
 - Spread syntax (...) 展开语法可以用于数组，也可以用于对象的
-- JSON.parse()、JSON.stringfiy() 用于 JSON 与 string 格式的转换
+- JSON.parse()、JSON.stringify() 用于 JSON 与 string 格式的转换
 
 ### React快速入门
 #### 开始项目
