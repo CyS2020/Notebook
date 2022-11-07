@@ -125,3 +125,4 @@
 #### React 是什么？
 - React 用于构建用户界面的 javaScript 库
 - React 是一个将数据渲染为 HTML 视图的开源 JavaScript 库
+- React 使用虚拟 DOM + 优秀的 Diff 算法，尽量减少与真实DOM的交互
