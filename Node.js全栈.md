@@ -121,6 +121,13 @@
   - useNavigate 钩子函数实现事件页面跳转，与参数传递 body
   - useParams 钩子函数实现页面跳转时的路径占位符的参数传递
   - useSearchParams 钩子函数实现路径 ? 后面的参数传递
+- 简单理解常见的 hooks
+  ```
+  # 自变量                        因变量
+  useState                      useMemo
+  useReducer (更多)    useRef   useEffect (有副作用)
+  useContext (跨层)            useCallback
+  ```
 
 ### React 全家桶
 #### React 是什么？
