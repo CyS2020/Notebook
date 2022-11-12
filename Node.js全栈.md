@@ -89,6 +89,8 @@
 - JS中出现 `()` 括号代表要写 html
 - HTML中出现 `{}` 花括号代表要写 js表达式
  - 能使用 const x = {} 接住的就叫表达式，接不住的就是js代码
+- 向外提供特定功能的 js 程序，一般就是一个 js 文件，称之为模块
+- 用来实现局部功能效果的代码和资源的集合(html/css/js/image)，称之为组件
 - export default 可以写在 class 前面
 - React 中的列表循环有且只有map可以使用，map才有返回值，forEach没有
 - 设置变量使用 setState 方法, 绑定事件时 () => {} 胖箭头这种写法没有this绑定问题
@@ -142,5 +144,4 @@
 - 虚拟 DOM 比较轻，真实 DOM 比较重，因为虚拟 DOM 是 React 内部在用无需这么多属性
 - 虚拟 DOM 最终会被 React 转化为 真实 DOM，呈现在页面上
 
-#### JSX (JavaScript XML)
-- 
+#### 函数式组件
