@@ -145,3 +145,6 @@
 - 虚拟 DOM 最终会被 React 转化为 真实 DOM，呈现在页面上
 
 #### 函数式组件
+- ReactDOM.render(<App/>, document.getElementById('root')) 执行该行后
+  - React 解析组件标签，找到 App 组件，找不到即报错
+  - 发现组件是函数定义的，调用该函数，将返回的虚拟DOM转为真实DOM，渲染页面
