@@ -87,6 +87,7 @@
   ```
 - JS中出现 `()` 括号代表要写 html
 - HTML中出现 `{}` 花括号代表要写 js表达式
+ - 能使用 const x = {} 接住的就叫表达式，接不住的就是js代码
 - export default 可以写在 class 前面
 - React 中的列表循环有且只有map可以使用，map才有返回值，forEach没有
 - 设置变量使用 setState 方法, 绑定事件时 () => {} 胖箭头这种写法没有this绑定问题
