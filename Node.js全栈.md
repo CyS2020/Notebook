@@ -27,7 +27,7 @@
   - 只能有唯一的构造函数，静态变量不能由实例访问
   - 当调用静态或原型方法时没有指定 this 的值，那么方法内的 this 值将被置为 undefined
   - 方法是给实例调用的，因此类中的 函数调用其他函数、访问属性 需要使用 this 进行调用
-  - 当类的函数被直接调用的时候 `const f = c.method(); f()` this 为 undefined
+  - 当类的函数被直接调用(作为回调函数)的时候 `const f = c.method(); f()` this 为 undefined
 - 闭包: 内部函数包含外部函数的作用域
 - 异步机制 https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Asynchronous
   - EventHandler: 时间监听机制，while(true) 循环
