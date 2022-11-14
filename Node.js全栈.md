@@ -150,8 +150,10 @@
 - 虚拟 DOM 比较轻，真实 DOM 比较重，因为虚拟 DOM 是 React 内部在用无需这么多属性
 - 虚拟 DOM 最终会被 React 转化为 真实 DOM，呈现在页面上
 
-#### 组件
+#### 类组件
 - 用来实现局部功能效果的代码和资源的集合(html/css/js/image)，称之为组件，组件状态驱动页面
 - `ReactDOM.render(<App/>, document.getElementById('root'))` 执行该行代码后
   - React 解析组件标签，找到 App 组件，找不到即报错
   - 发现组件是函数定义的，调用该函数，将返回的虚拟DOM转为真实DOM，渲染页面
+- 特性之一 state
+  - 不能使用 this 直接修改state，react不会重新 re-render，使用 setState() 方法
