@@ -21,7 +21,7 @@
 #### javaScript
 - 基本数据类型：Null，Undefined，Boolean，Number，BigInt，String，Symbol
 - arguments 与 剩余参数
-- 在模板字符串中嵌入变量的时候，需要将变量名写在${}中。
+- 在模板字符串中嵌入变量的时候，需要将变量名写在${}中
 - 对象字面量的赋值；函数声明会提升；
 - 类表达式与类声明
   - 只能有唯一的构造函数，静态变量不能由实例访问
@@ -60,6 +60,7 @@
 - 数组元素解构赋值的时候需要注意一下bug: `const { appName } = arr[0].appName`; 这样是不行的额
 - Spread syntax (...) 展开语法可以用于数组，也可以用于对象的
 - JSON.parse()、JSON.stringify() 用于 JSON 与 string 格式的转换
+- 数组没有越界异常，如果取不到值，就是 undefined
 
 ### React快速入门
 #### 开始项目
