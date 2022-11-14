@@ -63,6 +63,7 @@
 - Spread syntax (...) 展开语法可以用于数组，也可以用于对象的
 - JSON.parse()、JSON.stringify() 用于 JSON 与 string 格式的转换
 - 数组没有越界异常，如果取不到值，就是 undefined
+- this 取值 undefined、window、实例对象，使用bind绑定 `this.method = this.method.bind(this)` 原型方法 => 自身属性
 
 ### React快速入门
 #### 开始项目
