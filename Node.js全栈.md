@@ -26,6 +26,7 @@
 - 类表达式与类声明
   - 只能有唯一的构造函数，静态变量不能由实例访问
   - 当调用静态或原型方法时没有指定 this 的值，那么方法内的 this 值将被置为 undefined
+  - 方法是给实例调用的，因此类中的函数调用其他函数需要使用 this
 - 闭包: 内部函数包含外部函数的作用域
 - 异步机制 https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Asynchronous
   - EventHandler: 时间监听机制，while(true) 循环
