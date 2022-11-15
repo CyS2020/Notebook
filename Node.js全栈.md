@@ -21,14 +21,18 @@
 #### javaScript
 - 基本数据类型：Null，Undefined，Boolean，Number，BigInt，String，Symbol
 - arguments 与 剩余参数
-- 在模板字符串中嵌入变量的时候，需要将变量名写在${}中
+- 在模板字符串中嵌入变量的时候，需要将变量名写在 `${}` 中
 - 对象字面量的赋值；函数声明会提升；
 - 类表达式与类声明
   - 只能有唯一的构造函数，静态变量不能由实例访问，所有类的基类是 object
   - 当调用静态或原型方法时没有指定 this 的值，那么方法内的 this 值将被置为 undefined
   - 方法是给实例调用的，因此类中的 函数调用其他函数、访问属性 需要使用 this 进行调用
   - 当类的函数被直接调用(作为回调函数)的时候 `const f = c.method(); f()` this 为 undefined
-- 闭包: 内部函数包含外部函数的作用域
+- 闭包: 内部函数包含外部函数的作用域，值与函数一起作为参数传入
+- 函数可以作为另外一个函数的参数或者返回值使用，这样的做法叫高阶函数
+- 类中的方法有构造方法、原型方法和静态方法，和其他语言区别不大，注意this指向调用的实例
+- 括号表示法一个有用的地方是它不仅可以动态的去设置对象成员的值，还可以动态的去设置成员的名字
+  - 点表示法只能接受字面量的成员的名字，不接受变量作为名字
 - 异步机制 https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Asynchronous
   - EventHandler: 时间监听机制，while(true) 循环
   - Callback：函数式编程，java，go等均支持回调函数
@@ -40,8 +44,6 @@
     - https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/async_function
     - 函数直接返回不等待回调函数的结果的运行方式叫同步执行，函数等待回调函数的运行方式叫异步执行
   - 所有 I/O 操作均是异步的，所有使用async标注的方法是异步的, 所有返回Promise方法是异步的
-- 函数可以作为另外一个函数的参数或者返回值使用，这样的做法叫高阶函数
-- 类中的方法有构造方法、原型方法和静态方法，和其他语言区别不大，注意this指向调用的实例
 
 
 #### typeScript
