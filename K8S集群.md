@@ -82,7 +82,7 @@ kubeadm init --apiserver-advertise-address=192.168.0.107 --image-repository regi
 kubeadm join 192.168.0.107:6443 --token v5bld3.xx70vflfpr1nzxd6 --discovery-token-ca-cert-hash sha256:647541701bbbe6d7d50e3ed3634db3da0c834d
 ```
 
-#### 常用命令
+#### kubectl命令
 - `kubectl get`: 可以获取nodes; pods; services; deployments; 等信息
   - `kubectl get pod -o wide -n 命名空间 | grep 微服务`：查看集群环境下微服务所在的节点
   - `pdm-cli node list`：查看集环境节点列表
@@ -105,6 +105,9 @@ kubeadm join 192.168.0.107:6443 --token v5bld3.xx70vflfpr1nzxd6 --discovery-toke
 - `kubectl -n cys get ingress ingressId -o json`
 - `kubectl -n cys scale deploy deploymentId --repliacs=0`
 
+#### helm命令
+- `helm list --all-namespaces`
+- `helm uninstall namexxxx -n cys`
 
 #### KubeSphere可视化
 - 默认的dashboard没啥用, 我们用kubesphere可以打通全部的devops链路
