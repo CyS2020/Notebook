@@ -20,11 +20,11 @@
 
 #### javaScript
 - 基本数据类型：Null，Undefined，Boolean，Number，BigInt，String，Symbol
-- arguments 与 剩余参数
+- arguments--装有所有参数的数组 与 剩余参数--装有不定数量参数的数组
 - 在模板字符串中嵌入变量的时候，需要将变量名写在 `${}` 中
 - 对象字面量的赋值；函数声明会提升；
 - 对象原型与继承
-  - 每个函数都有一个特殊的属性叫作原型 prototype, 使用 function 关键字定义的函数
+  - 每个函数都有一个特殊的属性叫作原型 prototype, 使用 function 关键字定义的函数才有
   - 函数实例的 `f.__proto__ or [[Prototype]]` 也就是函数对象 `F.prototype__proto__`
   - 上游对象的方法不会复制到下游的对象实例中；下游对象本身虽然没有定义这些方法，运行时通过上溯原型链、从上游对象中找到它们
   - 规约：在构造器（函数体）中定义属性、在 prototype 属性上定义方法。构造器只包含属性定义，而方法则封装在不同的代码块
@@ -164,3 +164,5 @@
 - 特性之一 state
   - 不能使用 this 直接修改state，react不会重新 re-render，使用 setState() 方法
   - 类中编写自定义函数的时候使用 f = () => {} 的形式，避免 this 绑定问题
+- 特性之二 props
+  - 使用 this.props 直接取出外部传入的 k-v 值
