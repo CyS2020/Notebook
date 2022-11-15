@@ -264,6 +264,9 @@ JVM使用-XX:PermSize设置非堆内存初始值，默认是物理内存的1/64�
 #### API 文档
 - OpenAPI
   - https://oai.github.io/Documentation/specification.html
+- api 的返回值如果是数组，一般情况下异常情况下不返回错误，没有值返回的时候返回空 []
+- 返回值的时候，没有某个字段的 k-v，等同于有 k 但是 value 为 null
+- api 文档对于参数必传和返回值必返回的情况需要明确标注 `required`
 
 #### java code
 - mysql不区分大小写, 主键id也不区分大小写, aws athena也不区分大小写
@@ -297,4 +300,3 @@ where permission_id in (select id from permissions where minor_part = 'read');
 - 当需求横跨多个微服务的时候，新需求部署的先后顺序问题，以及先后部署过程中的兼容性问题
 - 使用别人的 API 的时候，一定有提供文档，尤其是大公司对外的开发平台，文档都很详细，先search一下
 - api 正常情况下返回 200或204，检查不通过的情况下返回 400，异常情况返回 500 (coder无法预料的情况)
-
