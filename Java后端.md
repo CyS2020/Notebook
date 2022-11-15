@@ -35,7 +35,7 @@
 - IDEA安装; 配置: 
  - 字体(大小 + 粗细)
  - 代码风格
- - UI窗口
+ - UI窗口大小
  - 插件(One Dark Theme, SonarLint, MyBatisX)
  - git
  - maven
