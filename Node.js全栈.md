@@ -167,3 +167,4 @@
 - 特性之二 props
   - 使用 this.props 直接取出外部传入的 k-v 值
   - props 在jsx中可以进行批量传递 {...props}，这个语法是jsx的语法，与对象展开不是一个意思
+  - 使用 propTypes、defaultProps 对传入的参数进行限制，例如 `Person.propTypes = {name:PropTypes.string.isRequired}`
