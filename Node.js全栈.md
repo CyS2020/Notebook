@@ -48,6 +48,7 @@
     - fulfilled(resolve): 意味着操作成功完成。当 Promise 完成时，它的 then() 处理函数被调用。
     - rejected(reject): 意味着操作失败。当一个 Promise 失败时，它的 catch() 处理函数被调用。
   - async/await：直接在定义处进行声明，所以调用该函数的地方均异步执行，使用await阻塞。
+    - https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise
     - https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/async_function
     - 函数直接返回不等待回调函数的结果的运行方式叫同步执行，函数等待回调函数的运行方式叫异步执行
   - 所有 I/O 操作均是异步的，所有使用async标注的方法是异步的, 所有返回Promise方法是异步的
