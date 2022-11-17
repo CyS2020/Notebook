@@ -54,9 +54,8 @@
 
 
 #### typeScript
-- 类型检查之 noImplicitAny、strictNullChecks
 - 在模板字符串中嵌入变量的时候，需要将变量名写在 `${}` 中
-- 特殊变量any, unknown, never, void
+- 特殊变量 any, unknown, never, void
 - 使用 const var 声明变量，无需声明类型自动进行类型推断
 - 变量参数声明居然使用 `:` 冒号，而且还是写在标识符后面，e.g. `fn: (a: string) => void`
 - 可缺省属性需要使用 `?` 问号跟在标志符后面；标志符后面的 `!` 代表 not null or undefined
