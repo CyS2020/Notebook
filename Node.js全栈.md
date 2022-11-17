@@ -58,6 +58,7 @@
 - 特殊变量 any, unknown, never, void
 - 使用 const var 声明变量，无需声明类型自动进行类型推断
 - 变量参数声明居然使用 `:` 冒号，而且还是写在标识符后面，e.g. `fn: (a: string) => void`
+- readonly 关键字定义不可变的类型，类似于 java 中的 final
 - 可缺省属性需要使用 `?` 问号跟在标志符后面；标志符后面的 `!` 代表 not null or undefined
   - `name: { first: string; last?: string }`
   - 为回调编写函数类型时，切勿编写可选参数，除非您打算在不传递该参数的情况下调用该函数
