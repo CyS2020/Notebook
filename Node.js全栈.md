@@ -63,6 +63,9 @@
   - `name: { first: string; last?: string }`
 - `type` 和 `interface` 都可以用来定义 object type, 可以自由选择
 - 可以使用 `|` 来限定多个类型或多个取值，可以用来实现枚举，typeof 判断类型
+- 使用 `<>` 或 `as` 关键字进行强制类型转换
+  - `const myCanvas = document.getElementById("main_canvas") as HTMLCanvasElement;`
+  - `const myCanvas = <HTMLCanvasElement>document.getElementById("main_canvas");`
 - 引入泛型机制，描述类中包含的值的类型，并进行检查
 - 使用 `export{}` 控制当前文件内变量的作用域
 - interface的作用似乎是用来定义属性，定义函数，不是用来implement只是用来接收变量的，且是鸭子类型
