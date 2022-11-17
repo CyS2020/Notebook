@@ -57,9 +57,9 @@
 - 类型检查之 noImplicitAny、strictNullChecks
 - 在模板字符串中嵌入变量的时候，需要将变量名写在 `${}` 中
 - 特殊变量any, unknown, never, void
-- 使用 const var 声明变量，无需类型自动进行类型推断
+- 使用 const var 声明变量，无需声明类型自动进行类型推断
 - 变量参数声明居然使用 `:` 冒号，而且还是写在标识符后面
-- 可缺省属性需要使用 `?` 问号跟在标志符后面；任意属性使用 `[]` 标识
+- 可缺省属性需要使用 `?` 问号跟在标志符后面；标志符后面的 `!` 代表 not null or undefined
   - `name: { first: string; last?: string }`
 - `type` 和 `interface` 都可以用来定义 object type, 可以自由选择
 - 可以使用 `|` 来限定多个类型或多个取值，可以用来实现枚举，typeof 判断类型
