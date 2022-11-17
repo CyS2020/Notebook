@@ -54,6 +54,7 @@
 
 
 #### typeScript
+- 类型检查之 noImplicitAny、strictNullChecks
 - 在模板字符串中嵌入变量的时候，需要将变量名写在 `${}` 中
 - 特殊变量any, unknown, never, void
 - 变量参数声明居然使用 `:` 冒号，而且还是写在标识符后面
