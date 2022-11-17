@@ -179,6 +179,6 @@
   - 不能使用 this 直接修改state，react不会重新 re-render，使用 setState() 方法
   - 类中编写自定义函数的时候使用 f = () => {} 的形式，避免 this 绑定问题
 - 特性之二 props
-  - 使用 this.props 直接取出外部传入的 k-v 值
+  - render()函数中使用 this.props 直接取出外部传入的 k-v 值，且this.props是只读的不允许修改
   - props 在jsx中可以进行批量传递 {...props}，这个语法是jsx的语法，与对象展开不是一个意思
   - 使用静态属性 propTypes、defaultProps 对传入的参数进行限制，例如 `static propTypes = {name:PropTypes.string.isRequired}`
