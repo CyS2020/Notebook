@@ -62,7 +62,8 @@
 - 可缺省属性需要使用 `?` 问号跟在标志符后面；标志符后面的 `!` 代表 not null or undefined
   - `name: { first: string; last?: string }`
 - `type` 和 `interface` 都可以用来定义 object type, 可以自由选择
-- 可以使用 `|` 来限定多个类型或多个取值，可以用来实现枚举，typeof 判断类型
+- 可以使用 `|` 来限定多个类型或多个取值，可以用来实现枚举
+- typeof、instanceof、in、is 等关键字进行类型 narrowing
 - 使用 `<>` 或 `as` 关键字进行强制类型转换
   - `const myCanvas = document.getElementById("main_canvas") as HTMLCanvasElement;`
   - `const myCanvas = <HTMLCanvasElement>document.getElementById("main_canvas");`
