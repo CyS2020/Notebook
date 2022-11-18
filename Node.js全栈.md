@@ -66,7 +66,7 @@
   - 参数列表除了可选之外还可以解耦且指定默认值 `function f({ x = 0, y = 0 }: Point)`
 - `type` 和 `interface` 都可以用来定义 object type, 可以自由选择，扩展方式不一样
 - 可以使用 `|` 来限定多个类型或多个取值，多个值可以用来实现枚举
-- typeof、instanceof、in、is 等关键字进行类型 narrowing
+- typeof、instanceof、in、is 等关键字进行类型 narrowing，keyof 判断是否含某个属性
 - 使用 `<>` 或 `as` 关键字进行强制类型转换
   - `const myCanvas = document.getElementById("main_canvas") as HTMLCanvasElement;`
   - `const myCanvas = <HTMLCanvasElement>document.getElementById("main_canvas");`
