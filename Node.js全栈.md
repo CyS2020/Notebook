@@ -54,7 +54,7 @@
 
 #### typeScript
 - 在模板字符串中嵌入变量的时候，需要将变量名写在 `${}` 中
-- 特殊变量 any, unknown, never, void
+- 特殊变量 `any`, `unknown`, `never`, `void`
 - 元组是一种特殊的 array，内部类型不一致且明确定义不同位置的类型 `pair: [string, number]`
   - 剩余元素可以用于元组定义；数组转为 readonly 元组 `[0, 1] as const`
 - 使用 const var 声明变量，无需声明类型自动进行类型推断
@@ -66,7 +66,7 @@
   - 参数列表除了可选之外还可以解耦且指定默认值 `function f({ x = 0, y = 0 }: Point)`
 - `type` 和 `interface` 都可以用来定义 object type, 可以自由选择，扩展方式不一样
 - 可以使用 `|` 来限定多个类型或多个取值，多个值可以用来实现枚举
-- typeof、instanceof、in、is 等关键字进行类型 narrowing，keyof 判断是否含某个属性
+- `typeof`、`instanceof`、`in`、`is` 等关键字进行类型 narrowing，`keyof` 判断是否含某个属性
 - 使用 `<>` 或 `as` 关键字进行强制类型转换
   - `const myCanvas = document.getElementById("main_canvas") as HTMLCanvasElement;`
   - `const myCanvas = <HTMLCanvasElement>document.getElementById("main_canvas");`
