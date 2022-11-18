@@ -65,7 +65,7 @@
   - 为回调编写函数类型时，切勿编写可选参数，除非您打算在不传递该参数的情况下调用该函数
   - 参数列表除了可选之外还可以解耦且指定默认值 `function f({ x = 0, y = 0 }: Point)`
 - `type` 和 `interface` 都可以用来定义 object type, 可以自由选择，扩展方式不一样
-- 可以使用 `|` 来限定多个类型或多个取值，可以用来实现枚举
+- 可以使用 `|` 来限定多个类型或多个取值，多个值可以用来实现枚举
 - typeof、instanceof、in、is 等关键字进行类型 narrowing
 - 使用 `<>` 或 `as` 关键字进行强制类型转换
   - `const myCanvas = document.getElementById("main_canvas") as HTMLCanvasElement;`
