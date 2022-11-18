@@ -71,6 +71,7 @@
   - `const myCanvas = document.getElementById("main_canvas") as HTMLCanvasElement;`
   - `const myCanvas = <HTMLCanvasElement>document.getElementById("main_canvas");`
 - 引入泛型机制，描述类中包含的值的类型，并进行检查
+  - 如果一个类型参数只出现在一个位置，强烈重新考虑你是否真的需要泛型
 - 使用 `export{}` 控制当前文件内变量的作用域
 - interface的作用似乎是用来定义属性，定义函数，不是用来implement只是用来接收变量的，且是鸭子类型
 - 函数签名为 形参列表 + 返回值列表，同go，java=函数名，参数列表
