@@ -202,4 +202,4 @@
 - 特性之三 refs
   - 组件内的标签可以通过 ref 属性来标识自己，相当于原生组件中的 id；通过 this.refs 获取的是真正的节点(真实DOM)
   - 字符串形式 ref 已经过时，现在采用回调形式的 ref；`ref = nodeName` => `ref = {(c) => {this.nodeName = c}}`
-  - 使用 React.createRef() 调用后可以返回一个容器，该容器可以存储被 ref 所标识的节点，只能存一个
+  - 使用 React.createRef() 调用后可以返回一个容器，该容器可以存储被 ref 所标识的节点，只能存一个 (最佳实战)
