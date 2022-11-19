@@ -199,3 +199,5 @@
   - render()函数中使用 this.props 直接取出外部传入的 k-v 值，且this.props是只读的不允许修改
   - props 在jsx中可以进行批量传递 {...props}，这个语法是jsx的语法，与对象展开不是一个意思
   - 使用静态属性 propTypes、defaultProps 对传入的参数进行限制，例如 `static propTypes = {name:PropTypes.string.isRequired}`
+- 特性之三 refs
+  - 组件内的标签可以通过 ref 属性来标识自己，相当于原生组件中的 id；通过 this.refs 获取的是真正的节点(真实DOM)
