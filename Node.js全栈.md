@@ -39,7 +39,7 @@
 - 函数可以作为另外一个函数的参数或者返回值使用，这样的做法叫高阶函数
 - 类中的方法有构造方法、原型方法和静态方法，和其他语言区别不大，注意this指向调用的实例
 - 括号表示法一个有用的地方是它不仅可以动态的去设置对象成员的值，还可以动态的去设置成员的名字
-  - 点表示法只能接受字面量的成员的名字，不接受变量作为名字
+  - 点表示法只能接受字面量的成员的名字，不接受变量作为名字；`const obj = {["name"]: "jack"};`
 - 异步机制 https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Asynchronous
   - EventHandler: 时间监听机制，while(true) 循环
   - Callback：函数式编程，java，go等均支持回调函数
