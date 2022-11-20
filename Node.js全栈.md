@@ -219,3 +219,4 @@
 #### 生命周期
 - render() 初始化渲染，状态更新之后调用 = 1 + n 次
 - componentDidMount() 组件挂载完毕之后调用 = 1 次
+- componentWillUnmount() 组件将要卸载前调用 = 1 次
