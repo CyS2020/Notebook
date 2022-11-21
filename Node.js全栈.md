@@ -217,7 +217,7 @@
 - 所有输入类型的 DOM，组件随着输入维护到 state 中则为受控组件
 
 #### 生命周期
-- render() 初始化渲染(之后componentDidMount)，状态更新之后调用 = 1 + n 次
+- render() 初始化渲染，状态更新之后调用 = 1 + n 次
 - componentDidMount() 组件挂载完毕之后调用 = 1 次
 - componentWillUnmount() 组件将要卸载前调用 = 1 次
 - 初始化阶段：由 ReactDOM.render() 触发 -- 初次渲染
