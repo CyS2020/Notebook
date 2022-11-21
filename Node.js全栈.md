@@ -216,7 +216,7 @@
 - 所有输入类型的 DOM，组件是现用现取的则为非受控组件
 - 所有输入类型的 DOM，组件随着输入维护到 state 中则为受控组件
 
-#### 生命周期
+#### 旧生命周期
 - render() 初始化渲染，状态更新之后调用 = 1 + n 次
 - componentDidMount() 组件挂载完毕之后调用 = 1 次
 - componentWillUnmount() 组件将要卸载前调用 = 1 次
@@ -233,3 +233,6 @@
 - 卸载组件：由 ReactDOM.unmountComponentAtNode() 触发
   - componentWillUnmount()
 ![组件生命周期-旧](https://github.com/CyS2020/Notebook/blob/master/images/%E7%BB%84%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F(%E6%97%A7).png?raw=true)
+
+#### 新生命周期
+![组件生命周期](https://github.com/CyS2020/Notebook/blob/master/images/%E7%BB%84%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png?raw=true)
