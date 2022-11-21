@@ -232,4 +232,4 @@
   - componentDidUpdate()
 - 卸载组件：由 ReactDOM.unmountComponentAtNode() 触发
   - componentWillUnmount()
-  ![组件生命周期-旧](https://github.com/CyS2020/Notebook/blob/master/images/%E7%BB%84%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F(%E6%97%A7).png?raw=true)
+- ![组件生命周期-旧](https://github.com/CyS2020/Notebook/blob/master/images/%E7%BB%84%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F(%E6%97%A7).png?raw=true)
