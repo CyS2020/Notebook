@@ -220,3 +220,15 @@
 - render() 初始化渲染(之后componentDidMount)，状态更新之后调用 = 1 + n 次
 - componentDidMount() 组件挂载完毕之后调用 = 1 次
 - componentWillUnmount() 组件将要卸载前调用 = 1 次
+- 初始化阶段：由 ReactDOM.render() 触发 -- 初次渲染
+  - constructor()
+  - componentWillMount()
+  - render()
+  - componentDidMount()
+- 更新阶段：有组件内部 this.setState() 或父组件 render 触发
+  - shouldComponentUpdate()
+  - componentWillUpdate()
+  - render()
+  - componentDidUpdate()
+- 卸载组件：由 ReactDOM.unmountComponentAtNode() 触发
+  - componentWillUnmount()
