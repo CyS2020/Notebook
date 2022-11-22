@@ -112,7 +112,8 @@
 
 ### React快速入门
 #### 开始项目
-- `npx create-react-app demo`: 初始化项目，src文件下的文件可以全部删除
+- `npx create-react-app my-app`: 初始化项目，src文件下的文件可以全部删除
+- `yarn create react-app my-app --template typescript`: 使用 ts 初始化
 - 浏览器安装开发者工具 `React Developer Tools` (chrome)
 - 文件名可以是 jsx 或者 js，不影响文件中的代码；ReactDOM.render(VDOM, 容器)
   ```
