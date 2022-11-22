@@ -10,10 +10,11 @@
   - 这允许 Node.js 处理单个服务器上的数千个并发连接，而不引入管理线程并发性的负担，这可能是一个重要的 bug 来源。
 
 #### npm常用命令
-- npm init -y: 默认值初始化项目
-- npm install jquery@3.2.1: 安装指定版本的依赖
-- npm uninstall jquery: 卸载依赖
-- npm update jquery: 更新依赖
+- `npm init -y`: 默认值初始化项目
+- `npm install jquery@3.2.1`: 安装指定版本的依赖
+- `npm uninstall jquery`: 卸载依赖
+- `npm update jquery`: 更新依赖
+- `npm run test`: 运行命令
 
 #### 安装软件
 - 首先添加 Source 到 yum repo 里面 `curl -sL https://rpm.nodesource.com/setup_16.x | sudo bash -`
