@@ -237,3 +237,14 @@
 
 #### 新生命周期
 ![组件生命周期](https://github.com/CyS2020/Notebook/blob/master/images/%E7%BB%84%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png?raw=true)
+
+#### diff 算法
+- 当状态中的数据发生变化时，react会根据新数据生成新的虚拟DOM
+- 旧虚拟 DOM 中找到了与新虚拟 DOM 相同的 key
+  - 若虚拟 DOM 中内容没有变，直接使用之前的真实 DOM
+  - 若虚拟 DOM 中内容变了，则生成新的真实 DOM，随后替换页面之前的真实 DOM
+- 旧虚拟 DOM 中未能找到与新虚拟 DOM 相同的 key
+  - 根据数据创建新的真实 DOM，随后渲染到页面
+- 如何选择 key ?
+  - 最好使用每条数据的唯一标识作为 key，比如 uuid、手机号、身份证号、学号等唯一值
+  - 如果确定只是简单的展示数据，用 index 也是可以的
