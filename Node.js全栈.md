@@ -290,3 +290,7 @@
   - 保存在哪个组件
 - 交互(从绑定事件监听开始)
   
+#### react code
+- 状态 state 存放在哪个组件，操作状态的方法就在哪个组件中
+- 多个组件使用的状态，放在共同的父组件 state 中 -- 状态提升
+- 注意 defaultChecked 和 checked 的区别，类似的还有 defaultValue 和 value
