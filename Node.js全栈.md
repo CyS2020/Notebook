@@ -289,6 +289,31 @@
   - 数据名称
   - 保存在哪个组件
 - 交互(从绑定事件监听开始)
+
+#### 脚手架配置代理
+- 方法1：package.json 中添加配置
+  ```
+  "proxy":"http://localhost:5000"
+  ```
+- 方法2：src/setupProxy.js 中代码配置
+  ```
+  const proxy = require('http-proxy-middleware')
+
+  module.exports = function (app) {
+    app.use(
+        proxy.createProxyMiddleware('/api1', {
+          target: 'http://localhost:5000', // 请求转发目的地址
+          changeOrigin: true, // 控制服务器收到的请求头中 Host 的值
+          pathRewrite: {'^/api1': ''} // 重写请求路径 取消api1路径
+        }),
+        proxy.createProxyMiddleware('/api2', {
+          target: 'http://localhost:5001',
+          changeOrigin: true,
+          pathRewrite: {'^/api2': ''}
+        })
+    )
+  }
+  ```
   
 #### react code
 - 状态 state 存放在哪个组件，操作状态的方法就在哪个组件中
