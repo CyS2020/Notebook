@@ -221,6 +221,29 @@
 - 通过 event.target 得到发生时间的 DOM 元素对象，例如 `event.target.value` 获取值
   - 不要过度使用 ref；发生事件的节点，正好是我想要操作的节点，就可以省略 ref 了
 
+#### 高阶/柯里化
+- 函数可以作为另外一个函数的参数或者返回值使用，这样的做法叫高阶函数；e.g. Promise、setTimeout、Array.map
+  - 若A函数接收的参数是一个函数，那么就 A 可以称之为高阶函数
+  - 若A函数调用的返回值是一个函数，那么 A 就可以称之为高阶函数
+  ```
+  saveData = (dataType) => {
+    return (event) => {
+      this.setState({[dataType]:event.target.value})
+    }
+  }
+  ```
+- 函数的柯里化：通过函数调用继续返回函数的方式，实现多次接收参数最后统一处理的函数编码形式
+  ```
+  function sum(a){
+    return (b) => {
+      return (c) => {
+        return a + b + c
+      }
+    }
+  }
+  sum(1)(2)(3)
+  ```
+
 #### 非/受控组件
 - 所有输入类型的 DOM，组件是现用现取的则为非受控组件
 - 所有输入类型的 DOM，组件随着输入维护到 state 中则为受控组件
