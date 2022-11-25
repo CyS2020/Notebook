@@ -319,6 +319,11 @@
   }
   ```
   
+#### 组件信息传递
+- 使用 订阅发布机制 在兄弟组件或任意组件间传递消息
+- 订阅：`PubSub.subscribe('channel', (_,state) => {this.setState(state)})`
+- 发布：`PubSub.publish('channel', data)`
+  
 #### react code
 - 状态 state 存放在哪个组件，操作状态的方法就在哪个组件中
 - 多个组件使用的状态，放在共同的父组件 state 中 -- 状态提升
