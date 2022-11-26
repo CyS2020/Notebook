@@ -326,6 +326,25 @@
   - 导航区使用 `<Link to='/AAD'>Demo</Link>`
   - 展示区使用 `Route path='/AAD' component={Demo}`
   - `<App>` 组件使用 `<BrowserRouter>`或`<HashRouter>` 包裹
+- 路由组件与一般组件
+  - 写法不同且存放的文件夹位置不一样
+  - 接收到的 props 不同，路由组件接收三个固定的属性 history, location, match
+    ```
+    history:
+      go: f go(n)
+      goBack: f goBack()
+      goForward: f goForward()
+      push: f push(path, state)
+      replace: f replace(path, state)
+    location:
+      pathname: ""
+      search: ""
+      state: {}
+    match:
+      params: {}
+      path: ""
+      url: ""
+    ```
 
 #### 组件信息传递
 - 使用 订阅发布机制 在兄弟组件或任意组件间传递消息
