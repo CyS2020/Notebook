@@ -51,7 +51,7 @@
 - 异步机制 https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Asynchronous
   - EventHandler: 时间监听机制，while(true) 循环
   - Callback：函数式编程，java，go等均支持回调函数
-  - Promise：类似于java的 CompleteFuture 异步编排，但没有get()方法，整个Promise链同步执行
+  - Promise：类似于java的 CompleteFuture 异步编排，但没有get()方法，可使用await进行等待
     - pending:  初始状态，既没有被兑现，也没有被拒绝，此时请求还在进行中。
     - fulfilled(resolve): 意味着操作成功完成。当 Promise 完成时，它的 then() 处理函数被调用。
     - rejected(reject): 意味着操作失败。当一个 Promise 失败时，它的 catch() 处理函数被调用。
