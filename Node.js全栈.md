@@ -320,6 +320,13 @@
   }
   ```
   
+#### ReactRouter5
+- 基本使用
+  - 明确导航区、内容展示区
+  - 导航区使用 `<Link to='/AAD'>Demo</Link>`
+  - 展示区使用 `Route path='/AAD' component={Demo}`
+  - `<App>` 组件使用 `<BrowserRouter>`或`<HashRouter>` 包裹
+
 #### 组件信息传递
 - 使用 订阅发布机制 在兄弟组件或任意组件间传递消息
 - 订阅：`this.token = PubSub.subscribe('channel', (_,state) => {this.setState(state)})`
