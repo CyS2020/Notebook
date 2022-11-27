@@ -372,7 +372,7 @@
 - 向路由组件传递参数 -- search
   - 路由链接传入参数：`<Link to='/home/detail/?name=${name}&age=${age}'>Detail Info</Link>`
   - 注册路由声明参数：search 参数无需声明，正常注册路由即可
-  - 子组件中接收参数: this.props.location 引入 querystringify 库进行 urlencoding 与j son 的转换
+  - 子组件中接收参数: this.props.location.search 引入 querystringify 库进行 urlencoding 与j son 的转换
 
 #### react code
 - 状态 state 存放在哪个组件，操作状态的方法就在哪个组件中
