@@ -336,6 +336,7 @@
 - 路由组件与一般组件
   - 写法不同且存放的文件夹位置不一样
   - 接收到的 props 不同，路由组件接收三个固定的属性 history, location, match
+  - withRouter 可以加工一般组件，使其具备路由组件所具有的 API
     ```
     history:
       go: f go(n)
