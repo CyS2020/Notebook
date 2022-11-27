@@ -345,6 +345,9 @@
       path: ""
       url: ""
     ```
+- NavLink与封装NavLink
+  - NavLink可以实现路由链接的高亮，通过 activeClassName 指定样式名
+  - 标签体内容是一个特殊的标签属性，通过 this.props.children 获取标签体内容
 
 #### 组件信息传递
 - 使用 订阅发布机制 在兄弟组件或任意组件间传递消息
