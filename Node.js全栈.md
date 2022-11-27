@@ -376,7 +376,7 @@
 - 向路由组件传递参数 -- state
   - 路由链接传入参数：`<Link to={{pathname:'/home/detail',state:{name, age}}}>Detail Info</Link>`
   - 注册路由声明参数：`<Route path='/home/detail' component={Detail}/>` state 参数无需声明
-  - 子组件中接收参数：`this.props.location.state` 刷新后也可保留参数
+  - 子组件中接收参数：`this.props.location.state` 刷新后参数不会丢失
 
 #### react code
 - 状态 state 存放在哪个组件，操作状态的方法就在哪个组件中
