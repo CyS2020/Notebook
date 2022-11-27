@@ -368,11 +368,11 @@
 - 向路由组件传递参数 -- params
   - 路由链接传入参数：`<Link to={'/home/detail/${name}/${age}'}>Detail Info</Link>`
   - 注册路由声明参数：`<Route path='/home/detail/:name/:age' component={Detail}/>`
-  - 子组件中接收参数: `this.props.match.params`
+  - 子组件中接收参数：`this.props.match.params`
 - 向路由组件传递参数 -- search
   - 路由链接传入参数：`<Link to={'/home/detail/?name=${name}&age=${age}'}>Detail Info</Link>`
   - 注册路由声明参数：`<Route path='/home/detail' component={Detail}/>` search 参数无需声明
-  - 子组件中接收参数: `this.props.location.search` 引入 querystringify 库进行 urlencoding 与j son 的转换
+  - 子组件中接收参数：`this.props.location.search` 引入 querystringify 库进行 urlencoding 与j son 的转换
 - 向路由组件传递参数 -- state
   - 路由链接传入参数：`<Link to={{pathname:'/home/detail',state:{name, age}}}>Detail Info</Link>`
   - 注册路由声明参数：`<Route path='/home/detail' component={Detail}/>` state 参数无需声明
