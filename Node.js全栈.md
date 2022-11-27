@@ -348,6 +348,9 @@
 - NavLink与封装NavLink
   - NavLink可以实现路由链接的高亮，通过 activeClassName 指定样式名
   - 标签体内容是一个特殊的标签属性，通过 this.props.children 获取标签体内容
+- Switch 的使用
+  - 通常情况下，path 和 component 是一一对应的关系
+  - Switch 可以提高路由匹配效率，单一匹配，匹配上后不再往后匹配
 
 #### 组件信息传递
 - 使用 订阅发布机制 在兄弟组件或任意组件间传递消息
