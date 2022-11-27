@@ -319,7 +319,13 @@
     )
   }
   ```
-  
+
+#### 组件信息传递
+- 使用 订阅发布机制 在兄弟组件或任意组件间传递消息
+- 订阅：`this.token = PubSub.subscribe('channel', (_,state) => {this.setState(state)})`
+- 发布：`PubSub.publish('channel', data)`
+- 取消订阅：`PubSub.unsubscribe(this.token)`
+
 #### ReactRouter5
 - 基本使用
   - 明确导航区、内容展示区、默认展示内容
@@ -356,13 +362,10 @@
   - public/index.html 中 引入样式不写 ./ 写 / (常用)
   - public/index.html 中 引入样式不写 ./ 写 %PUBLIC_URL% (常用)
   - 使用 HashRouter 代替 BrowserRouter (不常用)
+- 嵌套路由 (多级路由)
+  - 注册子路由时要写上父路由的 path 值
+  - 路由的匹配时按照注册路由的顺序进行的
 
-#### 组件信息传递
-- 使用 订阅发布机制 在兄弟组件或任意组件间传递消息
-- 订阅：`this.token = PubSub.subscribe('channel', (_,state) => {this.setState(state)})`
-- 发布：`PubSub.publish('channel', data)`
-- 取消订阅：`PubSub.unsubscribe(this.token)`
-  
 #### react code
 - 状态 state 存放在哪个组件，操作状态的方法就在哪个组件中
 - 多个组件使用的状态，放在共同的父组件 state 中 -- 状态提升
