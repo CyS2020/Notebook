@@ -322,9 +322,10 @@
   
 #### ReactRouter5
 - 基本使用
-  - 明确导航区、内容展示区
+  - 明确导航区、内容展示区、默认展示内容
   - 导航区使用 `<Link to='/AAD'>Demo</Link>`
-  - 展示区使用 `<Route path='/AAD' component={Demo}>`; exact参数开启严格路由匹配
+  - 展示区使用 `<Route path='/AAD' component={Demo}/>`; exact参数开启严格路由匹配
+  - 默认使用 `<Redirect to='/Demo'/>`
   - `<App>` 组件使用 `<BrowserRouter>`或`<HashRouter>` 包裹
 - 路由组件与一般组件
   - 写法不同且存放的文件夹位置不一样
