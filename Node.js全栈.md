@@ -366,7 +366,7 @@
   - 注册子路由时要写上父路由的 path 值
   - 路由的匹配时按照注册路由的顺序进行的
 - 向路由组件传递参数 -- params
-  - 路由链接传入参数：`<Link to=`/home/detail/${name}/${age}`>Detail Info</Link>`
+  - 路由链接传入参数：`<Link to='/home/detail/${name}/${age}'>Detail Info</Link>`
   - 注册路由声明参数：`<Route path='/home/detail/:name/:age' component={Detail}/>`
   - 子组件中接收参数: `const {name, age} = this.props.match.params`
 - 向路由组件传递参数 -- search
