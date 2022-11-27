@@ -378,6 +378,10 @@
   - 路由链接传入参数：`<Link to={{pathname:'/home/detail',state:{name, age}}}>Detail Info</Link>`
   - 注册路由声明参数：`<Route path='/home/detail' component={Detail}/>` state 参数无需声明
   - 子组件中接收参数：`this.props.location.state` 刷新后参数不会丢失
+- BrowserRouter vs HashRouter 区别
+  - 底层原理：BrowserRouter 使用的是H5的history API 不兼容IE9及以下的版本；HashRouter使用的是 URL 的哈希值
+  - 表现形式：BrowserRouter 的路径 `http://localhost:3000/demo/test`；HashRouter 的路径 `http://localhost:3000/#/demo/test`
+  - 刷新影响：BrowserRouter 没有任何影响，state 保存在 history 对象中；HashRouter 刷新后会导致state参数丢失
 
 #### react code
 - 状态 state 存放在哪个组件，操作状态的方法就在哪个组件中
