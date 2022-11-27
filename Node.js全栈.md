@@ -365,6 +365,10 @@
 - 嵌套路由 (多级路由)
   - 注册子路由时要写上父路由的 path 值
   - 路由的匹配时按照注册路由的顺序进行的
+- 向路由组件传递参数 -- params
+  - 路由链接传入参数：`<Link to='/AAD/tom/18'>SubDemo</Link>`
+  - 注册路由生命参数：`<Route path='/AAD/:name/:age' component={SubDemo}/>`
+  - 子组件中接收参数: this.props.match.params
 
 #### react code
 - 状态 state 存放在哪个组件，操作状态的方法就在哪个组件中
