@@ -351,6 +351,10 @@
 - Switch 的使用
   - 通常情况下，path 和 component 是一一对应的关系
   - Switch 可以提高路由匹配效率，单一匹配，匹配上后不再往后匹配
+- 解决多节路径刷新页面丢失问题
+  - public/index.html 中 引入样式不写 ./ 写 / (常用)
+  - public/index.html 中 引入样式不写 ./ 写 %PUBLIC_URL% (常用)
+  - 使用 HashRouter 代替 BrowserRouter (不常用)
 
 #### 组件信息传递
 - 使用 订阅发布机制 在兄弟组件或任意组件间传递消息
