@@ -105,6 +105,7 @@
 - `const people: myInterface = {name: "lihua", age: 18};` 接口初始化的时候一定要一对一对的赋值，不能省略 name, age
 - restify 框架的 next() 并不会出栈，需要在后面添加 return; 才行，或者直接 return next(); 确保触发回调后执行停止
   - https://stackoverflow.com/questions/16810449/when-to-use-next-and-return-next-in-node-js
+  - next() 调用后请求就返回了，如果此时函数没有 return，且在后面仍然有 next() 程序会强制退出
 - 数组元素解构赋值的时候需要注意一下bug: `const { appName } = arr[0].appName`; 这样是不行的额
 - Spread syntax (...) 展开语法可以用于数组，并不是深拷贝，也可以用于对象的
 - JSON.parse()、JSON.stringify() 用于 JSON 与 string 格式的转换，用于深拷贝对象
