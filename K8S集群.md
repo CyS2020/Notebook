@@ -104,7 +104,7 @@ kubeadm join 192.168.0.107:6443 --token v5bld3.xx70vflfpr1nzxd6 --discovery-toke
 - `kubectl -n cys edit ingress ingressId`
 - `kubectl -n cys get ingress ingressId -o json`
 - `kubectl -n cys scale deploy deploymentId --repliacs=0`
-- `kubectl -n cys exec -it podId -c main -n -- /bin/sh`: 进入pod内部
+- `kubectl -n cys exec -it podId -c main -n -- /bin/sh`: 进入pod内部的container
 - `kubectl -n cys get pods | grep Evicted | awk '{print $1}' | xargs kubectl delete pod -n prod-us`
 
 #### helm命令
