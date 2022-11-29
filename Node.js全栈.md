@@ -384,6 +384,9 @@
   - 表现形式：BrowserRouter 的路径 `http://localhost:3000/demo/test`；HashRouter 的路径 `http://localhost:3000/#/demo/test`
   - 刷新影响：BrowserRouter 没有任何影响，state 保存在 history 对象中；HashRouter 刷新后会导致state参数丢失
 
+#### Redux
+- ![redux原理图](https://github.com/CyS2020/Notebook/blob/master/images/redux%E5%8E%9F%E7%90%86%E5%9B%BE.png?raw=true)
+
 #### react code
 - 状态 state 存放在哪个组件，操作状态的方法就在哪个组件中
 - 多个组件使用的状态，放在共同的父组件 state 中 -- 状态提升
