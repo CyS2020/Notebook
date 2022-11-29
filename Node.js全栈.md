@@ -386,6 +386,15 @@
 
 #### Redux
 ![redux原理图](https://github.com/CyS2020/Notebook/blob/master/images/redux%E5%8E%9F%E7%90%86%E5%9B%BE.png?raw=true)
+- redux 核心概念 -- action
+  - 动作的对象
+  - 两个属性：type: 标识属性，值为字符串，唯一必要属性；data: 数据属性，值任意类型，可选属性
+  - e.g. `{type:'ADD', data:{name:'tom', age:19}}`
+- redux 核心概念 -- reducer
+  - 用于初始化状态，加工状态
+  - 加工时，根据旧的 state 和 action, 产生新的 state 纯函数
+- redux 核心概念 -- store
+  - 将 state、action、reducer 联系在一起的对象
 
 #### react code
 - 状态 state 存放在哪个组件，操作状态的方法就在哪个组件中
