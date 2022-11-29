@@ -9,6 +9,13 @@
   - 当 Node.js 执行 I/O 操作时，比如从网络读取、访问数据库或文件系统，Node.js 将在响应返回时恢复操作，而不是阻塞线程和浪费 CPU 周期等待。
   - 这允许 Node.js 处理单个服务器上的数千个并发连接，而不引入管理线程并发性的负担，这可能是一个重要的 bug 来源。
 
+#### npm常用命令
+- `npm init -y`: 默认值初始化项目
+- `npm install jquery@3.2.1`: 安装指定版本的依赖
+- `npm uninstall jquery`: 卸载依赖
+- `npm update jquery`: 更新依赖
+- `npm run test`: 运行命令
+
 #### 安装软件
 - 首先添加 Source 到 yum repo 里面 `curl -sL https://rpm.nodesource.com/setup_16.x | sudo bash -`
 - 然后执行 `yum install nodejs`, 安装node、npm，然后执行 `npm install --global yarn`，安装yarn
@@ -44,7 +51,7 @@
 - 异步机制 https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Asynchronous
   - EventHandler: 时间监听机制，while(true) 循环
   - Callback：函数式编程，java，go等均支持回调函数
-  - Promise：类似于java的 CompleteFuture 异步编排
+  - Promise：类似于java的 CompleteFuture 异步编排，但没有get()方法，可使用await进行等待
     - pending:  初始状态，既没有被兑现，也没有被拒绝，此时请求还在进行中。
     - fulfilled(resolve): 意味着操作成功完成。当 Promise 完成时，它的 then() 处理函数被调用。
     - rejected(reject): 意味着操作失败。当一个 Promise 失败时，它的 catch() 处理函数被调用。
@@ -52,6 +59,7 @@
     - https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise
     - https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/async_function
     - 函数直接返回不等待回调函数的结果的运行方式叫同步执行，函数等待回调函数的运行方式叫异步执行
+    - 最佳实战：async/await 配合 try-catch 来进行编码，错误的逻辑写在 catch 中
   - 所有 I/O 操作均是异步的，所有使用async标注的方法是异步的, 所有返回Promise方法是异步的
 
 #### typeScript
@@ -89,6 +97,7 @@
 - 重载签名与实现签名是多对一的关系，声明多个重载的方法签名，然后用一个实现都覆盖起来
   - 函数签名可以带类型参数的(泛型)；` <Type>(arg: Type) => Type`
   - 函数除了可调用之外还可以具有属性，声明调用签名即可。调用签名的语法与声明函数的语法略有区别
+- noImplicitAny，strictNullChecks 两个检查需要配置 tsconfig.json 文件中
 
 #### node code
 - array.map(() => ({a: f1, b: f2})); 取出对象的部分字段组成数组，必须是这种k-v形式的
@@ -96,17 +105,20 @@
 - `const people: myInterface = {name: "lihua", age: 18};` 接口初始化的时候一定要一对一对的赋值，不能省略 name, age
 - restify 框架的 next() 并不会出栈，需要在后面添加 return; 才行，或者直接 return next(); 确保触发回调后执行停止
   - https://stackoverflow.com/questions/16810449/when-to-use-next-and-return-next-in-node-js
+  - next() 调用后请求就返回了，如果此时函数没有 return，且在后面仍然有 next() 程序会强制退出
 - 数组元素解构赋值的时候需要注意一下bug: `const { appName } = arr[0].appName`; 这样是不行的额
 - Spread syntax (...) 展开语法可以用于数组，并不是深拷贝，也可以用于对象的
 - JSON.parse()、JSON.stringify() 用于 JSON 与 string 格式的转换，用于深拷贝对象
 - 数组没有越界异常，如果取不到值，就是 undefined, 不同与其他类型的语言
 - this 取值 undefined、window、实例对象，使用bind绑定 `this.method = this.method.bind(this)` 原型方法 => 自身属性
+- 连续解构赋值 e.g. `const obj = {a:{b:{c:1}}}` 解构出c并重命名keyword `const {a:{b:{c:keyword}}} = obj`
 
 ### React快速入门
 #### 开始项目
-- `npx create-react-app demo`: 初始化项目，src文件下的文件可以全部删除
+- `npx create-react-app my-app`: 初始化项目，src文件下的文件可以全部删除
+- `yarn create react-app my-app --template typescript`: 使用 ts 初始化
 - 浏览器安装开发者工具 `React Developer Tools` (chrome)
-- 文件名可以是 jsx 或者 js，不影响文件中的代码；ReactDOM.render(VDOM, 容器)
+- 文件名可以是 jsx 或者 js(不推荐)，不影响文件中的代码；ReactDOM.render(VDOM, 容器)
   ```
   import ReactDOM from 'react-dom'
   import App from "./App";
@@ -115,7 +127,7 @@
       document.getElementById('root')
   )
   ```
-- 类组件名必须大写
+- 类组件名必须大写 WebStorm 简写 rcc
   ```
   import React from 'react'
   // 类组件
@@ -138,7 +150,7 @@
 - React 中的列表循环有且只有map可以使用，map才有返回值，forEach没有
 - 设置变量使用 setState 方法, 绑定事件时 () => {} 胖箭头这种写法 this 指向函数体外部的this
   - 或者函数在外面显示定义，绑定事件时使用 this.funcName.bind(this, parm1, parm2, ...) 即可
-- 函数时组件名也要大写
+- 函数时组件名也要大写，Webstorm 简写 rsf
   ```
   function App(){
     return <h2>Hello World</h2>
@@ -212,11 +224,35 @@
 - 通过 event.target 得到发生时间的 DOM 元素对象，例如 `event.target.value` 获取值
   - 不要过度使用 ref；发生事件的节点，正好是我想要操作的节点，就可以省略 ref 了
 
+#### 高阶/柯里化
+- 当react组件回调函数需要传递参数时，要么直接写成函数形式 `() => {this.f(xxx)}` 要么 this.f() 定义成高阶函数
+- 函数可以作为另外一个函数的参数或者返回值使用，这样的做法叫高阶函数；e.g. Promise、setTimeout、Array.map
+  - 若A函数接收的参数是一个函数，那么就 A 可以称之为高阶函数
+  - 若A函数调用的返回值是一个函数，那么 A 就可以称之为高阶函数
+  ```
+  saveData = (dataType) => {
+    return (event) => {
+      this.setState({[dataType]:event.target.value})
+    }
+  }
+  ```
+- 函数的柯里化：通过函数调用继续返回函数的方式，实现多次接收参数最后统一处理的函数编码形式
+  ```
+  function sum(a){
+    return (b) => {
+      return (c) => {
+        return a + b + c
+      }
+    }
+  }
+  sum(1)(2)(3)
+  ```
+
 #### 非/受控组件
 - 所有输入类型的 DOM，组件是现用现取的则为非受控组件
 - 所有输入类型的 DOM，组件随着输入维护到 state 中则为受控组件
 
-#### 生命周期
+#### 旧生命周期
 - render() 初始化渲染，状态更新之后调用 = 1 + n 次
 - componentDidMount() 组件挂载完毕之后调用 = 1 次
 - componentWillUnmount() 组件将要卸载前调用 = 1 次
@@ -233,3 +269,122 @@
 - 卸载组件：由 ReactDOM.unmountComponentAtNode() 触发
   - componentWillUnmount()
 ![组件生命周期-旧](https://github.com/CyS2020/Notebook/blob/master/images/%E7%BB%84%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F(%E6%97%A7).png?raw=true)
+
+#### 新生命周期
+![组件生命周期](https://github.com/CyS2020/Notebook/blob/master/images/%E7%BB%84%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png?raw=true)
+
+#### diff 算法
+- 当状态中的数据发生变化时，react会根据新数据生成新的虚拟DOM
+- 旧虚拟 DOM 中找到了与新虚拟 DOM 相同的 key
+  - 若虚拟 DOM 中内容没有变，直接使用之前的真实 DOM
+  - 若虚拟 DOM 中内容变了，则生成新的真实 DOM，随后替换页面之前的真实 DOM
+- 旧虚拟 DOM 中未能找到与新虚拟 DOM 相同的 key
+  - 根据数据创建新的真实 DOM，随后渲染到页面
+- 如何选择 key ?
+  - 最好使用每条数据的唯一标识作为 key，比如 uuid、手机号、身份证号、学号等唯一值
+  - 如果确定只是简单的展示数据，用 index 也是可以的
+
+#### 前端编码流程
+- 拆分组件：拆分界面，抽取组件
+- 实现静态组件：使用组件实现静态页面效果
+- 实现动态组件：动态显示初始化数据
+  - 数据类型
+  - 数据名称
+  - 保存在哪个组件
+- 交互(从绑定事件监听开始)
+
+#### 脚手架配置代理
+- 前后端分离的时候如果前端能够在 public 文件夹下找到资源就不会请求后端了
+  - 所以在前端调试的时候可以根据请求路径在 public 文件加下创建文件路径
+  - 然后创建对应的文件(无后缀)，将模拟数据写在文件中，就可以 mock 数据了
+- 方法1：package.json 中添加配置
+  ```
+  "proxy":"http://localhost:5000"
+  ```
+- 方法2：src/setupProxy.js 中代码配置
+  ```
+  const proxy = require('http-proxy-middleware')
+
+  module.exports = function (app) {
+    app.use(
+        proxy.createProxyMiddleware('/api1', {
+          target: 'http://localhost:5000', // 请求转发目的地址
+          changeOrigin: true, // 控制服务器收到的请求头中 Host 的值
+          pathRewrite: {'^/api1': ''} // 重写请求路径 取消api1路径
+        }),
+        proxy.createProxyMiddleware('/api2', {
+          target: 'http://localhost:5001',
+          changeOrigin: true,
+          pathRewrite: {'^/api2': ''}
+        })
+    )
+  }
+  ```
+
+#### 组件信息传递
+- 使用 订阅发布机制 在兄弟组件或任意组件间传递消息
+- 订阅：`this.token = PubSub.subscribe('channel', (_,state) => {this.setState(state)})`
+- 发布：`PubSub.publish('channel', data)`
+- 取消订阅：`PubSub.unsubscribe(this.token)`
+
+#### ReactRouter5
+- 基本使用
+  - 明确导航区、内容展示区、默认展示内容
+  - 导航区使用 `<Link to='/AAD'>Demo</Link>`
+  - 展示区使用 `<Route path='/AAD' component={Demo}/>`; exact参数开启严格路由匹配
+  - 默认使用 `<Redirect to='/Demo'/>`
+  - `<App>` 组件使用 `<BrowserRouter>`或`<HashRouter>` 包裹
+- 路由组件与一般组件
+  - 写法不同且存放的文件夹位置不一样
+  - 接收到的 props 不同，路由组件接收三个固定的属性 history, location, match
+  - withRouter 可以加工一般组件，使其具备路由组件所具有的 API
+    ```
+    history:
+      go: f go(n)
+      goBack: f goBack()
+      goForward: f goForward()
+      push: f push(path, state)
+      replace: f replace(path, state)
+    location:
+      pathname: ""
+      search: ""
+      state: {}
+    match:
+      params: {}
+      path: ""
+      url: ""
+    ```
+- NavLink与封装NavLink
+  - NavLink可以实现路由链接的高亮，通过 activeClassName 指定样式名
+  - 标签体内容是一个特殊的标签属性，通过 this.props.children 获取标签体内容
+- Switch 的使用
+  - 通常情况下，path 和 component 是一一对应的关系
+  - Switch 可以提高路由匹配效率，单一匹配，匹配上后不再往后匹配
+- 解决多节路径刷新页面丢失问题
+  - public/index.html 中 引入样式不写 ./ 写 / (常用)
+  - public/index.html 中 引入样式不写 ./ 写 %PUBLIC_URL% (常用)
+  - 使用 HashRouter 代替 BrowserRouter (不常用)
+- 嵌套路由 (多级路由)
+  - 注册子路由时要写上父路由的 path 值
+  - 路由的匹配时按照注册路由的顺序进行的
+- 向路由组件传递参数 -- params
+  - 路由链接传入参数：`<Link to={'/home/detail/${name}/${age}'}>Detail Info</Link>`
+  - 注册路由声明参数：`<Route path='/home/detail/:name/:age' component={Detail}/>`
+  - 子组件中接收参数：`this.props.match.params`
+- 向路由组件传递参数 -- search
+  - 路由链接传入参数：`<Link to={'/home/detail/?name=${name}&age=${age}'}>Detail Info</Link>`
+  - 注册路由声明参数：`<Route path='/home/detail' component={Detail}/>` search 参数无需声明
+  - 子组件中接收参数：`this.props.location.search` 引入 querystringify 库进行 urlencoding 与j son 的转换
+- 向路由组件传递参数 -- state
+  - 路由链接传入参数：`<Link to={{pathname:'/home/detail',state:{name, age}}}>Detail Info</Link>`
+  - 注册路由声明参数：`<Route path='/home/detail' component={Detail}/>` state 参数无需声明
+  - 子组件中接收参数：`this.props.location.state` 刷新后参数不会丢失
+- BrowserRouter vs HashRouter 区别
+  - 底层原理：BrowserRouter 使用的是H5的history API 不兼容IE9及以下的版本；HashRouter使用的是 URL 的哈希值
+  - 表现形式：BrowserRouter 的路径 `http://localhost:3000/demo/test`；HashRouter 的路径 `http://localhost:3000/#/demo/test`
+  - 刷新影响：BrowserRouter 没有任何影响，state 保存在 history 对象中；HashRouter 刷新后会导致state参数丢失
+
+#### react code
+- 状态 state 存放在哪个组件，操作状态的方法就在哪个组件中
+- 多个组件使用的状态，放在共同的父组件 state 中 -- 状态提升
+- 注意 defaultChecked 和 checked 的区别，类似的还有 defaultValue 和 value

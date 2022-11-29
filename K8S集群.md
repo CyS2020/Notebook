@@ -96,14 +96,16 @@ kubeadm join 192.168.0.107:6443 --token v5bld3.xx70vflfpr1nzxd6 --discovery-toke
 - `kubectl -n cys delete pod podId`
 - `kubectl -n cys logs -f podId`：查看部署的服务的日志
 - `kubectl -n cys describe pod podId`: 查看部署服务过程的日志
-- `kubectl -n cys describe deploy podId`: 查看部署信息，版本日志级别等
+  - `kubectl -n cys describe deploy deploymentId`：查看部署信息，版本日志级别等
+  - `kubectl -n cys get deployment deploymentId -o json`：查看部署信息
 - `kubectl -n cys rollout restart deploy deploymentId`: 重启pods
 - `kubectl -n cys get events`
-- `kubectl -n cys get deployment deploymentId -o json`
 - `kubectl -n cys edit deployment deploymentId -o json`	
 - `kubectl -n cys edit ingress ingressId`
 - `kubectl -n cys get ingress ingressId -o json`
 - `kubectl -n cys scale deploy deploymentId --repliacs=0`
+- `kubectl -n cys exec -it podId -c main -n -- /bin/sh`: 进入pod内部的container
+- `kubectl -n cys get pods | grep Evicted | awk '{print $1}' | xargs kubectl delete pod -n prod-us`
 
 #### helm命令
 - `helm list --all-namespaces`
