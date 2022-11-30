@@ -400,6 +400,7 @@
   - 监听 state: `store.subscribe(() => {})`
   - 分发 action: `store.dispatch({action})`
   - 获取 state: `store.getState()`
+- 异步 action 就是指 action 的值为函数，异步 action 中一般都会调用同步 action
 
 #### react code
 - 状态 state 存放在哪个组件，操作状态的方法就在哪个组件中
