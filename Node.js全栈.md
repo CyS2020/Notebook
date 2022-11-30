@@ -395,6 +395,11 @@
   - 加工时，根据旧的 state 和 action, 产生新的 state 纯函数
 - redux 核心概念 -- store
   - 将 state、action、reducer 联系在一起的对象
+  - 创建 store: `legacy_createStore(cReducer)`
+  - 创建 reducer: `function cReducer(state, action)`
+  - 监听 state: `store.subscribe(() => {})`
+  - 分发 action: `store.dispatch({action})`
+  - 获取 state: `store.getState()`
 
 #### react code
 - 状态 state 存放在哪个组件，操作状态的方法就在哪个组件中
