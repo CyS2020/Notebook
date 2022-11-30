@@ -397,7 +397,7 @@
   - 将 state、action、reducer 联系在一起的对象
   - 创建 store: `legacy_createStore(cReducer)`
   - 创建 reducer: `function cReducer(state, action)`
-  - 监听 state: `store.subscribe(() => {})`
+  - 监听 state: `store.subscribe(() => {this.setState()})`
   - 分发 action: `store.dispatch({action})`
   - 获取 state: `store.getState()`
 - 异步 action 就是指 action 的值为函数，异步 action 中一般都会调用同步 action
