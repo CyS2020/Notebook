@@ -402,6 +402,10 @@
   - 获取 state: `store.getState()`
 - 异步 action 就是指 action 的值为函数，异步 action 中一般都会调用同步 action
 
+#### Redux-react
+![react-redux](https://github.com/CyS2020/Notebook/blob/master/images/react-redux%E6%A8%A1%E5%9E%8B%E5%9B%BE.png?raw=true)
+
+
 #### react code
 - 状态 state 存放在哪个组件，操作状态的方法就在哪个组件中
 - 多个组件使用的状态，放在共同的父组件 state 中 -- 状态提升
