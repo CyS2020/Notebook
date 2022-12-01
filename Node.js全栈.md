@@ -413,7 +413,7 @@
   - mapStateToProps: 映射状态，返回值是一个对象
   - mapDispatchToProps: 映射操作状态的方法(也可以是对象)，返回值是一个对象
  - 容器组件中的 store 是靠 props 传入容器组件内的，而不是在容器组件直接引入的
- - 使用 `<Provider>` 标签管理应用 store
+ - 或者使用 `<Provider>` 标签管理应用所有 store
     ```
     <Provider store={store}>
       <App />
