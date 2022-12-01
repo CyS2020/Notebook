@@ -406,7 +406,13 @@
 
 #### Redux-react
 ![react-redux](https://github.com/CyS2020/Notebook/blob/master/images/react-redux%E6%A8%A1%E5%9E%8B%E5%9B%BE.png?raw=true)
-
+- UI组件：不能使用任何redux的api, 只负责页面的呈现与交互
+- 容器组件：负责redux通信，将结果交给UI组件
+- 如何创建一个容器组件 -- react-redux 的 connect 函数
+  - connect(mapStateToProps, mapDispatchToProps)(UI组件)
+  - mapStateToProps: 映射状态的方法，返回值是一个对象
+  - mapDispatchToProps: 映射操作状态的方法，返回值是一个对象
+ - 容器组件中的 store 是靠 props 传进去的，而不是在容器组件直接引入的
 
 #### react code
 - 状态 state 存放在哪个组件，操作状态的方法就在哪个组件中
