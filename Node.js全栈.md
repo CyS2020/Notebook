@@ -214,7 +214,6 @@
     - 如果新状态不依赖于原状态 使用对象方式 e.g. `this.setState({count:99})`
     - 如果新对象依赖原状态 使用函数方式 e.g. `this.setState(state => ({count:state.count+1}))` 
     - 如果需要在 setState() 执行后获取最新的状态数据，要在第二个 callback 函数中读取
-  
 - 特性之二 props
   - render()函数中使用 this.props 直接取出外部传入的 k-v 值，且this.props是只读的不允许修改
   - props 在jsx中可以进行批量传递 {...props}，这个语法是jsx的语法，与对象展开不是一个意思
