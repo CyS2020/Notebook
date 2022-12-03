@@ -419,6 +419,15 @@
       <App />
     </Provider>
     ```
+- 写好 actions、reducers、store; 然后使用 connect 连接 UI 与 Container
+    
+#### 纯函数
+- 一类特别的函数：只要是同样的输入(实参)，必定得到同样的输出(返回)
+- 需要遵守以下约束条件
+  - 不得改写参数数据
+  - 不会产生任何副作用，例如网络请求，输入和输出设备
+  - 不能调用 Date.now() 或者 Math.random() 等不纯的函数
+  - redux 的 reducer 函数必须是一个纯函数
 
 #### react code
 - 状态 state 存放在哪个组件，操作状态的方法就在哪个组件中
