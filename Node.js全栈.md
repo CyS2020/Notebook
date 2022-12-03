@@ -456,10 +456,14 @@
       }
     }, [stateValue])
     ```
- - useEffect 传入的函数有返回值 == componentWillUnmount()
- - useEffect 传入的空数组 == componentDidMount()
- - useEffect 传入非空数组 == componentDidUpdate()
- 
+  - useEffect 传入的函数有返回值 == componentWillUnmount()
+  - useEffect 传入的空数组 == componentDidMount()
+  - useEffect 传入非空数组 == componentDidUpdate()
+- React.useRef()
+  - Ref Hook 可以在函数组件中存储/查找组件内的标签或其他任意数据
+  - 语法：`const  myRef = React.useRef()`
+  - 作用：保存标签对象，功能与 React.createRef() 一样
+
 #### react code
 - 状态 state 存放在哪个组件，操作状态的方法就在哪个组件中
 - 多个组件使用的状态，放在共同的父组件 state 中 -- 状态提升
