@@ -339,7 +339,7 @@
   - `yarn add react-router-dom`
   - 明确导航区、内容展示区、默认展示内容
   - 导航区使用 `<Link to='/AAD'>Demo</Link>`
-  - 展示区使用 `<Route path='/AAD' component={Demo}/>`; exact参数开启严格路由匹配
+  - 注册路由 `<Route path='/AAD' component={Demo}/>`; exact参数开启严格路由匹配
   - 默认使用 `<Redirect to='/Demo'/>`
   - `<App>` 组件使用 `<BrowserRouter>`或`<HashRouter>` 包裹
 - 路由组件与一般组件
