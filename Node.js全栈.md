@@ -336,6 +336,7 @@
 
 #### ReactRouter5
 - 基本使用
+  - `yarn add react-router-dom`
   - 明确导航区、内容展示区、默认展示内容
   - 导航区使用 `<Link to='/AAD'>Demo</Link>`
   - 展示区使用 `<Route path='/AAD' component={Demo}/>`; exact参数开启严格路由匹配
