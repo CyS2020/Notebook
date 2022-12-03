@@ -435,6 +435,16 @@
   - 不能调用 Date.now() 或者 Math.random() 等不纯的函数
   - redux 的 reducer 函数必须是一个纯函数
 
+#### Hooks
+- React.useState()
+  - State Hook 让函数组件也可以有state状态，并进行状态数据的读写操作
+  - 语法格式：`const [xxx, setXxx] = React.useState(initValue)`
+    - 参数：第一次初始化指定的值在内部做缓存
+    - 返回值：包含2个元素的数组，第一个为内部状态值，第二个为更新状态值的函数
+  - setXxx() 两种写法
+    - setXxx(newValue): 参数为非函数值，直接指定新的状态值，内部用其覆盖原来的状态值
+    - setXxx(value => newValue): 参数为函数，接收原本的状态值，返回新的状态值，内部用其覆盖原来的状态值
+    
 #### react code
 - 状态 state 存放在哪个组件，操作状态的方法就在哪个组件中
 - 多个组件使用的状态，放在共同的父组件 state 中 -- 状态提升
