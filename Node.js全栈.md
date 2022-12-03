@@ -444,7 +444,22 @@
   - setXxx() 两种写法
     - setXxx(newValue): 参数为非函数值，直接指定新的状态值，内部用其覆盖原来的状态值
     - setXxx(value => newValue): 参数为函数，接收原本的状态值，返回新的状态值，内部用其覆盖原来的状态值
-    
+- React.useEffect()
+  - Effect Hook 可以让你在函数组件中执行副作用操作(模拟类组件的生命周期钩子)
+  - React 中的副作用操作：ajax 请求、设置订阅/定时器、手动更改真实 DOM
+  - 语法格式：
+    ```
+    React.useEffect(() => {
+      // 在此可以执行任何带副作用的操作
+      return () => {
+        // 在此执行收尾工作
+      }
+    }, [stateValue])
+    ```
+ - useEffect 传入的函数有返回值 == componentWillUnmount()
+ - useEffect 传入的空数组 == componentDidMount()
+ - useEffect 传入非空数组 == componentDidUpdate()
+ 
 #### react code
 - 状态 state 存放在哪个组件，操作状态的方法就在哪个组件中
 - 多个组件使用的状态，放在共同的父组件 state 中 -- 状态提升
