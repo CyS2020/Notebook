@@ -467,6 +467,11 @@
     state: {id, title, content}
   })
   ```
+- 其他常用的钩子函数
+  - useInRouterContext(): 如果组件在 <Router> 的上下文呈现，则该钩子函数返回 true，否则返回 false
+  - useNavigationType(): 返回当前的导航类型(用户如何来到该页面)：`POP`、`PUSH`、`REPLACE`
+  - useOutlet(): 用来呈现当前组件中渲染的嵌套路由
+  - useResolvedPath(): 给定一个 URL 值，解析其中的：path, search, hash值
     
 ### Redux
 ![redux原理图](https://github.com/CyS2020/Notebook/blob/master/images/redux%E5%8E%9F%E7%90%86%E5%9B%BE.png?raw=true)
