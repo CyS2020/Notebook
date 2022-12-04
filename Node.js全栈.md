@@ -290,7 +290,7 @@
   - 最好使用每条数据的唯一标识作为 key，比如 uuid、手机号、身份证号、学号等唯一值
   - 如果确定只是简单的展示数据，用 index 也是可以的
 
-#### 组件优化
+#### 类组件优化
 - Component 的两个问题：只要执行 setState() 就是不改变数据也会重新 render()；且子组件也会重新 render()
 - 优化1：手动重写 shouldComponentUpdate() 方法，比较新旧 state 如果有变化才返回 true，没变化返回 false
 - 优化2：类组件不继承 Component，而是继承 PureComponent；state 和 props 只进行浅比较(内存地址)
