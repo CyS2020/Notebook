@@ -357,9 +357,9 @@
 - 基本使用
   - `yarn add react-router-dom`
   - 明确导航区、内容展示区、默认展示内容
-  - 导航区使用 `<Link to='/AAD'>Demo</Link>`
-  - 注册路由 `<Route path='/AAD' component={Demo}/>`; exact参数开启严格路由匹配
-  - 默认使用 `<Redirect to='/Demo'/>`
+  - 导航区使用：`<Link to='/AAD'>Demo</Link>`
+  - 路由注册：`<Route path='/AAD' component={Demo}/>`; exact参数开启严格路由匹配
+  - 默认展示：`<Redirect to='/Demo'/>`
   - `<App>` 组件使用 `<BrowserRouter>`或`<HashRouter>` 包裹
 - 路由组件与一般组件
   - 写法不同且存放的文件夹位置不一样
@@ -416,6 +416,14 @@
   - 内置组件变化：移除 `<Switch/>`, 新增 `<Routes/>` 等
   - 语法的变化：`component={About}` 变为 `element={<About/>}` 等
   - 新增多个 hooks：`useParams`、`useNavigate`、`useMatch` 等
+- 基本使用
+  - `yarn add react-router-dom`
+  - 明确导航区、内容展示区、默认展示内容
+  - 外侧`<App>` 组件使用 `<BrowserRouter>`或`<HashRouter>` 包裹
+  - 导航区：`<NavLink to='/home'>Home</NavLink>`
+  - 路由注册：`<Routes><Route path="/home" element={<Home/>}/><Routes/>`; exact参数开启严格路由匹配
+  - 默认路由：`<Route path="/" element={<Navigate to="/about"/>}/>`
+- `<Navigate/>`：只要渲染就会引起视图的切换
     
 #### Redux
 ![redux原理图](https://github.com/CyS2020/Notebook/blob/master/images/redux%E5%8E%9F%E7%90%86%E5%9B%BE.png?raw=true)
