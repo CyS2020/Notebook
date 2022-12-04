@@ -481,13 +481,25 @@
 - React.useRef()
   - Ref Hook 可以在函数组件中存储/查找组件内的标签或其他任意数据
   - 语法：`const  myRef = React.useRef()`
-  - 作用：保存标签对象，功能与 React.createRef() 一样
+  - 作用：保存标签对象，功能与类组件中 React.createRef() 相同
 - React.useContext()
+  - Context 可以在祖孙组件中进行数据传递
+  - 语法格式：
+    ```
+    # 公共区定义 Context
+    const MyContext = React.createContext(defaultData)
+    # 祖组件中提供数据
+    <MyContext.Provider value={data}>
+      <B/>
+    </MyContext.Provider>
+    # 孙组件消费数据
+    const data = React.useContext(MyContext)
+    ```
     
 #### 组件通信方式
 - 父子组件: props
-- 兄弟组件：pubs-sub、redux
-- 祖孙组件: context
+- 兄弟组件：pubs-sub、redux、useReducer()
+- 祖孙组件: pubs-sub、redux、useContext()、
 
 #### react code
 - 状态 state 存放在哪个组件，操作状态的方法就在哪个组件中
