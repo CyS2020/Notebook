@@ -25,7 +25,7 @@
 - yarn.lock --> yarn项目
 - tsconfig.json --> typeScirpt项目
 
-#### javaScript
+### javaScript
 - 基本数据类型：Null，Undefined，Boolean，Number，BigInt，String，Symbol
 - arguments--装有所有参数的数组 与 剩余参数--装有不定数量参数的数组
 - 对象字面量的赋值；函数声明会提升；
@@ -62,7 +62,7 @@
     - 最佳实战：async/await 配合 try-catch 来进行编码，错误的逻辑写在 catch 中
   - 所有 I/O 操作均是异步的，所有使用async标注的方法是异步的, 所有返回Promise方法是异步的
 
-#### typeScript
+### typeScript
 - 在模板字符串中嵌入变量的时候，需要将变量名写在 `${}` 中
 - 特殊变量 `any`, `unknown`, `never`, `void`
 - 元组是一种特殊的 array，内部类型不一致且明确定义不同位置的类型 `pair: [string, number]`
@@ -99,7 +99,7 @@
   - 函数除了可调用之外还可以具有属性，声明调用签名即可。调用签名的语法与声明函数的语法略有区别
 - noImplicitAny，strictNullChecks 两个检查需要配置 tsconfig.json 文件中
 
-#### node code
+### node code
 - array.map(() => ({a: f1, b: f2})); 取出对象的部分字段组成数组，必须是这种k-v形式的
 - typescript是强类型的语言了，只有 any 类型才能通过 Dot Notation 添加属性, 明确类型使用 Bracket Notation 添加属性
 - `const people: myInterface = {name: "lihua", age: 18};` 接口初始化的时候一定要一对一对的赋值，不能省略 name, age
@@ -423,7 +423,7 @@
   - 路由链接：`<NavLink to='/home'>Home</NavLink>`
   - 路由注册：`<Routes><Route path="/home" element={<Home/>}/><Routes/>`; 
   - 默认路由：`<Route path="/" element={<Navigate to="/about"/>}/>`
-- `<Navigate/>`：只要渲染就会引起视图的切换
+- `<Navigate/>`：只要渲染就会引起视图的切换，要渲染到页面形成 `<a>` 标签才能点点击跳转
 - 路由注册位置，如果页面命中就是页面展示的位置；或者使用 `<Outlet/>` 指定路由组件呈现的位置
 - 优化路由定义 -- 使用 useRoutes() 钩子定义路由表
   ```
@@ -459,8 +459,16 @@
   - 路由链接传入参数：`<Link to='detail' state={{id, title, content}}>{title}</Link>`
   - 注册路由无需声明：`{path:'detail',element:<Detail/>}`
   - 子组件中接收参数：`const {state: {id, title, content}} = useLocation()`
-
-#### Redux
+- 编程式路由导航使用钩子函数：useNavigate()；还可以执行前进后退等功能
+  ```
+  # 跳转页面并携带参数
+  const navigate = useNavigate()
+  navigate('detail', {
+    state: {id, title, content}
+  })
+  ```
+    
+### Redux
 ![redux原理图](https://github.com/CyS2020/Notebook/blob/master/images/redux%E5%8E%9F%E7%90%86%E5%9B%BE.png?raw=true)
 - redux 核心概念 -- action
   - 动作的对象
@@ -503,7 +511,7 @@
   - 不能调用 Date.now() 或者 Math.random() 等不纯的函数
   - redux 的 reducer 函数必须是一个纯函数
 
-#### Hooks
+### Hooks
 - React.useState()
   - State Hook 让函数组件也可以有state状态，并进行状态数据的读写操作
   - 语法格式：`const [xxx, setXxx] = React.useState(initValue)`
@@ -550,7 +558,7 @@
 - 兄弟组件：pubs-sub、redux、useReducer()
 - 祖孙组件: pubs-sub、redux、useContext()、
 
-#### react code
+### react code
 - 状态 state 存放在哪个组件，操作状态的方法就在哪个组件中
 - 多个组件使用的状态，放在共同的父组件 state 中 -- 状态提升
 - 注意 defaultChecked 和 checked 的区别，类似的还有 defaultValue 和 value
