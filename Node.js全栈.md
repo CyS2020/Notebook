@@ -491,7 +491,7 @@
   - 获取 state: `store.getState()`
 - 异步 action 就是指 action 的值为函数，异步 action 中一般都会调用同步 action
 
-#### Redux-react
+### Redux-react
 ![react-redux](https://github.com/CyS2020/Notebook/blob/master/images/react-redux%E6%A8%A1%E5%9E%8B%E5%9B%BE.png?raw=true)
 - UI组件：不能使用任何redux的api, 只负责页面的呈现与交互
 - 容器组件：负责redux通信，将结果交给UI组件
