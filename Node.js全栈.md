@@ -353,7 +353,7 @@
 - 发布：`PubSub.publish('channel', data)`
 - 取消订阅：`PubSub.unsubscribe(this.token)`
 
-#### ReactRouter5
+#### React Router5
 - 基本使用
   - `yarn add react-router-dom`
   - 明确导航区、内容展示区、默认展示内容
@@ -411,6 +411,12 @@
   - 表现形式：BrowserRouter 的路径 `http://localhost:3000/demo/test`；HashRouter 的路径 `http://localhost:3000/#/demo/test`
   - 刷新影响：BrowserRouter 没有任何影响，state 保存在 history 对象中；HashRouter 刷新后会导致state参数丢失
 
+#### React Router6
+- 与 React Router5 的版本比较
+  - 内置组件变化：移除 `<Switch/>`, 新增 `<Routes/>` 等
+  - 语法的变化：`component={About}` 变为 `element={<About/>}` 等
+  - 新增多个 hooks：`useParams`、`useNavigate`、`useMatch` 等
+    
 #### Redux
 ![redux原理图](https://github.com/CyS2020/Notebook/blob/master/images/redux%E5%8E%9F%E7%90%86%E5%9B%BE.png?raw=true)
 - redux 核心概念 -- action
