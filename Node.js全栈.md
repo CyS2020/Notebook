@@ -426,7 +426,7 @@
 - `<Navigate/>`：只要渲染就会引起视图的切换
 - 优化路由定义 -- 使用 useRoutes() 钩子定义路由表
   ```
-  const element = useRoutes(
+  const element = useRoutes([
   {
     path: '/about',
     element: <About/>
@@ -444,7 +444,7 @@
   {
     path: '/',
     element: <Navigate to='/about'/>
-  }
+  }])
   ```
 - 路由注册位置，如果页面命中就是页面展示的位置；或者使用 `<Outlet/>` 指定路由组件呈现的位置
 
