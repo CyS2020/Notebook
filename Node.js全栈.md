@@ -448,7 +448,7 @@
   }])
   ```
 - 向路由组件传递参数 -- params
-  - 路由链接传入参数：`<Link to={'detail/${id}/${title}/${content}'}>{title}</Link>`
+  - 路由链接传入参数：`<Link to={\`detail/${id}/${title}/${content}\`}>{title}</Link>`
   - 路由表中声明参数：`{path:'detail/:id/:title/:content',element:<Detail/>}`
   - 子组件中接收参数：`const {id, title, content} = useParams()`
 - 向路由组件传递参数 -- search
