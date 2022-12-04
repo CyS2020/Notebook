@@ -395,11 +395,11 @@
   - 注册子路由时要写上父路由的 path 值
   - 路由的匹配时按照注册路由的顺序进行的
 - 向路由组件传递参数 -- params
-  - 路由链接传入参数：`<Link to={'/home/detail/${name}/${age}'}>Detail Info</Link>`
+  - 路由链接传入参数：``<Link to={`/home/detail/${name}/${age}`}>Detail Info</Link>``
   - 注册路由声明参数：`<Route path='/home/detail/:name/:age' component={Detail}/>`
   - 子组件中接收参数：`this.props.match.params`
 - 向路由组件传递参数 -- search
-  - 路由链接传入参数：`<Link to={'/home/detail/?name=${name}&age=${age}'}>Detail Info</Link>`
+  - 路由链接传入参数：``<Link to={`/home/detail/?name=${name}&age=${age}`}>Detail Info</Link>``
   - 注册路由声明参数：`<Route path='/home/detail' component={Detail}/>` search 参数无需声明
   - 子组件中接收参数：`this.props.location.search` 引入 querystringify 库进行 urlencoding 与j son 的转换
 - 向路由组件传递参数 -- state
@@ -452,7 +452,7 @@
   - 路由表中声明参数：`{path:'detail/:id/:title/:content',element:<Detail/>}`
   - 子组件中接收参数：`const {id, title, content} = useParams()`
 - 向路由组件传递参数 -- search
-  - 路由链接传入参数：`<Link to={'detail?id=${id}&title=${title}&content=${content}'}>{title}</Link>`
+  - 路由链接传入参数：``<Link to={`detail?id=${id}&title=${title}&content=${content}`}>{title}</Link>``
   - 注册路由无需声明：`{path:'detail',element:<Detail/>}`
   - 子组件中接收参数：`const [search, setSearch] = useSearchParams(); const id = search.get('id')`
 - 向路由组件传递参数 -- state
