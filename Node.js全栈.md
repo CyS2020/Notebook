@@ -294,6 +294,7 @@
 - Component 的两个问题：只要执行 setState() 就是不改变数据也会重新 render()；且子组件也会重新 render()
 - 优化1：手动重写 shouldComponentUpdate() 方法，比较新旧 state 如果有变化才返回 true，没变化返回 false
 - 优化2：类组件不继承 Component，而是继承 PureComponent；state 和 props 只进行浅比较(内存地址)
+- 优化3：使用钩子函数 React.memo() 包裹组件，原理和 PureComponent 类似
 
 #### 组件结构
 - 在 B 组件代码中显示调用 <C/>, 即 B 与 C 是父子组件的关系
@@ -538,8 +539,8 @@
     }, [stateValue])
     ```
   - useEffect 传入的函数有返回值 == componentWillUnmount()
-  - useEffect 传入的空数组 == componentDidMount()
-  - useEffect 传入非空数组 == componentDidUpdate()
+  - useEffect 第二参数传入的空数组 == componentDidMount()
+  - useEffect 第二参数传入非空数组 == componentDidUpdate()
 - React.useRef()
   - Ref Hook 可以在函数组件中存储/查找组件内的标签或其他任意数据
   - 语法：`const  myRef = React.useRef()`
@@ -557,7 +558,35 @@
     # 孙组件消费数据
     const data = React.useContext(MyContext)
     ```
-    
+- React.memo()
+  - 只在子组件需要渲染的时候才渲染，原理和 PureComponent 类似
+  - 语法格式：
+    ```
+    const Child = memo(function Child(props) {
+      return (
+        <div><div/>
+      )
+    },)
+    ```
+  - memo() 第二参数[prevProps, nextProps] 可以自定义是否更新同 shouldComponentUpdate()
+- React.useMemo()
+  - 用来缓存一些变量，某个依赖项改变时才重新计算，作为性能优化的手段
+  - 语法格式：`const myMemo = useMemo(() => computeExpensiveValue(a, b), [a, b]);`
+  - 如果没有提供依赖项数组，useMemo 在每次渲染时都会计算新的值。传给子组件就会重新渲染
+- React.useCallback()
+  - 用来缓存一些函数，该回调函数仅在某个依赖项改变时才会更新
+  - 语法格式：
+    ```
+    const memoizedCallback = useCallback(
+      () => {
+        doSomething(a, b);
+      },
+      [a, b],
+    );
+    ```
+  - useCallback(fn, deps) 相当于 useMemo(() => fn, deps)
+  - 每次生成值相等的 obj 的对象或方法，引用不相同的场景，需要使用优化手段避免重复渲染
+      
 #### 组件通信方式
 - 父子组件: props
 - 兄弟组件：pubs-sub、redux、useReducer()
