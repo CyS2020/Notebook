@@ -420,10 +420,11 @@
   - `yarn add react-router-dom`
   - 明确导航区、内容展示区、默认展示内容
   - 外侧`<App>` 组件使用 `<BrowserRouter>`或`<HashRouter>` 包裹
-  - 导航区：`<NavLink to='/home'>Home</NavLink>`
+  - 路由链接：`<NavLink to='/home'>Home</NavLink>`
   - 路由注册：`<Routes><Route path="/home" element={<Home/>}/><Routes/>`; 
   - 默认路由：`<Route path="/" element={<Navigate to="/about"/>}/>`
 - `<Navigate/>`：只要渲染就会引起视图的切换
+- 路由注册位置，如果页面命中就是页面展示的位置；或者使用 `<Outlet/>` 指定路由组件呈现的位置
 - 优化路由定义 -- 使用 useRoutes() 钩子定义路由表
   ```
   const element = useRoutes([
@@ -446,7 +447,18 @@
     element: <Navigate to='/about'/>
   }])
   ```
-- 路由注册位置，如果页面命中就是页面展示的位置；或者使用 `<Outlet/>` 指定路由组件呈现的位置
+- 向路由组件传递参数 -- params
+  - 路由链接传入参数：`<Link to={`detail/${id}/${title}/${content}`}>{title}</Link>`
+  - 路由表中声明参数：`{path:'detail/:id/:title/:content',element:<Detail/>}`
+  - 子组件中接收参数：`const {id, title, content} = useParams()`
+- 向路由组件传递参数 -- search
+  - 路由链接传入参数：`<Link to={`detail?id=${id}&title=${title}&content=${content}`}>{title}</Link>`
+  - 注册路由无需声明：`{path:'detail',element:<Detail/>}`
+  - 子组件中接收参数：`const [search, setSearch] = useSearchParams(); const id = search.get('id')`
+- 向路由组件传递参数 -- state
+  - 路由链接传入参数：`<Link to='detail' state={{id, title, content}}>{title}</Link>`
+  - 注册路由无需声明：`{path:'detail',element:<Detail/>}`
+  - 子组件中接收参数：`const {state: {id, title, content}} = useLocation()`
 
 #### Redux
 ![redux原理图](https://github.com/CyS2020/Notebook/blob/master/images/redux%E5%8E%9F%E7%90%86%E5%9B%BE.png?raw=true)
