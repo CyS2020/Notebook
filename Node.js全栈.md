@@ -421,7 +421,7 @@
   - 明确导航区、内容展示区、默认展示内容
   - 外侧`<App>` 组件使用 `<BrowserRouter>`或`<HashRouter>` 包裹
   - 导航区：`<NavLink to='/home'>Home</NavLink>`
-  - 路由注册：`<Routes><Route path="/home" element={<Home/>}/><Routes/>`; exact参数开启严格路由匹配
+  - 路由注册：`<Routes><Route path="/home" element={<Home/>}/><Routes/>`; 
   - 默认路由：`<Route path="/" element={<Navigate to="/about"/>}/>`
 - `<Navigate/>`：只要渲染就会引起视图的切换
 - 优化路由定义 -- 使用 useRoutes() 钩子定义路由表
@@ -433,13 +433,20 @@
   },
   {
     path: '/home',
-    element: <Home/>
+    element: <Home/>,
+    children:[
+      {
+        path:'news',
+        element: <News/>
+      }
+    ]
   },
   {
     path: '/',
     element: <Navigate to='/about'/>
   }
   ```
+- 路由注册位置，如果页面命中就是页面展示的位置；或者使用 `<Outlet/>` 指定路由组件呈现的位置
 
 #### Redux
 ![redux原理图](https://github.com/CyS2020/Notebook/blob/master/images/redux%E5%8E%9F%E7%90%86%E5%9B%BE.png?raw=true)
