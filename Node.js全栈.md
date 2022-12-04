@@ -347,7 +347,7 @@
   }
   ```
 
-#### 组件信息传递
+#### 组件信息传递(非嵌套组件)
 - 使用 订阅发布机制 在兄弟组件或任意组件间传递消息
 - 订阅：`this.token = PubSub.subscribe('channel', (_,state) => {this.setState(state)})`
 - 发布：`PubSub.publish('channel', data)`
@@ -482,6 +482,12 @@
   - Ref Hook 可以在函数组件中存储/查找组件内的标签或其他任意数据
   - 语法：`const  myRef = React.useRef()`
   - 作用：保存标签对象，功能与 React.createRef() 一样
+- React.useContext()
+    
+#### 组件通信方式
+- 父子组件: props
+- 兄弟组件：pubs-sub、redux
+- 祖孙组件: context
 
 #### react code
 - 状态 state 存放在哪个组件，操作状态的方法就在哪个组件中
