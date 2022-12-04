@@ -295,6 +295,21 @@
 - 优化1：手动重写 shouldComponentUpdate() 方法，比较新旧 state 如果有变化才返回 true，没变化返回 false
 - 优化2：类组件不继承 Component，而是继承 PureComponent；state 和 props 只进行浅比较(内存地址)
 
+#### 组件结构
+- 在 B 组件代码中显示调用 <C/>, 即 B 与 C 是父子组件的关系
+- 在 B 组件代码中调用<C>xxx<C/>, C 组件中通过 props.children 获取标签体内容
+- 在更底层的组件中构建父子关系，B 与 C 是父子组件
+  ```
+  # A组件构建父子关系
+  <A>
+    <B render={(data)=><C data={data}/>}/>
+  </A>
+  # B组件预留组件位置(插槽)
+  {props.render(data)}
+  # C组件获取B组件传入数据
+  {props.data}
+  ```
+
 #### 前端编码流程
 - 拆分组件：拆分界面，抽取组件
 - 实现静态组件：使用组件实现静态页面效果
