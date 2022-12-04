@@ -424,7 +424,23 @@
   - 路由注册：`<Routes><Route path="/home" element={<Home/>}/><Routes/>`; exact参数开启严格路由匹配
   - 默认路由：`<Route path="/" element={<Navigate to="/about"/>}/>`
 - `<Navigate/>`：只要渲染就会引起视图的切换
-    
+- 优化路由定义 -- 使用 useRoutes() 钩子定义路由表
+  ```
+  const element = useRoutes(
+  {
+    path: '/about',
+    element: <About/>
+  },
+  {
+    path: '/home',
+    element: <Home/>
+  },
+  {
+    path: '/',
+    element: <Navigate to='/about'/>
+  }
+  ```
+
 #### Redux
 ![redux原理图](https://github.com/CyS2020/Notebook/blob/master/images/redux%E5%8E%9F%E7%90%86%E5%9B%BE.png?raw=true)
 - redux 核心概念 -- action
