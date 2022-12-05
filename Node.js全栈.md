@@ -297,8 +297,8 @@
 - 优化3：使用钩子函数 React.memo() 包裹组件，原理和 PureComponent 类似
 
 #### 组件结构
-- 在 B 组件代码中显示调用 <C/>, 即 B 与 C 是父子组件的关系
-- 在 B 组件代码中调用<C>xxx<C/>, C 组件中通过 props.children 获取标签体内容
+- 在 B 组件代码中显示调用 `<C/>`, 即 B 与 C 是父子组件的关系
+- 在 B 组件代码中调用`<C>xxx<C/>`, C 组件中通过 props.children 获取标签体内容
 - 在更底层的组件中构建父子关系，B 与 C 是父子组件
   ```
   # A组件构建父子关系
@@ -469,7 +469,7 @@
   })
   ```
 - 其他常用的钩子函数
-  - useInRouterContext(): 如果组件在 <Router> 的上下文呈现，则该钩子函数返回 true，否则返回 false
+  - useInRouterContext(): 如果组件在 `<Router/>` 的上下文呈现，则该钩子函数返回 true，否则返回 false
   - useNavigationType(): 返回当前的导航类型(用户如何来到该页面)：`POP`、`PUSH`、`REPLACE`
   - useOutlet(): 用来呈现当前组件中渲染的嵌套路由
   - useResolvedPath(): 给定一个 URL 值，解析其中的：path, search, hash值
@@ -559,7 +559,7 @@
     const data = React.useContext(MyContext)
     ```
 - React.memo()
-  - 只在子组件需要渲染的时候才渲染，原理和 PureComponent 类似
+  - Memo Hook 只在子组件需要渲染的时候才渲染，原理和 PureComponent 类似
   - 语法格式：
     ```
     const Child = memo(function Child(props) {
@@ -586,11 +586,27 @@
     ```
   - useCallback(fn, deps) 相当于 useMemo(() => fn, deps)
   - 每次生成值相等的 obj 的对象或方法，引用不相同的场景，需要使用优化手段避免重复渲染
-      
+- React.useReducer()
+  - useState() 的替代方案，useState() 底层就是 useReducer() 实现的；将state的更新规则解耦
+  - 基本语法：
+    ```
+    # 使用 reducer
+    const [state, dispatch] = useReducer(reducer, initValue, init);
+    # 定义 action
+    function reducer(state, action) {
+      switch (action.type) {
+        case 'A:
+        default:
+      }
+    }
+    # 更新状态
+    const handle = () => dispatch({type: 'A'})
+    ```   
+          
 #### 组件通信方式
 - 父子组件: props
 - 兄弟组件：pubs-sub、redux、useReducer()
-- 祖孙组件: pubs-sub、redux、useContext()、
+- 祖孙组件: pubs-sub、redux、useContext()
 
 ### react code
 - 状态 state 存放在哪个组件，操作状态的方法就在哪个组件中
