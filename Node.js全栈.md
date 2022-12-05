@@ -496,7 +496,8 @@
 ![react-redux](https://github.com/CyS2020/Notebook/blob/master/images/react-redux%E6%A8%A1%E5%9E%8B%E5%9B%BE.png?raw=true)
 - UI组件：不能使用任何redux的api, 只负责页面的呈现与交互
 - 容器组件：负责redux通信，将结果交给UI组件
-- 如何创建一个容器组件 -- react-redux 的 connect 函数
+- 如何创建一个容器组件 -- react-redux 的 connect 
+  - export default legacy_createStore(reducers, applyMiddleware(thunk));
   - connect(mapStateToProps, mapDispatchToProps)(UI组件)
   - mapStateToProps: 映射状态，返回值是一个对象
   - mapDispatchToProps: 映射操作状态的方法(也可以是对象)，返回值是一个对象
