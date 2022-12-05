@@ -592,7 +592,7 @@
   - 基本语法：
     ```
     # 使用 reducer
-    const [state, dispatch] = useReducer(reducer, initValue, init);
+    const [state, dispatch] = useReducer(reducer, init);
     # 定义 action
     function reducer(state, action) {
       switch (action.type) {
