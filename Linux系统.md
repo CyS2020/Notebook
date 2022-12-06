@@ -126,7 +126,7 @@ unalias ck8s : 删除别名
 - `git diff [filename]`: 查看文件修改内容
 - `git push origin [branchname]`: 提交某个分支到远程仓库origin
   - `git push me [branchname]`: 提交分支到远程仓库me
-- `git remote add localRepoName git@xxx.git`: 关联某个远程仓库并起名localRepoName
+- `git remote add localRepo git@xxx.git`: 关联xxx远程仓库本地名localRepo
 
 #### 16. 其他命令
 - `cat etc/hosts`: 查看域名
