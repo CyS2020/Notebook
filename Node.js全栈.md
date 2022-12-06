@@ -636,8 +636,8 @@
           
 #### 组件通信方式
 - 父子组件: props
-- 兄弟组件：pubs-sub、redux、useReducer()
-- 祖孙组件: pubs-sub、redux、useContext()
+- 兄弟组件：订阅-发布、集中式
+- 祖孙组件: 订阅-发布、集中式、context
 
 ### react code
 - 状态 state 存放在哪个组件，操作状态的方法就在哪个组件中
