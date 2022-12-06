@@ -602,7 +602,37 @@
     }
     # 更新状态
     const handle = () => dispatch({type: 'A'})
-    ```   
+    ```
+- useSelector() + useDispatch()
+  - 使用 react-redux 中的钩子函数代替 connect
+  - action是定义类型与数据的{type,data}，reducer定义switch即动作执行的函数
+  - 基本语法：
+    ```
+    # 定义 action
+    const increment = (data) => ({type: 'increment', data})
+    # 定义 reducer
+    function countReducer(preState=0, action) {
+      const { type, data } = action
+      switch (type){
+        case 'increment':
+        return preState + data
+      default:
+        return preState
+      }
+    }
+    # 定义 store
+    const reducers = combineReducers({count:reducer})
+    legacy_createStore(reducers, applyMiddleware(thunk));
+    # 获取 state
+    const data = useSelector(state => {return state.count})
+    # 更新 state
+    const dispatch = useDispatch()
+    dispatch(increment(count))
+    # 包裹 App
+    <Provider store={store}>
+      <App />
+    </Provider>
+    ```
           
 #### 组件通信方式
 - 父子组件: props
