@@ -640,7 +640,7 @@
   ```
   # 定义 action、reducer
   const initialState = {value: 0}
-  counterSlice = createSlice({
+  const counterSlice = createSlice({
     name: 'counter',
     initialState,
     reducers: {increment: (state) => {state.value += 1}}
