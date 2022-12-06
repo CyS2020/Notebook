@@ -633,6 +633,34 @@
       <App />
     </Provider>
     ```
+ 
+#### 集中式管理最佳实战
+- 使用 react-redux + redux-toolkit
+- 基本语法：
+  ```
+  # 定义 action、reducer
+  const initialState = {value: 0}
+  counterSlice = createSlice({
+    name: 'counter',
+    initialState,
+    reducers: {increment: (state) => {state.value += 1}}
+  })
+  export const {increment} = counterSlice.actions
+  export default counterSlice.reducer
+  # 定义 store
+  import counterReducer from '../features/counter/counterSlice'
+  const store = configureStore({reducer: {counter: counterReducer}})
+  # 获取 state
+  const count = useSelector((state) => state.counter.value)
+  # 更新 state
+  import {increment} from './counterSlice'
+  const dispatch = useDispatch()
+  dispatch(increment())
+  # 包裹 App
+  <Provider store={store}>
+    <App/>
+  </Provider>
+  ```
           
 #### 组件通信方式
 - 父子组件: props
