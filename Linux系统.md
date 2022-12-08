@@ -98,13 +98,13 @@ unalias ck8s : 删除别名
 
 #### 14. git配置
 - `git config --global user.name chunyang`
-- `git config --global user.email chunyang@trendmicro.com`
-- `ssh-keygen -t ed25519 -C "chunyang@trendmicro.com"`
+- `git config --global user.email chunyang@microsoft.com`
+- `ssh-keygen -t ed25519 -C "chunyang@microsoft.com"`
 - `cat ~/.ssh/id_ed25519.pub`
 - github: `SSH and GPG keys` -> `New SSH key`
 - `ssh -T git@github.com` 检验ssh配置
-- `ssh -vT  git@adc.github.trendmicro.com` : 检验ssh配置
-- `nslookup adc.github.trendmicro.com 192.168.204.2` : 检测dns域名解析
+- `ssh -vT  git@adc.github.microsoft.com` : 检验ssh配置
+- `nslookup adc.github.microsoft.com 192.168.204.2` : 检测dns域名解析
 - 192.168.204.2 在网络的属性里面 -- Ipv4 DNS服务器
 - `vim /etc/resolv.conf`: 虚拟机配置dns解析
 ```
