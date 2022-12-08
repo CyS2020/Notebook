@@ -103,7 +103,7 @@ unalias ck8s : 删除别名
 - `cat ~/.ssh/id_ed25519.pub`
 - github: `SSH and GPG keys` -> `New SSH key`
 - `ssh -T git@github.com` 检验ssh配置
-- `ssh -vT  git@adc.github.microsoft.com` : 检验ssh配置
+- `ssh -vT  git@adc.github.trendmicro.com` : 检验ssh配置
 - `nslookup adc.github.microsoft.com 192.168.204.2` : 检测dns域名解析
 - 192.168.204.2 在网络的属性里面 -- Ipv4 DNS服务器
 - `vim /etc/resolv.conf`: 虚拟机配置dns解析
