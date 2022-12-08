@@ -75,7 +75,28 @@
 - echo 查看环境变量
 - env | grep VER 快速查看当前微服务部署的版本
 
-#### 12. git配置
+#### 12. 恢复ens33接口
+```
+# 先试试
+nmcli networking on
+```
+```
+# 查看所有网卡信息 发现ens33没有静态IP信息
+ifconfig -a 
+chkconfig network off      
+chkconfig network on  
+service NetworkManager stop
+service NetworkManager start
+```
+
+#### 13. alias简化命令
+```
+alias ck8s='kubectl -n cys' : 设置别名
+alias : 查看别名
+unalias ck8s : 删除别名
+```
+
+#### 14. git配置
 - `git config --global user.name chunyang`
 - `git config --global user.email chunyang@trendmicro.com`
 - `ssh-keygen -t ed25519 -C "chunyang@trendmicro.com"`
@@ -90,27 +111,6 @@
 (有时候配置一个可能会更好)
 nameserver 8.8.8.8
 nameserver 192.168.204.2
-```
-
-#### 13. 恢复ens33接口
-```
-# 先试试
-nmcli networking on
-```
-```
-# 查看所有网卡信息 发现ens33没有静态IP信息
-ifconfig -a 
-chkconfig network off      
-chkconfig network on  
-service NetworkManager stop
-service NetworkManager start
-```
-
-#### 14. alias简化命令
-```
-alias ck8s='kubectl -n cys' : 设置别名
-alias : 查看别名
-unalias ck8s : 删除别名
 ```
 
 #### 15. git命令
