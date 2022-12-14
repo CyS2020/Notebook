@@ -288,6 +288,8 @@ select role_id, (select id from permissions tp where tp.minor_part = 'write') as
 from role_permissions
 where permission_id in (select id from permissions where minor_part = 'read');
 ```
+
+#### thinking in code
 - 如何学习新技术：配置部署 => 关键参数 => 交互API => 使用场景 => 核心原理
 - 学习一门新的语言：项目结构编译，基本类型，变常量函数类接口的声明，if判断，for循环，异常处理，类型断言，内置集合，同步异步，类的继承接口实现，泛型反射，独有特性等
 - 添加或者修改REST接口时，要保证兼容旧接口的功能，在新版本稳定后再将旧接口删除
@@ -300,4 +302,9 @@ where permission_id in (select id from permissions where minor_part = 'read');
 - 当需求横跨多个微服务的时候，新需求部署的先后顺序问题，以及先后部署过程中的兼容性问题
 - 使用别人的 API 的时候，一定有提供文档，尤其是大公司对外的开发平台，文档都很详细，先search一下
 - api 正常情况下返回 200或204，检查不通过的情况下返回 400，异常情况返回 500 (coder无法预料的情况)
-- 在修改定时任务频率，业务计算量发生变化的时候，需要考虑硬件配置是否能够满足业务要求
+- 在修改定时任务频率，业务计算量发生变化的时候，需要考虑硬件配置是否能够满足业务要求，如何设置replication
+- 不要相信任何网络io操作，考虑是否需要在失败的时候进行重试
+
+#### trouble shooting
+- 当api接口不通的时候：1. client编写url地址不对，2. client授权验证未通过，3. client请求格式错误
+- 查找故障的时候，第一资料就是log，第二资料是code，需要结合一起看，否则log如果打印不好容易误导别人
