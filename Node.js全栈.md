@@ -61,6 +61,11 @@
     - 函数直接返回不等待回调函数的结果的运行方式叫同步执行，函数等待回调函数的运行方式叫异步执行
     - 最佳实战：async/await 配合 try-catch 来进行编码，错误的逻辑写在 catch 中
   - 所有 I/O 操作均是异步的，所有使用async标注的方法是异步的, 所有返回Promise方法是异步的，setTimeout是异步的
+   ```
+   await new Promise((resolve) => {
+     setTimeout(resolve, 1000);
+   });
+   ```
 
 ### typeScript
 - 在模板字符串中嵌入变量的时候，需要将变量名写在 `${}` 中
