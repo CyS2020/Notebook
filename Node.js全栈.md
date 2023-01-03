@@ -1,6 +1,7 @@
 
 ### Node.js
 #### 介绍
+- https://nodejs.dev/zh-cn/learn/
 - Chrome = V8 + 内置API(DOM...); V8负责解析执行js代码，内置 api 由运行环境提供的特殊接口
 - Node.js 是一个基于 Chrome V8 引擎的 javaScript 运行环境 = V8 + 内置API(http...)
 - Node.js 应用程序运行在单个进程单个线程中，不需要为每个请求创建一个新线程
