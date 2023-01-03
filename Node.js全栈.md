@@ -9,6 +9,15 @@
   - 当 Node.js 执行 I/O 操作时，比如从网络读取、访问数据库或文件系统，Node.js 将在响应返回时恢复操作，而不是阻塞线程和浪费 CPU 周期等待。
   - 这允许 Node.js 处理单个服务器上的数千个并发连接，而不引入管理线程并发性的负担，这可能是一个重要的 bug 来源。
 - 任何回调函数中的第一个参数都是错误对象--错误优先回调，如果没有错误，则对象为null。如果存在错误，则包含错误的一些描述和其他信息
+- setTimeout()、setInterval()、process.nextTick()、setImmediate()
+  ```
+  const interval = setInterval(() => {
+  if (App.somethingIWait === 'arrived') {
+    clearInterval(interval);
+  }
+  // otherwise do things
+  }, 100);
+  ```
 
 #### npm常用命令
 - `npm init -y`: 默认值初始化项目
