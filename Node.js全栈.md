@@ -11,12 +11,12 @@
 - 任何回调函数中的第一个参数都是错误对象--错误优先回调，如果没有错误，则对象为null。如果存在错误，则包含错误的一些描述和其他信息
 - setTimeout()、setInterval()、process.nextTick()、setImmediate()
   ```
-  const interval = setInterval(() => {
-  if (App.somethingIWait === 'arrived') {
-    clearInterval(interval);
-  }
+  const interval = setInterval(() => {                      const myFunction = () => {
+  if (App.somethingIWait === 'arrived') {                     // do something
+    clearInterval(interval);                                  setTimeout(myFunction, 1000);
+  }                                                         };
   // otherwise do things
-  }, 100);
+  }, 100);                                                  setTimeout(myFunction, 1000);
   ```
 
 #### npm常用命令
