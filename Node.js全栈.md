@@ -19,6 +19,7 @@
   // otherwise do things
   }, 100);                                                  setTimeout(myFunction, 1000);
   ```
+- eventEmitter.on() -- 监听，eventEmitter.emit() -- 触发
 
 #### npm常用命令
 - `npm init -y`: 默认值初始化项目
