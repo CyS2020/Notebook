@@ -105,7 +105,7 @@
   - 如果一个类型参数只出现在一个位置，强烈重新考虑你是否真的需要泛型
   - 使用泛型创建工厂时(声明调用签名)，需要通过构造函数来引用类类型
   ```
-  function create<Type>(c: { new (): Type }): Type {
+  function create<T>(c: { new (): T }): T {
     return new c();
   }
   ```
@@ -113,7 +113,7 @@
 - interface 用来定义属性和 type 关键字自由选择，定义函数给class implement，且是鸭子类型
 - 函数签名为 形参列表 + 返回值列表，同go，java=函数名，参数列表
 - 重载签名与实现签名是多对一的关系，声明多个重载的方法签名，然后用一个实现都覆盖起来
-  - 函数签名可以带类型参数的(泛型)；` <Type>(arg: Type) => Type`
+  - 函数签名可以带类型参数的(泛型)；` <T>(arg: T) => T`
   - 函数除了可调用之外还可以具有属性，声明调用签名即可。调用签名的语法与声明函数的语法略有区别
 - noImplicitAny，strictNullChecks 两个检查需要配置 tsconfig.json 文件中
 
