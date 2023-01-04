@@ -80,6 +80,7 @@
    ```
 
 ### typeScript
+- https://jkchao.github.io/typescript-book-chinese/
 - 在模板字符串中嵌入变量的时候，需要将变量名写在 `${}` 中
 - 特殊变量 `any`, `unknown`, `never`, `void`
 - 元组是一种特殊的 array，内部类型不一致且明确定义不同位置的类型 `pair: [string, number]`
