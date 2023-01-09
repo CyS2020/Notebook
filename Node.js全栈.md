@@ -116,6 +116,9 @@
   - 函数签名可以带类型参数的(泛型)；` <T>(arg: T) => T`
   - 函数除了可调用之外还可以具有属性，声明调用签名即可。调用签名的语法与声明函数的语法略有区别
 - noImplicitAny，strictNullChecks 两个检查需要配置 tsconfig.json 文件中
+- 关于 .d.ts 文件
+  - 就是定义了一堆类型(接口)，便于编写类型检查的 typescript，使用 .d.ts 声明文件
+  - declare 关键字来告诉 TypeScript，你正在试图表述一个其他地方已经存在的代码
 
 ### node code
 - array.map(() => ({a: f1, b: f2})); 取出对象的部分字段组成数组，必须是这种k-v形式的
