@@ -129,7 +129,7 @@
 
 ### node code
 - array.map(() => ({a: f1, b: f2})); 取出对象的部分字段组成数组，必须是这种k-v形式的
-- typescript是强类型的语言了，只有 any 类型才能通过 Dot Notation 添加属性, 明确类型使用 Bracket Notation 添加属性
+- typescript是强类型的语言了，只有 any 类型才能通过 Dot Notation （点表示法）添加属性, 明确类型使用 Bracket Notation （括号表示法）添加属性
 - `const people: myInterface = {name: "lihua", age: 18};` 接口初始化的时候一定要一对一对的赋值，不能省略 name, age
 - restify 框架的 next() 并不会出栈，需要在后面添加 return; 才行，或者直接 return next(); 确保触发回调后执行停止
   - https://stackoverflow.com/questions/16810449/when-to-use-next-and-return-next-in-node-js
