@@ -222,7 +222,8 @@
   useReducer (更多)    useRef   useEffect (有副作用)
   useContext (跨层)             useCallback
   ```
-- useState中state是根据地址来比较的，如果set前后内存地址一样则不会render
+- useState中state是根据内存地址来比较的，如果setState前后内存地址一样则不会render
+- props是不可变的对象，如果修改props的值 react 会报错
 
 ### React 全家桶
 #### React 是什么？
