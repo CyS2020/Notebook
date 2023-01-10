@@ -22,11 +22,11 @@
 - eventEmitter.on() -- 监听，eventEmitter.emit() -- 触发
 
 #### npm常用命令
-- `npm init -y`: 默认值初始化项目
-- `npm install jquery@3.2.1`: 安装指定版本的依赖
-- `npm uninstall jquery`: 卸载依赖
-- `npm update jquery`: 更新依赖
-- `npm run test`: 运行命令
+- `npm init -y`: 默认值初始化项目 `yarn init -y`
+- `npm install jquery@3.2.1`: 安装指定版本的依赖 `yarn add jquery@3.2.1`
+- `npm uninstall jquery`: 卸载依赖 `yarn remove jquery`
+- `npm update jquery`: 更新依赖 `yarn upgrade jquery`
+- `npm run test`: 运行命令 `yarn run test`
 
 #### 安装软件
 - 首先添加 Source 到 yum repo 里面 `curl -sL https://rpm.nodesource.com/setup_16.x | sudo bash -`
