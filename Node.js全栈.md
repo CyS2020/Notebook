@@ -220,8 +220,9 @@
   # 自变量                        因变量
   useState                      useMemo
   useReducer (更多)    useRef   useEffect (有副作用)
-  useContext (跨层)            useCallback
+  useContext (跨层)             useCallback
   ```
+- useState中state是根据地址来比较的，如果set前后内存地址一样则不会render
 
 ### React 全家桶
 #### React 是什么？
@@ -245,7 +246,7 @@
   - 类中编写自定义函数的时候使用 f = () => {} 的形式，避免 this 绑定问题
   - react 中的状态更新 setState 是异步的；且有两种写法 对象式 与 函数式
     - 如果新状态不依赖于原状态 使用对象方式 e.g. `this.setState({count:99})`
-    - **如果新对象依赖原状态 使用函数方式 e.g. `this.setState(state => ({count:state.count+1}))` **
+    - 如果新对象依赖原状态 使用函数方式 e.g. `this.setState(state => ({count:state.count+1}))`
     - 如果需要在 setState() 执行后获取最新的状态数据，要在第二个 callback 函数中读取
 - 特性之二 props
   - render()函数中使用 this.props 直接取出外部传入的 k-v 值，且this.props是只读的不允许修改
