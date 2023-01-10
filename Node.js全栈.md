@@ -40,7 +40,13 @@
 ### javaScript
 - 基本数据类型：Null，Undefined，Boolean，Number，BigInt，String，Symbol
 - arguments--装有所有参数的数组 与 剩余参数--装有不定数量参数的数组
-- 对象字面量的赋值不能省略key`var obj = {key: 'value'}`；函数声明会提升；
+- 对象字面量的赋值不能省略key
+  ```
+  const a = {v: 'haha'}
+  # {v: 'haha'}
+  const v = 'haha'
+  const a = {v}
+  ```
 - 对象原型与继承
   - 每个函数都有一个特殊的属性叫作原型 prototype, 使用 function 关键字定义的函数才有
   - 原型相等 `f.__proto__ or [[Prototype]]` === `F.prototype` =!= `f.constructor.prototype`
