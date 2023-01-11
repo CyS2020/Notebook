@@ -129,7 +129,8 @@
 - noImplicitAny，strictNullChecks 两个检查需要配置 tsconfig.json 文件中
 - 关于 .d.ts 文件
   - 就是定义了一堆类型(接口)，便于编写类型检查的 typescript，使用 .d.ts 声明文件
-  - declare 关键字来告诉 TypeScript，你正在试图表述一个其他地方已经存在的代码
+  - declare 关键字来告诉 TypeScript，你正在试图表述一个其他地方已经存在的代码，var 或 function
+  - 使用 type 和 interface 定义类型，然后把用 declare 关键字给变量或者函数添加类型声明
   - npm 来安装使用 @types，默认情况下，TypeScript 会自动包含支持全局使用的任何声明定义
 
 ### node code
