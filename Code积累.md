@@ -305,6 +305,7 @@ where permission_id in (select id from permissions where minor_part = 'read');
 - api 正常情况下返回 200或204，检查不通过的情况下返回 400，异常情况返回 500 (coder无法预料的情况)
 - 在修改定时任务频率，业务计算量发生变化的时候，需要考虑硬件配置是否能够满足业务要求，如何设置replication
 - 不要相信任何网络io操作，考虑是否需要在失败的时候进行重试
+- 预期的错误日志打印时使用 warn 级别，非预期的错误日志打印使用 error 级别
 
 #### trouble shooting
 - 当api接口不通的时候：1. client编写url地址不对，2. client授权验证未通过，3. client请求格式错误
