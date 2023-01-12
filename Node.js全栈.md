@@ -32,7 +32,7 @@
 - 首先添加 Source 到 yum repo 里面 `curl -sL https://rpm.nodesource.com/setup_16.x | sudo bash -`
 - 然后执行 `yum install nodejs`, 安装node、npm，然后执行 `npm install --global yarn`，安装yarn
 - `yarn build` 编译js; `yarn add typescript` 添加依赖; `tsc xxx.ts` 编译ts; `node xxx.js` 运行js
-- package.json --> npm项目
+- package.json --> 项目依赖
 - .eslintrc.json --> ESLint检查
 - yarn.lock --> yarn项目
 - tsconfig.json --> typeScirpt项目
