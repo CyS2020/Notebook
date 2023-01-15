@@ -126,6 +126,16 @@
 - 重载签名与实现签名是多对一的关系，声明多个重载的方法签名，然后用一个实现都覆盖起来
   - 函数签名可以带类型参数的(泛型)；` <T>(arg: T) => T`
   - 函数除了可调用之外还可以具有属性，声明调用签名即可。调用签名的语法与声明函数的语法略有区别
+- JavaScript 在一个对象类型的索引签名上会隐式调用 toString 方法，而在 TypeScript 中，为防止初学者砸伤自己的脚，它将会抛出一个错误。
+  ```
+  const obj = { message: 'Hello' };
+  let foo: any = {};
+  // ERROR: TypeScript 的索引签名必须是 string 或者 number
+  // v8 引擎上总是会返回 [object Object]
+  foo[obj] = 'World';
+  // 这里实际上就是你存储的地方
+  console.log(foo['[object Object]']); // World
+  ```
 - noImplicitAny，strictNullChecks 两个检查需要配置 tsconfig.json 文件中
 - 关于 .d.ts 文件
   - 就是定义了一堆类型(接口)，便于编写类型检查的 typescript，使用 .d.ts 声明文件
