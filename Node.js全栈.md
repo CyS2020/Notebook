@@ -33,9 +33,9 @@
 - 然后执行 `yum install nodejs`, 安装node、npm，然后执行 `npm install --global yarn`，安装yarn
 - `yarn build` 编译js; `yarn add typescript` 添加依赖; `tsc xxx.ts` 编译ts; `node xxx.js` 运行js
 - package.json --> 项目依赖
-- .eslintrc.json --> ESLint检查
-- yarn.lock --> yarn项目
 - tsconfig.json --> typeScirpt项目
+- yarn.lock --> yarn项目
+- .eslintrc.json --> ESLint检查
 
 ### javaScript
 - 基本数据类型：Null，Undefined，Boolean，Number，BigInt，String，Symbol
@@ -85,8 +85,12 @@
    });
    ```
   - 常见陷阱
-    - 同步执行多个 fetch 操作，可以使用 `await Promise.all([,])` 并发执行
+    - 同步执行多个 fetch 操作，可以使用 `await Promise.all([,])` 并行执行
     - 循环中执行异步操作，不可以使用 for each/map 这一类的方法，使用传统的 for 循环、使用 for await ()
+    - 宏任务：目前绝大多数的异步调用，重新入队；微任务：Promise & MutationObserver & process.nextTick()，当前本轮结束后立即执行
+  - Promise静态方法
+    - Promise.resolve()、Promise.reject()
+    - Promise.all()、Promise.race()
 
 ### typeScript
 - https://jkchao.github.io/typescript-book-chinese/
