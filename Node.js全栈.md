@@ -84,6 +84,9 @@
      setTimeout(resolve, 1000);
    });
    ```
+  - 常见陷阱
+    - 同步执行多个 fetch 操作，可以使用 `await Promise.all([,])` 并发执行
+    - 循环中执行异步操作，不可以使用 for each/map 这一类的方法，使用传统的 for 循环、使用 for await ()
 
 ### typeScript
 - https://jkchao.github.io/typescript-book-chinese/
