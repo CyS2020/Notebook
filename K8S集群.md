@@ -87,7 +87,9 @@ kubeadm join 192.168.0.107:6443 --token v5bld3.xx70vflfpr1nzxd6 --discovery-toke
   - `kubectl get pod -o wide -n 命名空间 | grep 微服务`：查看集群环境下微服务所在的节点
   - `pdm-cli node list`：查看集环境节点列表
 - `kubectl apply`: 以文件或标准输入为准应用或更新资源, 配置pods; services; deployments;等信息
-- `kubectl -n cys get pods`
+- `kubectl -n cys get pod`
+- `kubectl -n cys get node`
+- - `kubectl -n cys get cm`
 - `kubectl -n cys get svc`
 - `kubectl -n cys get deployment`
 - `kubectl -n cys  get cm cmId -o json`
