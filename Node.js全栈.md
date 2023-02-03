@@ -53,7 +53,6 @@
   }
   ```
 - tsconfig.json --> typeScirpt项目
-- yarn.lock --> yarn项目
   ```
   {
     "compilerOptions": {
@@ -69,6 +68,7 @@
     ]
   }
   ```
+- yarn.lock --> yarn项目
 - .eslintrc.json --> ESLint检查
 
 ### javaScript
