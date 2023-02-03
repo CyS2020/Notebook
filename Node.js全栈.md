@@ -165,6 +165,7 @@
 - 连续解构赋值 e.g. `const obj = {a:{b:{c:1}}}` 解构出c并重命名keyword `const {a:{b:{c:keyword}}} = obj`
 - req.params(url), req.body, req.query; req.query 不要使用bool作为参数，直接使用字符串 `Joi.string().valid('true', 'false').optional()`
 - logical OR assignment (x ||= y) operator only assigns if x is falsy (虚值就是数据类型的零值).
+- 定义在js文件中的全局变量，就类似与java静态变量是一直存在的，可以用来缓存一般使用 const 关键字修饰
 
 ### React快速入门
 #### 开始项目
