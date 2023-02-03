@@ -33,8 +33,42 @@
 - 然后执行 `yum install nodejs`, 安装node、npm，然后执行 `npm install --global yarn`，安装yarn
 - `yarn build` 编译js; `yarn add typescript` 添加依赖; `tsc xxx.ts` 编译ts; `node xxx.js` 运行js
 - package.json --> 项目依赖
+  ```
+  {
+    "name": "demots",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "scripts": {
+      "build": "yarn clean && tsc",
+      "clean": "rimraf dist/",
+      "start": "node dist/index.js"
+    },
+    "devDependencies": {
+      "rimraf": "^4.1.0",
+      "typescript": "^4.9.4"
+    },
+    "dependencies": {
+    }
+  }
+  ```
 - tsconfig.json --> typeScirpt项目
 - yarn.lock --> yarn项目
+  ```
+  {
+    "compilerOptions": {
+      "allowJs": true,
+      "esModuleInterop": true,
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "outDir": "./dist",
+      "target": "ES2021"
+    },
+    "include": [
+      "./src/**/*"
+    ]
+  }
+  ```
 - .eslintrc.json --> ESLint检查
 
 ### javaScript
@@ -165,7 +199,7 @@
 - 连续解构赋值 e.g. `const obj = {a:{b:{c:1}}}` 解构出c并重命名keyword `const {a:{b:{c:keyword}}} = obj`
 - req.params(url), req.body, req.query; req.query 不要使用bool作为参数，直接使用字符串 `Joi.string().valid('true', 'false').optional()`
 - logical OR assignment (x ||= y) operator only assigns if x is falsy (虚值就是数据类型的零值).
-- 定义在js文件中的全局变量，就类似与java静态变量是一直存在的，可以用来缓存一般使用 const 关键字修饰
+- 定义在js文件中的全局变量，就类似与java静态变量是一直存在的可以用来缓存，一般使用 const 关键字修饰
 
 ### React快速入门
 #### 开始项目
