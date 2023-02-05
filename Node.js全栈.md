@@ -200,6 +200,7 @@
 - req.params(url), req.body, req.query; req.query 不要使用bool作为参数，直接使用字符串 `Joi.string().valid('true', 'false').optional()`
 - logical OR assignment (x ||= y) operator only assigns if x is falsy (虚值就是数据类型的零值).
 - 定义在js文件中的全局变量，就类似与java静态变量是一直存在的可以用来缓存，一般使用 const 关键字修饰
+- import js 文件就是合成一个大的 js 文件，然后再从上到下解释执行 js 文件，因此定义在其他文件的 const 变量就会一直存在
 
 ### React快速入门
 #### 开始项目
