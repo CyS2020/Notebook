@@ -274,7 +274,7 @@ JVM使用-XX:PermSize设置非堆内存初始值，默认是物理内存的1/64�
 - elasticSearch查询也不区分大小写, 文档`_id`还是区分的
 - web与servlet
   - 一般的web请求(Url + Payload)返回值主要为HttpStatus + Response, 若返回204(No Content)则Response为空
-  - 返回的Response值在RestTemplate存在Body字段(序列化字符串), 在前端为data(js对象)
+  - 返回的Response值在RestTemplate存在Body字段(序列化字符串), 在前端为data(js对象--response.data)
   - jquery使用accepts指定能接收的一组数据格式，dataType指定服务器返回数据类格式，contextType指定发送请求的请求体的数据格式
   - context-Type:
     - Request Headers -- 实体头部用于指示资源的MIME类型media type
