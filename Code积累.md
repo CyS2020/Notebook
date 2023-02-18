@@ -311,6 +311,9 @@ where permission_id in (select id from permissions where minor_part = 'read');
   - go: 零值不进行序列化
   - js: undefined 不进行序列化
 
+#### 接口的设计原则
+- 若返回值是数组不直接返回数组类型，返回体一般为：`{data: []}`; 而且若程序中出错最好不要返回 500，返回空数组即可
+
 #### trouble shooting
 - 当api接口不通的时候：1. client编写url地址不对，2. client授权验证未通过，3. client请求格式错误
 - 查找故障的时候，第一资料就是log，第二资料是code，需要结合一起看，否则log如果打印不好容易误导别人
