@@ -149,6 +149,7 @@ nameserver 192.168.204.2
 - `git diff [filename]`: 查看文件修改内容
 - `git push origin [branchname]`: 提交某个分支到远程仓库origin
   - `git push me [branchname]`: 提交分支到远程仓库me
+  - `git push origin commitId:[branchname]`: 提交部分commit到远程
 - `git remote add localRepo git@xxx.git`: 关联xxx远程仓库本地名localRepo
 - `git remote -v`: 查看本地库已经关联的 github 远程仓库
 
