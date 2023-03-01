@@ -317,7 +317,7 @@
 - 通过 onXxx 属性指定时间处理函数(注意大小写)
   - React 使用的是自定义(合成)事件，而不是使用原生 DOM 事件
   - React 中的事件是通过事件委托的方式处理的(委托给组件最外层的元素)
-- 通过 event.target 得到发生时间的 DOM 元素对象，例如 `event.target.value` 获取值
+- 通过 event.target 得到发生时间的 DOM 元素对象，例如 `event.target.value`、`event.target.checked` 获取值
   - 不要过度使用 ref；发生事件的节点，正好是我想要操作的节点，就可以省略 ref 了
 
 #### 高阶/柯里化
