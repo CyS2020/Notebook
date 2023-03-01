@@ -192,6 +192,7 @@
   - https://stackoverflow.com/questions/16810449/when-to-use-next-and-return-next-in-node-js
   - next() 调用后请求就返回了，如果此时函数没有 return，程序后续仍然有 next() 调用，导致程序强制退出
 - 数组元素解构赋值的时候需要注意一下bug: `const { appName } = arr[0].appName`; 这样是不行的额
+- `const { retryCount = 0 } = brokeredMessage.body.data;` 解构赋值的时候解构不出来赋值默认值
 - Spread syntax (...) 展开语法可以用于数组，并不是深拷贝，也可以用于对象的
 - JSON.parse()、JSON.stringify() 用于 JSON 与 string 格式的转换，用于深拷贝对象; 访问url获取到的数据是json，本身就是 js object 无需反序列化
 - 数组没有越界异常，如果取不到值，就是 undefined, 不同与其他类型的语言
