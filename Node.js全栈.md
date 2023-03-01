@@ -616,6 +616,7 @@
 ### Hooks
 - React.useState()
   - State Hook 让函数组件也可以有state状态，并进行状态数据的读写操作
+  - 调用 setXxx 方法后会触发页面渲染, 然后将 xxx 赋值为最新的值
   - 语法格式：`const [xxx, setXxx] = React.useState(initValue)`
     - 参数：第一次初始化指定的值在内部做缓存
     - 返回值：包含2个元素的数组，第一个为内部状态值，第二个为更新状态值的函数
