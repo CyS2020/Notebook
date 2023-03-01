@@ -310,6 +310,7 @@ where permission_id in (select id from permissions where minor_part = 'read');
   - java: null 不进行序列化
   - go: 零值不进行序列化
   - js: undefined 不进行序列化
+- 开发做冒烟测试的时候，一定要调通 api 与业务流程，并更新最新的 api doc
 
 #### 接口的设计原则
 - 若返回值是数组不直接返回数组类型，返回体一般为：`{data: []}`; 而且若程序中出错最好不要返回 500，返回空数组即可
