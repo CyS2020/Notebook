@@ -684,6 +684,28 @@
     ```
   - useCallback(fn, deps) 相当于 useMemo(() => fn, deps)
   - 每次生成值相等的 obj 的对象或方法，引用不相同的场景，需要使用优化手段避免重复渲染
+  - 通常作为 useEffect 的依赖项，若不使用 useCallback 那么每次页面刷新都会触发 useEffect
+    ```
+    function Parent() {
+      const [count, setCount] = React.useState(0);
+      const handleClick = React.useCallback(() => {
+        setCount(count + 1);
+      }, [count]);
+      // 每次页面渲染的时候都会改变 handleClick 的引用，从而触发 useEffect
+      // const handleClick = () => {
+      //   setCount(count + 1);
+      // }
+      React.useEffect(() => {
+        console.log('Count updated');
+      }, [handleClick]);
+      return (
+        <div>
+          <p>Count: {count}</p>
+          <button onClick={handleClick}>Increment</button>
+        </div>
+      );
+    }
+    ```
 - React.useReducer()
   - useState() 的替代方案，useState() 底层就是 useReducer() 实现的；将state的更新规则解耦
   - 基本语法：
