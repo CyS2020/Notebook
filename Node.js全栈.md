@@ -638,6 +638,7 @@
   - useEffect 传入的函数有返回值 == componentWillUnmount()
   - useEffect 第二参数传入的空数组 == componentDidMount()
   - useEffect 第二参数传入非空数组 == componentDidUpdate()
+    - 当依赖项中的某个值发生变化时，React会重新运行useEffect回调函数
 - React.useRef()
   - Ref Hook 可以在函数组件中存储/查找组件内的标签或其他任意数据
   - 语法：`const  myRef = React.useRef()`
