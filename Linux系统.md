@@ -120,6 +120,7 @@ unalias ck8s : 删除别名
 ```
 
 #### 14. git配置
+- `git init.`: 初始化仓库
 - `git config --global user.name chunyang`
 - `git config --global user.email chunyang@microsoft.com`
 - `ssh-keygen -t ed25519 -C "chunyang@microsoft.com"`
