@@ -793,7 +793,7 @@
 - 使用 nanoid 库随机生成 uuid，前端组件常用的工具库
 
 ### Tonic UI
-#### different `<Stack>`、`<Box>`、`<Flex>`
+#### 1. different `<Stack>`、`<Box>`、`<Flex>`
 In Tonic UI, `<Stack>`, `<Box>`, and `<Flex>` are all layout components that can be used to arrange and position elements on a web page. However, each of these components has a slightly different purpose and functionality:
 
 - `<Stack>` is a container component that stacks its child elements vertically, with optional spacing between them. It's useful for creating vertical lists or columns of content.
