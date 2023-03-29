@@ -791,3 +791,15 @@
 - 多个组件使用的状态，放在共同的父组件 state 中 -- 状态提升
 - 注意 defaultChecked 和 checked 的区别，类似的还有 defaultValue 和 value
 - 使用 nanoid 库随机生成 uuid，前端组件常用的工具库
+
+### Tonic UI
+#### different `<Stack>`、`<Box>`、`<Flex>`
+In Tonic UI, `<Stack>`, `<Box>`, and `<Flex>` are all layout components that can be used to arrange and position elements on a web page. However, each of these components has a slightly different purpose and functionality:
+
+- `<Stack>` is a container component that stacks its child elements vertically, with optional spacing between them. It's useful for creating vertical lists or columns of content.
+
+- `<Box>` is a basic container component that can be used to group elements together and apply styles to them. It doesn't provide any layout functionality on its own, but can be combined with other layout components like `<Stack>` or `<Flex>` to achieve more complex layouts.
+
+- `<Flex>` is a container component that uses flexbox layout to arrange its child elements horizontally or vertically. It provides more fine-grained control over element positioning and sizing than <Stack>, making it useful for creating more complex layouts that require responsive design.
+
+Overall, `<Stack>` and `<Flex>` are more specialized layout components that provide specific layout functionality, while `<Box>` is a more generic container component that can be used for a variety of purposes.
