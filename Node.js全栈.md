@@ -757,7 +757,7 @@
 - 使用 react-redux + redux-toolkit
 - 基本语法：
   ```
-  # 定义 action、reducer
+  # 创建 conterSlice.ts 文件定义 action、reducer
   const initialState = {value: 0}
   const counterSlice = createSlice({
     name: 'counter',
@@ -766,7 +766,7 @@
   })
   export const {increment} = counterSlice.actions
   export default counterSlice.reducer
-  # 定义 store
+  # 创建 store.ts 文件定义 store
   import counterReducer from '../features/counter/counterSlice'
   const store = configureStore({reducer: {counter: counterReducer}})
   # 获取 state
