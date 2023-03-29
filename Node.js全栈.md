@@ -756,26 +756,56 @@
 #### 集中式管理最佳实战
 - 使用 react-redux + redux-toolkit
 - 基本语法：
+  - 创建 conterSlice.ts 文件定义 action、reducer
   ```
-  # 创建 conterSlice.ts 文件定义 action、reducer
-  const initialState = {value: 0}
-  const counterSlice = createSlice({
-    name: 'counter',
+  import { createSlice } from '@reduxjs/toolkit';
+
+  const initialState = {
+    isOpened: false,
+  }
+
+  const indexSlice = createSlice({
+    name: 'index',
     initialState,
-    reducers: {increment: (state) => {state.value += 1}}
+    reducers: {
+      setIsOpened: (state, action) => {
+        state.isOpened = action.payload;
+      }
+    }
+  });
+  export const {
+    setIsOpened,
+  } = indexSlice.actions
+  export const selectIsOpened = (state) => state.indexSlice.isOpened;
+  export default indexSlice.reducer
+  ```
+  - 创建 store.ts 文件定义 store
+  ```
+  import { configureStore } from '@reduxjs/toolkit';
+  import indexSliceReducer from './redux/indexSlice'
+  
+  const store = configureStore({
+    reducer: {
+      indexSlice: indexSliceReducer
+    }
   })
-  export const {increment} = counterSlice.actions
-  export default counterSlice.reducer
-  # 创建 store.ts 文件定义 store
-  import counterReducer from '../features/counter/counterSlice'
-  const store = configureStore({reducer: {counter: counterReducer}})
-  # 获取 state
-  const count = useSelector((state) => state.counter.value)
-  # 更新 state
-  import {increment} from './counterSlice'
+  export default store;
+  ```
+  - 获取 state
+  ```
+  import { selectIsOpened } from '../../redux/indexSlice';
+  import { useDispatch } from 'react-redux';
+  const isOpened = useSelector(selectIsOpened)
+  ```
+  - 更新 state
+  ```
+  import { setIsOpened } from '../../redux/indexSlice';
+  import { useDispatch } from 'react-redux';
   const dispatch = useDispatch()
-  dispatch(increment())
-  # 包裹 App
+  dispatch(setIsOpened(true))
+  ```
+  - 包裹 App
+  ```
   <Provider store={store}>
     <App/>
   </Provider>
