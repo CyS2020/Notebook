@@ -833,3 +833,6 @@ In Tonic UI, `<Stack>`, `<Box>`, and `<Flex>` are all layout components that can
 - `<Flex>` is a container component that uses flexbox layout to arrange its child elements horizontally or vertically. It provides more fine-grained control over element positioning and sizing than <Stack>, making it useful for creating more complex layouts that require responsive design.
 
 Overall, `<Stack>` and `<Flex>` are more specialized layout components that provide specific layout functionality, while `<Box>` is a more generic container component that can be used for a variety of purposes.
+#### 2. 组件位置
+- justifyContent：纵轴位置调整
+- alignItems: 横轴位置调整
