@@ -314,6 +314,7 @@ where permission_id in (select id from permissions where minor_part = 'read');
 #### 接口的设计原则
 - 若返回值是数组不直接返回数组类型，返回体一般为：`{data: []}`; 而且若程序中出错最好不要返回 500，返回空数组即可
 - api 正常情况下返回 200或204，检查不通过的情况下返回 400，异常情况返回 500 (coder无法预料的情况)
+- 关于状态值得返回，如果是最终状态使用大驼峰式字符串，例如 Success, Failure；如果是中间状态使用下划线或者`-`连接, 例如 in-progress
 
 #### trouble shooting
 - 当api接口不通的时候：1. client编写url地址不对，2. client授权验证未通过，3. client请求格式错误
