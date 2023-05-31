@@ -110,6 +110,7 @@ kubeadm join 192.168.0.107:6443 --token v5bld3.xx70vflfpr1nzxd6 --discovery-toke
 - `kubectl -n cys exec -it podId -c main -- /bin/sh`: 进入pod内部的container
 - `kubectl -n cys get pods | grep Evicted | awk '{print $1}' | xargs kubectl delete pod -n cys`：删除被驱除的pod
 - `kubectl -n cys set resources deployment deploymentId -c=main --limits=memory=3072Mi`：设置内存资源
+- `kubectl cp mypod:/var/log/app/adi/adi-app-server.ubt.log /home/azureuser/cys/adi-app-server.ubt.log -n cys`: 拷贝文件
 
 #### helm命令
 - `helm list --all-namespaces`
