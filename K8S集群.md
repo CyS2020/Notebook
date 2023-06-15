@@ -82,6 +82,9 @@ kubeadm init --apiserver-advertise-address=192.168.0.107 --image-repository regi
 kubeadm join 192.168.0.107:6443 --token v5bld3.xx70vflfpr1nzxd6 --discovery-token-ca-cert-hash sha256:647541701bbbe6d7d50e3ed3634db3da0c834d
 ```
 
+#### helm 命令
+- `helm list -n cys`: 查看安装的应用程序及其版本
+
 #### kubectl命令
 - `kubectl get`: 可以获取nodes; pods; services; deployments; 等信息
   - `kubectl get pod -o wide -n 命名空间 | grep 微服务`：查看集群环境下微服务所在的节点
