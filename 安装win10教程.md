@@ -102,7 +102,7 @@
 
 ​		-> 安装JDK
 
-​		-> 安装sublime text3
+​		-> 安装nodepad++
 
 ​		-> 安装IDEA
 
