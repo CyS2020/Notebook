@@ -13,10 +13,10 @@
 - setTimeout()、setInterval()、process.nextTick()、setImmediate()
   ```
   const intervalId = setInterval(() => {                      const myFunction = () => {
-  // otherwise do things                                      // do something
-  if (App.somethingIWait === 'arrived') {                     setTimeout(myFunction, 1000);
-    clearInterval(intervalId);                                };
-  }                                                         
+    // otherwise do things                                        // do something
+    if (App.somethingIWait === 'arrived') {                     setTimeout(myFunction, 1000);
+      clearInterval(intervalId);                              };
+    }                                                         
   }, 100);                                                  setTimeout(myFunction, 1000);
   ```
 - eventEmitter.on() -- 监听，eventEmitter.emit() -- 触发
