@@ -12,11 +12,11 @@
 - 任何回调函数中的第一个参数都是错误对象--错误优先回调，如果没有错误，则对象为null。如果存在错误，则包含错误的一些描述和其他信息
 - setTimeout()、setInterval()、process.nextTick()、setImmediate()
   ```
-  const interval = setInterval(() => {                      const myFunction = () => {
-  if (App.somethingIWait === 'arrived') {                     // do something
-    clearInterval(interval);                                  setTimeout(myFunction, 1000);
-  }                                                         };
-  // otherwise do things
+  const intervalId = setInterval(() => {                      const myFunction = () => {
+  // otherwise do things                                      // do something
+  if (App.somethingIWait === 'arrived') {                     setTimeout(myFunction, 1000);
+    clearInterval(intervalId);                                };
+  }                                                         
   }, 100);                                                  setTimeout(myFunction, 1000);
   ```
 - eventEmitter.on() -- 监听，eventEmitter.emit() -- 触发
