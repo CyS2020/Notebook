@@ -33,8 +33,7 @@
 - git安装; 配置ssh等
 - maven安装; 配置settings.xml
 - IDEA安装; 配置
-  - 字体(大小 + 粗细)
-  - console font
+  - 字体：菜单栏13、编辑器17；1.2、控制台
   - 代码风格
   - UI窗口大小
   - 插件(One Dark Theme, SonarLint, MyBatisX)
