@@ -267,3 +267,10 @@ nameserver 192.168.204.2
   - `$()`: 命令替换 `$(date + '%Y-%m-%d-%H-%M-%S')`
   - `${}`: 变量替换 `echo ${file#*/}`
   - `$(())`: 整数操作 `echo $((${a} + ${b} * $c))`
+
+### 生成证书
+#### 证书 -> Details -> Subject
+```
+openssl req -x509 -newkey rsa:4096 -keyout keyName.pem -out crtName.crt -sha256 -days 36500 -nodes -subj "/C=JP/ST=Tokyo/L=Shibuya-ku/O=Micro Soft Incorporated/CN=*.microsoft.com"
+openssl req -x509 -newkey rsa:4096 -keyout keyName.pem -out crtName.crt -sha256 -days 36500 -nodes -subj "/C=US/ST=Texas/L=Irving/O=Micro Soft Inc./CN=*.microsoft.com"
+```
