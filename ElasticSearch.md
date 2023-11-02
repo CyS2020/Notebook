@@ -221,6 +221,7 @@ GET shopping/_search
 - 集群、节点、索引、文档
 - 倒排索引
 - es为什么能快速检索：https://cloud.tencent.com/developer/article/1922613
+- es读写搜索的原理：https://juejin.cn/post/7034068713011839006
 
 #### 实战总结
 - 索引模板可以在索引创建或者插入文档数据的时候自动匹配, es内置了一些模版; (mappings, settings, aliases)
