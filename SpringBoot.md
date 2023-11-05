@@ -404,6 +404,7 @@ spring:
 - 前三个去`spring.factories`里面找；后两个容器中找
 
 #### Spring解决IOC循环依赖
+- 参考文档：https://developer.aliyun.com/article/766880
 - 循环依赖分为构造器依赖和属性依赖，众所周知的是Spring能够解决属性的循环依赖(set注入)
 - 一级缓存：singletonObjects，存放完全实例化属性赋值完成的Bean，直接可以使用
 - 二级缓存：earlySingletonObjects，存放早期Bean的引用，尚未属性装配的Bean
