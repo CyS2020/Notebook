@@ -136,12 +136,13 @@
 
 ### Optional类
 
--   Optional.of(  ) 创建一个Optional实例
+-   Optional.of(  ) 创建一个Optional实例，如果传入null会抛异常
 -   Optional.empty(  ) 创建一个空的Optional实例
 -   Optional.ofNullable(T  t)  若T不为空则创建Optional实例，否则创建空实例
 -   isPresent(  )  判断是否包含值
 -   orElse(T  t)  如果对象包含值，则返回该值，否则返回T
 -   orElseGet(Supplier  s)  如果对象包含值返回该值，否则返回s获取的值
+-   orElseThrow(Supplier s) 如果对象包含值返回该值，否则抛出异常
 -   map(Function  f)  如果有值对其处理并返回处理后的Optional，否则返回Optional.empty(  )
 -   flatMap(Function mapper) 与map类似， 要求返回值必须是Optional 
 
