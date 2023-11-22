@@ -345,6 +345,7 @@ spring:
 ```
   
 #### 整合JUnit5
+- 测试类使用 @Transactional 注解可以回滚事务，不会污染数据库
 - SpringBoot 2.4 以上版本移除了默认对 Vintage 的依赖。如果需要兼容Junit4需要自行引入
 - 了解常用注解：`https://junit.org/junit5/docs/current/user-guide/#writing-tests-annotations`
 ![Junit5框架](https://github.com/CyS2020/Notebook/blob/master/images/JUnit5%E6%A1%86%E6%9E%B6.png?raw=true)
