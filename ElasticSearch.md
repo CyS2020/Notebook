@@ -93,7 +93,7 @@ GET shopping/_search
       ]
     }
   },
-  "from": pageNo,
+  "from": pageNo * pageSize - 1,
   "size": pageSize
 }
 ```
