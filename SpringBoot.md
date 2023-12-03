@@ -326,6 +326,12 @@ spring:
 - MybatisPlusAutoConfiguration自动配置类；配置项绑定类：MybatisPlusProperties；配置项：mybatis-plus
 - 只需要我们的Mapper接口(Dao层接口)继承`BaseMapper接口`就可以拥有crud能力
 - 也可以从Service接口层面继承`IService<T>`， 然后从Service实现类层面继承`ServiceImpl<M extends BaseMapper<T>, T>`从而拥有crud能力
+- 最佳实践：编写Mapper接口继承BaseMapper接口，编写Service接口继承IService接口，编写Service实现类继承ServiceImpl实现类
+```
+public interface UserMapper extends BaseMapper<UserPo>
+public interface UserService extends IService<UserPo>
+public class UserServiceImpl extends ServiceImpl<UserMapper, UserPo> implements UserService
+```
 ```
 <dependency>
     <groupId>com.baomidou</groupId>

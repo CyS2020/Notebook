@@ -152,6 +152,8 @@ where permission_id in (select id from permissions where minor_part = 'read');
 - 编写代码的时候所有的接口、枚举类都需要编写 javadoc 文档注释
 - 定义数据库时间对象时，使用 Date/LocalDateTime，数据库中的时间字段使用 datetime 类型，会自动帮我们转换为 "yyyy-MM-dd HH:mm:ss" 格式
 - 如果代码自己需要转为特定的日期格式需要使用 `DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");`
+- 常见包名：controller、service、entity、dto、vo、po、mapper、config、util、constant、enums、task、consumer、producer
+- 不常见包名：filter、interceptor、aspect、annotation、test、exception、handler、listener、repository、client、rpc、api、impl
 
 ### think in bug
 - 编写的UT在IDEA中可以跑通, 但是在maven跑不通, 多半是因为不同的模块联动修改, 但是前面的模块没有编译造成的
