@@ -143,7 +143,7 @@ where permission_id in (select id from permissions where minor_part = 'read');
   - 关于状态值得返回，如果是最终状态使用大驼峰式字符串，例如 Success, Failure；如果是中间状态使用下划线或者`-`连接, 例如 in-progress
 
 ### think in SHEIN
-- restypass 等基于 http 调用的 rpc 框架，都需要指定微服务的名字即访问连接为 `http://微服务名/接口名`
+- restyPass 等基于 http 调用的 rpc 框架，都需要指定微服务的名字即访问连接为 `http://微服务名/接口名`
 - 编写 controller 接口时，不携带请求体 == 携带空 `{}` 请求体 != 携带 null 请求体
 - JSON.toJSONString() 序列化时，如果对象中的属性为 null，则**不会**序列化该属性，如果对象中的属性为 ""，则会序列化该属性
 - Json.defaultMapper().toJson() 序列化时，如果对象中的属性为 null，则**会**序列化该属性，结果是 null
@@ -154,6 +154,8 @@ where permission_id in (select id from permissions where minor_part = 'read');
 - 如果代码自己需要转为特定的日期格式需要使用 `DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");`
 - 常见包名：controller、service、entity、dto、vo、po、mapper、config、util、constant、enums、task、consumer、producer
 - 不常见包名：filter、interceptor、aspect、annotation、test、exception、handler、listener、repository、client、rpc、api、impl
+- 作为 api 提供方对于字段为 List 类型的通常返回空数组[]，而不是 null，但是作为 api 调用方我们需要对 List 类型的字段进行判空
+- 对于Spring组件通常会注入自己的实例，用来调用带有 @Cache、@Transactional 的方法，否则代理类无法生效
 
 ### think in bug
 - 编写的UT在IDEA中可以跑通, 但是在maven跑不通, 多半是因为不同的模块联动修改, 但是前面的模块没有编译造成的
