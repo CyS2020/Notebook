@@ -155,6 +155,7 @@ nameserver 192.168.204.2
 - `git remote add origin git@xxx.git`: 关联xxx远程仓库本地名为origin
 - `git remote -v`: 查看本地库已经关联的 github 远程仓库
 - `git reset --hard HEAD`: 撤销所有修改，撤销合并
+- `git remote set-url origin git@xxx.git`: 重新关联远程仓库
 
 #### 16. 其他命令
 - `cat etc/hosts`: 查看域名
