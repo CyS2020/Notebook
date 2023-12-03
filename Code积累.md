@@ -64,7 +64,8 @@
       f = obj.getField();        =>     if(f != null){
   }                                     }  
   ```
-### 技术思考
+  
+### think in ZTE
 - java中默认线程池中的线程在空闲的时候的状态为WAITING状态, 主要是取决于线程池中的workQueue实现方式
 - java中有五个生成随机数的类: Random、ThreadLocalRandom、SecureRandom、Math.random()、SplittableRandom
 - Arrays.sort()无法自定义比较基本数据类型，只能使用默认的升序，可以说是非常垃圾了，对象的话可以传入比较器
@@ -95,182 +96,8 @@
         return new ResponseBean<>(200, data, msg);
     }
 ```
-### 莫名Bug
-- 编写的UT在IDEA中可以跑通, 但是在maven跑不通, 多半是因为不同的模块联动修改, 但是前面的模块没有编译造成的
-- 代码使用 mvn clean install 可以编译通过, IDEA找不到类, 鼠标点击能进入该类, 是因为maven 与 IDEA的仓库地址不一致
-- 还有一个项目编译完成，另一个项目重新导入但仍无法感知它的修改，也是上述问题。鼠标点击进入的类与实际类maven中的不一致，也是上述问题，记得删除之前编译好的文件夹
-- 在项目编译完成之后其他项目无法感知到还有一个原因可能是你项目之间的版本号不一致造成的
-- 多线程调试时，Junit在主线程运行结束后即退出JVM，子线程无法继续执行；在main函数执行结束也会退出，子线程无法执行
-- mvn中使用jacoco统计代码覆盖率产生合成属性, 所以在使用反射时会产生问题, 单元测试可能在IDEA里能通过, 在mvn test中就通不过
-- TreeSet和TreeMap是用Comparator和Comparable来去重且确定存放位置, 因此能比较的属性一定具有唯一性和可比较性
-- 上述问题可以使用PriorityQueue来解决, PriorityQueue不会去重且只保证最值内部不排序, 需要手动进行操作boolean/continue来去重
-- 在debug过程中遇见一些莫名其妙的bug的时候记得删除target重新编译
-- getResource()方法在获取文件路径时URI不能识别`@`, `空格`, `中文`等特殊字符会被转义, mvn运行时会转义
 
-### 关于文件路径
-- Class.getResource(String path)与 <br/>
-  Class.getResourceAsStream(String path) 
-    path不以'/'开头时，默认是从此类所在的包下取资源；<br/>
-    path以'/'开头时，则是从项目的ClassPath根下获取资源。在这里'/'表示ClassPath的根目录
-- Class.getClassLoader().getResource(String path)与 <br/>
-  Class.getClassLoader().getResourceAsStream(String path) <br/>
-    默认则是从ClassPath根下获取，path不能以'/'开头，最终是由ClassLoader获取资源。<br/>
-    实际上 class.getResource("/") == class.getClassLoader().getResource("")
-- IDEA在调试过程中可以使用第一个和第二个拷贝路径，写文件时如果没有该文件则会创建文件
-- 通常在开发过程中会碰到读取配置文件的问题，一般有上述两种方式进行读取，实际上打成jar包之后只能用流方式读取
-- Linux、Windows中无法直接访问未经解压的文件，所以就会找不到文件，jar包本质上就是一个压缩包
-- 读取jar里面的文件，我们只能用流去读取，也就是getResourceAsStream(String path)方法读取
-- 关于配置文件的读取，需要挂在jar包外面，jar包内只能读不能写，所以滚去用Spring框架吧，少造轮子了
-- ClassPath的根目录就是存放classes的那个文件夹的路径, 工程中java和resources文件的内容就在该根目录下, resources下的文件就从"/"开始写相对路径
-  - IDEA中class.getResource("/"): /D:/Project/SpringBoot-Demo/target/classes/
-  - IDEA中class.getResource(""): /D:/Project/SpringBoot-Demo/target/classes/com/example/demo/
-  - jar包中class.getResource("/"): file:/D:/Project/SpringBoot-Demo/target/demo-0.0.1-SNAPSHOT.jar!/BOOT-INF/classes!/
-  - jar包中class.getResource(""): file:/D:/Project/SpringBoot-Demo/target/demo-0.0.1-SNAPSHOT.jar!/BOOT-INF/classes!/com/example/demo/
- 
-#### ArrayList源码
-- Object.clone()方法为浅拷贝
-- ArrayList中的modCount记录数组修改的次数, 用于并发修改检查(ConcurrentModificationException)
-- ArrayList中的subList()返回的是视图, 增删会在源数组上进行修改
-- ArrayList中的spliterator是在stream中进行并发遍历时用到的
-- ArrayList中删除时除了使用iterator(并发时需加锁)还可以使用removeIf(Predicate<? super E> filter)
-- ArrayList中普通for循环、增强for循环中执行add和remove操作会引发什么问题？一致性修改问题，fori会数据错乱，forT会出现异常，使用removeIf
-- ArrayList中的排序算法是调用的是Arrays.sort()而LinkedList中没有排序方法
-
-#### LinkedList源码
-- LinkedList中增删改查的逻辑都是由以下几个方法实现的：linkFirst、linkLast、unlinkFirst、unlinkLast、unlink、linkBefore;
-- LinkedList中toArray方法中用到Array.newInstance(a.getClass.getComponentType(), size)创建泛型数组, getComponentType返回数组中元素的Class对象
-- LinkedList实现了Deque接口,里面有个descendingIterator逆向迭代器, 虽然不知道使用场景第一次见到就记录一下吧
-- LinkedList和ArrayList中有关Collection接口作为入参, 用的最多的方法是c.contains()用于批量删除和c.toArray()用于批量添加
-
-#### HashMap源码
-- HashMap中tableSizeFor方法中的位运算来寻找大于该数的最小2的整次幂：1 -> 1; 2 -> 2; 3 -> 4; 5 -> 8; 11 -> 16; 33 -> 64等
-- HashMap中通过 (n - 1) & hash 来确定key在table数组中的位置(哈希槽)
-- HashMap中通过 (e.hash & oldCap) 来确定key在容器中扩张中的槽位是否变动, 如果结果为0则无需变动, 如果为1则：原位置 + oldCap
-- HashMap中resize()函数进行扩容操作, 对于size < 6的红黑树进行untreeify操作, resize()只负责数组扩容和链化
-- HashMap中put操作时, 如果槽位中的某个链表长度大于8, 则判断table容量大于等于64则进行树化, 否则只进行扩容
-- HashMap中的扩容时机：1. size > threshold的时候 2. 槽位中的链表长度大于8而table容量小于64
-- HashMap中由于负载因子默认为0.75, 用长度16的数组存12个元素, 绰绰有余, 而且随着size增大threshold也在增大, 因此链表大小超过8的概率很低(百万分之一)。
-
-#### TreeMap源码
-- TreeMap中使用红黑树数据结构, 比较的时候优先使用传入的Comparator, 为null时传入Comparable
-- TreeMap中并没有使用hashCode和equals方法判断相等, 而是使用Comparator或者Comparable返回值为0判断元素唯一性
-- 所以插入TreeMap中的元素一定具有可比性，要么传入的元素实现了Comparable接口，要么出入合适的比较器Comparator
-- TreeMap的哈希一致性应用, TreeMap<hash, list>中保存hash了列表, 元素放入第一个大于该元素hash值的list列表, 使用tailMap()方法
-- 哈希一致性的容错性和扩展性：只对受影响的数据进行转移而不影响其它的数据; 通过虚拟节点解决数据倾斜的问题
-- 哈希一致性：在使用一致哈希算法后，哈希表槽位数（大小）的改变平均只需要对 K/n 个关键字重新映射，其中K是关键字的数量， 
-n是槽位数量。然而在传统的哈希表中，添加或删除一个槽位的几乎需要对所有关键字进行重新映射。一致性体现在，当服务器数量变化时，
-影响到的，数据—服务器，对应关系变化不是全量的。（对于绝大多数数据来说，是前后一致的）
-- 一致性哈希算法应该满足几个条件：平衡性、单调性、分散性、负载
-
-#### LinkedHashMap源码
-- LinkedHashMap中的获取槽位与HashMap相同, 先重新求的hash值 h = key.hashCode() ^ h >>> 16舍弃低位, 减少哈希碰撞
-- LinkedHashMap在put()中创建节点的时候newNode或者newTreeNode的时候通过即linkNodeLast()来插入队尾, 维护双向链表
-- LinkedHashMap中核心参数accessOrder：该字段用来控制是否需要将被访问的节点移动到双向链表的末尾。默认值为 false
-- LinkedHashMap中afterNodeAccess()在访问的时候调用即get()方法, 或者put()已经存在的key, 会将已经访问过的元素放到双向链表的队尾
-- LinkedHashMap中afterNodeRemoval()在移除节点的时候调用remove()方法, 在双向链表中移除该节点
-- LinkedHashMap中afterNodeInsertion()在插入的时候调用即put()时, 会通过条件判断删除某些节点(默认不会删除), 条件为true时删除首节点
-- 通过复写removeEldestEntry()实现自定义LRU的缓存策略, 最近最少使用; 限制容器长度实现最近(复写size() > limit), 通过afterNodeAccess()来触发
-
-#### PriorityQueue源码
-- 内部使用数组实现小根堆这种数据结构, 容器默认初始值为11, 元素个数大于64进行1.5倍扩容, 否则进行2倍+2扩容
-- 执行offer()操作是添加到队尾, 然后上浮到合适的位置, poll()将最后一个元素放在队头, 然后下潜到合适的位置
-- 删除指定位置的元素的时候需要先执行下潜操作, 如果元素位置未发生改变, 则执行上浮操作(该操作不可省略, 更新同理)
-- 如下图所示当左子树右子树层数一致时, 6为最后一个元素; 此时如果要删除13的时候, 用将6覆盖掉13并且6需要执行上浮操作
-```
-            1
-         /      \
-      12          2
-    /   \        / \
-  13     14     3   4
- /  \   /  \   / \
-15  16 17  18 5   6
-```
-
-#### ThreadLocal核心
-- ThreadLocal为共享数据创建副本, 分别属于各自线程可以独立修改, 数据为基本数据类型和字符串类型
-- ThreadLocal无法解决引用数据类型的更新问题, 引用数据类型如果想创建副本只能通过深拷贝的形式来处理
-
-#### Objects中常用的方法
-- Objects.equals()
-- Objects.requireNonNull()
-
-#### 数组的复制方法
-- System.arraycopy()
-- xxx.clone()
-- Arrays.copyOf()
-- 以上均为浅拷贝
-
-#### forEach中的操作的外部变量必须是final的
-- forEach在此处使用的是lambda 表达式, 可以简单的把lambda表达式理解为匿名内部类(lambda 表达式不仅仅是内部类这么简单)。而匿名内部类的变量必须用final修饰。
-- 类的生命周期比方法的生命周期长, 同理匿名类的生命周期比方法的生命周期长。方法运行完了, 变量释放了, 但是匿名内部类还在。这时就要求匿名内部类引用的变量必须还在, 这样才能保持数据的一致性。
-`https://blog.csdn.net/weixin_28753647/article/details/114517624`
-
-### 常见面试题
-#### 垃圾回收
-1. 判定对象是否为垃圾
-- 引用计数算法
-- 可达性分析
-
-2. 垃圾回收算法
-- 标记-清除算法
-- 复制算法
-- 标记-整理算法
-- 分代收集算法：Eden + from + to + old
-
-#### jdk, jre, jvm
-- JDK：Java Development Kit  Java开发工具包，核心类库
-- JRE：Java runtime environment  Java运行环境，运行类库
-- JVM：Java Virtual Machine  Java虚拟机
-
-#### 类加载机制
-1. 加载
-2. 链接
-  - 验证：确保加载的类信息符合JVM规范，没有安全方面的问题
-  - 准备：为static变量分配内存，设置默认初始值
-  - 解析：虚拟机常量池内的符号引用替换为直接引用
-3. 初始化
-- ClassLoader
-1. BootStrapClassLoader: c++编写，加载核心类库java.*
-2. ExtClassLoader: Java编写，加载扩展库javax.*
-3. AppClassLoader: Java编写，加载程序所在目录
-4. 自定义ClassLoader: Java编写，定制化加载，findClass, defineClass
-- 双亲委派机制
-1. 自底向上检查类是否已经加载过，自顶向下尝试加载类
-2. 避免多份同样字节码的加载
-
-#### jvm默认内存分配
-- 堆内存的分配：
-JVM初始分配的内存由-Xms指定，默认是物理内存的1/64；JVM最大分配的内存由-Xmx指定，默认是物理内存的1/4。默认空余堆内存小于40%时，JVM就会增大堆直到-Xmx的最大限制；空余堆内存大于70%时，JVM会减少堆直到-Xms的最小限制。因此服务器一般设置-Xms、-Xmx相等以避免在每次GC后调整堆的大小。
-- 非堆内存分配：
-JVM使用-XX:PermSize设置非堆内存初始值，默认是物理内存的1/64；由XX:MaxPermSize设置最大非堆内存的大小，默认是物理内存的1/4。</br>
-`https://www.cnblogs.com/jack204/archive/2012/07/02/2572932.html`
-- jvm诊断思路(jps): 先查看线程堆栈(jstack)信息, 再查看内存占用(jmap)信息, 查看垃圾回收情况(jstat)，最后看看启动参数(jinfo)
-- 如果配置了新生代最大堆内存, 则老年代的最大内存 = 最大堆内存 - 新生代最大堆内存; 等于jmap中的OldSize与Old Generation
-- 如果没有配置新生代最大堆内存, 按照默认比例进行划分; jmap中的OldSize为老年代初始堆内存, Old Generation为老年代最大堆内存
-- Old Generation为老年代最大堆内存利用率达到100%的时候, 堆内存溢出; 通常这时候新生代的内存还有空间
-- Major GC和Full GC的区别是什么？触发条件呢`https://www.zhihu.com/question/41922036`
-![JVM内存占用](https://github.com/CyS2020/Notebook/blob/master/images/JVM%E5%86%85%E5%AD%98%E5%8D%A0%E7%94%A8.png)
-### PPT大师
-1. 多花点时间寻找合适的模板，无需花里胡哨，简约大方即可
-2. 多搞点图片，示意图，流程图，效果图，表格等，字不如表，表不如图
-3. 排版尽量紧凑，不需要为了凑页数搞得每一页没什么信息
-4. 说明性的文字大小尽可能的小12左右即可，太大了像作文，满屏文字
-5. 写东西要注意条理性和逻辑性，突出重点，分条分面
-
-#### 优化思路
-1. 优化算法本身复杂度，最好能降低复杂度
-2. 试试串行改成并行，利用多线程的技术提升性能
-3. 优化内存，避免出现占用内存较大的类，拖累系统性能
-4. JVM看看能不能进行调优，这部分可能受益不大
-
-#### API 文档
-- OpenAPI
-  - https://oai.github.io/Documentation/specification.html
-- api 的返回值如果是数组，一般情况下异常情况下不返回错误，没有值返回的时候返回空 []
-- 返回值的时候，没有某个字段的 k-v，等同于有 k 但是 value 为 null
-- api 文档对于参数必传和返回值必返回的情况需要明确标注 `required`
-
-#### java code
+### think in TrendMicro
 - mysql不区分大小写, 主键id也不区分大小写, aws athena也不区分大小写
 - `=: 变量名`的方式，在具体调用的时候传入参数，是防止sql注入的写法，也能提高性能
 - elasticSearch查询也不区分大小写, 文档`_id`还是区分的
@@ -290,8 +117,6 @@ select role_id, (select id from permissions tp where tp.minor_part = 'write') as
 from role_permissions
 where permission_id in (select id from permissions where minor_part = 'read');
 ```
-
-#### thinking in code
 - 如何学习新技术：配置部署 => 关键参数 => 交互API => 使用场景 => 核心原理
 - 所参考的文档：快速入门，核心 rest/api，官方 client/sdk
 - 学习一门新的语言：项目结构编译，基本类型，变常量函数类接口的声明，if判断，for循环，异常处理，类型断言，内置集合，同步异步，类的继承接口实现，泛型反射，独有特性等
@@ -312,12 +137,95 @@ where permission_id in (select id from permissions where minor_part = 'read');
   - go: 零值不进行序列化
   - js: undefined 不进行序列化
 - 开发做冒烟测试的时候，一定要调通 api 与业务流程，并更新最新的 api doc
+- 接口的设计原则
+  - 若返回值是数组不直接返回数组类型，返回体一般为：`{data: []}`; 而且若程序中出错最好不要返回 500，返回空数组即可
+  - api 正常情况下返回 200或204，检查不通过的情况下返回 400，异常情况返回 500 (coder无法预料的情况)
+  - 关于状态值得返回，如果是最终状态使用大驼峰式字符串，例如 Success, Failure；如果是中间状态使用下划线或者`-`连接, 例如 in-progress
 
-#### 接口的设计原则
-- 若返回值是数组不直接返回数组类型，返回体一般为：`{data: []}`; 而且若程序中出错最好不要返回 500，返回空数组即可
-- api 正常情况下返回 200或204，检查不通过的情况下返回 400，异常情况返回 500 (coder无法预料的情况)
-- 关于状态值得返回，如果是最终状态使用大驼峰式字符串，例如 Success, Failure；如果是中间状态使用下划线或者`-`连接, 例如 in-progress
+### think in SHEIN
+- restypass 等基于 http 调用的 rpc 框架，都需要指定微服务的名字即访问连接为 `http://微服务名/接口名`
+- 编写 controller 接口时，不携带请求体 == 携带空 `{}` 请求体 != 携带 null 请求体
+- JSON.toJSONString() 序列化时，如果对象中的属性为 null，则**不会**序列化该属性，如果对象中的属性为 ""，则会序列化该属性
+- Json.defaultMapper().toJson() 序列化时，如果对象中的属性为 null，则**会**序列化该属性，结果是 null
+- Spring 容器管理工具还可以将一个接口的所有实现类放到 List<T> 和 Map<String, T> 中，有些代码 List，Map 没有显示初始化逻辑
+- @Builder 注解在类上，会为该类生成一个内部静态类 Builder，该类中包含了该类的所有属性，以及一个 build() 方法，会抹掉所有初始值
+- 编写代码的时候所有的接口、枚举类都需要编写 javadoc 文档注释
 
-#### trouble shooting
+### think in bug
+- 编写的UT在IDEA中可以跑通, 但是在maven跑不通, 多半是因为不同的模块联动修改, 但是前面的模块没有编译造成的
+- 代码使用 mvn clean install 可以编译通过, IDEA找不到类, 鼠标点击能进入该类, 是因为maven 与 IDEA的仓库地址不一致
+- 还有一个项目编译完成，另一个项目重新导入但仍无法感知它的修改，也是上述问题。鼠标点击进入的类与实际类maven中的不一致，也是上述问题，记得删除之前编译好的文件夹
+- 在项目编译完成之后其他项目无法感知到还有一个原因可能是你项目之间的版本号不一致造成的
+- 多线程调试时，Junit在主线程运行结束后即退出JVM，子线程无法继续执行；在main函数执行结束也会退出，子线程无法执行
+- mvn中使用jacoco统计代码覆盖率产生合成属性, 所以在使用反射时会产生问题, 单元测试可能在IDEA里能通过, 在mvn test中就通不过
+- TreeSet和TreeMap是用Comparator和Comparable来去重且确定存放位置, 因此能比较的属性一定具有唯一性和可比较性
+- 上述问题可以使用PriorityQueue来解决, PriorityQueue不会去重且只保证最值内部不排序, 需要手动进行操作boolean/continue来去重
+- 在debug过程中遇见一些莫名其妙的bug的时候记得删除target重新编译
+- getResource()方法在获取文件路径时URI不能识别`@`, `空格`, `中文`等特殊字符会被转义, mvn运行时会转义
 - 当api接口不通的时候：1. client编写url地址不对，2. client授权验证未通过，3. client请求格式错误
 - 查找故障的时候，第一资料就是log，第二资料是code，需要结合一起看，否则log如果打印不好容易误导别人
+
+#### 关于文件路径
+- Class.getResource(String path)与 <br/>
+  Class.getResourceAsStream(String path) 
+    path不以'/'开头时，默认是从此类所在的包下取资源；<br/>
+    path以'/'开头时，则是从项目的ClassPath根下获取资源。在这里'/'表示ClassPath的根目录
+- Class.getClassLoader().getResource(String path)与 <br/>
+  Class.getClassLoader().getResourceAsStream(String path) <br/>
+    默认则是从ClassPath根下获取，path不能以'/'开头，最终是由ClassLoader获取资源。<br/>
+    实际上 class.getResource("/") == class.getClassLoader().getResource("")
+- IDEA在调试过程中可以使用第一个和第二个拷贝路径，写文件时如果没有该文件则会创建文件
+- 通常在开发过程中会碰到读取配置文件的问题，一般有上述两种方式进行读取，实际上打成jar包之后只能用流方式读取
+- Linux、Windows中无法直接访问未经解压的文件，所以就会找不到文件，jar包本质上就是一个压缩包
+- 读取jar里面的文件，我们只能用流去读取，也就是getResourceAsStream(String path)方法读取
+- 关于配置文件的读取，需要挂在jar包外面，jar包内只能读不能写，所以滚去用Spring框架吧，少造轮子了
+- ClassPath的根目录就是存放classes的那个文件夹的路径, 工程中java和resources文件的内容就在该根目录下, resources下的文件就从"/"开始写相对路径
+  - IDEA中class.getResource("/"): /D:/Project/SpringBoot-Demo/target/classes/
+  - IDEA中class.getResource(""): /D:/Project/SpringBoot-Demo/target/classes/com/example/demo/
+  - jar包中class.getResource("/"): file:/D:/Project/SpringBoot-Demo/target/demo-0.0.1-SNAPSHOT.jar!/BOOT-INF/classes!/
+  - jar包中class.getResource(""): file:/D:/Project/SpringBoot-Demo/target/demo-0.0.1-SNAPSHOT.jar!/BOOT-INF/classes!/com/example/demo/
+
+#### ThreadLocal核心
+- ThreadLocal为共享数据创建副本, 分别属于各自线程可以独立修改, 数据为基本数据类型和字符串类型
+- ThreadLocal无法解决引用数据类型的更新问题, 引用数据类型如果想创建副本只能通过深拷贝的形式来处理
+
+#### Objects中常用的方法
+- Objects.equals()
+- Objects.requireNonNull()
+
+#### 数组的复制方法
+- System.arraycopy()
+- xxx.clone()
+- Arrays.copyOf()
+- 以上均为浅拷贝
+
+#### forEach中的操作的外部变量必须是final的
+- forEach在此处使用的是lambda 表达式, 可以简单的把lambda表达式理解为匿名内部类(lambda 表达式不仅仅是内部类这么简单)。而匿名内部类的变量必须用final修饰。
+- 类的生命周期比方法的生命周期长, 同理匿名类的生命周期比方法的生命周期长。方法运行完了, 变量释放了, 但是匿名内部类还在。这时就要求匿名内部类引用的变量必须还在, 这样才能保持数据的一致性。
+`https://blog.csdn.net/weixin_28753647/article/details/114517624`
+
+#### jvm默认内存分配
+- 堆内存的分配：
+JVM初始分配的内存由-Xms指定，默认是物理内存的1/64；JVM最大分配的内存由-Xmx指定，默认是物理内存的1/4。默认空余堆内存小于40%时，JVM就会增大堆直到-Xmx的最大限制；空余堆内存大于70%时，JVM会减少堆直到-Xms的最小限制。因此服务器一般设置-Xms、-Xmx相等以避免在每次GC后调整堆的大小。
+- 非堆内存分配：
+JVM使用-XX:PermSize设置非堆内存初始值，默认是物理内存的1/64；由XX:MaxPermSize设置最大非堆内存的大小，默认是物理内存的1/4。</br>
+`https://www.cnblogs.com/jack204/archive/2012/07/02/2572932.html`
+- jvm诊断思路(jps): 先查看线程堆栈(jstack)信息, 再查看内存占用(jmap)信息, 查看垃圾回收情况(jstat)，最后看看启动参数(jinfo)
+- 如果配置了新生代最大堆内存, 则老年代的最大内存 = 最大堆内存 - 新生代最大堆内存; 等于jmap中的OldSize与Old Generation
+- 如果没有配置新生代最大堆内存, 按照默认比例进行划分; jmap中的OldSize为老年代初始堆内存, Old Generation为老年代最大堆内存
+- Old Generation为老年代最大堆内存利用率达到100%的时候, 堆内存溢出; 通常这时候新生代的内存还有空间
+- Major GC和Full GC的区别是什么？触发条件呢`https://www.zhihu.com/question/41922036`
+![JVM内存占用](https://github.com/CyS2020/Notebook/blob/master/images/JVM%E5%86%85%E5%AD%98%E5%8D%A0%E7%94%A8.png)
+
+#### PPT大师
+1. 多花点时间寻找合适的模板，无需花里胡哨，简约大方即可
+2. 多搞点图片，示意图，流程图，效果图，表格等，字不如表，表不如图
+3. 排版尽量紧凑，不需要为了凑页数搞得每一页没什么信息
+4. 说明性的文字大小尽可能的小12左右即可，太大了像作文，满屏文字
+5. 写东西要注意条理性和逻辑性，突出重点，分条分面
+
+#### 优化思路
+1. 优化算法本身复杂度，最好能降低复杂度
+2. 试试串行改成并行，利用多线程的技术提升性能
+3. 优化内存，避免出现占用内存较大的类，拖累系统性能
+4. JVM看看能不能进行调优，这部分可能受益不大

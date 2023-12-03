@@ -145,6 +145,7 @@ nameserver 192.168.204.2
 - `git switch task/DDEC-5288_multiple_domains_search` : 切换到远程有本地没有的分支
 - `git branch -d` : 删除分支
 - `git branch -m` : 分支重命名
+- `git branch <name>` : 创建分支
 - `git fetch --all --prune` : 以删除过时的跟踪分支。
 - `git stash -p` : 隐藏部分内容，根据y,n来进行筛选
 - `git diff [filename]`: 查看文件修改内容
@@ -153,6 +154,7 @@ nameserver 192.168.204.2
   - `git push origin commitId:[branchname]`: 提交部分commit到远程
 - `git remote add origin git@xxx.git`: 关联xxx远程仓库本地名为origin
 - `git remote -v`: 查看本地库已经关联的 github 远程仓库
+- `git reset --hard HEAD`: 撤销所有修改，撤销合并
 
 #### 16. 其他命令
 - `cat etc/hosts`: 查看域名
