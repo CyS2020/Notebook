@@ -136,3 +136,11 @@
 - `#{} vs ${}`: #{}是预编译处理，${}是字符串替换，存在sql注入风险
 - 动态 sql 标签: if、where、set、foreach
 - count(1) vs count(*): count(1) 非空数据，count(*) 全部数据
+- 联表查询: 一对一、一对多、多对多，不建议在程序中使用联表查询，性能很差
+- 查询条件中 AND 优先级大于 OR，所以 `(a AND b OR c) == a AND b or c`
+
+### Mybatis-Plus
+- QueryWrapper/UpdateWrapper vs LambdaQueryWrapper/LambdaUpdateWrapper，区别在于搜索条件是否硬编码还是传入方法引用
+- QueryWrapper/UpdateWrapper vs QueryChainWrapper/UpdateChainWrapper，区别在于是否支持链式调用，即执行最终操作的动作
+- QueryChainWrapper/UpdateChainWrapper vs LambdaQueryChainWrapper/LambdaUpdateChainWrapper，区别在于搜索条件是否硬编码还是传入方法引用
+- 最佳实践：LambdaQueryChainWrapper/LambdaUpdateChainWrapper 来操作数据库
