@@ -126,3 +126,13 @@
 - 垂直分库：每个库结构、数据都不一样，所有库并集为全量数据
 - 垂直分表：每个表结构、数据都不一样，至少有一列交集用于关联数据，所有表的并集为全量数据
 参考这篇文章：https://www.zhihu.com/question/448775613
+
+### Mybatis
+#### 基本概念
+- ResultMap: 结果映射，将查询结果映射到实体类中，类字段名 <-> 数据库列名
+- ResultType: 结果类型，默认映射关系，类驼峰命名 <-> 数据库列名
+- ParameterType: 参数类型，一个参数时使用，多个参数时使用@Param注解
+- 返回 List 类型，ResultMap/ResultType 的结果仍然是对象类型，不是List
+- `#{} vs ${}`: #{}是预编译处理，${}是字符串替换，存在sql注入风险
+- 动态 sql 标签: if、where、set、foreach
+- count(1) vs count(*): count(1) 非空数据，count(*) 全部数据
