@@ -156,7 +156,8 @@ where permission_id in (select id from permissions where minor_part = 'read');
 - 不常见包名：filter、interceptor、aspect、annotation、test、exception、handler、listener、repository、client、rpc、api、impl
 - 作为 api 提供方对于字段为 List 类型的通常返回空数组[]，而不是 null，但是作为 api 调用方我们需要对 List 类型的字段进行判空
 - 对于Spring组件通常会注入自己的实例，用来调用带有 @Cache、@Transactional 的方法，否则代理类无法生效
-
+- 有些业务的数据有明显的包含关系，例如 省-市-区，那么在保存数据的时候子结构保存父结构的Id。区的数据表含有市的Id，市的数据表含有省的Id
+  
 ### think in bug
 - 编写的UT在IDEA中可以跑通, 但是在maven跑不通, 多半是因为不同的模块联动修改, 但是前面的模块没有编译造成的
 - 代码使用 mvn clean install 可以编译通过, IDEA找不到类, 鼠标点击能进入该类, 是因为maven 与 IDEA的仓库地址不一致
