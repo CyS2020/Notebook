@@ -143,5 +143,5 @@
 - QueryWrapper/UpdateWrapper vs LambdaQueryWrapper/LambdaUpdateWrapper，区别在于搜索条件是否硬编码还是传入方法引用
 - QueryWrapper/UpdateWrapper vs QueryChainWrapper/UpdateChainWrapper，区别在于是否支持链式调用，即执行最终操作的动作
 - QueryChainWrapper/UpdateChainWrapper vs LambdaQueryChainWrapper/LambdaUpdateChainWrapper，区别在于搜索条件是否硬编码还是传入方法引用
-- QueryWrapper -> LambdaQueryWrapper 混用时使用时 使用 lambda 转换
+- QueryWrapper -> LambdaQueryWrapper 混用时使用时 使用 lambda() 方法转换
 - 最佳实践：LambdaQueryChainWrapper/LambdaUpdateChainWrapper 来操作数据库
