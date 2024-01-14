@@ -25,6 +25,7 @@
 - 根据不同情况的传值可以使用三元运算符, 或者直接传递, 如果用if-else判断然后传值会显得不专业
 - Optional 通常使用 ofNullable() 方法，配合 orElse()、orElseGet()、orElseThrow() 方法使用
 - 事务场景中，抛出异常被 catch 后，如果需要回滚，一定要注意手动回滚事务。`TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();`
+- 设计模式：工厂模式、模板模式、责任链、策略模式
                                                                                           
 ### 重构代码
 - 需要对当前接口添加新功能, 在接口中添加默认方法(default), 或者定义上层接口由该接口继承
