@@ -135,7 +135,7 @@
 - 返回 List 类型，ResultMap/ResultType 的结果仍然是对象类型，不是List
 - `#{} vs ${}`: #{}是预编译处理，${}是字符串替换，存在sql注入风险
 - 动态 sql 标签: if、where、set、foreach
-- count(1) vs count(*): count(1) 非空数据，count(*) 全部数据
+- `count(1)` vs `count(*)`: `count(1)` 非空数据，`count(*)` 全部数据
 - 联表查询: 一对一、一对多、多对多，不建议在程序中使用联表查询，性能很差
 - 查询条件中 AND 优先级大于 OR，所以 `(a AND b OR c) == a AND b or c`
 
