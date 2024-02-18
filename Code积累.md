@@ -174,6 +174,7 @@ where permission_id in (select id from permissions where minor_part = 'read');
 - spring 常用的入参校验注解：`@NotNull`，`@NotEmpty`，`@NotBlank`
 - 同一级别不要相互依赖，否则启动的时候spring无法解决循环依赖问题；controller -> business -> service -> mapper
 - Mybatis-plus 生成代码后调整：1. @TableLogic 来解决逻辑删除；2. @TableField 来解决更新时间
+- 主页面的展示通常是使用宽表来存，通常存在 es 中查询效率高，进入详情页面的时候才需要查数据库的详细信息
   
 ### think in bug
 - 编写的UT在IDEA中可以跑通, 但是在maven跑不通, 多半是因为不同的模块联动修改, 但是前面的模块没有编译造成的
@@ -188,6 +189,7 @@ where permission_id in (select id from permissions where minor_part = 'read');
 - getResource()方法在获取文件路径时URI不能识别`@`, `空格`, `中文`等特殊字符会被转义, mvn运行时会转义
 - 当api接口不通的时候：1. client编写url地址不对，2. client授权验证未通过，3. client请求格式错误
 - 查找故障的时候，第一资料就是log，第二资料是code，需要结合一起看，否则log如果打印不好容易误导别人
+- 类型相同，名称类似的参数很容易传错，例如 page_size 与 page_num，定位问题的时候需要格外注意
 
 #### 关于文件路径
 - Class.getResource(String path)与 <br/>
