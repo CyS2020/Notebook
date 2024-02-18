@@ -155,7 +155,7 @@ where permission_id in (select id from permissions where minor_part = 'read');
 - 常见包名：controller、service、entity、dto、vo、po、mapper、config、util、constant、enums、task、consumer、producer
 - 不常见包名：filter、interceptor、aspect、annotation、test、exception、handler、listener、repository、client、rpc、api、impl
 - 作为 api 提供方对于字段为 List 类型的通常返回空数组[]，而不是 null，但是作为 api 调用方我们需要对 List 类型的字段进行判空
-- 对于Spring组件通常会注入自己的实例，用来调用带有 @Cache、@Transactional 的方法，否则代理类无法生效
+- 对于 Spring 组件通常会注入自己的实例，用来调用带有 @Cache、@Transactional 的方法，否则代理类无法生效
 - 有些业务的数据有明显的包含关系，例如 省-市-区，那么在保存数据的时候子结构保存父结构的Id。区的数据表含有市的Id，市的数据表含有省的Id
 - 与前端进行交互的时候 Id 类型均为 Long 类型，虽然前端传入 String 框架也会转成 Long 类型，但是还是要避免这么做
 - 理论上从数据库中查到的数据均要判空，那些可能为空的一定要判空，一定不为空的我觉得可以不判空；判空时使用 if 卫语句提前结束业务逻辑
@@ -166,6 +166,14 @@ where permission_id in (select id from permissions where minor_part = 'read');
 - 如果功能是锦上添花的功能执行失败也无所谓的，那么需要在内部进行 try-catch 捕获异常打印日志，不要影响主业务的逻辑
   - 消息提示类的功能
   - 日志记录、上传、入库等
+- add、edit 接口最好分成两个，然后请求体可以使用继承关系，edit 的请求体多一个 Long id 字段
+- List 不能直接作为 rest api 的入参和出参，需要在外层包装一层，将其作为请求体、返回体的一个字段
+- 事务、锁、缓存，实践中都是在方法上添加注解，因此要注解生效则需要保证方法被代理：`class.method()` 的形式调用方法
+- 数据库不允许有 null 值，使用默认空字符串，json 数据格式可以为 null
+- mysql 中保存数组并检索数组：使用逗号分隔然后保存字符串，并使用 `find_in_set()` 语法进行检索
+- spring 常用的入参校验注解：`@NotNull`，`@NotEmpty`，`@NotBlank`
+- 同一级别不要相互依赖，否则启动的时候spring无法解决循环依赖问题；controller -> business -> service -> mapper
+- Mybatis-plus 生成代码后调整：1. @TableLogic 来解决逻辑删除；2. @TableField 来解决更新时间
   
 ### think in bug
 - 编写的UT在IDEA中可以跑通, 但是在maven跑不通, 多半是因为不同的模块联动修改, 但是前面的模块没有编译造成的
