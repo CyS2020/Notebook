@@ -175,6 +175,17 @@ where permission_id in (select id from permissions where minor_part = 'read');
 - 同一级别不要相互依赖，否则启动的时候spring无法解决循环依赖问题；controller -> business -> service -> mapper
 - Mybatis-plus 生成代码后调整：1. @TableLogic 来解决逻辑删除；2. @TableField 来解决更新时间
 - 主页面的展示通常是使用宽表来存，通常存在 es 中查询效率高，进入详情页面的时候才需要查数据库的详细信息
+- 影响较大的feature最好加上开关，防止线上出问题
+- 公司@CacheSplit 框架的注解 requestKey 与 resultKey 是一一对应的，查找缓存先找 requestKey -> 再找 resultKey -> 缓存结果
+如果 requestKey 找不到 resultKey 则说明没有缓存，如果找到了 resultKey，但是 resultKey 对应的值是 null；则说明缓存结果就是null
+- 使用Optional 从一个很深的对象中取出某个字段值
+  ```
+  Optional<Long> optional = Optional.ofNullable(a).map(A::getB).map(B::getC).map(C::getD);
+  if (optional.isEmpty()) {//后续的处理逻辑}
+  ```
+- @Size: Map, Array, Collection, String; @Range Number, BigDecimal; @Max String, Number; @Length: String
+- 分布式处理幂等的标准动作：1锁2判3更新
+
   
 ### think in bug
 - 编写的UT在IDEA中可以跑通, 但是在maven跑不通, 多半是因为不同的模块联动修改, 但是前面的模块没有编译造成的
@@ -190,6 +201,11 @@ where permission_id in (select id from permissions where minor_part = 'read');
 - 当api接口不通的时候：1. client编写url地址不对，2. client授权验证未通过，3. client请求格式错误
 - 查找故障的时候，第一资料就是log，第二资料是code，需要结合一起看，否则log如果打印不好容易误导别人
 - 类型相同，名称类似的参数很容易传错，例如 page_size 与 page_num，定位问题的时候需要格外注意
+- 同一个队列，多个集群在消费，代码却不一致可能会造成脏数据
+- 当故障无法复现的时候，但是代码却是一致的，需要检查一下 apollo 与 cache 的环境是否一致
+- 最好不要将枚举值直接存库，因为在分页的时候如果发现数据库中的枚举值在代码中不存在则会报错
+- Spring通过动态代理来实现AOP，自调用切面不会生效；例如@Cache、@DistributedLock、@Transactional
+- 分页的时候如果 orderby 的字段不唯一则有可能会跳页，一条数据有时候在第一页有时候在第二页；例如根据 lastUpdateTime 分页
 
 #### 关于文件路径
 - Class.getResource(String path)与 <br/>
