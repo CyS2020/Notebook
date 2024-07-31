@@ -160,7 +160,13 @@ where permission_id in (select id from permissions where minor_part = 'read');
 - 与前端进行交互的时候 Id 类型均为 Long 类型，虽然前端传入 String 框架也会转成 Long 类型，但是还是要避免这么做
 - 理论上从数据库中查到的数据均要判空，那些可能为空的一定要判空，一定不为空的我觉得可以不判空；判空时使用 if 卫语句提前结束业务逻辑
 - 同一类型的数据有父子关系且需要存储在一张表中，常见的三级分类中我们可以在分类的行记录中记录自己的父类的 parentId
-- controller 返回值分为四种类型：无返回值Response<Void>、返回对象Response<Obj>、返回列表Response<Data<List<Obj>>>、返回分页数据Response<Result<Obj>>
+- controller 返回值分为四种类型：无返回值、返回对象、返回列表、返回分页数据
+  ```
+  Response<Void>
+  Response<Obj>
+  Response<Data<List<Obj>>>
+  Response<Result<Obj>>
+  ```
 - 通常情况下对于修改操作需要在 business 业务层设置 分布式锁 + 事务
 - 设计模式：工厂模式、模板模式、责任链、策略模式
 - 如果功能是锦上添花的功能执行失败也无所谓的，那么需要在内部进行 try-catch 捕获异常打印日志，不要影响主业务的逻辑
