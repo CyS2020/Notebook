@@ -1,5 +1,6 @@
 ### Hbase大数据
 
+#### 基本概念
 - 四维坐标系统：行键、列族、列限定符、时间版本
 - 五个基本命令访问Hbase中的数据：Get、Put、Delete、Scan、Increment
 - 一个列族可以有很多 HFile，但是一个 HFile 不能存储多个列族
