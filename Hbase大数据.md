@@ -10,7 +10,6 @@
 - RegionServer本质上是 HDFS (Hadoop 分布式文件系统)的客户端，托管多个 region
 - 一个Region 由多个 HFile 组成，每个Region包含多个列族
 - Hadoop MapReduce 分布式计算框架，使用 TableMapper 和 TableReducer 实现
-
 - Hbase 的宽表设计与高表设计、行键列与限定符的MD5
 - Hbase 表的设计唯一重要的是行键
 - region 基于行键为一个区间的行提供服务，并负责区间的每一行；
