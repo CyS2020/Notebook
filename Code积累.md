@@ -191,7 +191,38 @@ where permission_id in (select id from permissions where minor_part = 'read');
   ```
 - @Size: Map, Array, Collection, String; @Range Number, BigDecimal; @Max String, Number; @Length: String
 - 分布式处理幂等的标准动作：1锁2判3更新
+- 公司添加索引脚本格式
+  ```
+   ALTER TABLE database.table ADD UNIQUE uk_business_id(business_id);
+  ```
+- @Data、@Builder、@AllArgsConstructor、@NoArgsConstructor 最好同时使用, 否则序列化可能会报错
+- es 异步写入 qps 很高, 但是很容易造成缓存不一致的问题. 缓存已经删除但是 es 还未更新, 此时查询回写缓存即造成缓存不一致
+- kafka 异步发送方法中既有 kafka 的发送操作又有更新DB操作，则要将更新 DB 写在 callback 里
+- mysql 查询时：隐式转换不走索引：类型不匹配、条件列上使用函数
+- 迁移数据过程中，涉及到单查，双查(灰度)，双写，单写，平滑切换；双查，双写要保证数据一致
+- TransmittableThreadLocal 用于解决 父线程上下文数据在异步线程池或子线程中传递的问题
+- lastUpdateTime 加上该注解时，在更新时忽略dto的值，始终为更新数据时数据库的 now() 时间
+  ```
+  @TableField(jdbcType = JdbcType.TIMESTAMP, update = "now()", updateStrategy = FieldStrategy.IGNORED)
+  ```
+- 面向注解编程
+  ```
+  // 定义注解及参数
+  @Target(ElementType.METHOD)              // 作用在方法上
+  @Retention(RetentionPolicy.RUNTIME)    // 运行时可读取
+  public @interface DistributedLimit {
+    ...
+  }
+  // 创建切面逻辑
+  @Aspect
+  @Component
+  public class DistributedLimitAspect {
 
+  @Around("@annotation(distributedLimit)")    //  拦截所有带有 @DistributedLimit 注解的目标方法
+  public Object around(ProceedingJoinPoint point, DistributedLimit limit) throws Throwable {}
+    ...
+  }
+  ```
   
 ### think in bug
 - 编写的UT在IDEA中可以跑通, 但是在maven跑不通, 多半是因为不同的模块联动修改, 但是前面的模块没有编译造成的
@@ -212,6 +243,7 @@ where permission_id in (select id from permissions where minor_part = 'read');
 - 最好不要将枚举值直接存库，因为在分页的时候如果发现数据库中的枚举值在代码中不存在则会报错
 - Spring通过动态代理来实现AOP，自调用切面不会生效；例如@Cache、@DistributedLock、@Transactional
 - 分页的时候如果 orderby 的字段不唯一则有可能会跳页，一条数据有时候在第一页有时候在第二页；例如根据 lastUpdateTime 分页
+- hase的查询如果查不到会返回一个空对象，hbase传两个相同的key则会返回两个相同的对象
 
 #### 关于文件路径
 - Class.getResource(String path)与 <br/>
