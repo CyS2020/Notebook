@@ -201,6 +201,7 @@ where permission_id in (select id from permissions where minor_part = 'read');
 - mysql 查询时：隐式转换不走索引：类型不匹配、条件列上使用函数
 - 迁移数据过程中，涉及到单查，双查(灰度)，双写，单写，平滑切换；双查，双写要保证数据一致
 - TransmittableThreadLocal 用于解决 父线程上下文数据在异步线程池或子线程中传递的问题
+- 同一个流程中(接口或定时任务)主任务和子任务共用线程池，会造成经典的线程死锁问题
 - lastUpdateTime 加上该注解时，在更新时忽略dto的值，始终为更新数据时数据库的 now() 时间
   ```
   @TableField(jdbcType = JdbcType.TIMESTAMP, update = "now()", updateStrategy = FieldStrategy.IGNORED)
