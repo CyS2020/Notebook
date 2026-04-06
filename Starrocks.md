@@ -222,6 +222,8 @@ MemTable（按排序键排序）
 
 ---
 
+![starrocks内置索引.png](images/starrocks内置索引.png)
+
 ### 5.4 Bitmap 索引
 
 每一个 bit 对应表中一行，根据该行取值决定 bit 为 0 或 1。
