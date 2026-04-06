@@ -31,3 +31,9 @@
 - `Agent Skill` vs ` SubAgent`
   - `Agent Skill`: 与上下文关联大，对上下文影响小
   - `SubAgent`: 与上下文关联小，对上下文影响大
+
+#### React模式
+- thought: 思考
+- action: 行动
+- observation: 观察
+- final answer: 结果
