@@ -37,3 +37,9 @@
 - action: 行动
 - observation: 观察
 - final answer: 结果
+
+#### Plan And Execute模式
+- plan 模型
+- replan 模型
+- 执行 Agent
+- Agent 主程序
