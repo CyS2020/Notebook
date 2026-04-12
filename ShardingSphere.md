@@ -32,3 +32,25 @@
 #### 连表查询
 - 避免连表查询，在业务层处理掉
 - 如果实在避免不了，直接使用 es 创建索引表
+
+#### 基于 Redis 主键生成方案
+- redis 维护一个key, 值是整数类型。
+- 集群中的pod，向 redis 申请一个号段，并维护在 JVM 中使用。start ~ end
+- 等到使用完成 start > end 的时候，再重新申请一段。
+  ```伪代码
+  map key -> cache;
+  generateByCache(key):
+    lock(本地锁);
+      cache = map.get(key);
+      if cache == null || start > end:
+        lock(分布式锁);
+          last = redis.get(key);
+          if last == null:
+            set key value from DB;
+          end = redis.incrby(key, 1000);
+          map.put(key, cache);
+        unlock(分布式锁);
+      cache = map.get(key);
+      return cache.start++;
+    unlock(本地锁);
+  ```
