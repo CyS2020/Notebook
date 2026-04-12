@@ -35,7 +35,7 @@
 
 #### 基于 Redis 主键生成方案
 - redis 维护一个key, 值是整数类型。
-- 集群中的pod，向 redis 申请一个号段，并维护在 JVM 中使用。start ~ end
+- 集群中的pod，向 redis 申请一个号段，size 1000，并维护在 JVM 中使用。start ~ end
 - 等到使用完成 start > end 的时候，再重新申请一段。
   ```伪代码
   map key -> cache;
