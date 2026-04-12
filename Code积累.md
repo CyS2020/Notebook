@@ -202,6 +202,7 @@ where permission_id in (select id from permissions where minor_part = 'read');
 - 迁移数据过程中，涉及到单查，双查(灰度)，双写，单写，平滑切换；双查，双写要保证数据一致
 - TransmittableThreadLocal 用于解决 父线程上下文数据在异步线程池或子线程中传递的问题
 - 同一个流程中(接口或定时任务)主任务和子任务共用线程池，会造成经典的线程死锁问题
+- 数据迁移步骤：双写、刷数、切查、单写；实现平滑切换数据源，例如从 es 迁移到 mysql
 - lastUpdateTime 加上该注解时，在更新时忽略dto的值，始终为更新数据时数据库的 now() 时间
   ```
   @TableField(jdbcType = JdbcType.TIMESTAMP, update = "now()", updateStrategy = FieldStrategy.IGNORED)
