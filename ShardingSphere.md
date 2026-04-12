@@ -43,13 +43,15 @@
     lock(本地锁);
       cache = map.get(key);
       if cache == null || start > end:
-        lock(分布式锁);
-          last = redis.get(key);
-          if last == null:
-            set key value from DB;
-          end = redis.incrby(key, 1000);
-          map.put(key, cache);
-        unlock(分布式锁);
+        last = redis.get(key);
+        if last == null:
+          lock(分布式锁);
+            last = redis.get(key);
+            if last == null:
+              set key value from DB;
+          unlock(分布式锁);
+        end = redis.incrby(key, 1000);
+        map.put(key, cache);
       cache = map.get(key);
       return cache.start++;
     unlock(本地锁);
