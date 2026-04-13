@@ -50,7 +50,8 @@
             if last == null:
               set key value from DB;
           unlock(分布式锁);
-        end = redis.incrby(key, 1000);
+        cache.end = redis.incrby(key, 1000);
+        cache.start = last - 1000 + 1;
         map.put(key, cache);
       cache = map.get(key);
       return cache.start++;
