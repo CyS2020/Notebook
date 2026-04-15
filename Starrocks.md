@@ -320,3 +320,7 @@ Bloom Filter 索引的变体，先对字符串分词再写入 Bloom Filter，用
 |全文搜索 | 全文倒排索引 |
 | 向量近似最近邻搜索 | IVFPQ / HNSW 向量索引 |
 | Segment 数据块粗粒度裁剪 | ZoneMap索引（自动，无需创建） |
+
+
+## 七、最佳实践
+- 最少需要 3FE + 3BE 六台机器
