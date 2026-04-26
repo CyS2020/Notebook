@@ -247,6 +247,7 @@ where permission_id in (select id from permissions where minor_part = 'read');
 - 分页的时候如果 orderby 的字段不唯一则有可能会跳页，一条数据有时候在第一页有时候在第二页；例如根据 lastUpdateTime 分页
 - hase的查询如果查不到会返回一个空对象，hbase传两个相同的key则会返回两个相同的对象
 - 定位问题时，查完所有的数据源均没问题，但是数据就是不太对，这个时候就要怀疑缓存。写入、删除、更新。以及他们之间的顺序
+- 缓存没有生效，数据库QPS居高不下，或者缓存命中率低，需要查看是不是内存不够用了，导致发生淘汰策略。
 
 #### 关于文件路径
 - Class.getResource(String path)与 <br/>
