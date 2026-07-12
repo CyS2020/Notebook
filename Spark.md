@@ -25,7 +25,7 @@
   - 消息队列(Kafka、RabbitMQ)
   - 数据湖(Hive、Paimon)
 
-### 分布式集合
+### 分布式集合 (Spark SQL)
 - 有类型：Datasets
 - 无类型：DataFrames
 
@@ -60,3 +60,11 @@
 - 大 join 大: 双边 shuffle
 - 小 join 大: 小表广播
 - 小表 < 200M, 大表 > 1G, 200M ≈ 200w SKC
+
+### 性能调优
+- 缓存数据
+- 调整分区
+- 统计信息
+- 连接策略
+- 自适应查询执行
+- 存储分区连接
