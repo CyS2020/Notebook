@@ -25,6 +25,10 @@
   - 消息队列(Kafka、RabbitMQ)
   - 数据湖(Hive、Paimon)
 
+### 分布式集合
+- 有类型：Datasets
+- 无类型：DataFrames
+
 ### 数据集转换
 - 转换 (transformations)
   - 转换是惰性的
