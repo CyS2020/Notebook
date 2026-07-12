@@ -41,7 +41,18 @@
 ### Shuffle 操作
 - Shuffle 是 Spark 用于重新分发数据的机制，以便它在分区之间以不同的方式进行分组
 - 这通常涉及跨执行器和机器复制数据，使 shuffle 成为一个复杂且昂贵的操作
-- 导致 shuffle 的操作包括
-  - repartition 和 coalesce
-  - ByKey 操作(除了计数之外)，如 groupByKey 和 reduceByKey
-  - join 操作，如 cogroup 和 join。
+- 可能导致 shuffle 的操作包括
+  - 重新分区: repartition 和 coalesce
+  - ByKey 操作(除了计数之外): groupByKey 和 reduceByKey
+  - join 操作: 如 cogroup 和 join
+
+### 共享变量
+- 广播变量
+  - 表join操作，小表广播
+- 累加器
+  - executor 向 driver 单向汇总数据的机制
+
+### 数据集 join
+- 大 join 大: 双边 shuffle
+- 小 join 大: 小表广播
+- 小表 < 200M, 大表 > 1G, 200M ≈ 200w SKC
