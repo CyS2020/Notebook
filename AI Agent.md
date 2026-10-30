@@ -52,3 +52,11 @@
 - 重排: 将召回的分片按相关性排序，选出最相关的前几个分片
   - cross-encoder
 - 生成: 将重排后的分片作为上下文，连同问题一起输入 LLM，生成最终答案
+
+#### RAG 实战
+- uv: Python 包管理器
+- Jupyter Notebook: 交互式计算环境
+- sentence-transformers: 加载 Embedding 模型和 cross-encoder 模型
+- chromadb: 向量数据库
+- google-genai: Google 的 AI SDK，调用 gemini-2.5-flash 必备
+- python-dotenv: 将 Gemini API Key 映射到环境变量中
