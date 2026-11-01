@@ -60,3 +60,13 @@
 - chromadb: 向量数据库
 - google-genai: Google 的 AI SDK，调用 gemini-2.5-flash 必备
 - python-dotenv: 将 Gemini API Key 映射到环境变量中
+
+#### Transformer
+- 自注意力
+- Q-查询 K-匹配 V-Value
+- 多头注意力
+- 位置编码
+- FFN-前馈神经网络
+- 残差方案
+- 掩码自注意力
+- 交叉注意力
